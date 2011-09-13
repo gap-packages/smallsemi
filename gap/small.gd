@@ -1,14 +1,14 @@
 #############################################################################
 ##
 #W  small.gd                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: small.gd 264 2010-07-06 11:12:45Z andreas $
+## $Id$
 
 ###########################################################################
 ##

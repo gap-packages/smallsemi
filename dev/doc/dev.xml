@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Book SYSTEM "gapdoc.dtd">
+
+<!-- JDM  MakeGAPDocDoc("~/Maths/Computation/GAP/gapdev/pkg/smallsemi/dev/doc", "dev.xml", ["../../gap/small.gd","../../gap/properties.gd", "../../gap/enums.gd"], "manual");; -->
+
+<!-- AD MakeGAPDocDoc("~/pkg/smallsemi/doc", "smallsemi.xml", ["../gap/small.gd","../gap/properties.gd", "../dev/dev.gd","../gap/enums.gd"], "manual");; -->
+
+
+<Book Name="dev">
+
+<TitlePage>
+	<Title>The <Package>smallsemi</Package>Package &ndash; Development Manual</Title>
+	<Version>Version 0.3</Version>
+	<Author>A. Distler
+         <Address>
+	 Mathematical Institute<Br/>
+	 North Haugh<Br/>
+	 St Andrews, Fife<Br/>
+         KY16 9SS<Br/>
+         Scotland, UK
+	 </Address>
+        <Email>a.distler@tu-bs.de</Email> 
+	</Author>
+
+	<Author>J. D. Mitchell
+         <Address>
+	 Mathematical Institute<Br/>
+	 North Haugh<Br/>
+	 St Andrews, Fife<Br/>
+         KY16 9SS<Br/>
+         Scotland, UK
+	 </Address>
+        <Email>jdm3@st-and.ac.uk</Email>
+        <Homepage>http://www-groups.mcs.st-and.ac.uk/~jamesm</Homepage>
+	</Author>
+
+	<Copyright>&copyright; 2008 A. Distler &amp; J. D. Mitchell.<P/>
+
+    smallsemi is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the license, or
+    (at your option) any later version.<P/>
+
+    smallsemi is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.<P/>
+
+    A copy of the GNU General Public License is available in the file
+    'GPLv3'; for the latest version see`http://www.gnu.org/licenses/.<P/>
+ 
+    This file is part of smallsemi, though as documentation it
+    is released under the GNU Free Documentation License (see
+    http://www.gnu.org/licenses/licenses.html#FDL).
+	</Copyright>
+
+	<Colophon>
+	</Colophon>
+
+	<Acknowledgements>
+
+	</Acknowledgements>
+
+</TitlePage>
+
+<TableOfContents/>
+
+<Body>
+	<Chapter><Heading>Finding and retrieving single semigroups</Heading>
+	<Section>
+		<Heading>Finding and retrieving single semigroups</Heading>
+		In this section all the internal functions used in the small semigroups library are described. 
+		
+		<P/><E>WARNING</E>: some of the functions in this
+		section can alter the files containing the library of
+		small semigroups. If the library ceases to function,
+		please download it again.
+
+		<#Include Label="SmallSemigroupEltFamily">
+		<#Include Label="SmallSemigroupEltType">
+		<#Include Label="SmallSemigroupType">
+		<#Include Label="DATA2TO7">
+		<#Include Label="DATA8">
+		<#Include Label="BLUEPRINT_MATS">
+		<#Include Label="3NIL_DATA">
+		<#Include Label="GENERATE_BLUEPRINT_MATS">
+		<#Include Label="READ_3NIL_DATA">
+		<#Include Label="READ_MOREDATA2TO8">
+		<#Include Label="MOREDATA2TO8">
+
+	</Section>
+		
+</Chapter>
+
+</Body>
+
+<!--<Bibliography Databases="smallsemi" />-->
+<TheIndex/>
+
+</Book>
+

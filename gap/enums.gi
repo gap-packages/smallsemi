@@ -1,14 +1,14 @@
 #############################################################################
 ##
 #W  enums.gi             	         Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: enums.gi 250 2010-05-11 09:45:12Z jamesm $
+## $Id$
 
 ##################
 
@@ -50,11 +50,13 @@ enum:=EnumeratorByFunctions(Domain(fam, []), rec(
 	PrintObj:=function(enum)
 	Print( "<empty enumerator of semigroups>");
 	return;
-	end));
+	end, 
+        
+        pos:=[[]], sizes:=[]));
 	
 	SetIsEnumeratorOfSmallSemigroups(enum, true);
-	SetPositionsOfSmallSemisInEnum(enum, [[]]);
-	SetSizesOfSmallSemisInEnum(enum, []);
+	#SetPositionsOfSmallSemisInEnum(enum, [[]]);
+	#SetSizesOfSmallSemisInEnum(enum, []);
 	SetIsFinite(enum, true);
 	
 	SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
@@ -153,13 +155,16 @@ elif Length(arg)=1 and IsPosInt(arg[1]) then #all semigroups
 	PrintObj:=function(enum)
 	Print( "<enumerator of semigroups of size ", arg[1], ">");
 	return;
-	end));
+	end, 
+        pos:= [[1..NrSmallSemigroups(arg[1])]],
+        funcs:=[], names:=["AllSmallSemigroups", arg[1]], 
+        sizes:=[arg[1]]));
 	
 	SetIsEnumeratorOfSmallSemigroups(enum, true);
-	SetPositionsOfSmallSemisInEnum(enum, [[1..NrSmallSemigroups(arg[1])]]);
-	SetFuncsOfSmallSemisInEnum(enum, []);
-	SetNamesFuncsSmallSemisInEnum(enum, ["AllSmallSemigroups", arg[1]]);
-	SetSizesOfSmallSemisInEnum(enum, [arg[1]]);
+	#SetPositionsOfSmallSemisInEnum(enum, [[1..NrSmallSemigroups(arg[1])]]);
+	#SetFuncsOfSmallSemisInEnum(enum, []);
+	#SetNamesFuncsSmallSemisInEnum(enum, ["AllSmallSemigroups", arg[1]]);
+	#SetSizesOfSmallSemisInEnum(enum, [arg[1]]);
 	SetIsFinite(enum, true);
 elif Length(arg)=1 and ForAll(arg[1], IsPosInt) then 
 	enum:=SMALLSEMI_CREATE_ENUM(arg[1], List(arg[1], x-> 
@@ -281,13 +286,14 @@ else
 	Print( "<enumerator of semigroups of size ", sizes[1], ">");
 fi;
 return;
-end));
+end, pos:=positions, sizes:=sizes, names:=["enumerator by ids", sizes], 
+funcs:=[]));
 
 SetIsEnumeratorOfSmallSemigroups(enum, true);
-SetPositionsOfSmallSemisInEnum(enum, positions);
-SetFuncsOfSmallSemisInEnum(enum, []);
-SetNamesFuncsSmallSemisInEnum(enum, ["enumerator by ids", sizes]);
-SetSizesOfSmallSemisInEnum(enum, sizes);
+#SetPositionsOfSmallSemisInEnum(enum, positions);
+#SetFuncsOfSmallSemisInEnum(enum, []);
+#SetNamesFuncsSmallSemisInEnum(enum, ["enumerator by ids", sizes]);
+#SetSizesOfSmallSemisInEnum(enum, sizes);
 SetIsFinite(enum, true);
 SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 
@@ -449,6 +455,14 @@ end);
 
 ###############
 
+InstallGlobalFunction(FuncsOfSmallSemisInEnum, [IsEnumeratorOfSmallSemigroups], 
+enum-> enum!.funcs);
+
+InstallGlobalFunction(FuncsOfSmallSemisInIter, [IsIteratorOfSmallSemigroups],
+enum-> enum!.funcs);
+
+###############
+
 InstallOtherMethod(IsIteratorOfSmallSemigroups, "for an object", [IsObject], 0, 
 ReturnFalse);
 
@@ -517,12 +531,18 @@ if Length(arg)=1 and IsPosInt(arg[1]) then #all semigroups
 				
 				user:=[],
 				
-				sizes:=[arg[1]]));
+				sizes:=[arg[1]], 
+                                
+                                funcs:=[], 
+
+                                names:=["AllSmallSemigroups", arg[1]]
+                                
+                                ));
 	
 	SetIsIteratorOfSmallSemigroups(iter, true);
-	SetSizesOfSmallSemisInIter(iter, [arg[1]]);
-	SetFuncsOfSmallSemisInIter(iter, []);
-	SetNamesFuncsSmallSemisInIter(iter, ["AllSmallSemigroups", arg[1]]);
+	#SetSizesOfSmallSemisInIter(iter, [arg[1]]);
+	#SetFuncsOfSmallSemisInIter(iter, []);
+	#SetNamesFuncsSmallSemisInIter(iter, ["AllSmallSemigroups", arg[1]]);
 	return iter;
 	
 elif IsOddInt(Length(arg)) and (IsPosInt(arg[1]) or 
@@ -671,16 +691,26 @@ elif IsOddInt(Length(arg)) and (IsPosInt(arg[1]) or
 				
 				sizes:=sizes, #JDM changed from n
 				
-				at_size:=sizes[1]
+				at_size:=sizes[1], 
+
+                                funcs:=Concatenation(funcs, arg{[2..          
+                                Length(arg)]}), 
+
+                                names:= Concatenation(names, List(arg{[2..  
+                                Length(arg)]},
+                                        function(x)
+                                                if IsFunction(x) then return
+                                                NAME_FUNC(x); else return x; fi;
+                                                end))
 				));
 	
 
 	SetIsIteratorOfSmallSemigroups(iter, true);
-	SetNamesFuncsSmallSemisInIter(iter, Concatenation(names, List(arg{[2..Length(arg)]},
-	function(x)
-	if IsFunction(x) then return NAME_FUNC(x); else return x; fi; end)));
-	SetFuncsOfSmallSemisInIter(iter, Concatenation(funcs, arg{[2..Length(arg)]}));
-	SetSizesOfSmallSemisInIter(iter, sizes);
+	#SetNamesFuncsSmallSemisInIter(iter, Concatenation(names, List(arg{[2..Length(arg)]},
+	#function(x)
+	#if IsFunction(x) then return NAME_FUNC(x); else return x; fi; end)));
+	#SetFuncsOfSmallSemisInIter(iter, Concatenation(funcs, arg{[2..Length(arg)]}));
+	#SetSizesOfSmallSemisInIter(iter, sizes);
 	
 	SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 	return iter;
@@ -688,6 +718,14 @@ elif IsOddInt(Length(arg)) and (IsPosInt(arg[1]) or
 fi;
 
 end);
+
+##################
+
+InstallGlobalFunction(NamesFuncsSmallSemisInEnum,
+[IsEnumeratorOfSmallSemigroups], enum-> enum!.names);
+
+InstallGlobalFunction(NamesFuncsSmallSemisInIter,
+[IsIteratorOfSmallSemigroups], enum-> enum!.names);
 
 ##################
 
@@ -708,7 +746,16 @@ InstallGlobalFunction(Nr3NilpotentSemigroups, function( arg )
 
           nr3NilComm,
           # takes a positive integer <n> as input and returns the number of
-          # commutative 3-nilpotent semigroups with <n> elements 
+          # commutative 3-nilpotent semigroups with <n> elements up to iso
+
+          nr3NilAll,
+          # takes a positive integer <n> as input and returns the number of
+          # all different 3-nilpotent semigroups on a set with <n> elements 
+
+          nr3NilAllComm,
+          # takes a positive integer <n> as input and returns the number of
+          # all different, commutative 3-nilpotent semigroups on a set with 
+          # <n> elements 
 
           sizeConjugacyClass,
           # returns for a partition <part> of <size> the number of permutations
@@ -1010,10 +1057,28 @@ InstallGlobalFunction(Nr3NilpotentSemigroups, function( arg )
     end;
 
 
+    nr3NilAll := function( n )
+        return Sum([2..Int(n + 1/2 - RootInt(n-1))],
+                   k -> Binomial(n,k) * k
+                        * Sum([0..k-1],
+                              i -> (-1)^i * Binomial(k-1,i)
+                                   *(k-i)^((n-k)^2)));
+    end; 
+
+
+    nr3NilAllComm := function( n )
+        return Sum([1..Int(n + 3/2 - RootInt(2*n))], 
+                   k -> Binomial(n,k) * k
+                        *  Sum([0..k-1],
+                               i -> (-1)^i * Binomial(k-1,i)
+                                    * (k-i)^((n-k)*(n-k+1)/2))); 
+    end;
+
     ##################################################################
     ### MAIN FUNCTION
 
-    types := ["UpToEquivalence", "UpToIsomorphism", "SelfDual", "Commutative"];
+    types := ["UpToEquivalence", "UpToIsomorphism", "SelfDual", "Commutative",
+              "Labelled", "Labelled-Commutative" ];
 
     # check input
     if Length( arg ) > 2 then
@@ -1047,8 +1112,16 @@ InstallGlobalFunction(Nr3NilpotentSemigroups, function( arg )
         return nr3NilSelfDual( size );
 
     # commutative semigroups
-    else
+    elif type = types[4] then
         return nr3NilComm( size );
+
+    # labelled semigroups
+    elif type = types[5] then
+        return nr3NilAll( size );
+
+    # labelled commutative semigroups
+    else
+        return nr3NilAllComm( size );
     fi;  
 end);
 
@@ -1256,6 +1329,10 @@ end);
 
 ##################
 
+InstallGlobalFunction(PositionsOfSmallSemisInEnum,[IsEnumeratorOfSmallSemigroups], enum-> enum!.pos);
+
+##################
+
 InstallGlobalFunction(RandomSmallSemigroup, 
 function(arg)
 local iter, i, j, s, t, enum;
@@ -1307,6 +1384,15 @@ SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 return fail;
 
 end);
+
+###################
+
+InstallGlobalFunction(SizesOfSmallSemisInEnum, [IsEnumeratorOfSmallSemigroups],
+enum-> enum!.sizes);
+
+InstallGlobalFunction(SizesOfSmallSemisInIter, [IsIteratorOfSmallSemigroups],
+enum-> enum!.sizes);
+
 
 ###################
 
@@ -1561,18 +1647,21 @@ if Length(sizes)=1 then #one size
 		Print( "<enumerator of semigroups of size ", sizes[1], ">");
 		#JDM is this optimal?
 		return;
-		end)
-	);
+		end, 
+
+        pos:=position, sizes:=sizes, funcs:=names, names:= List(names, 
+        function(x) if IsFunction(x) then return NAME_FUNC(x); else return x;
+        fi; end)));
 
 	SetIsEnumeratorOfSmallSemigroups(enum, true);
-	SetPositionsOfSmallSemisInEnum(enum, position);
-	SetSizesOfSmallSemisInEnum(enum, sizes);
+	#SetPositionsOfSmallSemisInEnum(enum, position);
+	#SetSizesOfSmallSemisInEnum(enum, sizes);
 	SetIsFinite(enum, true);
-	SetFuncsOfSmallSemisInEnum(enum, names);
-	SetNamesFuncsSmallSemisInEnum(enum, List(names, 
-	function(x) 
-	if IsFunction(x) then return NAME_FUNC(x); 
-		else return x; fi; end));
+	#SetFuncsOfSmallSemisInEnum(enum, names);
+	#SetNamesFuncsSmallSemisInEnum(enum, List(names, 
+	#function(x) 
+	#if IsFunction(x) then return NAME_FUNC(x); 
+	#	else return x; fi; end));
 		
 	SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 	return enum;
@@ -1619,18 +1708,24 @@ else #range of sizes
 	Length:=enum -> tot,
 
 	PrintObj:=function(enum)
-	Print( "<enumerator of semigroups of sizes ", sizes, ">");#JDM is this optimal?
+	Print( "<enumerator of semigroups of sizes ", sizes, ">");
+        #JDM is this optimal?
 	return;
-	end));
-	
+	end, 
+        
+        pos:=List(enums, x->PositionsOfSmallSemisInEnum(x)[1]), 
+        sizes:=sizes, funcs:=names, names:=List(names, function(x) 
+        if IsFunction(x) then return NAME_FUNC(x); else return x; fi; end)));
+
 	SetIsEnumeratorOfSmallSemigroups(enum, true);
-	SetPositionsOfSmallSemisInEnum(enum, List(enums, x->PositionsOfSmallSemisInEnum(x)[1]));
-	SetFuncsOfSmallSemisInEnum(enum, names);
-	SetNamesFuncsSmallSemisInEnum(enum, List(names, 
-	function(x) 
-	if IsFunction(x) then return NAME_FUNC(x); 
-		else return x; fi; end));
-	SetSizesOfSmallSemisInEnum(enum, sizes);
+	#SetPositionsOfSmallSemisInEnum(enum, List(enums, 
+        # x->PositionsOfSmallSemisInEnum(x)[1]));
+	#SetFuncsOfSmallSemisInEnum(enum, names);
+	#SetNamesFuncsSmallSemisInEnum(enum, List(names, 
+	#function(x) 
+	#if IsFunction(x) then return NAME_FUNC(x); 
+	#	else return x; fi; end));
+  	#SetSizesOfSmallSemisInEnum(enum, sizes);
 	SetIsFinite(enum, true);
 	
 	SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;

@@ -2,24 +2,17 @@
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd">
 
-<!-- MakeGAPDocDoc(DirectoriesPackageLibrary("smallsemi","doc")[1]![1], "smallsemi.xml", ["../gap/small.gd","../gap/properties.gd", "../dev/dev.gd","../gap/enums.gd","../gap/autovars.g"], "manual", "../../..");; -->
-
-<!-- run twice after GAP start up -->
-<!-- SizeScreen([80]); SetInfoLevel(InfoWarning, 0); TestManualExamples(DirectoriesPackageLibrary("smallsemi","doc")[1]![1], "smallsemi.xml", ["../gap/small.gd","../gap/properties.gd", "../dev/dev.gd","../gap/enums.gd","../gap/autovars.g"] ); -->
-
-
 <Book Name="smallsemi">
 
 <TitlePage>
 	<Title>The <Package>Smallsemi</Package> Package</Title>
-	<Version>Version 0.6.2</Version>
+	<Version>Version 0.6.3</Version>
 	<Author>A. Distler
          <Address>
-	 Mathematical Institute<Br/>
-	 North Haugh<Br/>
-	 St Andrews, Fife<Br/>
-         KY16 9SS<Br/>
-         Scotland, UK
+	 CAUL<Br/>
+	 Av. Prof. Gama Pinto, 2<Br/>
+	 1649-003 Lisboa<Br/>
+         Portugal
 	 </Address>
         <Email>a.distler@tu-bs.de</Email> 
 	</Author>
@@ -36,7 +29,7 @@
         <Homepage>http://www-groups.mcs.st-and.ac.uk/~jamesm</Homepage>
 	</Author>
 
-	<Copyright>&copyright; 2008--2010 A. Distler &amp; J. D. Mitchell.<P/>
+	<Copyright>&copyright; 2008--2011 A. Distler &amp; J. D. Mitchell.<P/>
 
     <Package>Smallsemi</Package> is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -164,7 +157,7 @@ Sect="enums"/> respectively.<P/>
 			<A>x0=0x=0</A>.</Item>
 			</List>
 		
-		The <Package>MONOID</Package> was used to determined which semigroups in the library satisfy the properties above. 
+		The <Package>MONOID</Package> package was used to determined which semigroups in the library satisfy the properties above. 
 		All of the resulting information is stored in the library.
 
 	<#Include Label="DiagonalOfMultiplicationTable">
@@ -300,3 +293,4 @@ Sect="enums"/> respectively.<P/>
 <TheIndex/>
 
 </Book>
+

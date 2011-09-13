@@ -1,20 +1,18 @@
 #############################################################################
 ##
-#W  small.tst                          smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2009                 Andreas Distler & James D. Mitchell
+#W  small.tst                       smallsemi - a GAP library of semigroups
+#Y  Copyright (C) 2008-2011             Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: small.tst 265 2010-07-06 11:17:30Z jamesm $
-
 # This file contains the tests for the file small.gi.
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"small.tst"));
 
-gap> START_TEST("small.tst 0.6.2");
+gap> START_TEST("small.tst 0.6.3");
 gap> cur:=InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
 gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
@@ -137,11 +135,11 @@ gap> DATA8;
       "000", "111", "444", "222", "222", "455" ] ]
 gap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;
 gap> 3NIL_DATA;                                  
-rec( diag := [ 2, 3 ], strlist := [ "0013", "0313" ], 
-  positions := [ 1, 3, 4, 7 ], next := 4 )
+rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ],
+  strlist := [ "0013", "0313" ] )
 gap> SmallSemigroupNC(5,1); 
 <small semigroup of size 5>
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
 gap> SetInfoLevel(InfoSmallsemi, cur);
-gap> STOP_TEST( "small.tst 0.6.2", 10000);
+gap> STOP_TEST( "small.tst 0.6.3", 10000);

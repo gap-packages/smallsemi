@@ -1,14 +1,14 @@
 #############################################################################
 ##
 #W  small.gi                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: small.gi 264 2010-07-06 11:12:45Z andreas $
+## $Id$
 
 ###########################################################################
 ##
@@ -318,6 +318,7 @@ SetAsSSortedList(T, elts);
 SetIdSmallSemigroup(T, IdSmallSemigroup(S));
 UseIsomorphismRelation(S, T);
 iso:=SemigroupHomomorphismByImagesNC(S, T, elts);
+SetIsBijective( iso, true );
 #SetIsomorphismSmallSemigroup(T, iso^-1);
 
 return iso;
@@ -836,8 +837,11 @@ InstallMethod( \*,
     function( x, y )
     local table;
     if x!.semi=y!.semi then 
-    	table:=x!.semi!.table;
-			return AsList(x!.semi)[table[ x!.index ][ y!.index ]];
+        table:=x!.semi!.table;
+        return AsList(x!.semi)[table[ x!.index ][ y!.index ]];
+    else
+        Error( "cannot multiply elements from different semigroups in ",
+               "'Smallsemi'" );
     fi;
     end );
 
