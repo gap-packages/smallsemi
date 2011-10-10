@@ -12,7 +12,7 @@
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"small.tst"));
 
-gap> START_TEST("small.tst 0.6.3");
+gap> START_TEST("small.tst 0.6.4");
 gap> cur:=InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
 gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
@@ -142,4 +142,4 @@ gap> SmallSemigroupNC(5,1);
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
 gap> SetInfoLevel(InfoSmallsemi, cur);
-gap> STOP_TEST( "small.tst 0.6.3", 10000);
+gap> STOP_TEST( "small.tst 0.6.4", 10000);

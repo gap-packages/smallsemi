@@ -449,8 +449,8 @@ DeclareProperty("IsLeftZeroSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("Is1GeneratedSemigroup", IsSmallSemigroup);
-DeclareSynonymAttr("IsMonogenicSemigroup", Is1GeneratedSemigroup);
+DeclareProperty("IsMonogenicSemigroup", IsSmallSemigroup);
+DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 
 ###########################################################################
 ##

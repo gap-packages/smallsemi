@@ -7,16 +7,9 @@
 ##
 #############################################################################
 ##
-## $Id$
-##
 
 ReadPkg("smallsemi/gap/small.gi");
 ReadPkg("smallsemi/gap/properties.gi");
 ReadPkg("smallsemi/gap/enums.gi");
 ReadPkg("smallsemi/gap/utils.gi");
 
-#JDM remove
-
-ReadPkg("smallsemi/dev/dev.gi");
-
-#JDM remove
