@@ -1,0 +1,217 @@
+  
+  [1X1 small.g*[0X
+  
+  
+  [1X1.1 small.g*[0X
+  
+  [1X1.1-1 SmallSemigroupCreator[0m
+  
+  [2X> SmallSemigroupCreator( [0X[3Xtable[0X[2X ) ___________________________________[0Xfunction
+  
+  returns  a  small  semigroup  [3Xs[0m with multiplication table [3Xtable[0m. That is, an
+  element  in  the  category  [2XIsSmallSemigroup[0m  ([14X???IsSmallSemigroup???[0m)  with
+  [2XAsSSortedList[0m            ([14XAsSSortedList???[0m),           [2XGeneratorsOfSemigroup[0m
+  ([14XGeneratorsOfSemigroup???[0m),    [2XSize[0m   ([14XSize???[0m),   and   [2XMultiplicationTable[0m
+  ([14XMultiplicationTable???[0m)  with the property [2XIsAssociative[0m ([14XIsAssociative???[0m)
+  set to [10Xtrue[0m.
+  
+  Although  this  function  can  be  used to create semigroups in the category
+  [2XIsSmallSemigroup[0m  ([14X???IsSmallSemigroup???[0m) where [3Xtable[0m is not a table in the
+  library this may cause problems and there is no reason to do it!
+  
+  If  you want to create semigroups from multiplication table, then use either
+  [2XSemigroupByMultiplicationTableNC[0m ([14X???SemigroupByMultiplicationTableNC???[0m) if
+  you   know   the   table   is   associative,  or  [2XMagmaByMultiplicationTable[0m
+  ([14XMagmaByMultiplicationTable???[0m) if you do not know.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> RecoverMultiplicationTable(5, 1000);[0X
+    [4X[ [ 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 4, 5, 3 ], [0X
+    [4X[ 1, 2, 5, 3, 4 ] ][0X
+    [4Xgap> SmallSemigroupCreator(last);[0X
+    [4X<small semigroup of size 5>[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-2 SmallSemigroupEltFamily[0m
+  
+  [2X> SmallSemigroupEltFamily____________________________________[0Xglobal variable
+  
+  [3XSmallSemigroupEltFamily[0m  is  a  global  variable  containing  the  family of
+  elements satisfying [3XIsSmallSemigroupElt[0m.
+  
+  The  value of [3XSmallSemigroupEltFamily[0m is installed when [5Xsmallsemi[0m is loaded.
+  This  is  done  to  avoid the cost of repeatedly creating a new family when,
+  say, running through the semigroups of order 8.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> SmallSemigroupEltFamily;[0X
+    [4XNewFamily( "SmallSemigroupEltFamily", [ 2201 ], [ 35, 36, 38, 114, 117, 120, 2201 ] )[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-3 SmallSemigroupEltType[0m
+  
+  [2X> SmallSemigroupEltType______________________________________[0Xglobal variable
+  
+  [3XSmallSemigroupEltType[0m   is   a   global  variable  containing  the  type  of
+  [3XIsSmallSemigroupElt[0m.
+  
+  The  value  of  [3XSmallSemigroupEltType[0m is installed when [5Xsmallsemi[0m is loaded.
+  This  is  done  to  avoid the cost of repeatedly creating a new family when,
+  say, running through the semigroups of order 8.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> SmallSemigroupEltType;[0X
+    [4XNewType( NewFamily( "SmallSemigroupEltFamily", [ 2201 ], [0X
+    [4X[ 35, 36, 38, 114, 117, 120, 2201 ] ), [ 35, 36, 38, 114, 117, 120, 2201 ] )[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-4 SmallSemigroupType[0m
+  
+  [2X> SmallSemigroupType_________________________________________[0Xglobal variable
+  
+  [3XSmallSemigroupType[0m   is  a  global  variable  containing  the  type  of  the
+  collections family of [3XIsSmallSemigroupEltFamily[0m.
+  
+  The  value of [3XSmallSemigroupType[0m is installed when [5Xsmallsemi[0m is loaded. This
+  is  done  to  avoid  the cost of repeatedly creating a new family when, say,
+  running through the semigroups of order 8.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> SmallSemigroupType;[0X
+    [4XNewType( NewFamily( "CollectionsFamily(...)", [ 52 ], [0X
+    [4X[ 51, 52, 114, 115, 117, 118, 121, 133 ] ), [0X
+    [4X[ 36, 38, 51, 52, 90, 91, 114, 115, 117, 118, 121, 133, 196, 420, 431, 432, [0X
+    [4X  2200 ] )[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-5 DATA2TO7[0m
+  
+  [2X> DATA2TO7___________________________________________________[0Xglobal variable
+  
+  is a list containing the raw data of the multiplication tables of semigroups
+  of  sizes  [3X2[0m  to  [3X7[0m.  The  i-th  entry  is  a list of strings from which the
+  multiplication tables of semigroups of size i+1 can be recovered.
+  
+  The  i-th  entry is bound after the first call of [2XRecoverMultiplicationTable[0m
+  ([14Xsmallsemi:  RecoverMultiplicationTable[0m) with argument [3Xi+1, j[0m for some valid
+  [3Xj[0m.  The  function  [2XUnloadSmallsemiData[0m ([14Xsmallsemi: UnloadSmallsemiData[0m) will
+  unbind all entries.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> IsBound(DATA2TO7[1]);[0X
+    [4Xfalse[0X
+    [4Xgap> RecoverMultiplicationTable(2,1);;[0X
+    [4Xgap> DATA2TO7[1];[0X
+    [4X[ "0100", "0101", "0011" ][0X
+    [4Xgap> UnloadSmallsemiData(true);[0X
+    [4Xgap> DATA2TO7;   [0X
+    [4X[  ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-6 DATA8[0m
+  
+  [2X> DATA8______________________________________________________[0Xglobal variable
+  
+  is a list containing the raw data of the multiplication tables of semigroups
+  of  size [3X8[0m. The [3Xi[0m-th entry is a list of strings from which it is possible to
+  recover  the  multiplication tables of semigroups with diagonal equal to the
+  [3Xi[0m-th entry in the component [10Xdiags[0m of the record [2XMOREDATA2TO8[0m ([14X1.1-12[0m).
+  
+  At  most  one entry of the list is bound at a time. The initial value is the
+  empty list. The variable is flushable.
+  
+  [1X1.1-7 BLUEPRINT_MATS[0m
+  
+  [2X> BLUEPRINT_MATS_____________________________________________[0Xglobal variable
+  
+  see [2XGENERATE_BLUEPRINT_MATS[0m ([14X1.1-9[0m).
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> Display( BLUEPRINT_MATS[3] );[0X
+    [4X[ [  1,  1,  1,  1,  1,  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1,  1,  1,  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1,  1,  1,  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1 ],[0X
+    [4X  [  1,  1,  1 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-8 3NIL_DATA[0m
+  
+  [2X> 3NIL_DATA__________________________________________________[0Xglobal variable
+  
+  is a record carrying data to restore 3-nilpotent semigroups of size 8.
+  
+  At the time [5Xsmallsemi[0m is loaded only the component [10Xdiag[0m is bound and has the
+  value  [10Xfail[0m.  This changes when a 3-nilpotent semigroup of size 8 is called.
+  Then  [10Xdiag[0m becomes a list element from the component [10X3nildiags[0m of the global
+  variable  [2XMOREDATA2TO8[0m  ([14X1.1-12[0m)  corresponding  to the diagonal of the last
+  called 3-nilpotent semigroup of size 8.
+  
+  The other components are [10Xstrlist[0m, a list of strings carrying the information
+  about  the entries of the stored multiplication tables; [10Xpositions[0m, a list of
+  integers,  the  positions  of the stored solutions relative to the first one
+  with  the same diagonal and [10Xnext[0m, an integer storing which position was last
+  called for.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> LoadPackage("smallsemi");[0X
+    [4Xtrue[0X
+    [4Xgap> 3NIL_DATA;[0X
+    [4Xrec( diag := fail )[0X
+    [4Xgap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;[0X
+    [4Xgap> 3NIL_DATA;                                  [0X
+    [4Xrec( diag := [ 2, 3 ], strlist := [ "0013", "0313" ], [0X
+    [4X  positions := [ 1, 3, 4, 7 ], next := 4 )[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-9 GENERATE_BLUEPRINT_MATS[0m
+  
+  [2X> GENERATE_BLUEPRINT_MATS( [0X[3X[0X[2X ) ______________________________________[0Xfunction
+  
+  generates  a  list  of  matrices bound for k in {2,...,7} such that the k-th
+  entry  has  k  'zero'  rows  and  columns.  To  be  stored  in  the variable
+  [10XBLUEPRINT_MATS[0m.
+  
+  [1X1.1-10 READ_3NIL_DATA[0m
+  
+  [2X> READ_3NIL_DATA( [0X[3Xdiag[0X[2X ) ___________________________________________[0Xfunction
+  
+  reads  data  to  recover  multiplication tables of 3-nilpotent semigroups of
+  size  8  into  the global variable [2X3NIL_DATA[0m ([14X1.1-8[0m). The data to be read is
+  determined by [3Xdiag[0m. (All information for multiplication tables of which [3Xdiag[0m
+  is  the part of the diagonal belonging to the non zero rows and columns.) Is
+  is  assumed that [3Xdiag[0m is an element in the component [10X3nildiags[0m of the record
+  [2XMOREDATA2TO8[0m ([14X1.1-12[0m)
+  
+  [1X1.1-11 READ_MOREDATA2TO8[0m
+  
+  [2X> READ_MOREDATA2TO8( [0X[3XS[0X[2X ) ___________________________________________[0Xfunction
+  
+  reads  the  precomputed  information  stored  in  the files [10Xinfon.g[0m for n in
+  {1,...,8} into the variable [10XMOREDATA2TO8[0m.
+  
+  [1X1.1-12 MOREDATA2TO8[0m
+  
+  [2X> MOREDATA2TO8_______________________________________________[0Xglobal variable
+  
+  contains  the  precomputed  information stored in the files [10Xinfon.g[0m for n in
+  {1,...,8}  in  a  list where the nth entry is a record with components named
+  after  the  function  values they store. For example, to retrieve the stored
+  value of the function [10XMinimalGeneratorsOfSemigroup[0m for a semigroup [10XS[0m of size
+  5 do
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4XMOREDATA2TO8[5].MinimalGeneratorsOfSemigroup[IdSmallSemigroup(S)[2]];[0X
+    [4X	[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X1.1-13 InfoSmallsemiEnums[0m
+  
+  [2X> InfoSmallsemiEnums______________________________________________[0Xinfo class
+  
+  is  an  info  class (see [14XInfo Functions???[0m) for debugging the [5Xsmallsemi[0m file
+  [10Xenums.gi[0m.
+  

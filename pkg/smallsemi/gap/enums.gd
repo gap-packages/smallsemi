@@ -1,14 +1,14 @@
 #############################################################################
 ##
 #W  enums.gd                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: enums.gd 238 2010-02-12 14:38:00Z jamesm $
+## $Id$
 
 ###########################################################################
 ##
@@ -283,16 +283,16 @@ DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
 ##
 ##  <#GAPDoc Label="FuncsOfSmallSemisInEnum">
 ##  <ManSection> 
-##  <Attr Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
+##  <Func Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
 ##  <Description>
 ##    returns a list of the functions and their values that were used to create
 ##    the enumerator of small semigroups <A>enum</A>. If you only want the
-##    names of these functions use <Ref Attr="NamesFuncsSmallSemisInEnum"/>.
+##    names of these functions use <Ref Func="NamesFuncsSmallSemisInEnum"/>.
 ##  <Example>
 ##  gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;                                         
 ##  gap> FuncsOfSmallSemisInEnum(enum);
-## [ &lt;Operation "IsRegularSemigroup">, true, &lt;Operation "IsSimpleSemigroup">,
+## [ &lt;Property "IsRegularSemigroup">, true, &lt;Property "IsSimpleSemigroup">, 
 ##    false ]
 ##  </Example><!-- enums.tst -->
 ##  </Description>
@@ -301,7 +301,7 @@ DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
 
 ##  JDM this is out of sequence it requires IsEnumeratorOfSmallSemigroups
 
-DeclareAttribute("FuncsOfSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
+DeclareGlobalFunction("FuncsOfSmallSemisInEnum");
 
 ###########################################################################
 ##
@@ -348,16 +348,16 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 ##
 ##  <#GAPDoc Label="FuncsOfSmallSemisInIter">
 ##  <ManSection> 
-##  <Attr Name="FuncsOfSmallSemisInIter" Arg="iter"/>
+##  <Func Name="FuncsOfSmallSemisInIter" Arg="iter"/>
 ##  <Description>
 ##	returns a list of the functions and their values that were used to create
 ##	the iterator of small semigroups <A>iter</A>. If you only want the names 
-##	of these functions use <Ref Attr="NamesFuncsSmallSemisInIter"/>.
+##	of these functions use <Ref Func="NamesFuncsSmallSemisInIter"/>.
 ##  <Example>
 ##  gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;                                        
 ##  gap> FuncsOfSmallSemisInIter(enum);
-##  [ &lt;Operation "IsRegularSemigroup">, true, &lt;Operation "IsSimpleSemigroup">,
+##  [ &lt;Property "IsRegularSemigroup">, true, &lt;Property "IsSimpleSemigroup">,
 ##    false ]
 ##  </Example><!-- enums.tst -->
 ##  </Description>
@@ -366,7 +366,7 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 
 ##  JDM this is out of sequence it requires IsIteratorOfSmallSemigroups
 
-DeclareAttribute("FuncsOfSmallSemisInIter", IsIteratorOfSmallSemigroups);
+DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 
 ###########################################################################
 ##
@@ -437,11 +437,11 @@ DeclareGlobalFunction("IteratorOfSmallSemigroups");
 ##
 ##  <#GAPDoc Label="NamesFuncsSmallSemisInEnum">
 ##  <ManSection> 
-##  <Attr Name="NamesFuncsSmallSemisInEnum" Arg="enum"/>
+##  <Func Name="NamesFuncsSmallSemisInEnum" Arg="enum"/>
 ##  <Description>
 ##	returns a list of the names of functions and their values that were used 
 ##	to create the enumerator of small semigroups <A>enum</A>. If you only want the 
-##	actual functions themselves then use <Ref Attr="FuncsOfSmallSemisInEnum"/>.
+##	actual functions themselves then use <Ref Func="FuncsOfSmallSemisInEnum"/>.
 ##  <Example>
 ##  gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);; 
@@ -452,7 +452,7 @@ DeclareGlobalFunction("IteratorOfSmallSemigroups");
 ##  </ManSection>
 ##	<#/GAPDoc>
 
-DeclareAttribute("NamesFuncsSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
+DeclareGlobalFunction("NamesFuncsSmallSemisInEnum");
 
 ###########################################################################
 ##
@@ -462,7 +462,8 @@ DeclareAttribute("NamesFuncsSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
 ##  <Description>
 ##	returns a list of the names of functions and their values that were used 
 ##	to create the iterator of small semigroups <A>iter</A>. If you only want the 
-##	actual functions themselves then use <Ref Attr="FuncsOfSmallSemisInIter"/>.
+##	actual functions themselves then use 
+##  <Ref Func="FuncsOfSmallSemisInIter"/>.
 ##  <Example>
 ##  gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;                              
@@ -473,7 +474,7 @@ DeclareAttribute("NamesFuncsSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
 ##  </ManSection>
 ##	<#/GAPDoc>
 
-DeclareAttribute("NamesFuncsSmallSemisInIter", IsIteratorOfSmallSemigroups);
+DeclareGlobalFunction("NamesFuncsSmallSemisInIter");
 
 ###########################################################################
 ##
@@ -481,19 +482,22 @@ DeclareAttribute("NamesFuncsSmallSemisInIter", IsIteratorOfSmallSemigroups);
 ##  <ManSection> 
 ##  <Func Name="Nr3NilpotentSemigroups" Arg="n[, type]"/>
 ##  <Description>
-##	returns the number of 3-nilpotent semigroups with <A>n</A> elements. If
-##      the optional argument <A>type</A> is given it must be one of 
-##      <C>"UpToEquivalence","UpToIsomorphism","SelfDual","Commutative"</C>.
+##	returns the number of 3-nilpotent semigroups on a set with <A>n</A>
+##      elements. If the optional argument <A>type</A> is given it must be one
+##      of <C>"UpToEquivalence", "UpToIsomorphism", "SelfDual", "Commutative",
+##      "Labelled", "Labelled-Commutative"</C>.
 ##      The number will be returned for the respective type of semigroup.
 ##      By default <A>type</A> is <C>"UpToEquivalence"</C>.
 ##	<P/>
 ##      The function implements the formulae calculating the number of
-##      3-nilpotent semigroup developed in <Cite Key="Dis10"/>
+##      3-nilpotent semigroups developed in <Cite Key="Dis10"/>
 ##  <Example>
 ##  gap> Nr3NilpotentSemigroups( 4 );
 ##  8
 ##  gap> Nr3NilpotentSemigroups( 9, "UpToIsomorphism" );
 ##  105931872028455
+##  gap> Nr3NilpotentSemigroups( 9, "Labelled" ); 
+##  38430603831264883632
 ##  gap> Nr3NilpotentSemigroups( 16, "SelfDual" );
 ##  4975000837941847814744710290469890455985530
 ##  gap> Nr3NilpotentSemigroups( 19, "Commutative" );
@@ -668,7 +672,7 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 ##
 ##  <#GAPDoc Label="PositionsOfSmallSemisInEnum">
 ##  <ManSection> 
-##  <Attr Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
+##  <Func Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
 ##  <Description>
 ##    returns the second components of the id numbers of the small semigroups 
 ##    in the enumerator of small semigroups <A>enum</A> in a list partitioned
@@ -684,7 +688,7 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 ##  </ManSection>
 ##	<#/GAPDoc>
 
-DeclareAttribute("PositionsOfSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
+DeclareGlobalFunction("PositionsOfSmallSemisInEnum");
 
 ###########################################################################
 ##
@@ -741,7 +745,7 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 ##
 ##  <#GAPDoc Label="SizesOfSmallSemisInEnum">
 ##  <ManSection> 
-##  <Attr Name="SizesOfSmallSemisInEnum" Arg="enum"/>
+##  <Func Name="SizesOfSmallSemisInEnum" Arg="enum"/>
 ##  <Description>
 ##	returns the sizes of the semigroups in the enumerator of small semigroups 
 ##	<A>enum</A>. 
@@ -755,13 +759,13 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 ##  </ManSection>
 ##	<#/GAPDoc>
 
-DeclareAttribute("SizesOfSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
+DeclareGlobalFunction("SizesOfSmallSemisInEnum");
 
 ###########################################################################
 ##
 ##  <#GAPDoc Label="SizesOfSmallSemisInIter">
 ##  <ManSection> 
-##  <Attr Name="SizesOfSmallSemisInIter" Arg="iter"/>
+##  <Func Name="SizesOfSmallSemisInIter" Arg="iter"/>
 ##  <Description>
 ##    returns the sizes of the semigroups in the iterator <A>iter</A>
 ##    of small semigroups. 
@@ -775,7 +779,7 @@ DeclareAttribute("SizesOfSmallSemisInEnum", IsEnumeratorOfSmallSemigroups);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareAttribute("SizesOfSmallSemisInIter", IsIteratorOfSmallSemigroups);
+DeclareGlobalFunction("SizesOfSmallSemisInIter");
 
 ###########################################################################
 ##
@@ -921,8 +925,8 @@ DeclareGlobalFunction("SMALLSEMI_CONVERT_ARG_NC");
 ##  </List>
 ##  <C>SMALLSEMI_CREATE_ENUM</C> returns the same value as 
 ##  <Ref Func="EnumeratorOfSmallSemigroupsByIds" BookName="smallsemi"/>
-##  but here the attributes <Ref Attr="FuncsOfSmallSemisInEnum" BookName="smallsemi"/> and 
-##  <Ref Attr="NamesFuncsSmallSemisInEnum" BookName="smallsemi"/> are set according to 
+##  but here the attributes <Ref Func="FuncsOfSmallSemisInEnum" BookName="smallsemi"/> and 
+##  <Ref Func="NamesFuncsSmallSemisInEnum" BookName="smallsemi"/> are set according to 
 ##  the argument <A>names</A>. <P/>
 ##	
 ##	Elements of enumerators creating using <C>SMALLSEMI_CREATE_ENUM</C> should have any

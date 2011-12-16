@@ -1,14 +1,14 @@
 #############################################################################
 ##
 #W  properties.gd                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: properties.gd 264 2010-07-06 11:12:45Z andreas $
+## $Id$
 
 ###########################################################################
 ##
@@ -300,7 +300,8 @@ DeclareProperty("IsCompletelyRegularSemigroup", IsSmallSemigroup);
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
-DeclareProperty("IsFullTransformationSemigroupCopy", IsSemigroup );
+
+DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 
 
 ###########################################################################
@@ -361,11 +362,11 @@ DeclareProperty("IsGroupAsSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-if not IsBound(IsIdempotentGenerated) then 
+#if not IsBound(IsIdempotentGenerated) then 
   DeclareProperty("IsIdempotentGenerated", IsSmallSemigroup);
-fi;
+#fi;
 
-DeclareSynonymAttr("IsSemiband", IsIdempotentGenerated);
+DeclareProperty("IsSemiband", IsSmallSemigroup);
 
 ###########################################################################
 ##
@@ -770,7 +771,7 @@ DeclareProperty("IsSelfDualSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsSemigroupWithClosedIdempotents", IsSemigroup);
+DeclareProperty("IsSemigroupWithClosedIdempotents", IsSmallSemigroup);
 
 ############################################################################
 ##  <#GAPDoc Label="IsSemigroupWithZero">
@@ -829,31 +830,18 @@ DeclareProperty("IsSemigroupWithZero", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-#if not IsBound(IsCompletelySimpleSemigroup) then 
-# DeclareSynonymAttr( "IsCompletelySimpleSemigroup",
-#                            IsFinite and IsSimpleSemigroup);
-#fi;
-
 # JDM the above seems more natural but has the disadvantage that 
 # IsCompletelySimplesemigroup does not return a sensible value under
 # NAME_FUNC. A more permanent solution would be to change the functions 
 # in smallsemi to compare the actual functions themselves and not their names.
 
-#JDM the required filters for IsCompletelySimpleSemigroup should not be changed
-# to IsSmallSemigroup from IsSemigroup, as this causes problems in MONOID
-
-if not IsBound(IsCompletelySimpleSemigroup) then 
-	DeclareProperty("IsCompletelySimpleSemigroup", IsSemigroup);
-	InstallTrueMethod(IsCompletelySimpleSemigroup, IsFinite and 
-	IsSimpleSemigroup);
-fi;
+DeclareProperty("IsCompletelySimpleSemigroup", IsSmallSemigroup);
+InstallTrueMethod(IsCompletelySimpleSemigroup, IsFinite and IsSimpleSemigroup);
 
 #JDM new for 0.7!
 
-if not IsBound(IsSemilatticeAsSemigroup) then 
-  DeclareProperty("IsSemilatticeAsSemigroup", IsSemigroup);
-  InstallTrueMethod(IsSemilatticeAsSemigroup, IsCommutative and IsBand);
-fi;
+DeclareProperty("IsSemilatticeAsSemigroup", IsSmallSemigroup);
+InstallTrueMethod(IsSemilatticeAsSemigroup, IsCommutative and IsBand);
 
 ###########################################################################
 ##
@@ -885,7 +873,7 @@ fi;
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsSingularSemigroupCopy", IsSemigroup);
+DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 
 ###########################################################################
 ##
@@ -956,7 +944,7 @@ DeclareProperty("IsSingularSemigroupCopy", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsZeroSemigroup", IsSemigroup);
+DeclareProperty("IsZeroSemigroup", IsSmallSemigroup);
 
 ###########################################################################
 ##

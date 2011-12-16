@@ -1,14 +1,20 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2010            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
-##  $Id: CHANGELOG 264 2010-07-06 11:12:45Z andreas $
-##
+
+===============
+ Version 0.6.3  (13/09/11)
+===============
+
+  - made Smallsemi compatible with GAP 4.5 and Citrus 0.1.  
+
+  - introduced SmallsemiMakeDoc, SmallsemiTestAll, SmallsemiTestManualExamples.
 
 ===============
  Version 0.6.2  (06/07/10)

@@ -1,6 +1,6 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                           +
-+   Copyright (C) 2008-2010          Andreas Distler & James D. Mitchell    +
++   Copyright (C) 2008-2011          Andreas Distler & James D. Mitchell    +
 +                                                                           +
 +   'Smallsemi' is free software: you can redistribute it and/or modify     +
 +   it under the terms of the GNU General Public License as published by    +
@@ -54,7 +54,7 @@ semigroups of size 10 is not known at the time of writing.
 --------------
 
 This software is written for GAP 4. It requires an existing installation of
-GAP (see www.gap-system.org) in version 4.4.12 or higher.
+GAP (see www.gap-system.org) in version 4.5 or higher.
 
 ***operating system***
 The current version of 'Smallsemi' was created for use under Unix. It will
@@ -78,8 +78,8 @@ Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 The installation follows standard GAP rules as outlined in the following
 steps; see Section 74.1 in the reference manual of GAP for further details:
 
-1) Download one of the archives 'smallsemi0r6p2.tar.gz' or 
-   'smallsemi0r6p2.tar.bz2' from
+1) Download one of the archives 'smallsemi0r6p3.tar.gz' or 
+   'smallsemi0r6p3.tar.bz2' from
 
        http://www-history.mcs.st-and.ac.uk/~jamesm/smallsemi/index.html
 
@@ -88,7 +88,7 @@ steps; see Section 74.1 in the reference manual of GAP for further details:
 
 3) Complete the installation by unpacking the archive, e.g. under Linux type 
 
-       tar -xzf smallsemi0r6p2.tar.gz
+       tar -xzf smallsemi0r6p3.tar.gz
 
    at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi'
    will be created inside the 'pkg' directory.
@@ -116,7 +116,7 @@ gap> LoadPackage("smallsemi");
 Smallsemi - A library of small semigroups
 by Andreas Distler & James Mitchell
 For contents, type: ?Smallsemi:
-Loading Smallsemi 0.6.2 ...
+Loading Smallsemi 0.6.3 ...
 -----------------------------------------------------------------------------
 true
 gap>
@@ -128,19 +128,14 @@ gap>
 You can verify the success of the installation by running the test file:
 
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
-+ small.tst 0.6.2
++ small.tst 0.6.3
 + GAP4stones: 2
-+ [ + {s1} ]
-- [ {s1} ]
-+ properties.tst 0.6.2
++ properties.tst 0.6.3
 + GAP4stones: 3
-+ enums.tst 0.6.2
++ enums.tst 0.6.3
 + GAP4stones: 0
 true
 gap>
-
-(The output produced by running the tests from the file 'properties.tst'
- is due to a bug in GAP 4.4.12 which will be fixed in the next version.)
 
 ---------
  Contact
@@ -153,7 +148,7 @@ If you find any bugs or have any suggestions or comments, we would
 very much appreciate it if you would let us know. Also, we would like
 to hear about applications of this software.
 
-Andreas Distler and James Mitchell, St Andrews, 28th of June 2010.
+Andreas Distler and James Mitchell, St Andrews, 13th of September 2011.
 
 Andreas Distler
   CAUL

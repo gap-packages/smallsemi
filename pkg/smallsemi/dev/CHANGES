@@ -1,0 +1,42 @@
+====================================================================
+ This file describes changes to the working version of 'smallsemi':
+====================================================================
+
+(17/03/08): version 0.1 released
+
+introduced file tst/testall.g to make test independent of installation. AD
+
+corrected return value of 'NrNonCommSemigps' for n=1 to 0. AD
+
+new functions 'SmallSemigroup', 'SemigroupByMultiplicationTableNC' and
+'RecoverMultiplicationTable' added. The latter uses the compressed string
+in the new directory 'data' to build the semigroups. Orders 2-6 are the minimal
+tables as ordered list. Order 7 has the same tables and order like the 
+enumerator. AD
+
+new functions `IdSmallSemigroup', `READ_MOREDATA2TO7', `MOREDATA2TO7'. JDM
+
+updated GPL to version 3. AD
+
+added command DiagonalOfMultiplicationTable for IsSemigroup. JDM
+
+order ond representative of semigroups changed; first diagonal is considered
+then the whole table. The lex-minimal representative is taken in both cases
+and the order is lex as well. AD
+
+New functions for handling of info files added. Replacing, renaming and 
+deleting of components is now possible. AD
+
+format of data files and depending functionality changed. Data is now only
+gzipped but not pre-compressed. AD
+
+file old.gi for outdated functionality added. AD
+
+Added semigroups of order 8 which are not 3-nilpotent. Adapted the function
+'RecoverMultiplicationTable' and changed MOREDATA2TO7 to MOREDATA2TO8. AD
+
+Added 3-nilpotent semigroups of order 8. AD
+
+Changed StoredInfo to internal function STORED_INFO. AD
+
+Added Is3NilpotentSemigroup for semigroups of size 8. AD

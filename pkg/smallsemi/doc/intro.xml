@@ -1,7 +1,7 @@
 <Chapter Label="smallsemi"><Heading>Introduction</Heading>
 	
 This  manual  describes the <Package>Smallsemi</Package> 
-package (Version 0.6.2) for &GAP;.<P/>
+package (Version 0.6.3) for &GAP;.<P/>
 
 The <Package>Smallsemi</Package> package is a data library of semigroups 
 of small size. It provides all semigroups with at most 8 elements as well as 
@@ -88,11 +88,11 @@ Chapter <Ref Chap="small"/> has all the information about available functions.
 <Section Label="reqs"><Heading>Requirements</Heading>
 
 This software is written for &GAP; 4. It requires an existing installation of
-&GAP; in version 4.4.12 or higher. 
+&GAP; in version 4.5 or higher. 
 <P/>
 It is recommended but not necessary to have the &GAP; 4 packages
-<Package>MONOID</Package> and <Package>sgpviz</Package> installed as
-well. <Package>MONOID</Package> provides a wide range of functionality
+<Package>Citrus</Package> and <Package>sgpviz</Package> installed as
+well. <Package>Citrus</Package> provides a wide range of functionality
 for working with semigroups which is not available in the &GAP; core
 system while <Package>sgpviz</Package> is recommended for its ability to 
 graphically represent small semigroups.
@@ -132,7 +132,7 @@ uncompressed and will then occupy approx. 1.6 GB.
 All data files are compressed using <F>gzip</F>. Under Unix &GAP; can access
 the original contents of a gzipped file without uncompressing it as a whole
 by using a pipe. On 32-bit systems this might fail in extreme
-cirumstances. In that case &GAP; has to be restarted.
+circumstances. In that case &GAP; has to be restarted.
 This functionality is <E>not</E> currently available under
 Windows (or for any other compression type).
 <P/>
@@ -154,8 +154,8 @@ following two steps; see <Ref Sect="Installing a GAP Package" BookName="ref"/>
 for further details.
 
 <Enum>
-<Item> Download one of the archives <F>smallsemi0r6p2.tar.gz</F> or
-<F>smallsemi0r6p2.tar.bz2</F> from
+<Item> Download one of the archives <F>smallsemi0r6p3.tar.gz</F> or
+<F>smallsemi0r6p3.tar.bz2</F> from
 <Br></Br>
 <URL>http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</URL>
 </Item>
@@ -166,7 +166,7 @@ your personal <F>pkg</F> directory.
 </Item>
 
 <Item> Complete the installation by unpacking the archive, e.g. under
-Linux type <F>tar -xzf smallsemi0r6p2.tar.gz</F> at the prompt for the
+Linux type <F>tar -xzf smallsemi0r6p3.tar.gz</F> at the prompt for the
 gzipped <F>tar</F>-archive.
 A subdirectory <F>smallsemi</F> will be created inside the <F>pkg</F>
 directory.
@@ -201,8 +201,8 @@ files and folders:
 <Row><Item><F>tst</F></Item>
 <Item>contains test files</Item></Row>
 </Table>
-General information about the files in a &GAP; package can be found in
-<Ref Sect="The Files of a GAP Package" BookName="ext"/>.
+<!--General information about the files in a &GAP; package can be found in
+<Ref Sect="The Files of a GAP Package" BookName="ext"/>.-->
 </Subsection>
 
 
@@ -218,7 +218,7 @@ gap> LoadPackage("smallsemi");
 Smallsemi - A library of small semigroups
 by Andreas Distler &amp; James Mitchell
 For contents, type: ?Smallsemi:
-Loading Smallsemi 0.6.2 ...
+Loading Smallsemi 0.6.3 ...
 -----------------------------------------------------------------------------
 true
 gap>
@@ -263,27 +263,24 @@ on the speed of your machine):
 
 <Log>
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
-+ small.tst 0.6.2
++ small.tst 0.6.3
 + GAP4stones: 2
-+ [ + {s1} ]
-- [ {s1} ]
-+ properties.tst 0.6.2
++ properties.tst 0.6.3
 + GAP4stones: 3
-+ enums.tst 0.6.2
++ enums.tst 0.6.3
 + GAP4stones: 0
 true
 gap>
 </Log>
 
-(The output produced by running the tests from the file 'properties.tst'
- is due to a bug in GAP 4.4.12 which will be fixed in the next version.)
 
 </Subsection>
 
 <Subsection><Heading>Customizing</Heading>
 If you are using <Package>Smallsemi</Package> regularly you might want
 to put the command <C>LoadPackage("smallsemi");</C> into your
-<F>.gaprc</F> file; see <Ref Sect="The .gaprc file" BookName="ref"/>. 
+<F>.gaprc</F> file; see <Ref Sect="The gap.ini and gaprc files" 
+BookName="ref"/>. 
 Another option is to save a workspace after
 loading <Package>Smallsemi</Package> and executing the following commands
 <Log>

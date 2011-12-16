@@ -20,14 +20,16 @@
 <p><a id="X7DFB63A97E67C0A1" name="X7DFB63A97E67C0A1"></a></p>
 <div class="ChapSects"><a href="chap1.html#X7DFB63A97E67C0A1">1 <span class="Heading">Introduction</span></a>
 <div class="ContSect"><span class="nocss">&nbsp;</span><a href="chap1.html#X85A08CF187A6D986">1.1 <span class="Heading">Requirements</span></a>
+<div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X82C5588B7E8B2725">1.1-1 <span class="Heading">Operating System</span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X78F27CCA81555251">1.1-2 <span class="Heading">RAM</span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X87E4E0377BF1EAC6">1.1-3 <span class="Heading">Disk Space</span></a>
 </span>
-</div>
+</div></div>
 <div class="ContSect"><span class="nocss">&nbsp;</span><a href="chap1.html#X796A04C37CB7AC04">1.2 <span class="Heading">Installation and Setup</span></a>
+<div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7C87C34C79B9D28D">1.2-1 <span class="Heading">Download and Extract <strong class="pkg">Smallsemi</strong></span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X86BA319E87365B5C">1.2-2 <span class="Heading">Contents</span></a>
@@ -40,12 +42,12 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7B3500B984306465">1.2-6 <span class="Heading">Customizing</span></a>
 </span>
-</div>
+</div></div>
 </div>
 
 <h3>1 <span class="Heading">Introduction</span></h3>
 
-<p>This manual describes the <strong class="pkg">Smallsemi</strong> package (Version 0.6.2) for <strong class="pkg">GAP</strong>.</p>
+<p>This manual describes the <strong class="pkg">Smallsemi</strong> package (Version 0.6.3) for <strong class="pkg">GAP</strong>.</p>
 
 <p>The <strong class="pkg">Smallsemi</strong> package is a data library of semigroups of small size. It provides all semigroups with at most 8 elements as well as various information about these objects. The reason that semigroups of higher orders are not included is the huge number of such objects. The numbers of semigroups of sizes 1 to 9 are given in the table below (orders not included in the library are in italics). The number of semigroups of size 10 is not known at the time of writing.</p>
 
@@ -107,9 +109,9 @@
 
 <h4>1.1 <span class="Heading">Requirements</span></h4>
 
-<p>This software is written for <strong class="pkg">GAP</strong> 4. It requires an existing installation of <strong class="pkg">GAP</strong> in version 4.4.12 or higher.</p>
+<p>This software is written for <strong class="pkg">GAP</strong> 4. It requires an existing installation of <strong class="pkg">GAP</strong> in version 4.5 or higher.</p>
 
-<p>It is recommended but not necessary to have the <strong class="pkg">GAP</strong> 4 packages <strong class="pkg">MONOID</strong> and <strong class="pkg">sgpviz</strong> installed as well. <strong class="pkg">MONOID</strong> provides a wide range of functionality for working with semigroups which is not available in the <strong class="pkg">GAP</strong> core system while <strong class="pkg">sgpviz</strong> is recommended for its ability to graphically represent small semigroups.</p>
+<p>It is recommended but not necessary to have the <strong class="pkg">GAP</strong> 4 packages <strong class="pkg">Citrus</strong> and <strong class="pkg">sgpviz</strong> installed as well. <strong class="pkg">Citrus</strong> provides a wide range of functionality for working with semigroups which is not available in the <strong class="pkg">GAP</strong> core system while <strong class="pkg">sgpviz</strong> is recommended for its ability to graphically represent small semigroups.</p>
 
 <p><a id="X82C5588B7E8B2725" name="X82C5588B7E8B2725"></a></p>
 
@@ -125,7 +127,7 @@
 
 <p>You should be able to use the semigroups of orders 1 through 7 having 128 MB of RAM only. If you have a system with little memory or want to use as little memory as possible for the <strong class="pkg">GAP</strong> process try using <code class="func">UnloadSmallsemiData</code> (<a href="chap4.html#X841BB74986A73272"><b>4.1-9</b></a>) to free memory after every access to the library. This is likely to slow down computations though.</p>
 
-<p>For further infomation on how <strong class="pkg">GAP</strong> uses memory see <a href="chap1.html#X803939AE7C3565DA"><b>1.2-4</b></a> or <a href="/Users/jdm/Desktop/gap4r4/doc/htm/ref/CHAP003.htm#SECT001"><b>Reference: Command Line Options</b></a>.</p>
+<p>For further infomation on how <strong class="pkg">GAP</strong> uses memory see <a href="chap1.html#X803939AE7C3565DA"><b>1.2-4</b></a> or <a href="/Users/jdm/Desktop/gap4r5/doc/ref/chap4.html#X782751D5858A6EAF"><b>Reference: Command Line Options</b></a>.</p>
 
 <p><a id="X87E4E0377BF1EAC6" name="X87E4E0377BF1EAC6"></a></p>
 
@@ -133,7 +135,7 @@
 
 <p>As the data in the library is compressed, 30 MB of disk space will be sufficient to install <strong class="pkg">Smallsemi</strong> under Unix. To use the library under Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.</p>
 
-<p>All data files are compressed using <code class="file">gzip</code>. Under Unix <strong class="pkg">GAP</strong> can access the original contents of a gzipped file without uncompressing it as a whole by using a pipe. On 32-bit systems this might fail in extreme cirumstances. In that case <strong class="pkg">GAP</strong> has to be restarted. This functionality is <em>not</em> currently available under Windows (or for any other compression type).</p>
+<p>All data files are compressed using <code class="file">gzip</code>. Under Unix <strong class="pkg">GAP</strong> can access the original contents of a gzipped file without uncompressing it as a whole by using a pipe. On 32-bit systems this might fail in extreme circumstances. In that case <strong class="pkg">GAP</strong> has to be restarted. This functionality is <em>not</em> currently available under Windows (or for any other compression type).</p>
 
 <p>It should be possible to use <strong class="pkg">Smallsemi</strong> under Windows after unzipping all data files. (These are located in the directory <code class="file">data</code> and its subdirectories and have the file extension <code class="file">.gz</code>.)</p>
 
@@ -145,16 +147,16 @@
 
 <h5>1.2-1 <span class="Heading">Download and Extract <strong class="pkg">Smallsemi</strong></span></h5>
 
-<p>The installation follows standard <strong class="pkg">GAP</strong> rules as outlined in the following two steps; see <a href="/Users/jdm/Desktop/gap4r4/doc/htm/ref/CHAP074.htm#SECT001"><b>Reference: Installing a GAP Package</b></a> for further details.</p>
+<p>The installation follows standard <strong class="pkg">GAP</strong> rules as outlined in the following two steps; see <a href="/Users/jdm/Desktop/gap4r5/doc/ref/chap78.html#X82473E4B8756C6CD"><b>Reference: Installing a GAP Package</b></a> for further details.</p>
 
 <ol>
-<li><p>Download one of the archives <code class="file">smallsemi0r6p2.tar.gz</code> or <code class="file">smallsemi0r6p2.tar.bz2</code> from <br /> <span class="URL"><a href="http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html">http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</a></span></p>
+<li><p>Download one of the archives <code class="file">smallsemi0r6p3.tar.gz</code> or <code class="file">smallsemi0r6p3.tar.bz2</code> from <br /> <span class="URL"><a href="http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html">http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</a></span></p>
 
 </li>
 <li><p>Move the archive inside a <code class="file">pkg</code> directory. This can be either the main <code class="file">pkg</code> directory in your <strong class="pkg">GAP</strong> installation or your personal <code class="file">pkg</code> directory.</p>
 
 </li>
-<li><p>Complete the installation by unpacking the archive, e.g. under Linux type <code class="file">tar -xzf smallsemi0r6p2.tar.gz</code> at the prompt for the gzipped <code class="file">tar</code>-archive. A subdirectory <code class="file">smallsemi</code> will be created inside the <code class="file">pkg</code> directory.</p>
+<li><p>Complete the installation by unpacking the archive, e.g. under Linux type <code class="file">tar -xzf smallsemi0r6p3.tar.gz</code> at the prompt for the gzipped <code class="file">tar</code>-archive. A subdirectory <code class="file">smallsemi</code> will be created inside the <code class="file">pkg</code> directory.</p>
 
 </li>
 </ol>
@@ -164,7 +166,7 @@
 
 <p>In the subdirectory <code class="file">smallsemi</code> you should find the following files and folders:</p>
 
-<div class="pcenter"><table class="GAPDocTable">
+<div class="pcenter"><table class="GAPDocTablenoborder">
 <tr>
 <td class="tdleft"><code class="file">CHANGELOG</code></td>
 <td class="tdleft">documents changes to previous versions</td>
@@ -208,8 +210,6 @@
 </table><br /><p>&nbsp;</p><br />
 </div>
 
-<p>General information about the files in a <strong class="pkg">GAP</strong> package can be found in <a href="/Users/jdm/Desktop/gap4r4/doc/htm/ext/CHAP004.htm#SECT001"><b>Extending: The Files of a GAP Package</b></a>.</p>
-
 <p><a id="X861ED1338181C66D" name="X861ED1338181C66D"></a></p>
 
 <h5>1.2-3 <span class="Heading">Loading</span></h5>
@@ -224,7 +224,7 @@ gap&gt; LoadPackage("smallsemi");
 Smallsemi - A library of small semigroups
 by Andreas Distler &amp; James Mitchell
 For contents, type: ?Smallsemi:
-Loading Smallsemi 0.6.2 ...
+Loading Smallsemi 0.6.3 ...
 -----------------------------------------------------------------------------
 true
 gap&gt;
@@ -271,25 +271,21 @@ brk&gt;
 <table class="example">
 <tr><td><pre>
 gap&gt; ReadPackage( "smallsemi", "tst/testall.g" );
-+ small.tst 0.6.2
++ small.tst 0.6.3
 + GAP4stones: 2
-+ [ + {s1} ]
-- [ {s1} ]
-+ properties.tst 0.6.2
++ properties.tst 0.6.3
 + GAP4stones: 3
-+ enums.tst 0.6.2
++ enums.tst 0.6.3
 + GAP4stones: 0
 true
 gap&gt;
 </pre></td></tr></table>
 
-<p>(The output produced by running the tests from the file 'properties.tst' is due to a bug in GAP 4.4.12 which will be fixed in the next version.)</p>
-
 <p><a id="X7B3500B984306465" name="X7B3500B984306465"></a></p>
 
 <h5>1.2-6 <span class="Heading">Customizing</span></h5>
 
-<p>If you are using <strong class="pkg">Smallsemi</strong> regularly you might want to put the command <code class="code">LoadPackage("smallsemi");</code> into your <code class="file">.gaprc</code> file; see <a href="/Users/jdm/Desktop/gap4r4/doc/htm/ref/CHAP003.htm#SECT004"><b>Reference: The .gaprc file</b></a>. Another option is to save a workspace after loading <strong class="pkg">Smallsemi</strong> and executing the following commands</p>
+<p>If you are using <strong class="pkg">Smallsemi</strong> regularly you might want to put the command <code class="code">LoadPackage("smallsemi");</code> into your <code class="file">.gaprc</code> file; see <a href="/Users/jdm/Desktop/gap4r5/doc/ref/chap4.html#X7FD66F977A3B02DF"><b>Reference: The gap.ini and gaprc files</b></a>. Another option is to save a workspace after loading <strong class="pkg">Smallsemi</strong> and executing the following commands</p>
 
 
 <table class="example">
@@ -300,7 +296,7 @@ gap&gt; SmallSemigroup(7,1);; MOREDATA2TO8;;
 gap&gt; SaveWorkspace( "&lt;filename for the workspace&gt;" );
 </pre></td></tr></table>
 
-<p>Doing this will mean that it is not necessary to load the data from the library every time you start a new <strong class="pkg">GAP</strong> session; see <a href="/Users/jdm/Desktop/gap4r4/doc/htm/ref/CHAP003.htm#SECT011"><b>Reference: Saving and Loading a Workspace</b></a>.</p>
+<p>Doing this will mean that it is not necessary to load the data from the library every time you start a new <strong class="pkg">GAP</strong> session; see <a href="/Users/jdm/Desktop/gap4r5/doc/ref/chap4.html#X7CB282757ACB1C09"><b>Reference: Saving and Loading a Workspace</b></a>.</p>
 
 <p>The size of the file containing the saved workspace will be around 76 MB. Loading this workspace is much quicker than starting a new <strong class="pkg">GAP</strong> session and all the data for semigroups of orders 1 through 7 is immediately available. (If you are working under Unix you can make use of the functionality mentioned in Subsection <a href="chap1.html#X87E4E0377BF1EAC6"><b>1.1-3</b></a> and compress the workspace with gzip to roughly 10 MB.)</p>
 

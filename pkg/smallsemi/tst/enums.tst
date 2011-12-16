@@ -1,18 +1,18 @@
 #############################################################################
 ##
-#W  enums.tst                          smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2009                 Andreas Distler & James D. Mitchell
+#W  enums.tst                        smallsemi - a GAP library of semigroups
+#Y  Copyright (C) 2008-2011              Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
-## $Id: enums.tst 265 2010-07-06 11:17:30Z jamesm $
+## $Id$
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"enums.tst"));
 
-gap> START_TEST("enums.tst 0.6.2");
+gap> START_TEST("enums.tst 0.6.3");
 gap> cur:=[InfoLevel(InfoSmallsemi), InfoLevel(InfoWarning)];;
 gap> SetInfoLevel(InfoSmallsemi, 0); SetInfoLevel(InfoWarning, 0);
 gap> ## old checks
@@ -486,7 +486,7 @@ gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);                                         
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
 gap> FuncsOfSmallSemisInEnum(enum);
-[ <Operation "IsRegularSemigroup">, true, <Operation "IsSimpleSemigroup">,
+[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 gap> NamesFuncsSmallSemisInEnum(enum);
 [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
@@ -494,7 +494,7 @@ gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);
 <iterator of semigroups of sizes [ 2 .. 4 ]>
 gap> FuncsOfSmallSemisInIter(iter);
-[ <Operation "IsRegularSemigroup">, true, <Operation "IsSimpleSemigroup">,
+[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 gap> NamesFuncsSmallSemisInIter(iter);  
 [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
@@ -526,9 +526,9 @@ gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
 gap> SizesOfSmallSemisInIter(iter);
 [ 7 ]
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutativeSemigroup, true);
-[ 5, <Operation "IsCommutative">, true ]
+[ 5, <Property "IsCommutative">, true ]
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsSemigroupWithClosedIdempotents, false);
-[ 5, <Operation "IsSemigroupWithoutClosedIdempotents">, true ]
+[ 5, <Property "IsSemigroupWithoutClosedIdempotents">, true ]
 #gap> SMALLSEMI_CONVERT_ARG_NC(7, Is4GeneratedSemigroup, true); 
 #[ 7, <Operation "Is1GeneratedSemigroup">, false, 
 #  <Operation "Is2GeneratedSemigroup">, false, 
@@ -538,7 +538,7 @@ gap> SMALLSEMI_CONVERT_ARG_NC(5, IsSemigroupWithClosedIdempotents, false);
 #  <Operation "Is7GeneratedSemigroup">, false, 
 #  <Operation "Is8GeneratedSemigroup">, false ]
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutative, true);         
-[ 5, <Operation "IsCommutative">, true ]
+[ 5, <Property "IsCommutative">, true ]
 gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyRank,fail);
 <iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
@@ -590,4 +590,4 @@ gap> Nr3NilpotentSemigroups( 19, "Commutative" );
 12094270656160403920767935604624748908993169949317454767617795
 gap> SetInfoLevel(InfoSmallsemi, cur[1]); SetInfoLevel(InfoWarning, cur[2]); 
 gap> Unbind(cur);
-gap> STOP_TEST( "enums.tst 0.6.2", 10000);
+gap> STOP_TEST( "enums.tst 0.6.3", 10000);
