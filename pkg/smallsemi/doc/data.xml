@@ -1,0 +1,150 @@
+<Chapter Label="data"><Heading>The Data in the Library</Heading>
+
+In this chapter we outline how the semigroups in the library were
+found, exactly what semigroups are available, how they are stored, and
+how further information regarding the properties of these semigroups
+is handled.<P/>
+
+<!--The main section describes in detail the data structure of the &GAP;
+library files (<F>*.gl</F> files) in which the information is
+stored. Three (similar) ways of encoding are used for different types
+of semigroups.<P/>
+
+Besides the semigroups themselves a lot of additional information
+about their properties is available. Which and how it is stored can be
+found in the last section of this chapter.-->
+
+<!-- ############### -->
+
+<Section><Heading>Creation of the Semigroups</Heading>
+
+This section describes which semigroups are contained in the library
+and how they were determined. 
+<P/>
+The purpose of the library is to provide one semigroup of every
+`structural type'. The semigroups are represented by their
+multiplication table. Usually, say, for groups, `stuctural type' means
+'up to isomorphism' which corresponds to relabelling the
+elements. Roughly speaking, transposing the multiplicationable of a
+semigroup does not alter its important structure features either. More
+precisely, the usual description of the structure of a
+semigroup using Green's relations is invariant under these operations. 
+So, we consider two semigroups to be of the same structure if they
+are isomorphic or anti-isomorphic. We will refer to semigroups that
+are isomorphic or anti-isomorphic as <E>equivalent</E>.
+The vast number of non-equivalent semigroups with small numbers of elements
+(see Table <Ref Label="nrobjects"/>) limits us to providing the
+semigroups with at most 8 elements.
+<P/>
+The problem of constructing semigroups up to isomorphism and
+anti-isomorphism has been considered by many authors. For very small
+orders, that is 1 to 5, all the semigroups up to isomorphism and
+anti-isomorphism were computed by hand <Cite Key="tamura1"/> and <Cite
+Key="tamura2"/>. The first instance of the use of computers to find
+all semigroups up to isomorphism and anti-isomorphism is described in
+Forsythe <Cite Key="For55"/>. Subsequently, the number of semigroups
+with 6 elements was found by Plemmons <Cite Key="Ple67"/>, with 7
+elements  by Jürgensen and Wick <Cite Key="JW77"/>, with 8  by Satoh,
+Yama and Tokizawa <Cite Key="SZT94"/>, and with 9 by Distler, Kelsey,
+and Mitchell in 2008. Even if the authors could store their results
+they had no means to make them publically available. Plemmons, for
+example, explicitly states that he had all multiplication tables for
+semigroups of size 6 on magnetic tape. Jürgensen and Wick back in 1977
+did not store the semigroups of size 7 because of their large
+number. The tables for semigroups with 8 elements use up several
+gigabytes of disk space (while the compressed library files in
+<Package>Smallsemi</Package> need only 22 MB).   
+<P/>
+Trying to recreate the results from the existing literature, it
+quickly becomes obvious that even some 15 years later, with
+considerably more computing power available, the task of obtaining
+all semigroups with 8 elements is still by no means trivial. Our
+technique was to find all associative multiplication tables up to
+isomorphism and anti-isomorphism using a combination of &GAP; and the
+Contraint Satisfaction Problem (CSP) solver Minion <Cite
+Key="minion"/>.  
+<!--Specific mathematical details can found in <Cite Key=""/> and -->
+<!--specific details of the actual computation can be found in <Cite -->
+<!--Key=""/>.-->
+More specific details on the search will be available in a later
+version of <Package>Smallsemi</Package>.
+<P/>
+
+</Section>
+
+<!-- ############### -->
+
+<Section><Heading>Storing the Semigroups</Heading>
+
+As discussed in the previous section, we store data relating to the
+multiplication table of one representative of every class of
+equivalent semigroups with 1 to 8 elements.
+<!--We will refer to these representatives as canonical tables.
+ In this section we explain which tables are stored and how.  We will refer
+to multiplication tables that define equivalent semigroups as <E>equivalent</E>.-->
+<P/>
+
+The tables for semigroups with 2 to 7 elements are stored in the files 
+<F>data2.gl.gz</F> to <F>data7.gl.gz</F> in the directory <F>data/data2to7</F>.
+<P/>
+
+For semigroups of size 8 the data is contained in the directories 
+<F>data/data8-3nil</F> and <F>data/data8</F>. The former contains the data
+relating to 3-nilpotent semigroups (see <Ref Prop="NilpotencyRank" />)
+and the latter the data for all the remaining semigroups of size 8.
+<P/>
+
+The tables of non-3-nilpotent semigroups are partitioned into files
+<F>8diag&lt;entries in the diagonal&gt;.gl.gz</F> with respect to their
+diagonals. For example, <F>8diag12345678.gl.gz</F> contains tables
+for all the bands of order 8.
+<P/>
+
+Any 3-nilpotent semigroup has a unique minimal generating
+set containing those elements that do not appear in the
+table. We only require the subtable with entries corresponding to the
+product of two generators, as all other products are zero. Thus if
+<M>m</M> is the number of generators, we retain information regarding
+the entries of an <M>m \times m</M> table. However, we  do not store
+all the tables in this case. The <M>m \times m</M> tables can be
+sorted into ranges and then the first table and the number of tables
+in the range are stored. For every diagonal there is a file
+<F>diag&lt;entries in the diagonal&gt;.gl.gz</F> containing the first
+tables of each range and a separate file named <F>diag&lt;entries in
+the diagonal&gt;pos.gl.gz</F> containing the lengths of these ranges.
+<P/>
+
+<Table Align="l|l|r|r|r">
+<Row>
+<Item>class</Item><Item>file names</Item><Item>data size</Item><Item>-
+ gzipped</Item><Item>compression factor</Item></Row>
+ <HorLine/>
+<Row>
+<Item>sizes 2-7</Item> <Item><F>data&lt;size&gt;.gl</F></Item> <Item>39
+ MB</Item> <Item>680 KB</Item> <Item>58</Item>
+</Row>
+<Row>
+<Item>size 8, not 3-nilpotent</Item>
+ <Item><F>8diag&lt;diagonal&gt;.gl</F></Item> <Item>613 MB</Item> <Item>10
+ MB</Item> <Item>61</Item>
+</Row>
+<Row>
+<Item>size 8, 3-nilpotent</Item>
+ <Item><F>diag&lt;diagonal&gt;.gl</F></Item> <Item>974 MB</Item> <Item>11
+ MB</Item> <Item>89</Item>
+</Row>
+</Table>
+All together the &GAP; library files take just under 22 MB of disk
+space after compression while allowing fast recovering of the
+data. The compression rates demonstrated in the table above were achieved
+using <C>gzip</C> with the highest possible compression (-9 switch) as
+well as careful analysis and intensive testing of how best to
+structure the data in the files.<P/>
+
+The semigroups in the library satisfying certain standard properties
+have been identified and this information is stored in the files
+<F>info1.g.gz</F> to <F>info8.g.gz</F>. To find out what properties
+have been considered see <Ref Var="PrecomputedSmallSemisInfo"/>.
+
+</Section>
+</Chapter>

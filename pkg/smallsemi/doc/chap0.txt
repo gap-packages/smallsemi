@@ -1,0 +1,173 @@
+  
+  
+                             [1XThe [5XSmallsemi[0m[1X Package[0m
+  
+  
+                                 Version 0.6.2
+  
+  
+                                   A. Distler
+  
+                                 J. D. Mitchell
+  
+  
+  
+  A. Distler
+      Email:    [7Xmailto:a.distler@tu-bs.de[0m
+      Address:  Mathematical Institute
+                North Haugh
+                St Andrews, Fife
+                KY16 9SS
+                Scotland, UK
+  
+  
+  J. D. Mitchell
+      Email:    [7Xmailto:jdm3@st-and.ac.uk[0m
+      Homepage: [7Xhttp://www-groups.mcs.st-and.ac.uk/~jamesm[0m
+      Address:  Mathematical Institute
+                North Haugh
+                St Andrews, Fife
+                KY16 9SS
+                Scotland, UK
+  
+  
+  
+  -------------------------------------------------------
+  [1XCopyright[0m
+  © 2008--2010 A. Distler & J. D. Mitchell.
+  
+  [5XSmallsemi[0m  is  free software: you can redistribute it and/or modify it under
+  the  terms  of  the  GNU  General  Public  License  as published by the Free
+  Software  Foundation,  either  version 3 of the license, or (at your option)
+  any later version.
+  
+  [5XSmallsemi[0m is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY;  without  even  the implied warranty of MERCHANTABILITY or FITNESS
+  FOR  A  PARTICULAR  PURPOSE.  See  the  GNU  General Public License for more
+  details.
+  
+  A  copy  of the GNU General Public License is available in the file 'GPLv3';
+  for the latest version see`http://www.gnu.org/licenses/.
+  
+  This file is part of [5XSmallsemi[0m, though as documentation it is released under
+  the         GNU         Free        Documentation        License        (see
+  http://www.gnu.org/licenses/licenses.html#FDL).
+  
+  
+  -------------------------------------------------------
+  [1XAcknowledgements[0m
+  We  would  like  to  thank  Tom  Kelsey  for making this library possible by
+  running all the initial computations in Minion [GJM06].
+  The  first  author  acknowledges  financial  support of the University of St
+  Andrews.  The  second  author  acknowledges  support  of  EPSRC grant number
+  GR/S/56085/01.
+  
+  
+  -------------------------------------------------------
+  [1XColophon[0m
+  If   you   use   [5XSmallsemi[0m,   please   tell   us  by  sending  an  email  to
+  [7Xmailto:a.distler@tu-bs.de[0m or [7Xmailto:jdm3@st-and.ac.uk[0m.
+  
+  If you find any bugs or have any suggestions or comments, we would very much
+  appreciate  it  if  you would let us know. Also, we would like to hear about
+  applications of this software.
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (smallsemi)[0X
+  
+  1 Introduction
+    1.1 Requirements
+      1.1-1 Operating System
+      1.1-2 RAM
+      1.1-3 Disk Space
+    1.2 Installation and Setup
+      1.2-1 Download and Extract [5XSmallsemi[0m
+      1.2-2 Contents
+      1.2-3 Loading
+      1.2-4 Memory Issues
+      1.2-5 Testing
+      1.2-6 Customizing
+  2 The Data in the Library
+    2.1 Creation of the Semigroups
+    2.2 Storing the Semigroups
+  3 Extended Examples
+    3.1 Lists, Enumerators and Iterators of Semigroups
+      3.1-1 Precomputed properties
+      3.1-2 User functions
+      3.1-3 Semigroups of order 8
+    3.2 Identifying Semigroups
+  4 Functionality
+    4.1 Individual Semigroups
+      4.1-1 SmallSemigroup
+      4.1-2 IsSmallSemigroup
+      4.1-3 IsSmallSemigroupElt
+      4.1-4 RecoverMultiplicationTable
+      4.1-5 SemigroupByMultiplicationTableNC
+      4.1-6 IdSmallSemigroup
+      4.1-7 EquivalenceSmallSemigroup
+      4.1-8 InfoSmallsemi
+      4.1-9 UnloadSmallsemiData
+    4.2 Properties of Semigroups
+      4.2-1 DiagonalOfMultiplicationTable
+      4.2-2 DisplaySmallSemigroup
+      4.2-3 IndexPeriod
+      4.2-4 IsBand
+      4.2-5 IsBrandtSemigroup
+      4.2-6 IsCliffordSemigroup
+      4.2-7 IsCommutativeSemigroup
+      4.2-8 IsCompletelyRegularSemigroup
+      4.2-9 IsFullTransformationSemigroupCopy
+      4.2-10 IsGroupAsSemigroup
+      4.2-11 IsIdempotentGenerated
+      4.2-12 IsInverseSemigroup
+      4.2-13 IsLeftZeroSemigroup
+      4.2-14 IsMonogenicSemigroup
+      4.2-15 IsMonoidAsSemigroup
+      4.2-16 IsMultSemigroupOfNearRing
+      4.2-17 IsNGeneratedSemigroup
+      4.2-18 IsNIdempotentSemigroup
+      4.2-19 IsNilpotentSemigroup
+      4.2-20 IsOrthodoxSemigroup
+      4.2-21 IsRectangularBand
+      4.2-22 IsRegularSemigroup
+      4.2-23 IsRightZeroSemigroup
+      4.2-24 IsSelfDualSemigroup
+      4.2-25 IsSemigroupWithClosedIdempotents
+      4.2-26 IsSemigroupWithZero
+      4.2-27 IsSimpleSemigroup
+      4.2-28 IsSingularSemigroupCopy
+      4.2-29 IsZeroGroup
+      4.2-30 IsZeroSemigroup
+      4.2-31 IsZeroSimpleSemigroup
+      4.2-32 MinimalGeneratingSet
+      4.2-33 NilpotencyRank
+    4.3 Families of Semigroups
+      4.3-1 AllSmallSemigroups
+      4.3-2 EnumeratorOfSmallSemigroups
+      4.3-3 EnumeratorOfSmallSemigroupsByIds
+      4.3-4 EnumeratorSortedOfSmallSemigroups
+      4.3-5 FuncsOfSmallSemisInEnum
+      4.3-6 FuncsOfSmallSemisInIter
+      4.3-7 IdsOfSmallSemigroups
+      4.3-8 IsEnumeratorOfSmallSemigroups
+      4.3-9 IsIdSmallSemigroup
+      4.3-10 IsIteratorOfSmallSemigroups
+      4.3-11 IteratorOfSmallSemigroups
+      4.3-12 NamesFuncsSmallSemisInEnum
+      4.3-13 NamesFuncsSmallSemisInIter
+      4.3-14 Nr3NilpotentSemigroups
+      4.3-15 NrSmallSemigroups
+      4.3-16 OneSmallSemigroup
+      4.3-17 PositionsOfSmallSemigroups
+      4.3-18 PositionsOfSmallSemisInEnum
+      4.3-19 PrecomputedSmallSemisInfo
+      4.3-20 RandomSmallSemigroup
+      4.3-21 SizesOfSmallSemisInEnum
+      4.3-22 SizesOfSmallSemisInIter
+      4.3-23 UpToIsomorphism
+  
+  
+  -------------------------------------------------------
