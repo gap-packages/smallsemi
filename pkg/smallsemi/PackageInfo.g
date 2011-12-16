@@ -11,11 +11,11 @@
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.3",
+Version := "0.6.4",
 Revision := "",
-Date := "13/09/2011",
+Date := "10/10/2011",
 ArchiveURL := 
-  "http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi/smallsemi0r6p3",
+  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi0r6p4",
 ArchiveFormats := ".tar.gz .tar.bz2",
 Persons := [
   rec(LastName      := "Distler",

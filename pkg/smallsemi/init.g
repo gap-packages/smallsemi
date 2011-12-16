@@ -19,8 +19,3 @@ DeclareAutoreadableVariables( "smallsemi", "gap/autovars.g",
                               [ "MOREDATA2TO8",
                                 "PrecomputedSmallSemisInfo",
                                 "BLUEPRINT_MATS" ] );
-#JDM remove
-
-ReadPkg("smallsemi/dev/dev.gd");
-
-#JDM remove

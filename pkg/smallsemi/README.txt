@@ -78,8 +78,8 @@ Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 The installation follows standard GAP rules as outlined in the following
 steps; see Section 74.1 in the reference manual of GAP for further details:
 
-1) Download one of the archives 'smallsemi0r6p3.tar.gz' or 
-   'smallsemi0r6p3.tar.bz2' from
+1) Download one of the archives 'smallsemi0r6p4.tar.gz' or 
+   'smallsemi0r6p4.tar.bz2' from
 
        http://www-history.mcs.st-and.ac.uk/~jamesm/smallsemi/index.html
 
@@ -88,7 +88,7 @@ steps; see Section 74.1 in the reference manual of GAP for further details:
 
 3) Complete the installation by unpacking the archive, e.g. under Linux type 
 
-       tar -xzf smallsemi0r6p3.tar.gz
+       tar -xzf smallsemi0r6p4.tar.gz
 
    at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi'
    will be created inside the 'pkg' directory.
@@ -116,7 +116,7 @@ gap> LoadPackage("smallsemi");
 Smallsemi - A library of small semigroups
 by Andreas Distler & James Mitchell
 For contents, type: ?Smallsemi:
-Loading Smallsemi 0.6.3 ...
+Loading Smallsemi 0.6.4 ...
 -----------------------------------------------------------------------------
 true
 gap>
@@ -128,11 +128,11 @@ gap>
 You can verify the success of the installation by running the test file:
 
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
-+ small.tst 0.6.3
++ small.tst 0.6.4
 + GAP4stones: 2
-+ properties.tst 0.6.3
++ properties.tst 0.6.4
 + GAP4stones: 3
-+ enums.tst 0.6.3
++ enums.tst 0.6.4
 + GAP4stones: 0
 true
 gap>

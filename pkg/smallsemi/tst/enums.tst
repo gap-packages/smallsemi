@@ -12,7 +12,7 @@
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"enums.tst"));
 
-gap> START_TEST("enums.tst 0.6.3");
+gap> START_TEST("enums.tst 0.6.4");
 gap> cur:=[InfoLevel(InfoSmallsemi), InfoLevel(InfoWarning)];;
 gap> SetInfoLevel(InfoSmallsemi, 0); SetInfoLevel(InfoWarning, 0);
 gap> ## old checks
@@ -590,4 +590,4 @@ gap> Nr3NilpotentSemigroups( 19, "Commutative" );
 12094270656160403920767935604624748908993169949317454767617795
 gap> SetInfoLevel(InfoSmallsemi, cur[1]); SetInfoLevel(InfoWarning, cur[2]); 
 gap> Unbind(cur);
-gap> STOP_TEST( "enums.tst 0.6.3", 10000);
+gap> STOP_TEST( "enums.tst 0.6.4", 10000);

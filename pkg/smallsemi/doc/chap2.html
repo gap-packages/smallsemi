@@ -9,22 +9,24 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
 </head>
-<body>
+<body class="chap2"  onload="jscontent()">
 
 
 <div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">Top of Book</a>&nbsp;  &nbsp;<a href="chap1.html">Previous Chapter</a>&nbsp;  &nbsp;<a href="chap3.html">Next Chapter</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p><a id="X7E933CC381DA3D7C" name="X7E933CC381DA3D7C"></a></p>
 <div class="ChapSects"><a href="chap2.html#X7E933CC381DA3D7C">2 <span class="Heading">The Data in the Library</span></a>
-<div class="ContSect"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A8F62A38080168D">2.1 <span class="Heading">Creation of the Semigroups</span></a>
-<div class="ContSSBlock">
-</div></div>
-<div class="ContSect"><span class="nocss">&nbsp;</span><a href="chap2.html#X79038EE8873A1B4B">2.2 <span class="Heading">Storing the Semigroups</span></a>
-<div class="ContSSBlock">
-</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A8F62A38080168D">2.1 <span class="Heading">Creation of the Semigroups</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X79038EE8873A1B4B">2.2 <span class="Heading">Storing the Semigroups</span></a>
+</span>
+</div>
 </div>
 
 <h3>2 <span class="Heading">The Data in the Library</span></h3>
@@ -37,7 +39,7 @@
 
 <p>This section describes which semigroups are contained in the library and how they were determined.</p>
 
-<p>The purpose of the library is to provide one semigroup of every `structural type'. The semigroups are represented by their multiplication table. Usually, say, for groups, `stuctural type' means 'up to isomorphism' which corresponds to relabelling the elements. Roughly speaking, transposing the multiplicationable of a semigroup does not alter its important structure features either. More precisely, the usual description of the structure of a semigroup using Green's relations is invariant under these operations. So, we consider two semigroups to be of the same structure if they are isomorphic or anti-isomorphic. We will refer to semigroups that are isomorphic or anti-isomorphic as <em>equivalent</em>. The vast number of non-equivalent semigroups with small numbers of elements (see Table <a href="chap1.html#X7DFB63A97E67C0A1"><b>1.</b></a>) limits us to providing the semigroups with at most 8 elements.</p>
+<p>The purpose of the library is to provide one semigroup of every `structural type'. The semigroups are represented by their multiplication table. Usually, say, for groups, `stuctural type' means 'up to isomorphism' which corresponds to relabelling the elements. Roughly speaking, transposing the multiplicationable of a semigroup does not alter its important structure features either. More precisely, the usual description of the structure of a semigroup using Green's relations is invariant under these operations. So, we consider two semigroups to be of the same structure if they are isomorphic or anti-isomorphic. We will refer to semigroups that are isomorphic or anti-isomorphic as <em>equivalent</em>. The vast number of non-equivalent semigroups with small numbers of elements (see Table <a href="chap1.html#X7DFB63A97E67C0A1"><span class="RefLink">1.</span></a>) limits us to providing the semigroups with at most 8 elements.</p>
 
 <p>The problem of constructing semigroups up to isomorphism and anti-isomorphism has been considered by many authors. For very small orders, that is 1 to 5, all the semigroups up to isomorphism and anti-isomorphism were computed by hand <a href="chapBib.html#biBtamura1">[THASIT55]</a> and <a href="chapBib.html#biBtamura2">[Tam54]</a>. The first instance of the use of computers to find all semigroups up to isomorphism and anti-isomorphism is described in Forsythe <a href="chapBib.html#biBFor55">[For55]</a>. Subsequently, the number of semigroups with 6 elements was found by Plemmons <a href="chapBib.html#biBPle67">[Ple67]</a>, with 7 elements by Jürgensen and Wick <a href="chapBib.html#biBJW77">[JW77]</a>, with 8 by Satoh, Yama and Tokizawa <a href="chapBib.html#biBSZT94">[SYT94]</a>, and with 9 by Distler, Kelsey, and Mitchell in 2008. Even if the authors could store their results they had no means to make them publically available. Plemmons, for example, explicitly states that he had all multiplication tables for semigroups of size 6 on magnetic tape. Jürgensen and Wick back in 1977 did not store the semigroups of size 7 because of their large number. The tables for semigroups with 8 elements use up several gigabytes of disk space (while the compressed library files in <strong class="pkg">Smallsemi</strong> need only 22 MB).</p>
 
@@ -51,11 +53,11 @@
 
 <p>The tables for semigroups with 2 to 7 elements are stored in the files <code class="file">data2.gl.gz</code> to <code class="file">data7.gl.gz</code> in the directory <code class="file">data/data2to7</code>.</p>
 
-<p>For semigroups of size 8 the data is contained in the directories <code class="file">data/data8-3nil</code> and <code class="file">data/data8</code>. The former contains the data relating to 3-nilpotent semigroups (see <code class="func">NilpotencyRank</code> (<a href="chap4.html#X79108D0387FEEFF0"><b>4.2-33</b></a>)) and the latter the data for all the remaining semigroups of size 8.</p>
+<p>For semigroups of size 8 the data is contained in the directories <code class="file">data/data8-3nil</code> and <code class="file">data/data8</code>. The former contains the data relating to 3-nilpotent semigroups (see <code class="func">NilpotencyRank</code> (<a href="chap4.html#X79108D0387FEEFF0"><span class="RefLink">4.2-33</span></a>)) and the latter the data for all the remaining semigroups of size 8.</p>
 
 <p>The tables of non-3-nilpotent semigroups are partitioned into files <code class="file">8diag&lt;entries in the diagonal&gt;.gl.gz</code> with respect to their diagonals. For example, <code class="file">8diag12345678.gl.gz</code> contains tables for all the bands of order 8.</p>
 
-<p>Any 3-nilpotent semigroup has a unique minimal generating set containing those elements that do not appear in the table. We only require the subtable with entries corresponding to the product of two generators, as all other products are zero. Thus if m is the number of generators, we retain information regarding the entries of an m x m table. However, we do not store all the tables in this case. The m x m tables can be sorted into ranges and then the first table and the number of tables in the range are stored. For every diagonal there is a file <code class="file">diag&lt;entries in the diagonal&gt;.gl.gz</code> containing the first tables of each range and a separate file named <code class="file">diag&lt;entries in the diagonal&gt;pos.gl.gz</code> containing the lengths of these ranges.</p>
+<p>Any 3-nilpotent semigroup has a unique minimal generating set containing those elements that do not appear in the table. We only require the subtable with entries corresponding to the product of two generators, as all other products are zero. Thus if <span class="SimpleMath">m</span> is the number of generators, we retain information regarding the entries of an <span class="SimpleMath">m × m</span> table. However, we do not store all the tables in this case. The <span class="SimpleMath">m × m</span> tables can be sorted into ranges and then the first table and the number of tables in the range are stored. For every diagonal there is a file <code class="file">diag&lt;entries in the diagonal&gt;.gl.gz</code> containing the first tables of each range and a separate file named <code class="file">diag&lt;entries in the diagonal&gt;pos.gl.gz</code> containing the lengths of these ranges.</p>
 
 <div class="pcenter"><table class="GAPDocTable">
 <tr>
@@ -91,10 +93,10 @@
 
 <p>All together the <strong class="pkg">GAP</strong> library files take just under 22 MB of disk space after compression while allowing fast recovering of the data. The compression rates demonstrated in the table above were achieved using <code class="code">gzip</code> with the highest possible compression (-9 switch) as well as careful analysis and intensive testing of how best to structure the data in the files.</p>
 
-<p>The semigroups in the library satisfying certain standard properties have been identified and this information is stored in the files <code class="file">info1.g.gz</code> to <code class="file">info8.g.gz</code>. To find out what properties have been considered see <code class="func">PrecomputedSmallSemisInfo</code> (<a href="chap4.html#X79AFE7FC81C0DF37"><b>4.3-19</b></a>).</p>
+<p>The semigroups in the library satisfying certain standard properties have been identified and this information is stored in the files <code class="file">info1.g.gz</code> to <code class="file">info8.g.gz</code>. To find out what properties have been considered see <code class="func">PrecomputedSmallSemisInfo</code> (<a href="chap4.html#X79AFE7FC81C0DF37"><span class="RefLink">4.3-19</span></a>).</p>
 
 
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">Top of Book</a>&nbsp;  &nbsp;<a href="chap1.html">Previous Chapter</a>&nbsp;  &nbsp;<a href="chap3.html">Next Chapter</a>&nbsp;  </div>
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 
 <div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
