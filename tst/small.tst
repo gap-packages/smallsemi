@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  small.tst                       smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2011             Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2012             Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -11,8 +11,7 @@
 # This file contains the tests for the file small.gi.
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"small.tst"));
-
-gap> START_TEST("small.tst 0.6.4");
+gap> START_TEST("Smallsemi package: small.tst");
 gap> cur:=InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
 gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
@@ -37,7 +36,7 @@ gap> t2 := Transformation( [ 2, 1, 1 ] );;
 gap> sgrp := SemigroupByGenerators([t1,t2]);
 <semigroup with 2 generators>
 gap> map := EquivalenceSmallSemigroup(sgrp);
-MappingByFunction( <semigroup with 2 generators>, <small semigroup of size
+MappingByFunction( <semigroup with 2 generators>, <small semigroup of size 
 6>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
@@ -135,11 +134,11 @@ gap> DATA8;
       "000", "111", "444", "222", "222", "455" ] ]
 gap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;
 gap> 3NIL_DATA;                                  
-rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ],
+rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ], 
   strlist := [ "0013", "0313" ] )
 gap> SmallSemigroupNC(5,1); 
 <small semigroup of size 5>
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
 gap> SetInfoLevel(InfoSmallsemi, cur);
-gap> STOP_TEST( "small.tst 0.6.4", 10000);
+gap> STOP_TEST( "Smallsemi package: small.tst", 10000);

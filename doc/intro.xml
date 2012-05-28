@@ -1,7 +1,7 @@
 <Chapter Label="smallsemi"><Heading>Introduction</Heading>
 	
 This  manual  describes the <Package>Smallsemi</Package> 
-package (Version 0.6.4) for &GAP;.<P/>
+package (Version &VERSION;) for &GAP;.<P/>
 
 The <Package>Smallsemi</Package> package is a data library of semigroups 
 of small size. It provides all semigroups with at most 8 elements as well as 
@@ -154,8 +154,8 @@ following two steps; see <Ref Sect="Installing a GAP Package" BookName="ref"/>
 for further details.
 
 <Enum>
-<Item> Download one of the archives <F>smallsemi0r6p4.tar.gz</F> or
-<F>smallsemi0r6p4.tar.bz2</F> from
+<Item> Download one of the archives <F>&ARCHIVENAME;.tar.gz</F> or
+<F>&ARCHIVENAME;.tar.bz2</F> from
 <Br></Br>
 <URL>http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</URL>
 </Item>
@@ -166,7 +166,7 @@ your personal <F>pkg</F> directory.
 </Item>
 
 <Item> Complete the installation by unpacking the archive, e.g. under
-Linux type <F>tar -xzf smallsemi0r6p4.tar.gz</F> at the prompt for the
+Linux type <F>tar -xzf &ARCHIVENAME;.tar.gz</F> at the prompt for the
 gzipped <F>tar</F>-archive.
 A subdirectory <F>smallsemi</F> will be created inside the <F>pkg</F>
 directory.
@@ -218,7 +218,7 @@ gap> LoadPackage("smallsemi");
 Smallsemi - A library of small semigroups
 by Andreas Distler &amp; James Mitchell
 For contents, type: ?Smallsemi:
-Loading Smallsemi 0.6.4 ...
+Loading Smallsemi &VERSION; ...
 -----------------------------------------------------------------------------
 true
 gap>
@@ -263,17 +263,13 @@ on the speed of your machine):
 
 <Log>
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
-+ small.tst 0.6.4
-+ GAP4stones: 2
-+ properties.tst 0.6.4
-+ GAP4stones: 3
-+ enums.tst 0.6.4
-+ GAP4stones: 0
-true
-gap>
+Smallsemi package: small.tst
+GAP4stones: 41
+Smallsemi package: properties.tst
+GAP4stones: 0
+Smallsemi package: enums.tst
+GAP4stones: 1
 </Log>
-
-
 </Subsection>
 
 <Subsection><Heading>Customizing</Heading>

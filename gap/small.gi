@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  small.gi                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -756,7 +756,7 @@ end);
 ##
 
 InstallMethod( \=, "for two small semis", IsIdenticalObj,
-  [ IsSmallSemigroup, IsSmallSemigroup ],
+  [ IsSmallSemigroup, IsSmallSemigroup ], 10,
   function( x, y ) 
   return IdSmallSemigroup(x)=IdSmallSemigroup(y); 
   end );

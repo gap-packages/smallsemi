@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  properties.gi                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -161,13 +161,13 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
+InstallOtherMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
 [IsSmallSemigroup], IsSimpleSemigroup);
 
-InstallMethod(IsSemiband, "for a small semigroup",
+InstallOtherMethod(IsSemiband, "for a small semigroup",
 [IsSmallSemigroup], IsIdempotentGenerated);
 
-InstallMethod(IsSemilatticeAsSemigroup, "for a small semigroup", 
+InstallOtherMethod(IsSemilatticeAsSemigroup, "for a small semigroup", 
 [IsSmallSemigroup], s-> IsCommutative(s) and IsBand(s));
 
 ###########################################################################
@@ -260,7 +260,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsLeftZeroSemigroup, "for a small semigroup", 
+InstallOtherMethod(IsLeftZeroSemigroup, "for a small semigroup", 
 true, [IsSmallSemigroup], 0,
 function(S)
     local table, i, j;
@@ -280,7 +280,7 @@ end);
 
 ###################
 
-InstallMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallOtherMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
 function(S)
 local table, id, pos;
 
@@ -339,7 +339,7 @@ end);
 
 #########################
 
-InstallMethod(Is1GeneratedSemigroup, "for a small semigroup", true, 
+InstallOtherMethod(Is1GeneratedSemigroup, "for a small semigroup", true, 
 [IsSmallSemigroup], 0, function(S)
 local out;
 
@@ -955,7 +955,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsZeroSemigroup, "for a small semigroup",
+InstallOtherMethod(IsZeroSemigroup, "for a small semigroup",
 [IsSmallSemigroup], 
 function(s)
     return Length( Unique( Flat(MultiplicationTable(s)))) = 1;

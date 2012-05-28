@@ -1,21 +1,26 @@
 #############################################################################
 ##
 #W  PackageInfo.g                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
 
+##  <#GAPDoc Label="PKGVERSIONDATA">
+##  <!ENTITY VERSION "0.6.5">
+##  <!ENTITY ARCHIVENAME "smallsemi-0.6.5">
+##  <#/GAPDoc>
+
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.4",
+Version := "0.6.5",
 Revision := "",
-Date := "10/10/2011",
+Date := "28/05/2012",
 ArchiveURL := 
-  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi0r6p4",
+  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi-0.6.5",
 ArchiveFormats := ".tar.gz .tar.bz2",
 Persons := [
   rec(LastName      := "Distler",
@@ -67,7 +72,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.4.10",
+  GAP := ">=4.5",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [["gapdoc",">=1.3"]],
   ExternalConditions := 

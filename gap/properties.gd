@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  properties.gd                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2011            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -136,7 +136,7 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsBand", IsSmallSemigroup);
+DeclareProperty("IsBand", IsSemigroup);
 
 ###########################################################################
 ##
@@ -164,7 +164,7 @@ DeclareProperty("IsBand", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsBrandtSemigroup", IsSmallSemigroup);
+DeclareProperty("IsBrandtSemigroup", IsSemigroup);
 
 
 ###########################################################################
@@ -204,7 +204,7 @@ DeclareProperty("IsBrandtSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsCliffordSemigroup", IsSmallSemigroup);
+DeclareProperty("IsCliffordSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -241,7 +241,7 @@ DeclareProperty("IsCliffordSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsCommutativeSemigroup", IsSmallSemigroup);
+DeclareProperty("IsCommutativeSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -269,7 +269,7 @@ DeclareProperty("IsCommutativeSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsCompletelyRegularSemigroup", IsSmallSemigroup);
+DeclareProperty("IsCompletelyRegularSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -325,7 +325,7 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsGroupAsSemigroup", IsSmallSemigroup);
+DeclareProperty("IsGroupAsSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -363,10 +363,10 @@ DeclareProperty("IsGroupAsSemigroup", IsSmallSemigroup);
 ##  <#/GAPDoc>
 
 #if not IsBound(IsIdempotentGenerated) then 
-  DeclareProperty("IsIdempotentGenerated", IsSmallSemigroup);
+  DeclareProperty("IsIdempotentGenerated", IsSemigroup);
 #fi;
 
-DeclareProperty("IsSemiband", IsSmallSemigroup);
+DeclareProperty("IsSemiband", IsSemigroup);
 
 ###########################################################################
 ##
@@ -419,7 +419,7 @@ DeclareProperty("IsSemiband", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsLeftZeroSemigroup", IsSmallSemigroup);
+DeclareProperty("IsLeftZeroSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -449,7 +449,7 @@ DeclareProperty("IsLeftZeroSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsMonogenicSemigroup", IsSmallSemigroup);
+DeclareProperty("IsMonogenicSemigroup", IsSemigroup);
 DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 
 ###########################################################################
@@ -478,7 +478,7 @@ DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 ##
-DeclareProperty("IsMonoidAsSemigroup", IsSmallSemigroup);
+DeclareProperty("IsMonoidAsSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -636,9 +636,7 @@ DeclareProperty("IsNilpotentSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-if not IsBound(IsOrthodoxSemigroup) then 
-  DeclareProperty("IsOrthodoxSemigroup", IsSmallSemigroup );
-fi;
+DeclareProperty("IsOrthodoxSemigroup", IsSemigroup );
 
 ###########################################################################
 ##
@@ -663,7 +661,7 @@ fi;
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsRectangularBand", IsSmallSemigroup);
+DeclareProperty("IsRectangularBand", IsSemigroup);
 
 ###########################################################################
 ##
@@ -717,7 +715,7 @@ DeclareProperty("IsRectangularBand", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsRightZeroSemigroup", IsSmallSemigroup);
+DeclareProperty("IsRightZeroSemigroup", IsSemigroup);
 
 ############################################################################
 ##
@@ -799,7 +797,7 @@ DeclareProperty("IsSemigroupWithClosedIdempotents", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsSemigroupWithZero", IsSmallSemigroup);
+DeclareProperty("IsSemigroupWithZero", IsSemigroup);
 
 ###########################################################################
 ##
@@ -835,12 +833,12 @@ DeclareProperty("IsSemigroupWithZero", IsSmallSemigroup);
 # NAME_FUNC. A more permanent solution would be to change the functions 
 # in smallsemi to compare the actual functions themselves and not their names.
 
-DeclareProperty("IsCompletelySimpleSemigroup", IsSmallSemigroup);
+DeclareProperty("IsCompletelySimpleSemigroup", IsSemigroup);
 InstallTrueMethod(IsCompletelySimpleSemigroup, IsFinite and IsSimpleSemigroup);
 
 #JDM new for 0.7!
 
-DeclareProperty("IsSemilatticeAsSemigroup", IsSmallSemigroup);
+DeclareProperty("IsSemilatticeAsSemigroup", IsSemigroup);
 InstallTrueMethod(IsSemilatticeAsSemigroup, IsCommutative and IsBand);
 
 ###########################################################################
@@ -944,7 +942,7 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsZeroSemigroup", IsSmallSemigroup);
+DeclareProperty("IsZeroSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -995,7 +993,7 @@ DeclareProperty("IsZeroSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareAttribute("MinimalGeneratingSet", IsSmallSemigroup);
+DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 
 ###########################################################################
 ##
