@@ -1,0 +1,37 @@
+  
+  
+  [1XReferences[101X
+  
+  [[20XBEO02[120X] [16XBesche, H. U., Eick, B. and O'Brien, E. A.[116X, [17XThe Small Groups Library
+  - a GAP package[117X (2002).
+  
+  [[20XDis10[120X]  [16XDistler,  A.[116X,  [17XClassification and Enumeration of finite Semigroups[117X,
+  Ph.D. thesis, St Andrews University (2010).
+  
+  [[20XFor55[120X]  [16XForsythe,  G. E.[116X, [17XSWAC computes 126 distinct semigroups of order 4[117X,
+  [18XProc. Amer. Math. Soc.[118X, [19X6[119X (1955), 443--447.
+  
+  [[20XGJM06[120X]  [16XGent,  I. P., Jefferson, C. and Miguel, I.[116X ([1m[31mBrewka, G., Coradeschi,
+  S.,  Perini,  A. and Traverso, P.[15X, Eds.), [17XMinion: A Fast Scalable Constraint
+  Solver[117X,  in  The  European  Conference on Artificial Intelligence 2006 (ECAI
+  06), IOS Press (2006), 98-102.
+  
+  [[20XJW77[120X]  [16XJ{\"u}rgensen,  H.  and Wick, P.[116X, [17XDie Halbgruppen der Ordnungen ≤ 7[117X,
+  [18XSemigroup Forum[118X, [19X14[119X, 1 (1977), 69--79.
+  
+  [[20XPle67[120X]  [16XPlemmons,  R.  J.[116X,  [17XThere  are  15973  semigroups of order 6[117X, [18XMath.
+  Algorithms[118X, [19X2[119X (1967), 2--17.
+  
+  [[20XSYT94[120X]  [16XSatoh,  S.,  Yama,  K.  and  Tokizawa,  M.[116X,  [17XSemigroups of order 8[117X,
+  [18XSemigroup Forum[118X, [19X49[119X, 1 (1994), 7--29.
+  
+  [[20XTam54[120X]  [16XTamura,  T.[116X,  [17XNotes  on  finite  semigroups  and  determination  of
+  semigroups of order 4[117X, [18XJ. Gakugei. Tokushima Univ. Math.[118X, [19X5[119X (1954), 17--27.
+  
+  [[20XTHASIT55[120X]  [16XTetsuya,  K.,  Hashimoto, T., Akazawa, T., Shibata, R., Inui, T.
+  and  Tamura,  T.[116X,  [17XAll  semigroups  of order at most 5[117X, [18XJ. Gakugei Tokushima
+  Univ. Nat. Sci. Math.[118X, [19X6[119X (1955), 19--39. Errata on loose, unpaginated sheet.
+  
+  
+  
+  [32X
