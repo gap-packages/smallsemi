@@ -13,6 +13,28 @@
 ##  The functions in this file are used to test whether a given 
 ##  small semigroup has a given property.  
 
+InstallMethod( Annihilators, "for a small semigroup", [ IsSmallSemigroup ],
+function( sg )
+    local n,       # size of the <sg>
+          mt,      # multiplication table of <sg>
+          zero,    # index of the zero element in <sg>
+          indices; # indices of annihilators in <sg>
+
+    # AD maybe this should run into an error or return the empty list?
+    if not IsSemigroupWithZero( sg ) then return fail; fi;
+
+    n := Size( sg );
+    mt := MultiplicationTable( sg );
+    zero := MultiplicativeZero( sg )!.index;
+
+    indices := Filtered( [ 1..n ], i -> Unique( mt{[ 1..n ]}[i] ) = [ zero ] 
+                                        and Unique( mt[i] ) = [ zero ] );
+
+    return Elements( sg ){ indices };
+end);
+
+###########################################################################
+
 InstallMethod(DiagonalOfMultiplicationTable, "for a semigroup", true,
 [IsSemigroup and HasIsFinite and IsFinite], 0,
 x -> DiagonalOfMat(MultiplicationTable(x)));
@@ -734,9 +756,10 @@ end);
 InstallOtherMethod(IsRightZeroSemigroup, "for a small semigroup", 
 [IsSmallSemigroup], function(s)
 
-    Info(InfoSmallsemi, 1,
-         "Semigroups are stored up to isomorphism and anti-isomorphism in ",
-         "Smallsemi and there are only left zero semigroups in the library.");
+    Info(InfoSmallsemi, 1, "Semigroups are stored up to isomorphism ",
+         "and anti-isomorphism in Smallsemi");
+    Info(InfoSmallsemi, 1, 
+         "and there are only left zero semigroups in the library.");
 
     return false;
 end);
@@ -1081,7 +1104,7 @@ end);
 ###########################################################################
 ###########################################################################
 
-InstallMethod(GreensLClasses, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(GreensRClasses, "for a small semigroup", [IsSmallSemigroup], 
 function(S)
 local pos, elms, id, class, gens, graph, out, i;
 
@@ -1099,7 +1122,7 @@ class:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(graph);
 elms:=AsSet(List(class, x-> AsSet(elms{x})));
 out:=[];
 for i in [1..Length(elms)] do 
-	out[i]:=GreensLClassOfElement(S, elms[i][1]);
+	out[i]:=GreensRClassOfElement(S, elms[i][1]);
 	SetAsSSortedList(out[i], elms[i]);
 od;
 
@@ -1109,8 +1132,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(GreensRClasses, "for a small semigroup", true, 
-[IsSmallSemigroup], 0, 
+InstallMethod(GreensLClasses, "for a small semigroup", [IsSmallSemigroup], 
 function(S)
 local pos, elms, id, class, gens, graph, out, i;
 
@@ -1129,7 +1151,7 @@ class:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(graph);
 elms:=AsSet(List(class, x-> AsSet(elms{x})));
 out:=[];
 for i in [1..Length(elms)] do 
-	out[i]:=GreensRClassOfElement(S, elms[i][1]);
+	out[i]:=GreensLClassOfElement(S, elms[i][1]);
 	SetAsSSortedList(out[i], elms[i]);
 od;
 
@@ -1263,7 +1285,7 @@ fi;
 r:=List(TransposedMat(MultiplicationTable(S)), x-> x{gens}); #right 
 l:=List(MultiplicationTable(S), x-> x{gens}); #left
 
-d:=List([1..Length(gens)], i-> Union(r[i], l[i])); #union of the two graphs
+d:=List([1..Size(S)], i-> Union(r[i], l[i])); #union of the two graphs
 d:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(d);
 
 elts:=AsSSortedList(S);
@@ -1350,6 +1372,9 @@ fi;
 # two!
 
 InstallValue(SMALLSEMI_EQUIV, [
+[[IsCliffordSemigroup, true],
+[IsCompletelyRegularSemigroup, true, IsInverseSemigroup, true]], 
+
 [[IsCompletelySimpleSemigroup, true], [IsSimpleSemigroup, true]],
 
 [[IsCompletelySimpleSemigroup, false], [IsSimpleSemigroup, false]],
@@ -1369,7 +1394,7 @@ InstallValue(SMALLSEMI_EQUIV, [
 [IsSemigroupWithoutClosedIdempotents, false]],
 
 [[IsSemilatticeAsSemigroup, true],
-[IsCommutative, true, IsBand, true]],
+[IsBand, true, IsCommutative, true]],
 
 #JDM see comment in the NV note about the four below. Waiting for 
 #JDM anti-position list to allow for [IsOrthodoxSemigroup, false] and similar.

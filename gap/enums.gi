@@ -376,6 +376,49 @@ SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 return SMALLSEMI_RETURN(EnumeratorOfSmallSemigroupsByIdsNC(id1, id2));
 end);
 
+#############################################################################
+InstallGlobalFunction( EnumeratorOfSmallSemigroupsByDiagonals, 
+function(diagonals)
+    local sizes, ranges, diag, n, sizepos, diagpos, start, ende, i, offset, id;
+
+    sizes := [ ];
+    ranges := [ ];
+
+    for diag in diagonals do
+        n := Length(diag);
+        sizepos := Position(sizes, n);
+        diagpos := Position(MOREDATA2TO8[n].diags, diag);
+        start := MOREDATA2TO8[n].endpositions[diagpos]+1;
+        ende := MOREDATA2TO8[n].endpositions[diagpos+1];
+        if sizepos = fail then
+            Add(sizes, n);
+            sizepos := Length(sizes);
+            Add(ranges, [start..ende]);
+        else
+            ranges[sizepos] := Union(ranges[sizepos], [start..ende]);
+        fi;
+        offset := 11433106;
+        if n = 8 then
+            for i in [3..8] do
+                diagpos := Position(MOREDATA2TO8[n].3nildiags, diag{[i..n]});
+                if diagpos <> fail then
+                    start := MOREDATA2TO8[n].3nilendpositions[diagpos]+1;
+                    ende := MOREDATA2TO8[n].3nilendpositions[diagpos+1];
+                    id := start + offset;
+                    repeat
+                        Add(ranges[sizepos], id);
+                        id := id+1;
+                    until id > ende + offset;
+                fi;
+            od;
+        fi;
+    od;
+
+    return EnumeratorOfSmallSemigroupsByIds(sizes, ranges);
+end);
+
+
+
 ##################
 
 #InstallOtherMethod(EnumeratorOfSmallSemigroupsByIdsNC, 
@@ -1398,7 +1441,7 @@ enum-> enum!.sizes);
 
 InstallMethod( UpToIsomorphism, "for a list of non-equivalent semigroups",
    [ IsList ], function(semis)
-    local out, s;
+    local out, s, dual, equi;
     
     SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL+1;
     
@@ -1417,9 +1460,17 @@ InstallMethod( UpToIsomorphism, "for a list of non-equivalent semigroups",
             # creator for small semigroups cannot be used here as this would
             # result in an object with 'IsSmallSemi' being true but not in
             # the library
-            Add( out, 
-                 SemigroupByMultiplicationTableNC( 
-                     TransposedMat( MultiplicationTable( s ) ) ) );
+            dual := SemigroupByMultiplicationTableNC( 
+                        TransposedMat(MultiplicationTable(s)));
+            equi := MappingByFunction(dual, s,
+                                      function(x)
+                                          return AsSSortedList(s)[x![1]];
+                                      end);
+            SetRespectsMultiplication( equi, false );
+            SetIsBijective( equi, true );
+            SetEquivalenceSmallSemigroup( dual, equi );
+            SetIdSmallSemigroup( dual, IdSmallSemigroup(s));
+            Add(out, dual);
         fi;
     od;
     

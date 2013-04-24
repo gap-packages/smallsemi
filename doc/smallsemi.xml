@@ -6,9 +6,10 @@
 <Book Name="smallsemi">
 
 <TitlePage>
-	<Title>The <Package>Smallsemi</Package> Package</Title>
+	<Title><Package>Smallsemi</Package></Title>
+	<Subtitle>A &GAP; package</Subtitle>
 	<Version>Version &VERSION;</Version>
-	<Author>A. Distler
+	<Author>Andreas Distler
          <Address>
 	 CAUL<Br/>
 	 Av. Prof. Gama Pinto, 2<Br/>
@@ -196,6 +197,42 @@ form a subsemigroup.</Item>
 	<#Include Label="IsZeroSimpleSemigroup">
 	<#Include Label="MinimalGeneratingSet">
 	<#Include Label="NilpotencyRank">
+</Section>
+
+<Section Label="enums"><Heading>Starred Green's relations</Heading>
+
+	In this section functionality around the starred Green's relations is
+        described. The five starred Green's relations are <M>R^*</M>,
+        <M>L^*</M>, <M>J^*</M>, <M>H^*</M>, and <M>D^*</M>;
+        two elements <M>a</M>, <M>b</M> from a semigroup <M>S</M> are
+        <M>R^*</M>-related if for all <M>x, y \in S^1: xa=ya</M> if and only if
+        <M>xb = yb</M>; and <M>a</M> and <M>b</M> are <M>L^*</M>-related if 
+        for all <M>x, y \in S^1: 
+        ax=ay</M> if and only if <M>bx = by</M>. In parallel to the classical
+        Green's relations <Ref Sect="Green's Relations" BookName="ref"/>
+        <M>H^*=R^* \wedge L^*</M> and 
+        <M>D^*= R^* \vee L^*</M> (but <M>R^* \circ L^* = L^* \circ R^*</M>
+        does <E>not</E> hold in general). To describe <M>J^*</M> is a bit
+        more technical. For <M>a,b \in S</M> one can show that <M>b</M> lies in
+        <M>J^*(a)</M>, the principal *-ideal of <M>a</M>, if and only if there
+        exist <M>c_0,c_1\ldots,c_n\in S</M> and <M>x_1,\ldots,x_n,y_1,\ldots,
+        y_n\in S^1</M> such that <M>a=c_0, b=c_n</M> and 
+        <M>c_iD^*x_ic_{i-1}y_i</M> for <M>1\leq i\leq n</M>. Then <M>aJ^*b</M>
+        if and only if both <M>a\in J^*(b)</M> and <M>b\in J^*(a)</M>
+        <P/> 
+
+        Note that even for finite semigroups <M>J^*</M> does not always equal
+        <M>D^*</M> (in contrast to the situation for classical Green's 
+        relations). Using <Package>Smallsemi</Package> it was shown that there
+        exist semigroups of order 8 with <M>J^*\neq D^*</M> 
+        <Cite Key="DMU13"/>. 
+
+	<#Include Label="IsStarRelation">
+	<#Include Label="RStarRelation">
+	<#Include Label="RStarClassOperation">
+	<#Include Label="RStarClassAttribute">
+	<#Include Label="IsStarClass">
+	<#Include Label="RStarClasses">
 </Section>
 
 <Section Label="enums"><Heading>Families of Semigroups</Heading>

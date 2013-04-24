@@ -12,6 +12,30 @@
 
 ###########################################################################
 ##
+##  <#GAPDoc Label="Annihilators">
+##  <ManSection>
+##  <Attr Name="Annihilators" Arg="sgrp"/>
+##  <Description>
+##  returns the set of annihilators of <A>sgrp</A> if <A>sgrp</A> contains a
+##  zero element and <C>fail</C> otherwise.<P/>
+##
+##  An element <M>x</M> in a semigroup with zero <M>z</M> is an 
+##  <E>annihilator</E> if <M>xy=yx=z</M> for every element <M>y</M> in the 
+##  semigroup.
+##  <Example>
+##  gap> s := SmallSemigroup(5,6);
+##  <small semigroup of size 5>
+##  gap> Annihilators(s);
+##  [ s1, s2 ]
+##  </Example> <!-- properties.tst --> 
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
+
+DeclareAttribute( "Annihilators", IsSemigroup );
+
+###########################################################################
+##
 ##  <#GAPDoc Label="DiagonalOfMultiplicationTable">
 ##  <ManSection>
 ##  <Attr Name="DiagonalOfMultiplicationTable" Arg="sgrp"/>
@@ -47,7 +71,6 @@ DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
 ##  gap> DisplaySmallSemigroup(s);
 ##  IsBand:                              false
 ##  IsBrandtSemigroup:                   false
-##  IsCliffordSemigroup:                 false
 ##  IsCommutative:                       false
 ##  IsCompletelyRegularSemigroup:        false
 ##  IsFullTransformationSemigroupCopy:   false
@@ -68,8 +91,8 @@ DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
 ##  IsZeroSimpleSemigroup:               false
 ##  MinimalGeneratingSet:                [ s3, s4, s5, s6 ]
 ##  Idempotents:                         [ s1, s5, s6 ]
-##  GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
-##  GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+##  GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+##  GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 ##  GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
 ##  GreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 ##  </Example> <!-- properties.tst --> 
@@ -707,8 +730,8 @@ DeclareProperty("IsRectangularBand", IsSemigroup);
 ##  gap> s:=SmallSemigroup(5, 438);
 ##  &lt;small semigroup of size 5>
 ##  gap> IsRightZeroSemigroup(s);
-##  #I  Semigroups are stored up to isomorphism and anti-isomorphism in Smallsemi \
-##  and there are only left zero semigroups in the library.
+##  #I  Semigroups are stored up to isomorphism and anti-isomorphism in Smallsemi
+##  #I  and there are only left zero semigroups in the library.
 ##  false
 ##  </Example> <!-- properties.tst -->
 ##  </Description>
@@ -854,18 +877,18 @@ InstallTrueMethod(IsSemilatticeAsSemigroup, IsCommutative and IsBand);
 ##    The size of this semigroup on an <M>n</M> element set is <M>n^n-n!</M>
 ##    and so there is only one semigroup in the library that has this property.
 ##  <Example>
-##    gap> s:=SmallSemigroup(1,1);
-##    &lt;small semigroup of size 1>
-##    gap> IsSingularSemigroupCopy(s);
-##    false
-##    gap> s:=OneSmallSemigroup(2, IsSingularSemigroupCopy, true);
-##    &lt;small semigroup of size 2>
-##    gap> IsSingularSemigroupCopy(s);
-##    true
-##    gap> IdSmallSemigroup(s);
-##    [ 2, 4 ]
-##    gap> s:=OneSmallSemigroup(4, IsSingularSemigroupCopy, true);
-##    fail
+##  gap> s:=SmallSemigroup(1,1);
+##  &lt;small semigroup of size 1>
+##  gap> IsSingularSemigroupCopy(s);
+##  false
+##  gap> s:=OneSmallSemigroup(2, IsSingularSemigroupCopy, true);
+##  &lt;small semigroup of size 2>
+##  gap> IsSingularSemigroupCopy(s);
+##  true
+##  gap> IdSmallSemigroup(s);
+##  [ 2, 4 ]
+##  gap> s:=OneSmallSemigroup(4, IsSingularSemigroupCopy, true);
+##  fail
 ##  </Example><!-- properties.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -978,16 +1001,16 @@ DeclareProperty("IsZeroSemigroup", IsSemigroup);
 ##  <Description> 
 ##    returns a set of generators for <A>sgrp</A> with minimal size.
 ##  <Example>
-##    gap> s:=SmallSemigroup(8, 1478885610);;
-##    #I  smallsemi: loading data for semigroups of size 8.
-##    gap> MinimalGeneratingSet(s);
-##    [ s4, s5, s6, s7, s8 ]
-##    gap> s:=SmallSemigroup(7, 673768);;
-##    gap> MinimalGeneratingSet(s);
-##    [ s4, s5, s6, s7 ]
-##    gap> s:=SmallSemigroup(4, 4);;
-##    gap> MinimalGeneratingSet(s);
-##    [ s2, s3, s4 ]
+##  gap> s:=SmallSemigroup(8, 1478885610);;
+##  #I  smallsemi: loading data for semigroups of size 8.
+##  gap> MinimalGeneratingSet(s);
+##  [ s4, s5, s6, s7, s8 ]
+##  gap> s:=SmallSemigroup(7, 673768);;
+##  gap> MinimalGeneratingSet(s);
+##  [ s4, s5, s6, s7 ]
+##  gap> s:=SmallSemigroup(4, 4);;
+##  gap> MinimalGeneratingSet(s);
+##  [ s2, s3, s4 ]
 ##  </Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
@@ -1005,24 +1028,24 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 ##    in the nilpotent semigroup <A>sgrp</A> equals the zero element and
 ##    returns <C>fail</C> if the semigroup <A>sgrp</A> is not nilpotent.
 ##  <Example>
-##    gap> s:=SmallSemigroup(5, 1121);;
-##    gap> NilpotencyRank(s);
-##    fail
-##    gap> s:=SmallSemigroup(7, 393450);;
-##    gap> NilpotencyRank(s);
-##    3
+##  gap> s := SmallSemigroup(5, 1121);;
+##  gap> NilpotencyRank(s);
+##  fail
+##  gap> s := SmallSemigroup(7, 393450);;
+##  gap> NilpotencyRank(s);
+##  3
 ##  </Example> <!-- properties.tst --> 
 ##    Note that for size 8 a semigroup in the library with ID <M>(8,n)</M>
-##    is nilpotent of rank 3 iff <M>n</M> is greater than 11433106.
+##    is nilpotent of rank 3 if and only if <M>n</M> is greater than 11433106.
 ##  <Example>
-##    gap> s:=SmallSemigroup(8, 11433106+1231);;
-##    #I  smallsemi: loading data for semigroups of size 8.
-##    gap> NilpotencyRank(s);
-##    3
-##    gap> s:=SmallSemigroup(8,NrSmallSemigroups(8));;
-##    #I  smallsemi: loading data for semigroups of size 8.
-##    gap> NilpotencyRank(s);
-##    3
+##  gap> s := SmallSemigroup(8, 11433106+1231);;
+##  #I  Smallsemi: loading data for semigroups of size 8.
+##  gap> NilpotencyRank(s);
+##  3
+##  gap> s := SmallSemigroup(8,NrSmallSemigroups(8));;
+##  #I  Smallsemi: loading data for semigroups of size 8.
+##  gap> NilpotencyRank(s);
+##  3
 ##  </Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>

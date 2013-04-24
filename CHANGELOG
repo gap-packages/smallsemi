@@ -1,12 +1,20 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
+
+===============
+ Version 0.6.6  (24/05/13)
+===============
+
+  - added starred Green's relations
+  - fixed the swap of L- and R-classes  
+  - fixed bug in D-class computation when MinimalGeneratingSet is known
 
 ===============
  Version 0.6.5  (28/05/12)

@@ -1,7 +1,7 @@
 #############################################################################
 ##
-#W  properties.tst                 smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#W  properties.tst                 Smallsemi - a GAP library of semigroups
+#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -13,11 +13,18 @@
 gap> START_TEST("Smallsemi package: properties.tst");
 gap> info := InfoLevel( InfoSmallsemi );;
 gap> SetInfoLevel( InfoSmallsemi, 0 );
+gap> s:=SmallSemigroup(5, 6);
+<small semigroup of size 5>
+gap> Annihilators(s);
+[ s1, s2 ]
+gap> s:=SmallSemigroup(6, 15001);
+<small semigroup of size 6>
+gap> Annihilators(s);
+fail
 gap> s:=SmallSemigroup(6, 3838);;
 gap> DisplaySmallSemigroup(s);
 IsBand:                              false
 IsBrandtSemigroup:                   false
-IsCliffordSemigroup:                 false
 IsCommutative:                       false
 IsCompletelyRegularSemigroup:        false
 IsFullTransformationSemigroupCopy:   false
@@ -38,8 +45,8 @@ IsZeroSemigroup:                     false
 IsZeroSimpleSemigroup:               false
 MinimalGeneratingSet:                [ s3, s4, s5, s6 ]
 Idempotents:                         [ s1, s5, s6 ]
-GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
-GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
 GreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 gap> s:=SmallSemigroup(8, 1478885610);;

@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  PackageInfo.g                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -9,18 +9,18 @@
 ##
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "0.6.5">
-##  <!ENTITY ARCHIVENAME "smallsemi-0.6.5">
+##  <!ENTITY VERSION "0.6.6">
+##  <!ENTITY ARCHIVENAME "smallsemi-0.6.6">
 ##  <#/GAPDoc>
 
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.5",
+Version := "0.6.6",
 Revision := "",
-Date := "28/05/2012",
+Date := "24/04/2013",
 ArchiveURL := 
-  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi-0.6.5",
+  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi-0.6.6",
 ArchiveFormats := ".tar.gz .tar.bz2",
 Persons := [
   rec(LastName      := "Distler",
@@ -29,10 +29,11 @@ Persons := [
       IsMaintainer  := true,
       Email         := "a.distler@tu-bs.de",
       PostalAddress := Concatenation( [
-                       "CAUL\n", "Av. Prof. Gama Pinto, 2\n",
-                       "1649-003 Lisboa\n", "Portugal"] ),
-      Place         := "Lisboa",
-      Institution   := "Centro de Álgebra da Universidade de Lisboa"),
+                       "AG Algebra und Diskrete Mathematik\n", 
+                       "TU Braunschweig\n", "Rebenring 31 (A14)\n",
+                       "38106 Braunschweig\n", "Germany"] ),
+      Place         := "Braunschweig",
+      Institution   := "Technische Universität Braunschweig"),
   rec( 
       LastName      := "Mitchell",
       FirstNames    := "James",

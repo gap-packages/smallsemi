@@ -153,7 +153,7 @@ gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true);
   <small semigroup of size 3>, <small semigroup of size 3>, 
   <small semigroup of size 3>, <small semigroup of size 3> ]
 gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true, 
-> x-> Length(GreensRClasses(x)), 1);
+> x-> Length(GreensLClasses(x)), 1);
 [ <small semigroup of size 2>, <small semigroup of size 2>, 
   <small semigroup of size 3>, <small semigroup of size 3> ]
 gap> enum := EnumeratorOfSmallSemigroups([3,4]);
@@ -270,7 +270,7 @@ gap> EnumeratorOfSmallSemigroups([2,3], IsRegularSemigroup, true, x->
 gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true, 
 > IsCommutativeSemigroup, true);
 <enumerator of semigroups of size 8>
-gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensRClasses(x)), 1);                      
+gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensLClasses(x)), 1);
 <enumerator of semigroups of size 5>
 gap> Length(enum);
 2
@@ -310,7 +310,7 @@ gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
 [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ], 
   [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true, x->
-> Length(GreensRClasses(x)), 1);                              
+> Length(GreensLClasses(x)), 1);                              
 [ [ 2, 2 ], [ 2, 4 ], [ 3, 17 ], [ 3, 18 ] ]
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([[7,1],[6,1], [5,1]]);
 <enumerator of semigroups of sizes [ 5, 6, 7 ]>

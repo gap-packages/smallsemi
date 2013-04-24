@@ -198,6 +198,15 @@ DeclareOperation("EnumeratorOfSmallSemigroupsByIds", [IsCyclotomicCollection , I
 
 DeclareOperation("EnumeratorOfSmallSemigroupsByIdsNC", [IsCyclotomicCollection , IsCyclotomicCollColl]);
 
+#############################################################################
+##
+##  EnumeratorOfSmallSemigroupsByDiagonals
+##
+##  should become obsolete in 0.7 and is therefore undocumented
+##
+
+DeclareGlobalFunction("EnumeratorOfSmallSemigroupsByDiagonals"); 
+
 ###########################################################################
 ##
 ##  <#GAPDoc Label="EnumeratorSortedOfSmallSemigroups">

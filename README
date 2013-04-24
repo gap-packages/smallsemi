@@ -1,6 +1,6 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                           +
-+   Copyright (C) 2008-2012          Andreas Distler & James D. Mitchell    +
++   Copyright (C) 2008-2013          Andreas Distler & James D. Mitchell    +
 +                                                                           +
 +   'Smallsemi' is free software: you can redistribute it and/or modify     +
 +   it under the terms of the GNU General Public License as published by    +
@@ -121,10 +121,14 @@ gap> ReadPackage( "smallsemi", "tst/testall.g" );
 Smallsemi package: small.tst
 GAP4stones: 41
 Smallsemi package: properties.tst
-GAP4stones: 0
+GAP4stones: 12
 Smallsemi package: enums.tst
 GAP4stones: 1
+Smallsemi package: greensstar.tst
+GAP4stones: 4
+true
 gap>
+
 ---------
  Contact
 ---------
@@ -136,13 +140,14 @@ If you find any bugs or have any suggestions or comments, we would
 very much appreciate it if you would let us know. Also, we would like
 to hear about applications of this software.
 
-Andreas Distler and James Mitchell, St Andrews, 18th of May 2012.
+Andreas Distler and James Mitchell, St Andrews, 24th of April 2013.
 
 Andreas Distler
-  CAUL
-  Av. Prof. Gama Pinto, 2
-  1649-003 Lisboa
-  Portugal
+  TU Braunschweig
+  AG Algebra und Diskrete Mathematik
+  Rebenring 31 (A14)
+  38106 Braunschweig
+  Germany
 
 James Mitchell
   Mathematical Institute
