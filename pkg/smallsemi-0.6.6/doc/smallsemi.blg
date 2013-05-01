@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: smallsemi.aux
+The style file: alpha.bst
+Database file #1: smallsemi.bib
+You've used 10 entries,
+            2543 wiz_defined-function locations,
+            625 strings with 5895 characters,
+and the built_in function-call counts, 4290 in all, are:
+= -- 435
+> -- 205
+< -- 5
++ -- 69
+- -- 69
+* -- 329
+:= -- 716
+add.period$ -- 31
+call.type$ -- 10
+change.case$ -- 62
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 149
+empty$ -- 302
+format.name$ -- 82
+if$ -- 858
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 54
+num.names$ -- 32
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 74
+quote$ -- 0
+skip$ -- 124
+stack$ -- 0
+substring$ -- 315
+swap$ -- 19
+text.length$ -- 5
+text.prefix$ -- 4
+top$ -- 0
+type$ -- 80
+warning$ -- 0
+while$ -- 41
+width$ -- 11
+write$ -- 132

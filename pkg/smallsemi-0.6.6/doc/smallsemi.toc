@@ -1,0 +1,99 @@
+\contentsline {chapter}{\numberline {1}\leavevmode {\color {Chapter }Introduction}}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}\leavevmode {\color {Chapter }Requirements}}{5}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}\leavevmode {\color {Chapter }Operating System}}{5}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}\leavevmode {\color {Chapter }RAM}}{5}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}\leavevmode {\color {Chapter }Disk Space}}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}\leavevmode {\color {Chapter }Installation and Setup}}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}\leavevmode {\color {Chapter }Download and Extract \textsf {Smallsemi}}}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}\leavevmode {\color {Chapter }Contents}}{6}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}\leavevmode {\color {Chapter }Loading}}{6}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}\leavevmode {\color {Chapter }Memory Issues}}{6}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}\leavevmode {\color {Chapter }Testing}}{7}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}\leavevmode {\color {Chapter }Customizing}}{7}{subsection.1.2.6}
+\contentsline {chapter}{\numberline {2}\leavevmode {\color {Chapter }The Data in the Library}}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}\leavevmode {\color {Chapter }Creation of the Semigroups}}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}\leavevmode {\color {Chapter }Storing the Semigroups}}{9}{section.2.2}
+\contentsline {chapter}{\numberline {3}\leavevmode {\color {Chapter }Extended Examples}}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}\leavevmode {\color {Chapter }Lists, Enumerators and Iterators of Semigroups}}{10}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}\leavevmode {\color {Chapter }Precomputed properties}}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}\leavevmode {\color {Chapter }User functions}}{12}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}\leavevmode {\color {Chapter }Semigroups of order 8}}{14}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}\leavevmode {\color {Chapter }Identifying Semigroups}}{15}{section.3.2}
+\contentsline {chapter}{\numberline {4}\leavevmode {\color {Chapter }Functionality}}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}\leavevmode {\color {Chapter }Individual Semigroups}}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}\leavevmode {\color {Chapter }SmallSemigroup}}{17}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}\leavevmode {\color {Chapter }IsSmallSemigroup}}{17}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\leavevmode {\color {Chapter }IsSmallSemigroupElt}}{18}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}\leavevmode {\color {Chapter }RecoverMultiplicationTable}}{18}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}\leavevmode {\color {Chapter }SemigroupByMultiplicationTableNC}}{19}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}\leavevmode {\color {Chapter }IdSmallSemigroup}}{19}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}\leavevmode {\color {Chapter }EquivalenceSmallSemigroup}}{19}{subsection.4.1.7}
+\contentsline {subsection}{\numberline {4.1.8}\leavevmode {\color {Chapter }InfoSmallsemi}}{20}{subsection.4.1.8}
+\contentsline {subsection}{\numberline {4.1.9}\leavevmode {\color {Chapter }UnloadSmallsemiData}}{20}{subsection.4.1.9}
+\contentsline {section}{\numberline {4.2}\leavevmode {\color {Chapter }Properties of Semigroups}}{20}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\leavevmode {\color {Chapter }DiagonalOfMultiplicationTable}}{21}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\leavevmode {\color {Chapter }DisplaySmallSemigroup}}{21}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}\leavevmode {\color {Chapter }IndexPeriod}}{22}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}\leavevmode {\color {Chapter }IsBand}}{22}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}\leavevmode {\color {Chapter }IsBrandtSemigroup}}{22}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}\leavevmode {\color {Chapter }IsCliffordSemigroup}}{23}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}\leavevmode {\color {Chapter }IsCommutativeSemigroup}}{23}{subsection.4.2.7}
+\contentsline {subsection}{\numberline {4.2.8}\leavevmode {\color {Chapter }IsCompletelyRegularSemigroup}}{24}{subsection.4.2.8}
+\contentsline {subsection}{\numberline {4.2.9}\leavevmode {\color {Chapter }IsFullTransformationSemigroupCopy}}{24}{subsection.4.2.9}
+\contentsline {subsection}{\numberline {4.2.10}\leavevmode {\color {Chapter }IsGroupAsSemigroup}}{25}{subsection.4.2.10}
+\contentsline {subsection}{\numberline {4.2.11}\leavevmode {\color {Chapter }IsIdempotentGenerated}}{25}{subsection.4.2.11}
+\contentsline {subsection}{\numberline {4.2.12}\leavevmode {\color {Chapter }IsInverseSemigroup}}{25}{subsection.4.2.12}
+\contentsline {subsection}{\numberline {4.2.13}\leavevmode {\color {Chapter }IsLeftZeroSemigroup}}{26}{subsection.4.2.13}
+\contentsline {subsection}{\numberline {4.2.14}\leavevmode {\color {Chapter }IsMonogenicSemigroup}}{26}{subsection.4.2.14}
+\contentsline {subsection}{\numberline {4.2.15}\leavevmode {\color {Chapter }IsMonoidAsSemigroup}}{27}{subsection.4.2.15}
+\contentsline {subsection}{\numberline {4.2.16}\leavevmode {\color {Chapter }IsMultSemigroupOfNearRing}}{27}{subsection.4.2.16}
+\contentsline {subsection}{\numberline {4.2.17}\leavevmode {\color {Chapter }IsNGeneratedSemigroup}}{27}{subsection.4.2.17}
+\contentsline {subsection}{\numberline {4.2.18}\leavevmode {\color {Chapter }IsNIdempotentSemigroup}}{28}{subsection.4.2.18}
+\contentsline {subsection}{\numberline {4.2.19}\leavevmode {\color {Chapter }IsNilpotentSemigroup}}{28}{subsection.4.2.19}
+\contentsline {subsection}{\numberline {4.2.20}\leavevmode {\color {Chapter }IsOrthodoxSemigroup}}{28}{subsection.4.2.20}
+\contentsline {subsection}{\numberline {4.2.21}\leavevmode {\color {Chapter }IsRectangularBand}}{29}{subsection.4.2.21}
+\contentsline {subsection}{\numberline {4.2.22}\leavevmode {\color {Chapter }IsRegularSemigroup}}{29}{subsection.4.2.22}
+\contentsline {subsection}{\numberline {4.2.23}\leavevmode {\color {Chapter }IsRightZeroSemigroup}}{29}{subsection.4.2.23}
+\contentsline {subsection}{\numberline {4.2.24}\leavevmode {\color {Chapter }IsSelfDualSemigroup}}{30}{subsection.4.2.24}
+\contentsline {subsection}{\numberline {4.2.25}\leavevmode {\color {Chapter }IsSemigroupWithClosedIdempotents}}{30}{subsection.4.2.25}
+\contentsline {subsection}{\numberline {4.2.26}\leavevmode {\color {Chapter }IsSemigroupWithZero}}{30}{subsection.4.2.26}
+\contentsline {subsection}{\numberline {4.2.27}\leavevmode {\color {Chapter }IsSimpleSemigroup}}{31}{subsection.4.2.27}
+\contentsline {subsection}{\numberline {4.2.28}\leavevmode {\color {Chapter }IsSingularSemigroupCopy}}{31}{subsection.4.2.28}
+\contentsline {subsection}{\numberline {4.2.29}\leavevmode {\color {Chapter }IsZeroGroup}}{32}{subsection.4.2.29}
+\contentsline {subsection}{\numberline {4.2.30}\leavevmode {\color {Chapter }IsZeroSemigroup}}{32}{subsection.4.2.30}
+\contentsline {subsection}{\numberline {4.2.31}\leavevmode {\color {Chapter }IsZeroSimpleSemigroup}}{33}{subsection.4.2.31}
+\contentsline {subsection}{\numberline {4.2.32}\leavevmode {\color {Chapter }MinimalGeneratingSet}}{33}{subsection.4.2.32}
+\contentsline {subsection}{\numberline {4.2.33}\leavevmode {\color {Chapter }NilpotencyRank}}{33}{subsection.4.2.33}
+\contentsline {section}{\numberline {4.3}\leavevmode {\color {Chapter }Starred Green's relations}}{34}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}\leavevmode {\color {Chapter }IsStarRelation}}{34}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}\leavevmode {\color {Chapter }RStarRelation}}{34}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\leavevmode {\color {Chapter }RStarClass}}{35}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}\leavevmode {\color {Chapter }RStarClass}}{35}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}\leavevmode {\color {Chapter }IsStarClass}}{35}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}\leavevmode {\color {Chapter }RStarClasses}}{36}{subsection.4.3.6}
+\contentsline {section}{\numberline {4.4}\leavevmode {\color {Chapter }Families of Semigroups}}{36}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}\leavevmode {\color {Chapter }AllSmallSemigroups}}{37}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}\leavevmode {\color {Chapter }EnumeratorOfSmallSemigroups}}{38}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}\leavevmode {\color {Chapter }EnumeratorOfSmallSemigroupsByIds}}{39}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}\leavevmode {\color {Chapter }EnumeratorSortedOfSmallSemigroups}}{39}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}\leavevmode {\color {Chapter }FuncsOfSmallSemisInEnum}}{40}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}\leavevmode {\color {Chapter }FuncsOfSmallSemisInIter}}{40}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}\leavevmode {\color {Chapter }IdsOfSmallSemigroups}}{40}{subsection.4.4.7}
+\contentsline {subsection}{\numberline {4.4.8}\leavevmode {\color {Chapter }IsEnumeratorOfSmallSemigroups}}{41}{subsection.4.4.8}
+\contentsline {subsection}{\numberline {4.4.9}\leavevmode {\color {Chapter }IsIdSmallSemigroup}}{41}{subsection.4.4.9}
+\contentsline {subsection}{\numberline {4.4.10}\leavevmode {\color {Chapter }IsIteratorOfSmallSemigroups}}{41}{subsection.4.4.10}
+\contentsline {subsection}{\numberline {4.4.11}\leavevmode {\color {Chapter }IteratorOfSmallSemigroups}}{41}{subsection.4.4.11}
+\contentsline {subsection}{\numberline {4.4.12}\leavevmode {\color {Chapter }NamesFuncsSmallSemisInEnum}}{42}{subsection.4.4.12}
+\contentsline {subsection}{\numberline {4.4.13}\leavevmode {\color {Chapter }NamesFuncsSmallSemisInIter}}{43}{subsection.4.4.13}
+\contentsline {subsection}{\numberline {4.4.14}\leavevmode {\color {Chapter }Nr3NilpotentSemigroups}}{43}{subsection.4.4.14}
+\contentsline {subsection}{\numberline {4.4.15}\leavevmode {\color {Chapter }NrSmallSemigroups}}{43}{subsection.4.4.15}
+\contentsline {subsection}{\numberline {4.4.16}\leavevmode {\color {Chapter }OneSmallSemigroup}}{44}{subsection.4.4.16}
+\contentsline {subsection}{\numberline {4.4.17}\leavevmode {\color {Chapter }PositionsOfSmallSemigroups}}{45}{subsection.4.4.17}
+\contentsline {subsection}{\numberline {4.4.18}\leavevmode {\color {Chapter }PositionsOfSmallSemisInEnum}}{45}{subsection.4.4.18}
+\contentsline {subsection}{\numberline {4.4.19}\leavevmode {\color {Chapter }PrecomputedSmallSemisInfo}}{45}{subsection.4.4.19}
+\contentsline {subsection}{\numberline {4.4.20}\leavevmode {\color {Chapter }RandomSmallSemigroup}}{46}{subsection.4.4.20}
+\contentsline {subsection}{\numberline {4.4.21}\leavevmode {\color {Chapter }SizesOfSmallSemisInEnum}}{46}{subsection.4.4.21}
+\contentsline {subsection}{\numberline {4.4.22}\leavevmode {\color {Chapter }SizesOfSmallSemisInIter}}{47}{subsection.4.4.22}
+\contentsline {subsection}{\numberline {4.4.23}\leavevmode {\color {Chapter }UpToIsomorphism}}{47}{subsection.4.4.23}
+\contentsline {chapter}{References}{48}{chapter*.5}
+\contentsline {chapter}{Index}{49}{section*.6}
