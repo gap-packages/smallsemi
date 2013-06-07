@@ -9,7 +9,6 @@
 ##
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"properties.tst"));
-
 gap> START_TEST("Smallsemi package: properties.tst");
 gap> info := InfoLevel( InfoSmallsemi );;
 gap> SetInfoLevel( InfoSmallsemi, 0 );
@@ -327,7 +326,7 @@ Group([ (1,2), (3,4) ])
 gap> IdSmallSemigroup(g); 
 [ 4, 7 ]
 gap> s := Range(InjectionZeroMagma(g));
-<monoid with 3 generators>
+<Group([ (1,2), (3,4) ]) with 0 adjoined>
 gap> IdSmallSemigroup(s);
 [ 5, 149 ]
 gap> IsZeroGroup(s);

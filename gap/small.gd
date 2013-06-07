@@ -24,10 +24,9 @@
 ##  <Example>
 ##  gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), 
 ##  > Transformation( [ 1, 2, 3 ] ));;
-##  &lt;semigroup with 2 generators>
 ##  gap> EquivalenceSmallSemigroup(sgrp);
-##SemigroupHomomorphismByImages ( Semigroup( [ Transformation( [ 1, 2, 2 ] ), 
-##    Transformation( [ 1, 2, 3 ] ) ] )->&lt;small semigroup of size 2>)
+##  SemigroupHomomorphismByImages ( Monoid( 
+##  [ Transformation( [ 1, 2, 2 ] ) ] )->&lt;small semigroup of size 2>)
 ##  </Example>
 ##  </Description>
 ##  </ManSection>
@@ -47,7 +46,6 @@ DeclareAttribute("EquivalenceSmallSemigroup", IsSemigroup);
 ##  otherwise an error is signalled.
 ##  <Example>
 ##gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), Transformation( [ 1, 2, 3 ] ));;
-##&lt;semigroup with 2 generators&gt;
 ##gap> IdSmallSemigroup(sgrp);
 ##[ 2, 3 ]
 ##  </Example>
@@ -101,8 +99,7 @@ DeclareInfoClass("InfoSmallsemiEnums");
 ##  &lt;small semigroup of size 5&gt;
 ##  gap> IsSmallSemigroup(sgrp);
 ##  true
-##  gap> sgrp:=Semigroup(Transformation([1]));
-##  &lt;semigroup with 1 generator>
+##  gap> sgrp:=Semigroup(Transformation([1]));;
 ##  gap&gt; IsSmallSemigroup(sgrp);
 ##  false
 ##  </Example>
@@ -164,7 +161,6 @@ IsPositionalObjectRep and IsMultiplicativeElement and IsAssociativeElement and I
 ##  gap> RecoverMultiplicationTable(2,1);
 ##  [ [ 1, 1 ], [ 1, 1 ] ]
 ##  gap> RecoverMultiplicationTable(8,11111111);
-##  #I  Smallsemi: loading data for semigroups of size 8.
 ##  [ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ], 
 ##    [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ], 
 ##    [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ], 
@@ -235,7 +231,6 @@ DeclareGlobalFunction("SemigroupByMultiplicationTableNC");
 ##  with <A>m</A> elements.
 ##  <Example>
 ##  gap> SmallSemigroup(8,1353452);
-##  #I  Smallsemi: loading data for semigroups of size 8.
 ##  &lt;small semigroup of size 8>
 ##  gap> SmallSemigroupNC(5,1); 
 ##  &lt;small semigroup of size 5>

@@ -171,10 +171,10 @@ DeclareAttribute("LStarClasses", IsDStarClass);
 ##
 ##  <#GAPDoc Label="RStarClassAttribute">
 ##  <ManSection>
-##  <Attr Name="RStarClass" Arg='C'/>
-##  <Attr Name="LStarClass" Arg='C'/>
-##  <Attr Name="DStarClass" Arg='C'/>
-##  <Attr Name="JStarClass" Arg='C'/>
+##  <Attr Name="RStarClass" Arg='C' Label="for a Green's *-class"/>
+##  <Attr Name="LStarClass" Arg='C' Label="for a Green's *-class"/>
+##  <Attr Name="DStarClass" Arg='C' Label="for a Green's *-class"/>
+##  <Attr Name="JStarClass" Arg='C' Label="for a Green's *-class"/>
 ##
 ##  <Description>
 ##  are attributes reflecting the natural ordering over the various starred
@@ -214,11 +214,11 @@ DeclareAttribute("JStarClass", IsStarClass);
 ##
 ##  <#GAPDoc Label="RStarClassOperation">
 ##  <ManSection>
-##  <Oper Name="RStarClass" Arg='S, a'/>
-##  <Oper Name="LStarClass" Arg='S, a'/>
-##  <Oper Name="DStarClass" Arg='S, a'/>
-##  <Oper Name="JStarClass" Arg='S, a'/>
-##  <Oper Name="HStarClass" Arg='S, a'/>
+##  <Oper Name="RStarClass" Arg='S, a' Label='for a semigroup and element'/>
+##  <Oper Name="LStarClass" Arg='S, a' Label='for a semigroup and element'/>
+##  <Oper Name="DStarClass" Arg='S, a' Label='for a semigroup and element'/>
+##  <Oper Name="JStarClass" Arg='S, a' Label='for a semigroup and element'/>
+##  <Oper Name="HStarClass" Arg='S, a' Label='for a semigroup and element'/>
 ##
 ##  <Description>
 ##  Creates the <M>X*</M>-class of the element <A>a</A>

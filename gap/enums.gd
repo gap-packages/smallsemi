@@ -259,8 +259,8 @@ DeclareGlobalFunction("EnumeratorSortedOfSmallSemigroups");
 ##  > IsSimpleSemigroup, false);                                              
 ##  [  ]
 ##  gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);  
-##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ],
-##    [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
+##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], 
+##    [ 3, 13 ], [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 ##  </Example> <!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -301,8 +301,8 @@ DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
 ##  gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;                                         
 ##  gap> FuncsOfSmallSemisInEnum(enum);
-## [ &lt;Property "IsRegularSemigroup">, true, &lt;Property "IsSimpleSemigroup">, 
-##    false ]
+##  [ &lt;Property "IsRegularSemigroup">, true, 
+##    &lt;Property "IsSimpleSemigroup">, false ]
 ##  </Example><!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -366,8 +366,8 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 ##  gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;                                        
 ##  gap> FuncsOfSmallSemisInIter(enum);
-##  [ &lt;Property "IsRegularSemigroup">, true, &lt;Property "IsSimpleSemigroup">,
-##    false ]
+##  [ &lt;Property "IsRegularSemigroup">, true, 
+##    &lt;Property "IsSimpleSemigroup">, false ]
 ##  </Example><!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>

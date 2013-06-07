@@ -32,15 +32,20 @@ end);
 # new for 0.6.3! - SmallsemiTestManualExamples - "for no argument"
 #############################################################################
 
+InstallGlobalFunction(SmallsemiManualExamples, 
+function()
+  return ExtractExamples(DirectoriesPackageLibrary("smallsemi","doc"), 
+  "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml",
+   "../gap/enums.gd", "../gap/greensstar.gd", "../gap/properties.gd",
+   "../gap/small.gd", "../gap/autovars.g", "../PackageInfo.g" ], "Single");
+end);
+
 InstallGlobalFunction(SmallsemiTestManualExamples, 
 function()
-  SizeScreen([80]); SetInfoLevel(InfoWarning, 0); 
-  TestManualExamples(DirectoriesPackageLibrary("smallsemi", "doc")[1]![1], 
-                     "smallsemi.xml", 
-                     ["../PackageInfo.g", "data.xml", "examples.xml",
-                      "intro.xml", "../gap/enums.gd", "../gap/greensstar.gd", 
-                      "../gap/properties.gd", "../gap/small.gd",     
-                      "../gap/autovars.g"]);
+  SetInfoLevel(InfoWarning, 0);
+  SetInfoLevel(InfoSmallsemi, 0); 
+  RunExamples(SmallsemiManualExamples());
+  return;
 end);
 
 #EOF

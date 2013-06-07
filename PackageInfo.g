@@ -9,19 +9,19 @@
 ##
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "0.6.6">
-##  <!ENTITY ARCHIVENAME "smallsemi-0.6.6">
+##  <!ENTITY VERSION "0.6.7">
+##  <!ENTITY ARCHIVENAME "smallsemi-0.6.7">
 ##  <#/GAPDoc>
 
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.6",
+Version := "0.6.7",
 Revision := "",
-Date := "24/04/2013",
+Date := "07/06/2013",
 ArchiveURL := 
-  "http://bitbucket.org/zen154115/smallsemi/downloads/smallsemi-0.6.6",
-ArchiveFormats := ".tar.gz .tar.bz2",
+  "http://tinyurl.com/jdmitchell/smallsemi/smallsemi-0.6.7",
+ArchiveFormats := ".tar.gz",
 Persons := [
   rec(LastName      := "Distler",
       FirstNames    := "Andreas",
@@ -73,7 +73,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.5",
+  GAP := ">=4.7",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [["gapdoc",">=1.3"]],
   ExternalConditions := 

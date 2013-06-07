@@ -125,7 +125,7 @@ end);
 ###########################################################################
 
 
-InstallOtherMethod(IsBand, "for a small semigroup",
+InstallMethod(IsBand, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(s)
 
@@ -138,7 +138,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsBrandtSemigroup, "for a small semigroup", 
+InstallMethod(IsBrandtSemigroup, "for a small semigroup", 
 true, [IsSmallSemigroup], 0, 
 function(s)
 
@@ -153,7 +153,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsCliffordSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsCliffordSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
 function(M)
 
 if HasIsInverseSemigroup(M) and not IsInverseSemigroup(M) then 
@@ -176,25 +176,25 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsCommutativeSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
+InstallMethod(IsCommutativeSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(M)
 return IsCommutative(M);
 end);
 
 ###########################################################################
 
-InstallOtherMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
+InstallMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
 [IsSmallSemigroup], IsSimpleSemigroup);
 
-InstallOtherMethod(IsSemiband, "for a small semigroup",
+InstallMethod(IsSemiband, "for a small semigroup",
 [IsSmallSemigroup], IsIdempotentGenerated);
 
-InstallOtherMethod(IsSemilatticeAsSemigroup, "for a small semigroup", 
+InstallMethod(IsSemilatticeAsSemigroup, "for a small semigroup", 
 [IsSmallSemigroup], s-> IsCommutative(s) and IsBand(s));
 
 ###########################################################################
 
-InstallOtherMethod( IsCompletelyRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
+InstallMethod( IsCompletelyRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
 function(M)
 
 if HasIsRegularSemigroup(M) and not IsRegularSemigroup(M) then 
@@ -216,7 +216,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsGroupAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsGroupAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
 function(s)
 local table, id;
 
@@ -238,7 +238,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsIdempotentGenerated, "for a small semigroup", 
+InstallMethod(IsIdempotentGenerated, "for a small semigroup", 
 true, [IsSmallSemigroup], 0, function(S)
 
     # semigroup contains only idempotents
@@ -256,7 +256,7 @@ end);
 ###########################################################################
 #JDM is the `other' required here? 
 
-InstallOtherMethod(IsInverseSemigroup, "for a small semigroup", 
+InstallMethod(IsInverseSemigroup, "for a small semigroup", 
 true, [IsSmallSemigroup], 0,
 function(M)
 local i, j, idem;
@@ -282,7 +282,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsLeftZeroSemigroup, "for a small semigroup", 
+InstallMethod(IsLeftZeroSemigroup, "for a small semigroup", 
 true, [IsSmallSemigroup], 0,
 function(S)
     local table, i, j;
@@ -302,7 +302,7 @@ end);
 
 ###################
 
-InstallOtherMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
 function(S)
 local table, id, pos;
 
@@ -361,7 +361,7 @@ end);
 
 #########################
 
-InstallOtherMethod(Is1GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is1GeneratedSemigroup, "for a small semigroup", true, 
 [IsSmallSemigroup], 0, function(S)
 local out;
 
@@ -718,14 +718,14 @@ end);
 InstallTrueMethod(IsOrthodoxSemigroup,
                   IsSemigroupWithClosedIdempotents and IsRegularSemigroup);
 
-InstallOtherMethod(IsOrthodoxSemigroup, "for a semigroup", [IsSemigroup],
+InstallMethod(IsOrthodoxSemigroup, "for a semigroup", [IsSemigroup],
 function(s)
     return IsSemigroupWithClosedIdempotents(s) and IsRegularSemigroup(s);
 end);
 
 ###########################################################################
 
-InstallOtherMethod(IsRectangularBand, "for a small semigroup", 
+InstallMethod(IsRectangularBand, "for a small semigroup", 
 true, [IsSmallSemigroup], 0,
 function(s)
 return IsBand(s) and IsSimpleSemigroup(s);
@@ -733,7 +733,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
+InstallMethod(IsRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function ( s )
 
 if HasIsCompletelyRegularSemigroup(s) and IsCompletelyRegularSemigroup(s) then 
@@ -753,7 +753,7 @@ end);
 # be applicable to every semigroup with multiplication table
 #
 
-InstallOtherMethod(IsRightZeroSemigroup, "for a small semigroup", 
+InstallMethod(IsRightZeroSemigroup, "for a small semigroup", 
 [IsSmallSemigroup], function(s)
 
     Info(InfoSmallsemi, 1, "Semigroups are stored up to isomorphism ",
@@ -931,7 +931,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod( IsSimpleSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
+InstallMethod( IsSimpleSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
 function(M)
 
 if IsGroupAsSemigroup(M) then 
@@ -961,7 +961,7 @@ end);
 
 #JDM the following method could surely be better
 
-InstallOtherMethod(IsZeroGroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsZeroGroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
 function(s)
 local zero, elts;
 
@@ -978,7 +978,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod(IsZeroSemigroup, "for a small semigroup",
+InstallMethod(IsZeroSemigroup, "for a small semigroup",
 [IsSmallSemigroup], 
 function(s)
     return Length( Unique( Flat(MultiplicationTable(s)))) = 1;
@@ -986,7 +986,7 @@ end);
 
 ###########################################################################
 
-InstallOtherMethod( IsZeroSimpleSemigroup, "for a small semigroup", true, 
+InstallMethod( IsZeroSimpleSemigroup, "for a small semigroup", true, 
 [IsSmallSemigroup], 0,
 function(M)
 local zero;

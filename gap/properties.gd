@@ -44,7 +44,6 @@ DeclareAttribute( "Annihilators", IsSemigroup );
 ##  <A>sgrp</A>.
 ##  <Example>
 ##  gap> s:=SmallSemigroup(8,10101);;
-##  #I  Smallsemi: loading data for semigroups of size 8.
 ##  gap> DiagonalOfMultiplicationTable(s);
 ##  [ 1, 1, 1, 1, 1, 1, 1, 1 ]
 ##  gap> s:=SmallSemigroup(7,10101);;
@@ -91,9 +90,11 @@ DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
 ##  IsZeroSimpleSemigroup:               false
 ##  MinimalGeneratingSet:                [ s3, s4, s5, s6 ]
 ##  Idempotents:                         [ s1, s5, s6 ]
-##  GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+##  GreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {\
+##  s6} ]
 ##  GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
-##  GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
+##  GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {\
+##  s6} ]
 ##  GreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 ##  </Example> <!-- properties.tst --> 
 ##  </Description>
@@ -159,7 +160,6 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsBand", IsSemigroup);
 
 ###########################################################################
 ##
@@ -187,7 +187,6 @@ DeclareProperty("IsBand", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsBrandtSemigroup", IsSemigroup);
 
 
 ###########################################################################
@@ -227,7 +226,6 @@ DeclareProperty("IsBrandtSemigroup", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsCliffordSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -264,7 +262,6 @@ DeclareProperty("IsCliffordSemigroup", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsCommutativeSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -292,7 +289,6 @@ DeclareProperty("IsCommutativeSemigroup", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsCompletelyRegularSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -348,8 +344,6 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsGroupAsSemigroup", IsSemigroup);
-
 ###########################################################################
 ##
 ##  <#GAPDoc Label="IsIdempotentGenerated">
@@ -385,11 +379,6 @@ DeclareProperty("IsGroupAsSemigroup", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-#if not IsBound(IsIdempotentGenerated) then 
-  DeclareProperty("IsIdempotentGenerated", IsSemigroup);
-#fi;
-
-DeclareProperty("IsSemiband", IsSemigroup);
 
 ###########################################################################
 ##
@@ -442,8 +431,6 @@ DeclareProperty("IsSemiband", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsLeftZeroSemigroup", IsSemigroup);
-
 ###########################################################################
 ##
 ##  <#GAPDoc Label="IsMonogenicSemigroup">
@@ -472,7 +459,6 @@ DeclareProperty("IsLeftZeroSemigroup", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsMonogenicSemigroup", IsSemigroup);
 DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 
 ###########################################################################
@@ -501,7 +487,6 @@ DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 ##
-DeclareProperty("IsMonoidAsSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -659,7 +644,6 @@ DeclareProperty("IsNilpotentSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsOrthodoxSemigroup", IsSemigroup );
 
 ###########################################################################
 ##
@@ -684,7 +668,6 @@ DeclareProperty("IsOrthodoxSemigroup", IsSemigroup );
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsRectangularBand", IsSemigroup);
 
 ###########################################################################
 ##
@@ -730,15 +713,12 @@ DeclareProperty("IsRectangularBand", IsSemigroup);
 ##  gap> s:=SmallSemigroup(5, 438);
 ##  &lt;small semigroup of size 5>
 ##  gap> IsRightZeroSemigroup(s);
-##  #I  Semigroups are stored up to isomorphism and anti-isomorphism in Smallsemi
-##  #I  and there are only left zero semigroups in the library.
 ##  false
 ##  </Example> <!-- properties.tst -->
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc> 
 
-DeclareProperty("IsRightZeroSemigroup", IsSemigroup);
 
 ############################################################################
 ##
@@ -851,19 +831,6 @@ DeclareProperty("IsSemigroupWithZero", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-# JDM the above seems more natural but has the disadvantage that 
-# IsCompletelySimplesemigroup does not return a sensible value under
-# NAME_FUNC. A more permanent solution would be to change the functions 
-# in smallsemi to compare the actual functions themselves and not their names.
-
-DeclareProperty("IsCompletelySimpleSemigroup", IsSemigroup);
-InstallTrueMethod(IsCompletelySimpleSemigroup, IsFinite and IsSimpleSemigroup);
-
-#JDM new for 0.7!
-
-DeclareProperty("IsSemilatticeAsSemigroup", IsSemigroup);
-InstallTrueMethod(IsSemilatticeAsSemigroup, IsCommutative and IsBand);
-
 ###########################################################################
 ##
 ##  <#GAPDoc Label="IsSingularSemigroupCopy">
@@ -915,7 +882,7 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 ##  gap> IdSmallSemigroup(g); 
 ##  [ 4, 7 ]
 ##  gap> s := Range(InjectionZeroMagma(g));
-##  &lt;monoid with 3 generators>
+##  &lt;Group([ (1,2), (3,4) ]) with 0 adjoined>
 ##  gap> IdSmallSemigroup(s);
 ##  [ 5, 149 ]
 ##  gap> IsZeroGroup(s);
@@ -965,7 +932,6 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsZeroSemigroup", IsSemigroup);
 
 ###########################################################################
 ##
@@ -1002,7 +968,6 @@ DeclareProperty("IsZeroSemigroup", IsSemigroup);
 ##    returns a set of generators for <A>sgrp</A> with minimal size.
 ##  <Example>
 ##  gap> s:=SmallSemigroup(8, 1478885610);;
-##  #I  smallsemi: loading data for semigroups of size 8.
 ##  gap> MinimalGeneratingSet(s);
 ##  [ s4, s5, s6, s7, s8 ]
 ##  gap> s:=SmallSemigroup(7, 673768);;
@@ -1039,11 +1004,9 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 ##    is nilpotent of rank 3 if and only if <M>n</M> is greater than 11433106.
 ##  <Example>
 ##  gap> s := SmallSemigroup(8, 11433106+1231);;
-##  #I  Smallsemi: loading data for semigroups of size 8.
 ##  gap> NilpotencyRank(s);
 ##  3
 ##  gap> s := SmallSemigroup(8,NrSmallSemigroups(8));;
-##  #I  Smallsemi: loading data for semigroups of size 8.
 ##  gap> NilpotencyRank(s);
 ##  3
 ##  </Example> <!-- properties.tst --> 

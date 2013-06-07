@@ -34,9 +34,10 @@ true
 gap> t1 := Transformation( [ 2, 2, 1 ] );;
 gap> t2 := Transformation( [ 2, 1, 1 ] );;
 gap> sgrp := SemigroupByGenerators([t1,t2]);
-<semigroup with 2 generators>
+<transformation semigroup on 3 pts with 2 generators>
 gap> map := EquivalenceSmallSemigroup(sgrp);
-MappingByFunction( <semigroup with 2 generators>, <small semigroup of size 
+MappingByFunction( <transformation semigroup of size 6, 
+ on 3 pts with 2 generators>, <small semigroup of size 
 6>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
@@ -48,8 +49,7 @@ gap> sgrp:=RandomSmallSemigroup(5);
 <small semigroup of size 5>
 gap> IsSmallSemigroup(sgrp);
 true
-gap> sgrp:=Semigroup(Transformation([1]));
-<semigroup with 1 generator>
+gap> sgrp:=Semigroup(Transformation([1]));;
 gap> IsSmallSemigroup(sgrp);
 false
 gap> IsSmallSemigroupElt(Transformation([1]));

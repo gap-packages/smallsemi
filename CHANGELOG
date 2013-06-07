@@ -9,7 +9,15 @@
 ##
 
 ===============
- Version 0.6.6  (24/05/13)
+ Version 0.6.7  (07/06/13)
+===============
+
+  - a minor release fixing some bugs in the references in the documentation,
+  and moving some declarations of properties and associated true methods to the
+  GAP library to avoid clashes with the forthcoming Semigroups package. 
+
+===============
+ Version 0.6.6  (24/04/13)
 ===============
 
   - added starred Green's relations

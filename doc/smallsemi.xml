@@ -199,7 +199,7 @@ form a subsemigroup.</Item>
 	<#Include Label="NilpotencyRank">
 </Section>
 
-<Section Label="enums"><Heading>Starred Green's relations</Heading>
+<Section Label="star"><Heading>Starred Green's relations</Heading>
 
 	In this section functionality around the starred Green's relations is
         described. The five starred Green's relations are <M>R^*</M>,
