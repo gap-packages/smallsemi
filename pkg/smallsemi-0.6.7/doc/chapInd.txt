@@ -1,0 +1,110 @@
+  
+  
+  [1XIndex[101X
+  
+  [2XAllSmallSemigroups[102X  4.4-1
+  [2XDiagonalOfMultiplicationTable[102X  4.2-1
+  [2XDisplaySmallSemigroup[102X  4.2-2
+  [2XDStarClass[102X (for a semigroup and element)  4.3-3
+  [2XDStarClass[102X (for a Green's *-class)  4.3-4
+  [2XDStarClasses[102X  4.3-6
+  [2XDStarRelation[102X  4.3-2
+  [2XEnumeratorOfSmallSemigroups[102X  4.4-2
+  [2XEnumeratorOfSmallSemigroupsByIds[102X  4.4-3
+  [2XEnumeratorOfSmallSemigroupsByIdsNC[102X  4.4-3
+  [2XEnumeratorSortedOfSmallSemigroups[102X  4.4-4
+  [2XEquivalenceSmallSemigroup[102X  4.1-7
+  [2XFuncsOfSmallSemisInEnum[102X  4.4-5
+  [2XFuncsOfSmallSemisInIter[102X  4.4-6
+  [2XHStarClass[102X (for a semigroup and element)  4.3-3
+  [2XHStarClasses[102X  4.3-6
+  [2XHStarRelation[102X  4.3-2
+  [2XIdSmallSemigroup[102X  4.1-6
+  [2XIdsOfSmallSemigroups[102X  4.4-7
+  [2XIndexPeriod[102X  4.2-3
+  [2XInfoSmallsemi[102X  4.1-8
+  [2XIsBand[102X  4.2-4
+  [2XIsBrandtSemigroup[102X  4.2-5
+  [2XIsCliffordSemigroup[102X  4.2-6
+  [2XIsCommutative[102X  4.2-7
+  [2XIsCommutativeSemigroup[102X  4.2-7
+  [2XIsCompletelyRegularSemigroup[102X  4.2-8
+  [2XIsCompletelySimpleSemigroup[102X  4.2-27
+  [2XIsDStarClass[102X  4.3-5
+  [2XIsDStarRelation[102X  4.3-1
+  [2XIsEnumeratorOfSmallSemigroups[102X  4.4-8
+  [2XIsFullTransformationSemigroupCopy[102X  4.2-9
+  [2XIsGroupAsSemigroup[102X  4.2-10
+  [2XIsHStarClass[102X  4.3-5
+  [2XIsHStarRelation[102X  4.3-1
+  [2XIsIdempotentGenerated[102X  4.2-11
+  [2XIsIdSmallSemigroup[102X  4.4-9
+  [2XIsInverseSemigroup[102X  4.2-12
+  [2XIsIteratorOfSmallSemigroups[102X  4.4-10
+  [2XIsJStarClass[102X  4.3-5
+  [2XIsJStarRelation[102X  4.3-1
+  [2XIsLeftZeroSemigroup[102X  4.2-13
+  [2XIsLStarClass[102X  4.3-5
+  [2XIsLStarRelation[102X  4.3-1
+  [2XIsMonogenicSemigroup[102X  4.2-14
+  [2XIsMonoidAsSemigroup[102X  4.2-15
+  [2XIsMultSemigroupOfNearRing[102X  4.2-16
+  [2XIsNGeneratedSemigroup[102X  4.2-17
+  [2XIsNIdempotentSemigroup[102X  4.2-18
+  [2XIsNilpotent[102X  4.2-19
+  [2XIsNilpotentSemigroup[102X  4.2-19
+  [2XIsOrthodoxSemigroup[102X  4.2-20
+  [2XIsRectangularBand[102X  4.2-21
+  [2XIsRegularSemigroup[102X  4.2-22
+  [2XIsRightZeroSemigroup[102X  4.2-23
+  [2XIsRStarClass[102X  4.3-5
+  [2XIsRStarRelation[102X  4.3-1
+  [2XIsSelfDualSemigroup[102X  4.2-24
+  [2XIsSemiband[102X  4.2-11
+  [2XIsSemigroupWithClosedIdempotents[102X  4.2-25
+  [2XIsSemigroupWithZero[102X  4.2-26
+  [2XIsSimpleSemigroup[102X  4.2-27
+  [2XIsSingularSemigroupCopy[102X  4.2-28
+  [2XIsSmallSemigroup[102X  4.1-2
+  [2XIsSmallSemigroupElt[102X  4.1-3
+  [2XIsStarClass[102X  4.3-5
+  [2XIsStarRelation[102X  4.3-1
+  [2XIsZeroGroup[102X  4.2-29
+  [2XIsZeroSemigroup[102X  4.2-30
+  [2XIsZeroSimpleSemigroup[102X  4.2-31
+  [2XIteratorOfSmallSemigroups[102X  4.4-11
+  [2XJStarClass[102X (for a semigroup and element)  4.3-3
+  [2XJStarClass[102X (for a Green's *-class)  4.3-4
+  [2XJStarClasses[102X  4.3-6
+  [2XJStarRelation[102X  4.3-2
+  [2XLStarClass[102X (for a semigroup and element)  4.3-3
+  [2XLStarClass[102X (for a Green's *-class)  4.3-4
+  [2XLStarClasses[102X  4.3-6
+  [2XLStarRelation[102X  4.3-2
+  [2XMinimalGeneratingSet[102X  4.2-32
+  [2XNamesFuncsSmallSemisInEnum[102X  4.4-12
+  [2XNamesFuncsSmallSemisInIter[102X  4.4-13
+  [2XNilpotencyRank[102X  4.2-33
+  [2XNr3NilpotentSemigroups[102X  4.4-14
+  [2XNrSmallSemigroups[102X  4.4-15
+  [2XOneSmallSemigroup[102X  4.4-16
+  [2XPositionsOfSmallSemigroups[102X  4.4-17
+  [2XPositionsOfSmallSemisInEnum[102X  4.4-18
+  [2XPrecomputedSmallSemisInfo[102X  4.4-19
+  [2XRandomSmallSemigroup[102X  4.4-20
+  [2XRecoverMultiplicationTable[102X  4.1-4
+  [2XRecoverMultiplicationTableNC[102X  4.1-4
+  [2XRStarClass[102X (for a semigroup and element)  4.3-3
+  [2XRStarClass[102X (for a Green's *-class)  4.3-4
+  [2XRStarClasses[102X  4.3-6
+  [2XRStarRelation[102X  4.3-2
+  [2XSemigroupByMultiplicationTableNC[102X  4.1-5
+  [2XSizesOfSmallSemisInEnum[102X  4.4-21
+  [2XSizesOfSmallSemisInIter[102X  4.4-22
+  [2XSmallSemigroup[102X  4.1-1
+  [2XSmallSemigroupNC[102X  4.1-1
+  [2XUnloadSmallsemiData[102X  4.1-9
+  [2XUpToIsomorphism[102X  4.4-23
+  
+  
+  -------------------------------------------------------
