@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  testall.g                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -19,3 +19,5 @@ Test( Filename( DirectoriesPackageLibrary( "smallsemi", "tst" ),
  "enums.tst" ));
 Test( Filename( DirectoriesPackageLibrary( "smallsemi", "tst" ), 
  "greensstar.tst" ));
+Test( Filename( DirectoriesPackageLibrary( "smallsemi", "tst" ), 
+ "coclass.tst" ));

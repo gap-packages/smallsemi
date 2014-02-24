@@ -1,6 +1,6 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                           +
-+   Copyright (C) 2008-2013          Andreas Distler & James D. Mitchell    +
++   Copyright (C) 2008-2014          Andreas Distler & James D. Mitchell    +
 +                                                                           +
 +   'Smallsemi' is free software: you can redistribute it and/or modify     +
 +   it under the terms of the GNU General Public License as published by    +
@@ -54,7 +54,7 @@ semigroups of size 10 is not known at the time of writing.
 --------------
 
 This software is written for GAP 4. It requires an existing installation of
-GAP (see www.gap-system.org) in version 4.5 or higher.
+GAP (see www.gap-system.org) in version 4.7 or higher.
 
 ***operating system***
 The current version of 'Smallsemi' was created for use under Unix. It will
@@ -78,32 +78,31 @@ Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 The installation follows standard GAP rules as outlined in the following
 steps; see Section 74.1 in the reference manual of GAP for further details:
 
-1) Download one of the archives 'smallsemi-x.x.x.tar.gz' or 
-   'smallsemi-x.x.x.tar.bz2' from
+1) Download the archive 'smallsemi-0.6.8.tar.gz' from
 
-       http://www-history.mcs.st-and.ac.uk/~jamesm/smallsemi/index.html
+       http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php
 
 2) Move the archive inside a 'pkg' directory. This can be either the main
    'pkg' directory in your GAP installation or your personal 'pkg' directory.
 
 3) Complete the installation by unpacking the archive, e.g. under Linux type 
 
-       tar -xzf smallsemi-x.x.x.tar.gz
+       tar -xzf smallsemi-0.6.8.tar.gz
 
-   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi'
+   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi-0.6.8'
    will be created inside the 'pkg' directory.
 
 ----------
  Contents
 ----------
 
-After installation the folder 'smallsemi' should contain the subdirectories
+After installation the folder 'smallsemi-0.6.8' should contain the directories
 
     data, doc, gap, and tst 
 
 and the files
 
-    CHANGELOG, GPLv3, init.g, PackageInfo.g, read.g and README.txt
+    CHANGELOG, GPLv3, init.g, PackageInfo.g, read.g and README
 
 ---------
  Loading
@@ -140,7 +139,7 @@ If you find any bugs or have any suggestions or comments, we would
 very much appreciate it if you would let us know. Also, we would like
 to hear about applications of this software.
 
-Andreas Distler and James Mitchell, St Andrews, 24th of April 2013.
+Andreas Distler and James Mitchell, St Andrews, 24th of February 2014.
 
 Andreas Distler
   TU Braunschweig

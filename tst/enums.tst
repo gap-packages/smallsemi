@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  enums.tst                        smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012              Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014              Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -437,7 +437,7 @@ gap> NrSmallSemigroups([2..8], IsCliffordSemigroup, true);
 gap> NrSmallSemigroups(8, IsRegularSemigroup, true, 
 > IsCompletelyRegularSemigroup, false);
 1164
-gap> NrSmallSemigroups(5, NilpotencyRank, 3);
+gap> NrSmallSemigroups(5, NilpotencyDegree, 3);
 84
 gap> OneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
 <small semigroup of size 8>
@@ -446,7 +446,7 @@ gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
 gap> OneSmallSemigroup(8, IsRegularSemigroup, true,  
 > IsCompletelyRegularSemigroup, false);
 <small semigroup of size 8>
-gap> OneSmallSemigroup(6, NilpotencyRank, 3);
+gap> OneSmallSemigroup(6, NilpotencyDegree, 3);
 <small semigroup of size 6>
 gap> iter:=IteratorOfSmallSemigroups([1..8]);
 <iterator of semigroups of sizes [ 1 .. 8 ]>
@@ -501,9 +501,9 @@ gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);;
 gap> RandomSmallSemigroup(8, IsRegularSemigroup, true,
 > IsCompletelyRegularSemigroup, false);
 <small semigroup of size 8>
-gap> RandomSmallSemigroup(6, NilpotencyRank, 3);
+gap> RandomSmallSemigroup(6, NilpotencyDegree, 3);
 <small semigroup of size 6>
-gap> RandomSmallSemigroup(5, NilpotencyRank, 6);
+gap> RandomSmallSemigroup(5, NilpotencyDegree, 6);
 fail
 gap> iter:=IteratorOfSmallSemigroups([1..7]);
 <iterator of semigroups of sizes [ 1 .. 7 ]>
@@ -528,7 +528,7 @@ gap> SMALLSEMI_CONVERT_ARG_NC(5, IsSemigroupWithClosedIdempotents, false);
 [ 5, <Property "IsSemigroupWithoutClosedIdempotents">, true ]
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutative, true);         
 [ 5, <Property "IsCommutative">, true ]
-gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyRank,fail);
+gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyDegree,fail);
 <iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
 false
@@ -541,7 +541,7 @@ gap> for i in iter do
 gap>  IsDoneIterator(iter);NextIterator(iter);
 true
 fail
-gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyRank,2);
+gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyDegree,2);
 <iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
 false
@@ -557,13 +557,13 @@ false
 gap> IsDoneIterator(iter);NextIterator(iter);
 true
 fail
-gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyRank, 5);
+gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyDegree, 5);
 <iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);
 true
 gap> NextIterator(iter);
 fail
-gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyRank, 5);
+gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyDegree, 5);
 <iterator of semigroups of size 4>
 gap> NextIterator(iter);
 fail

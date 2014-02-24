@@ -90,7 +90,7 @@ The tables for semigroups with 2 to 7 elements are stored in the files
 
 For semigroups of size 8 the data is contained in the directories 
 <F>data/data8-3nil</F> and <F>data/data8</F>. The former contains the data
-relating to 3-nilpotent semigroups (see <Ref Prop="NilpotencyRank" />)
+relating to 3-nilpotent semigroups (see <Ref Prop="NilpotencyDegree" />)
 and the latter the data for all the remaining semigroups of size 8.
 <P/>
 

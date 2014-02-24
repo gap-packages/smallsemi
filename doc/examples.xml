@@ -214,7 +214,7 @@ well. As <Ref Oper="IsNilpotentSemigroup"/> is not a precomputed
 property in the current version of <Package>Smallsemi</Package> this
 would take a long time. Here, additional knowledge, about the way the
 semigroups are stored in the library, is helpful. The description of <Ref
-Oper="NilpotencyRank"/> contains information on the IDs of all
+Oper="NilpotencyDegree"/> contains information on the IDs of all
 3-nilpotent semigroups of order 8. We can create an enumerator without
 those semigroups doing the following:
 <Log>

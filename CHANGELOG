@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -9,12 +9,22 @@
 ##
 
 ===============
+ Version 0.6.8  (24/02/14)
+===============
+
+  - replaced NilpotencyRank by NilpotencyDegree
+  - introduced functionality to obtain nilpotent semigroups of coclass 0, 1,
+    and 2 as f.p. semigroups
+  - further adjustments to GAP 4.7 and the new package Semigroups
+
+===============
  Version 0.6.7  (07/06/13)
 ===============
 
   - a minor release fixing some bugs in the references in the documentation,
-  and moving some declarations of properties and associated true methods to the
-  GAP library to avoid clashes with the forthcoming Semigroups package. 
+    and moving some declarations of properties and associated true methods to 
+    the GAP library to avoid clashes with the forthcoming Semigroups package. 
+  - Smallsemi now requires GAP 4.7
 
 ===============
  Version 0.6.6  (24/04/13)

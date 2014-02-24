@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  properties.gi                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -1058,7 +1058,7 @@ end);
 
 ###########################################################################
 
-InstallMethod( NilpotencyRank, "for a small semigroup", [ IsSmallSemigroup ],
+InstallMethod( NilpotencyDegree, "for a small semigroup", [ IsSmallSemigroup ],
 function( S )
     local elms, rank, gens, gen, elm, elmslist;
 
@@ -1298,20 +1298,6 @@ od;
 
 return d;
 end);
-
-###########################################################################
-
-InstallOtherMethod(IsGreensRClass, "for any object", 
-true, [IsObject], 0, ReturnFalse);
-
-InstallOtherMethod(IsGreensLClass, "for any object", 
-true, [IsObject], 0, ReturnFalse);
-
-InstallOtherMethod(IsGreensHClass, "for any object", 
-true, [IsObject], 0, ReturnFalse);
-
-InstallOtherMethod(IsGreensDClass, "for any object",
-true, [IsObject], 0, ReturnFalse);
 
 ##  Method for 'String' missing for Green's classes in the GAP library. AD
 #############################################################################

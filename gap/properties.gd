@@ -1,14 +1,11 @@
 #############################################################################
 ##
 #W  properties.gd                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
-##
-
-## $Id$
 
 ###########################################################################
 ##
@@ -24,7 +21,7 @@
 ##  semigroup.
 ##  <Example>
 ##  gap> s := SmallSemigroup(5,6);
-##  <small semigroup of size 5>
+##  &lt;small semigroup of size 5>
 ##  gap> Annihilators(s);
 ##  [ s1, s2 ]
 ##  </Example> <!-- properties.tst --> 
@@ -985,36 +982,36 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 
 ###########################################################################
 ##
-##  <#GAPDoc Label="NilpotencyRank">
+##  <#GAPDoc Label="NilpotencyDegree">
 ##  <ManSection>
-##  <Attr Name="NilpotencyRank" Arg="sgrp"/>
+##  <Attr Name="NilpotencyDegree" Arg="sgrp"/>
 ##  <Description>
 ##    returns the least <M>n</M> such that every product of <M>n</M> elements
 ##    in the nilpotent semigroup <A>sgrp</A> equals the zero element and
 ##    returns <C>fail</C> if the semigroup <A>sgrp</A> is not nilpotent.
 ##  <Example>
 ##  gap> s := SmallSemigroup(5, 1121);;
-##  gap> NilpotencyRank(s);
+##  gap> NilpotencyDegree(s);
 ##  fail
 ##  gap> s := SmallSemigroup(7, 393450);;
-##  gap> NilpotencyRank(s);
+##  gap> NilpotencyDegree(s);
 ##  3
 ##  </Example> <!-- properties.tst --> 
 ##    Note that for size 8 a semigroup in the library with ID <M>(8,n)</M>
 ##    is nilpotent of rank 3 if and only if <M>n</M> is greater than 11433106.
 ##  <Example>
 ##  gap> s := SmallSemigroup(8, 11433106+1231);;
-##  gap> NilpotencyRank(s);
+##  gap> NilpotencyDegree(s);
 ##  3
 ##  gap> s := SmallSemigroup(8,NrSmallSemigroups(8));;
-##  gap> NilpotencyRank(s);
+##  gap> NilpotencyDegree(s);
 ##  3
 ##  </Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareAttribute("NilpotencyRank", IsSmallSemigroup);
+DeclareAttribute("NilpotencyDegree", IsSmallSemigroup);
 
 #Internal Functions
 ###########################################################################

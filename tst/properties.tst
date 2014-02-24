@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  properties.tst                 Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -72,16 +72,16 @@ gap> s:=SmallSemigroup(7,10101);;
 gap> DiagonalOfMultiplicationTable(s);
 [ 1, 1, 1, 1, 1, 1, 1 ]
 gap> s:=SmallSemigroup(7, 366445);;
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 3
 gap> s:=SmallSemigroup(7, 518897);;
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 4
 gap> s:=SmallSemigroup(8, 11433105+1231);;
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 3
 gap> s:=SmallSemigroup(8,2);;
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 4
 gap> s:=SmallSemigroup(5,116);;
 gap> x:=Elements(s)[3];
@@ -359,10 +359,10 @@ true
 gap> s:=SmallSemigroup(7, 393450);;
 gap> IsNilpotentSemigroup(s);
 true
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 3
 gap> s:=SmallSemigroup(1, 1);;
-gap> NilpotencyRank(s);
+gap> NilpotencyDegree(s);
 1
 gap> enum:=EnumeratorOfSmallSemigroups(4, IsRightZeroSemigroup, true);
 <empty enumerator of semigroups>

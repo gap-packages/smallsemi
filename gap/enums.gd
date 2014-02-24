@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  enums.gd                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -567,7 +567,7 @@ DeclareGlobalFunction("Nr3NilpotentSemigroups");
 ##  gap> NrSmallSemigroups(8, IsRegularSemigroup, true, 
 ##  > IsCompletelyRegularSemigroup, false);
 ##  1164
-##  gap> NrSmallSemigroups(5, NilpotencyRank, 3);
+##  gap> NrSmallSemigroups(5, NilpotencyDegree, 3);
 ##  84
 ##  </Example> <!-- enums.tst -->
 ##  </Description>

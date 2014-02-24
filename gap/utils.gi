@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  utils.gi                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2013            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -15,10 +15,10 @@ InstallGlobalFunction(SmallsemiMakeDoc,
 function()
   MakeGAPDocDoc(Concatenation(PackageInfo("smallsemi")[1]!.
    InstallationPath, "/doc"), "smallsemi.xml",
-   [ "../PackageInfo.g", "data.xml", "examples.xml", "intro.xml",
-     "../gap/enums.gd", "../gap/greensstar.gd", "../gap/properties.gd",
-     "../gap/small.gd", "../gap/autovars.g"],
-   "smallsemi");;
+   [ "../PackageInfo.g", "data.xml", "examples.xml", "intro.xml", 
+     "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
+     "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g"],
+   "smallsemi", "../../..");;
 end);
 
 # new for 0.6.3! - SmallsemiTestAll - "for no argument"
@@ -35,9 +35,10 @@ end);
 InstallGlobalFunction(SmallsemiManualExamples, 
 function()
   return ExtractExamples(DirectoriesPackageLibrary("smallsemi","doc"), 
-  "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml",
-   "../gap/enums.gd", "../gap/greensstar.gd", "../gap/properties.gd",
-   "../gap/small.gd", "../gap/autovars.g", "../PackageInfo.g" ], "Single");
+      "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml", 
+      "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
+      "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g",
+      "../PackageInfo.g" ], "Single");
 end);
 
 InstallGlobalFunction(SmallsemiTestManualExamples, 
