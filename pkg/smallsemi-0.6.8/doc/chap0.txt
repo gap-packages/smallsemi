@@ -1,0 +1,185 @@
+  
+  
+                                   [1X[5XSmallsemi[105X[101X
+  
+  
+                                 [1XA [5XGAP[105X package[101X
+  
+  
+                                 Version 0.6.8
+  
+  
+                                Andreas Distler
+  
+                                 J. D. Mitchell
+  
+  
+  
+  Andreas Distler
+      Email:    [7Xmailto:a.distler@tu-bs.de[107X
+      Address:  [33X[0;14YInstitut Computational Mathematics[133X
+                [33X[0;14YRebenring 31 (A14)[133X
+                [33X[0;14Y38106 Braunschweig[133X
+                [33X[0;14YGermany[133X
+  
+  
+  J. D. Mitchell
+      Email:    [7Xmailto:jdm3@st-and.ac.uk[107X
+      Homepage: [7Xhttp://www-groups.mcs.st-and.ac.uk/~jamesm[107X
+      Address:  [33X[0;14YMathematical Institute[133X
+                [33X[0;14YNorth Haugh[133X
+                [33X[0;14YSt Andrews, Fife[133X
+                [33X[0;14YKY16 9SS[133X
+                [33X[0;14YScotland, UK[133X
+  
+  
+  
+  -------------------------------------------------------
+  [1XCopyright[101X
+  [33X[0;0Y© 2008-14 A. Distler & J. D. Mitchell.[133X
+  
+  [33X[0;0Y[5XSmallsemi[105X  is  free software: you can redistribute it and/or modify it under
+  the  terms  of  the  GNU  General  Public  License  as published by the Free
+  Software  Foundation,  either  version 3 of the license, or (at your option)
+  any later version.[133X
+  
+  [33X[0;0Y[5XSmallsemi[105X is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY;  without  even  the implied warranty of MERCHANTABILITY or FITNESS
+  FOR  A  PARTICULAR  PURPOSE.  See  the  GNU  General Public License for more
+  details.[133X
+  
+  [33X[0;0YA  copy  of the GNU General Public License is available in the file 'GPLv3';
+  for the latest version see`http://www.gnu.org/licenses/.[133X
+  
+  [33X[0;0YThis file is part of [5XSmallsemi[105X, though as documentation it is released under
+  the         GNU         Free        Documentation        License        (see
+  [7Xhttp://www.gnu.org/licenses/licenses.html#FDL[107X).[133X
+  
+  
+  -------------------------------------------------------
+  [1XAcknowledgements[101X
+  [33X[0;0YWe  would  like  to  thank  Tom  Kelsey  for making this library possible by
+  running all the initial computations in Minion [GJM06].[133X
+  [33X[0;0YThe  first  author  acknowledges  financial  support of the University of St
+  Andrews.  The  second  author  acknowledges  support  of  EPSRC grant number
+  GR/S/56085/01.[133X
+  
+  
+  -------------------------------------------------------
+  [1XColophon[101X
+  [33X[0;0YIf   you   use   [5XSmallsemi[105X,   please   tell   us  by  sending  an  email  to
+  [7Xmailto:a.distler@tu-bs.de[107X or [7Xmailto:jdm3@st-and.ac.uk[107X.[133X
+  
+  [33X[0;0YIf you find any bugs or have any suggestions or comments, we would very much
+  appreciate  it  if  you would let us know. Also, we would like to hear about
+  applications of this software.[133X
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (smallsemi)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+    1.1 [33X[0;0YRequirements[133X
+      1.1-1 [33X[0;0YOperating System[133X
+      1.1-2 [33X[0;0YRAM[133X
+      1.1-3 [33X[0;0YDisk Space[133X
+    1.2 [33X[0;0YInstallation and Setup[133X
+      1.2-1 [33X[0;0YDownload and Extract [5XSmallsemi[105X[133X
+      1.2-2 [33X[0;0YContents[133X
+      1.2-3 [33X[0;0YLoading[133X
+      1.2-4 [33X[0;0YMemory Issues[133X
+      1.2-5 [33X[0;0YTesting[133X
+      1.2-6 [33X[0;0YCustomizing[133X
+  2 [33X[0;0YThe Data in the Library[133X
+    2.1 [33X[0;0YCreation of the Semigroups[133X
+    2.2 [33X[0;0YStoring the Semigroups[133X
+  3 [33X[0;0YExtended Examples[133X
+    3.1 [33X[0;0YLists, Enumerators and Iterators of Semigroups[133X
+      3.1-1 [33X[0;0YPrecomputed properties[133X
+      3.1-2 [33X[0;0YUser functions[133X
+      3.1-3 [33X[0;0YSemigroups of order 8[133X
+    3.2 [33X[0;0YIdentifying Semigroups[133X
+  4 [33X[0;0YFunctionality[133X
+    4.1 [33X[0;0YIndividual Semigroups[133X
+      4.1-1 SmallSemigroup
+      4.1-2 IsSmallSemigroup
+      4.1-3 IsSmallSemigroupElt
+      4.1-4 RecoverMultiplicationTable
+      4.1-5 SemigroupByMultiplicationTableNC
+      4.1-6 IdSmallSemigroup
+      4.1-7 EquivalenceSmallSemigroup
+      4.1-8 InfoSmallsemi
+      4.1-9 UnloadSmallsemiData
+    4.2 [33X[0;0YProperties of Semigroups[133X
+      4.2-1 Annihilators
+      4.2-2 DiagonalOfMultiplicationTable
+      4.2-3 DisplaySmallSemigroup
+      4.2-4 IndexPeriod
+      4.2-5 IsBand
+      4.2-6 IsBrandtSemigroup
+      4.2-7 IsCliffordSemigroup
+      4.2-8 IsCommutativeSemigroup
+      4.2-9 IsCompletelyRegularSemigroup
+      4.2-10 IsFullTransformationSemigroupCopy
+      4.2-11 IsGroupAsSemigroup
+      4.2-12 [33X[0;0YIsIdempotentGenerated[133X
+      4.2-13 IsInverseSemigroup
+      4.2-14 IsLeftZeroSemigroup
+      4.2-15 IsMonogenicSemigroup
+      4.2-16 IsMonoidAsSemigroup
+      4.2-17 IsMultSemigroupOfNearRing
+      4.2-18 IsNGeneratedSemigroup
+      4.2-19 IsNIdempotentSemigroup
+      4.2-20 [33X[0;0YIsNilpotentSemigroup[133X
+      4.2-21 IsOrthodoxSemigroup
+      4.2-22 IsRectangularBand
+      4.2-23 IsRegularSemigroup
+      4.2-24 IsRightZeroSemigroup
+      4.2-25 IsSelfDualSemigroup
+      4.2-26 IsSemigroupWithClosedIdempotents
+      4.2-27 IsSemigroupWithZero
+      4.2-28 [33X[0;0YIsSimpleSemigroup[133X
+      4.2-29 IsSingularSemigroupCopy
+      4.2-30 IsZeroGroup
+      4.2-31 IsZeroSemigroup
+      4.2-32 IsZeroSimpleSemigroup
+      4.2-33 MinimalGeneratingSet
+      4.2-34 NilpotencyDegree
+    4.3 [33X[0;0YNilpotent semigroups by coclass[133X
+      4.3-1 NilpotentSemigroupsByCoclass
+    4.4 [33X[0;0YStarred Green's relations[133X
+      4.4-1 IsStarRelation
+      4.4-2 RStarRelation
+      4.4-3 RStarClass
+      4.4-4 RStarClass
+      4.4-5 IsStarClass
+      4.4-6 RStarClasses
+    4.5 [33X[0;0YFamilies of Semigroups[133X
+      4.5-1 AllSmallSemigroups
+      4.5-2 EnumeratorOfSmallSemigroups
+      4.5-3 EnumeratorOfSmallSemigroupsByIds
+      4.5-4 EnumeratorSortedOfSmallSemigroups
+      4.5-5 FuncsOfSmallSemisInEnum
+      4.5-6 FuncsOfSmallSemisInIter
+      4.5-7 IdsOfSmallSemigroups
+      4.5-8 IsEnumeratorOfSmallSemigroups
+      4.5-9 IsIdSmallSemigroup
+      4.5-10 IsIteratorOfSmallSemigroups
+      4.5-11 IteratorOfSmallSemigroups
+      4.5-12 NamesFuncsSmallSemisInEnum
+      4.5-13 NamesFuncsSmallSemisInIter
+      4.5-14 Nr3NilpotentSemigroups
+      4.5-15 NrSmallSemigroups
+      4.5-16 OneSmallSemigroup
+      4.5-17 PositionsOfSmallSemigroups
+      4.5-18 PositionsOfSmallSemisInEnum
+      4.5-19 PrecomputedSmallSemisInfo
+      4.5-20 RandomSmallSemigroup
+      4.5-21 SizesOfSmallSemisInEnum
+      4.5-22 SizesOfSmallSemisInIter
+      4.5-23 UpToIsomorphism
+  
+  
+  [32X

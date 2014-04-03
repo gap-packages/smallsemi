@@ -1,0 +1,156 @@
+\begin{theindex}
+
+  \item \texttt  {AllSmallSemigroups}, \hyperpage{38}
+  \item \texttt  {Annihilators}, \hyperpage{21}
+
+  \indexspace
+
+  \item \texttt  {DiagonalOfMultiplicationTable}, \hyperpage{21}
+  \item \texttt  {DisplaySmallSemigroup}, \hyperpage{21}
+  \item \texttt  {DStarClass}
+    \subitem for a Green's *-class, \hyperpage{36}
+    \subitem for a semigroup and element, \hyperpage{35}
+  \item \texttt  {DStarClasses}, \hyperpage{36}
+  \item \texttt  {DStarRelation}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {EnumeratorOfSmallSemigroups}, \hyperpage{39}
+  \item \texttt  {EnumeratorOfSmallSemigroupsByIds}, \hyperpage{40}
+  \item \texttt  {EnumeratorOfSmallSemigroupsByIdsNC}, \hyperpage{40}
+  \item \texttt  {EnumeratorSortedOfSmallSemigroups}, \hyperpage{40}
+  \item \texttt  {EquivalenceSmallSemigroup}, \hyperpage{19}
+
+  \indexspace
+
+  \item \texttt  {FuncsOfSmallSemisInEnum}, \hyperpage{40}
+  \item \texttt  {FuncsOfSmallSemisInIter}, \hyperpage{41}
+
+  \indexspace
+
+  \item \texttt  {HStarClass}
+    \subitem for a semigroup and element, \hyperpage{35}
+  \item \texttt  {HStarClasses}, \hyperpage{36}
+  \item \texttt  {HStarRelation}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {IdSmallSemigroup}, \hyperpage{19}
+  \item \texttt  {IdsOfSmallSemigroups}, \hyperpage{41}
+  \item \texttt  {IndexPeriod}, \hyperpage{22}
+  \item \texttt  {InfoSmallsemi}, \hyperpage{20}
+  \item \texttt  {IsBand}, \hyperpage{22}
+  \item \texttt  {IsBrandtSemigroup}, \hyperpage{23}
+  \item \texttt  {IsCliffordSemigroup}, \hyperpage{23}
+  \item \texttt  {IsCommutative}, \hyperpage{24}
+  \item \texttt  {IsCommutativeSemigroup}, \hyperpage{24}
+  \item \texttt  {IsCompletelyRegularSemigroup}, \hyperpage{24}
+  \item \texttt  {IsCompletelySimpleSemigroup}, \hyperpage{31}
+  \item \texttt  {IsDStarClass}, \hyperpage{36}
+  \item \texttt  {IsDStarRelation}, \hyperpage{35}
+  \item \texttt  {IsEnumeratorOfSmallSemigroups}, \hyperpage{41}
+  \item \texttt  {IsFullTransformationSemigroupCopy}, \hyperpage{24}
+  \item \texttt  {IsGroupAsSemigroup}, \hyperpage{25}
+  \item \texttt  {IsHStarClass}, \hyperpage{36}
+  \item \texttt  {IsHStarRelation}, \hyperpage{35}
+  \item \texttt  {IsIdempotentGenerated}, \hyperpage{25}
+  \item \texttt  {IsIdSmallSemigroup}, \hyperpage{42}
+  \item \texttt  {IsInverseSemigroup}, \hyperpage{26}
+  \item \texttt  {IsIteratorOfSmallSemigroups}, \hyperpage{42}
+  \item \texttt  {IsJStarClass}, \hyperpage{36}
+  \item \texttt  {IsJStarRelation}, \hyperpage{35}
+  \item \texttt  {IsLeftZeroSemigroup}, \hyperpage{26}
+  \item \texttt  {IsLStarClass}, \hyperpage{36}
+  \item \texttt  {IsLStarRelation}, \hyperpage{35}
+  \item \texttt  {IsMonogenicSemigroup}, \hyperpage{26}
+  \item \texttt  {IsMonoidAsSemigroup}, \hyperpage{27}
+  \item \texttt  {IsMultSemigroupOfNearRing}, \hyperpage{27}
+  \item \texttt  {IsNGeneratedSemigroup}, \hyperpage{28}
+  \item \texttt  {IsNIdempotentSemigroup}, \hyperpage{28}
+  \item \texttt  {IsNilpotent}, \hyperpage{28}
+  \item \texttt  {IsNilpotentSemigroup}, \hyperpage{28}
+  \item \texttt  {IsOrthodoxSemigroup}, \hyperpage{29}
+  \item \texttt  {IsRectangularBand}, \hyperpage{29}
+  \item \texttt  {IsRegularSemigroup}, \hyperpage{29}
+  \item \texttt  {IsRightZeroSemigroup}, \hyperpage{30}
+  \item \texttt  {IsRStarClass}, \hyperpage{36}
+  \item \texttt  {IsRStarRelation}, \hyperpage{35}
+  \item \texttt  {IsSelfDualSemigroup}, \hyperpage{30}
+  \item \texttt  {IsSemiband}, \hyperpage{25}
+  \item \texttt  {IsSemigroupWithClosedIdempotents}, \hyperpage{30}
+  \item \texttt  {IsSemigroupWithZero}, \hyperpage{30}
+  \item \texttt  {IsSimpleSemigroup}, \hyperpage{31}
+  \item \texttt  {IsSingularSemigroupCopy}, \hyperpage{31}
+  \item \texttt  {IsSmallSemigroup}, \hyperpage{17}
+  \item \texttt  {IsSmallSemigroupElt}, \hyperpage{18}
+  \item \texttt  {IsStarClass}, \hyperpage{36}
+  \item \texttt  {IsStarRelation}, \hyperpage{35}
+  \item \texttt  {IsZeroGroup}, \hyperpage{32}
+  \item \texttt  {IsZeroSemigroup}, \hyperpage{32}
+  \item \texttt  {IsZeroSimpleSemigroup}, \hyperpage{33}
+  \item \texttt  {IteratorOfSmallSemigroups}, \hyperpage{42}
+
+  \indexspace
+
+  \item \texttt  {JStarClass}
+    \subitem for a Green's *-class, \hyperpage{36}
+    \subitem for a semigroup and element, \hyperpage{35}
+  \item \texttt  {JStarClasses}, \hyperpage{36}
+  \item \texttt  {JStarRelation}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {LStarClass}
+    \subitem for a Green's *-class, \hyperpage{36}
+    \subitem for a semigroup and element, \hyperpage{35}
+  \item \texttt  {LStarClasses}, \hyperpage{36}
+  \item \texttt  {LStarRelation}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {MinimalGeneratingSet}, \hyperpage{33}
+
+  \indexspace
+
+  \item \texttt  {NamesFuncsSmallSemisInEnum}, \hyperpage{43}
+  \item \texttt  {NamesFuncsSmallSemisInIter}, \hyperpage{43}
+  \item \texttt  {NilpotencyDegree}, \hyperpage{33}
+  \item \texttt  {NilpotentSemigroupsByCoclass}, \hyperpage{34}
+  \item \texttt  {Nr3NilpotentSemigroups}, \hyperpage{44}
+  \item \texttt  {NrSmallSemigroups}, \hyperpage{44}
+
+  \indexspace
+
+  \item \texttt  {OneSmallSemigroup}, \hyperpage{45}
+
+  \indexspace
+
+  \item \texttt  {PositionsOfSmallSemigroups}, \hyperpage{45}
+  \item \texttt  {PositionsOfSmallSemisInEnum}, \hyperpage{46}
+  \item \texttt  {PrecomputedSmallSemisInfo}, \hyperpage{46}
+
+  \indexspace
+
+  \item \texttt  {RandomSmallSemigroup}, \hyperpage{47}
+  \item \texttt  {RecoverMultiplicationTable}, \hyperpage{18}
+  \item \texttt  {RecoverMultiplicationTableNC}, \hyperpage{18}
+  \item \texttt  {RStarClass}
+    \subitem for a Green's *-class, \hyperpage{36}
+    \subitem for a semigroup and element, \hyperpage{35}
+  \item \texttt  {RStarClasses}, \hyperpage{36}
+  \item \texttt  {RStarRelation}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {SemigroupByMultiplicationTableNC}, \hyperpage{19}
+  \item \texttt  {SizesOfSmallSemisInEnum}, \hyperpage{47}
+  \item \texttt  {SizesOfSmallSemisInIter}, \hyperpage{47}
+  \item \texttt  {SmallSemigroup}, \hyperpage{17}
+  \item \texttt  {SmallSemigroupNC}, \hyperpage{17}
+
+  \indexspace
+
+  \item \texttt  {UnloadSmallsemiData}, \hyperpage{20}
+  \item \texttt  {UpToIsomorphism}, \hyperpage{48}
+
+\end{theindex}

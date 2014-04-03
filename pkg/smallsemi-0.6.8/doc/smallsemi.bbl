@@ -1,0 +1,64 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{THA{\etalchar{+}}55}
+
+\bibitem[BEO02]{smallgroups}
+H.~U. Besche, B.~Eick, and E.~A. O'Brien.
+\newblock {\em {The Small Groups Library - a GAP package}}, 2002.
+
+\bibitem[Dis10]{Dis10}
+A.~Distler.
+\newblock {\em Classification and Enumeration of finite Semigroups}.
+\newblock PhD thesis, St Andrews University, 2010.
+
+\bibitem[Dis14]{Dis14}
+Andreas Distler.
+\newblock Finite nilpotent semigroups of small coclass.
+\newblock {\em Communications in Algebra}, 42(3):1136--1150, 2014.
+
+\bibitem[DMU13]{DMU13}
+Andreas Distler, Victor Maltcev, and Abdullahi Umar.
+\newblock {J}*={D}* need not hold in finite semigroups.
+\newblock {\em submitted}, 2013.
+\newblock http://arxiv.org/abs/1302.0985.
+
+\bibitem[For55]{For55}
+George~E. Forsythe.
+\newblock S{WAC} computes {$126$} distinct semigroups of order {$4$}.
+\newblock {\em Proc. Amer. Math. Soc.}, 6:443--447, 1955.
+
+\bibitem[GJM06]{minion}
+Ian~P. Gent, Christopher Jefferson, and Ian Miguel.
+\newblock Minion: A fast scalable constraint solver.
+\newblock In Gerhard Brewka, Silvia Coradeschi, Anna Perini, and Paolo
+  Traverso, editors, {\em The European Conference on Artificial Intelligence
+  2006 (ECAI 06)}, pages 98--102. IOS Press, 2006.
+
+\bibitem[JW77]{JW77}
+H.~J{\"u}rgensen and P.~Wick.
+\newblock Die {H}albgruppen der {O}rdnungen {$\leq 7$}.
+\newblock {\em Semigroup Forum}, 14(1):69--79, 1977.
+
+\bibitem[Ple67]{Ple67}
+Robert~J. Plemmons.
+\newblock There are {${\rm 15973}$} semigroups of order {${\rm 6}$}.
+\newblock {\em Math. Algorithms}, 2:2--17, 1967.
+
+\bibitem[SYT94]{SZT94}
+S.~Satoh, K.~Yama, and M.~Tokizawa.
+\newblock Semigroups of order {$8$}.
+\newblock {\em Semigroup Forum}, 49(1):7--29, 1994.
+
+\bibitem[Tam54]{tamura2}
+Takayuki Tamura.
+\newblock Notes on finite semigroups and determination of semigroups of order
+  {$4$}.
+\newblock {\em J. Gakugei. Tokushima Univ. Math.}, 5:17--27, 1954.
+
+\bibitem[THA{\etalchar{+}}55]{tamura1}
+Kazutoshi Tetsuya, Takao Hashimoto, Tadao Akazawa, Ryoichi Shibata, Tadashi
+  Inui, and Takayuki Tamura.
+\newblock All semigroups of order at most {$5$}.
+\newblock {\em J. Gakugei Tokushima Univ. Nat. Sci. Math.}, 6:19--39. Errata on
+  loose, unpaginated sheet, 1955.
+
+\end{thebibliography}
