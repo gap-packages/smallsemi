@@ -8,45 +8,50 @@
 #############################################################################
 ##
 
-# new for 0.6.3! - SmallsemiMakeDoc - "for no argument"
-#############################################################################
-
-InstallGlobalFunction(SmallsemiMakeDoc, 
+InstallGlobalFunction(SmallsemiMakeDoc,
 function()
   MakeGAPDocDoc(Concatenation(PackageInfo("smallsemi")[1]!.
    InstallationPath, "/doc"), "smallsemi.xml",
-   [ "../PackageInfo.g", "data.xml", "examples.xml", "intro.xml", 
+   [ "../PackageInfo.g", "data.xml", "examples.xml", "intro.xml",
      "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
      "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g"],
    "smallsemi", "../../..");;
 end);
 
-# new for 0.6.3! - SmallsemiTestAll - "for no argument"
-#############################################################################
-
-InstallGlobalFunction(SmallsemiTestAll, 
+InstallGlobalFunction(SmallsemiTestAll,
 function()
+  local record;
+  record := rec();
+  record.InfoWarningLevel := InfoLevel(InfoWarning);
+  SetInfoLevel(InfoWarning, 0);
   Read(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"testall.g"));;
+  SetInfoLevel(InfoWarning, record.InfoWarningLevel);
+  return;
 end);
 
-# new for 0.6.3! - SmallsemiTestManualExamples - "for no argument"
-#############################################################################
-
-InstallGlobalFunction(SmallsemiManualExamples, 
+InstallGlobalFunction(SmallsemiManualExamples,
 function()
-  return ExtractExamples(DirectoriesPackageLibrary("smallsemi","doc"), 
-      "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml", 
+  return ExtractExamples(DirectoriesPackageLibrary("smallsemi","doc"),
+      "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml",
       "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
       "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g",
       "../PackageInfo.g" ], "Single");
 end);
 
-InstallGlobalFunction(SmallsemiTestManualExamples, 
+InstallGlobalFunction(SmallsemiTestManualExamples,
 function()
+  local record;
+
+  record := rec();
+  record.InfoWarningLevel := InfoLevel(InfoWarning);
+  record.InfoSmallsemiLevel := InfoLevel(InfoSmallsemi);
+
   SetInfoLevel(InfoWarning, 0);
-  SetInfoLevel(InfoSmallsemi, 0); 
+  SetInfoLevel(InfoSmallsemi, 0);
+
   RunExamples(SmallsemiManualExamples());
+
+  SetInfoLevel(InfoWarning, record.InfoWarningLevel);
+  SetInfoLevel(InfoSmallsemi, record.InfoSmallsemiLevel);
   return;
 end);
-
-#EOF

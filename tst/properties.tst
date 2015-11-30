@@ -390,19 +390,21 @@ true
 gap> s:=OneSmallSemigroup(7, IsRectangularBand, true);
 <small semigroup of size 7>
 gap> GreensDClasses(s);
-[ {s1} ]
+[ <Green's D-class: s1> ]
 gap> Elements(last[1]);
 [ s1, s2, s3, s4, s5, s6, s7 ]
 gap> GreensHClasses(s);
-[ {s1}, {s2}, {s3}, {s4}, {s5}, {s6}, {s7} ]
+[ <Green's H-class: s1>, <Green's H-class: s2>, <Green's H-class: s3>, 
+  <Green's H-class: s4>, <Green's H-class: s5>, <Green's H-class: s6>, 
+  <Green's H-class: s7> ]
 gap> List(last, Elements);
 [ [ s1 ], [ s2 ], [ s3 ], [ s4 ], [ s5 ], [ s6 ], [ s7 ] ]
 gap> s:=OneSmallSemigroup(7, IsGroupAsSemigroup, true);
 <small semigroup of size 7>
 gap> h:=GreensHClasses(s);
-[ {s1} ]
+[ <Green's H-class: s1> ]
 gap> Elements(h);
-[ {s1} ]
+[ <Green's H-class: s1> ]
 gap> Elements(last[1]);
 [ s1, s2, s3, s4, s5, s6, s7 ]
 gap> s:=SmallSemigroup(5,519);;

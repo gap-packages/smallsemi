@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  PackageInfo.g                  Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2015            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -9,18 +9,17 @@
 ##
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "0.6.8">
-##  <!ENTITY ARCHIVENAME "smallsemi-0.6.8">
+##  <!ENTITY VERSION "0.6.9">
+##  <!ENTITY ARCHIVENAME "smallsemi-0.6.9">
 ##  <#/GAPDoc>
 
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.8",
-Revision := "",
-Date := "24/02/2014",
-ArchiveURL := 
-  "http://tinyurl.com/jdmitchell/smallsemi/smallsemi-0.6.8",
+Version := "0.6.9",
+Date := "30/11/2015",
+ArchiveURL :=
+  "http://tinyurl.com/jdmitchell/smallsemi/smallsemi-0.6.9",
 ArchiveFormats := ".tar.gz",
 Persons := [
   rec(LastName      := "Distler",
@@ -29,12 +28,12 @@ Persons := [
       IsMaintainer  := true,
       Email         := "a.distler@tu-bs.de",
       PostalAddress := Concatenation( [
-                       "AG Algebra und Diskrete Mathematik\n", 
+                       "AG Algebra und Diskrete Mathematik\n",
                        "TU Braunschweig\n", "Rebenring 31 (A14)\n",
                        "38106 Braunschweig\n", "Germany"] ),
       Place         := "Braunschweig",
       Institution   := "Technische Universität Braunschweig"),
-  rec( 
+  rec(
       LastName      := "Mitchell",
       FirstNames    := "James",
       IsAuthor      := true,
@@ -42,7 +41,7 @@ Persons := [
       Email         := "jdm3@st-and.ac.uk",
       WWWHome       := "http://tinyurl.com/jdmitchell",
       PostalAddress := Concatenation( [
-                       "Mathematical Institute\n", "North Haugh\n", 
+                       "Mathematical Institute\n", "North Haugh\n",
                        "St Andrews\n", "Fife\n", "KY16 9SS\n", "Scotland"] ),
       Place         := "St Andrews",
       Institution   := "University of St Andrews"
@@ -50,9 +49,9 @@ Persons := [
 ],
 Status := "deposited",
 
-README_URL := 
+README_URL :=
   "http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi/README.txt",
-PackageInfoURL := 
+PackageInfoURL :=
   "http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi/PackageInfo.g",
 
 AbstractHTML :=
@@ -61,12 +60,12 @@ AbstractHTML :=
    as various information about these objects.",
 
 PackageWWWHome := "http://www-groups.mcs.st-and.ac.uk/~jamesm/smallsemi/",
-               
+
 PackageDoc := rec(
   BookName  := "Smallsemi",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
-  PDFFile   := "doc/manual.pdf",  
+  PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "a library of small semigroups",
   Autoload  := true
@@ -76,12 +75,12 @@ Dependencies := rec(
   GAP := ">=4.7",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [["gapdoc",">=1.3"]],
-  ExternalConditions := 
+  ExternalConditions :=
    ["gzip is needed in standard location if data files are used uncompressed"]),
 AvailabilityTest := ReturnTrue,
-BannerString := Concatenation( 
-  ListWithIdenticalEntries(SizeScreen()[1]-3, '-'), "\n", ~.PackageName, 
-  " -   ", ~.Subtitle, "\n", 
+BannerString := Concatenation(
+  ListWithIdenticalEntries(SizeScreen()[1]-3, '-'), "\n", ~.PackageName,
+  " -   ", ~.Subtitle, "\n",
   "by ", ~.Persons[1].FirstNames, " ", ~.Persons[1].LastName,
   " & " , ~.Persons[2].FirstNames, " ", ~.Persons[2].LastName, "\n",
   "For contents, type: ?Smallsemi:\n" ,

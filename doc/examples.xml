@@ -336,7 +336,7 @@ One could try to circumvent the described problem by using a iterator.
 The command
 <Example>
 gap> iter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);
-&lt;iterator of semigroups of size 8>
+&lt;iterator>
 </Example>
 will succeed. But running through the elements in the iterator can take
 a long time since the precomputed information is not

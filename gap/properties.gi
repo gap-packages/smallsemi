@@ -189,7 +189,7 @@ InstallMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
 InstallMethod(IsSemiband, "for a small semigroup",
 [IsSmallSemigroup], IsIdempotentGenerated);
 
-InstallMethod(IsSemilatticeAsSemigroup, "for a small semigroup", 
+InstallMethod(IsSemilattice, "for a small semigroup", 
 [IsSmallSemigroup], s-> IsCommutative(s) and IsBand(s));
 
 ###########################################################################
@@ -223,7 +223,10 @@ local table, id;
 id:=IdSmallSemigroup(s);
 
 table:=ShallowCopy(MultiplicationTable(s));
-return ForAll(table, x-> AsSet(x)=[1..Size(s)]) and ForAll(TransposedMat(table), x-> AsSet(x)=[1..Size(s)]);
+if not (ForAll(table, x-> AsSet(x)=[1..Size(s)])
+    and ForAll(TransposedMat(table), x-> AsSet(x)=[1..Size(s)])) then
+  return false;
+fi;
 
 SetIsRegularSemigroup(s, true);
 SetIsSimpleSemigroup(s, true);
@@ -234,6 +237,7 @@ if Size(s)>1 then
 else
 	SetIsRectangularBand(s, true);
 fi;
+return true;
 end);
 
 ###########################################################################
@@ -1379,7 +1383,7 @@ InstallValue(SMALLSEMI_EQUIV, [
 [[IsSemigroupWithClosedIdempotents, true],
 [IsSemigroupWithoutClosedIdempotents, false]],
 
-[[IsSemilatticeAsSemigroup, true],
+[[IsSemilattice, true],
 [IsBand, true, IsCommutative, true]],
 
 #JDM see comment in the NV note about the four below. Waiting for 

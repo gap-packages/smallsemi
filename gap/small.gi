@@ -13,12 +13,12 @@
 ###########################################################################
 ##
 #M  EquivalenceSmallSemigroup( S );
-##	
+##
 ##  returns an isomorphism to a semigroup from the library if such exists
-##  and an anti-isomorphism otherwise 
+##  and an anti-isomorphism otherwise
 ##
 
-InstallMethod( EquivalenceSmallSemigroup, "for a 'small semigroup'", 
+InstallMethod( EquivalenceSmallSemigroup, "for a 'small semigroup'",
 [IsSmallSemigroup], sgrp -> IdentityMapping( sgrp ));
 
 InstallMethod( EquivalenceSmallSemigroup, "for a semigroup", [IsSemigroup],
@@ -31,7 +31,7 @@ function( S )
     LitNum := function(ln, n)
         return [QuoInt(ln-1,n^2)+1,QuoInt((ln-1) mod n^2,n)+1,(ln-1) mod n+1];
     end;
- 
+
     NumLit := function(lit,n)
         # lit = [ row, col, val ]
         return (lit[1]-1)*n^2 + (lit[2]-1)*n + lit[3];
@@ -84,7 +84,7 @@ function( S )
             od;
         fi;
 
-        return true;               
+        return true;
     end;
 
     BinInt := function( str, bas )
@@ -111,7 +111,7 @@ function( S )
             Add( mat, line{[ 1+(i-1)*ord .. i*ord ]} );
         od;
 
-        return mat; 
+        return mat;
     end;
 
     if Size( S ) > 8 then
@@ -186,7 +186,7 @@ function( S )
             strlist := List( strlist, st -> st{[offset+1..Length(st)]});
             # translate table to string
             line := Concatenation(List( Flat( mt-1 ), int -> String(int)));
-            # first entry is always equal 1 and thus not stored 
+            # first entry is always equal 1 and thus not stored
             Remove( line, 1 );
         else
             strlist := DATA8[pos];
@@ -225,8 +225,8 @@ function( S )
     else
         pos := 1;
         for i in [ 1..Length( line ) ] do
-            while IsBound(strlist[i][pos]) and strlist[i][pos] < line[i] 
-                  and ( not IsBound(strlist[i][pos+1]) 
+            while IsBound(strlist[i][pos]) and strlist[i][pos] < line[i]
+                  and ( not IsBound(strlist[i][pos+1])
                         or strlist[i][pos] <= strlist[i][pos+1] ) do
                 pos := pos + 1;
             od;
@@ -256,7 +256,7 @@ function( S )
                   "IdSmallSemigroup: That shouldn't really happen.");
             nr := nr+1;
         od;
-    fi; 
+    fi;
 
     # the bijection mapping the input or its transposed to a small semigroup
     equi := PreImages(phi,[perm])[1];
@@ -266,7 +266,7 @@ function( S )
         equi := SemigroupHomomorphismByImagesNC(S, small, imglist);
         SetIsBijective( equi, true );
     else
-        equi := MappingByFunction(S, small, 
+        equi := MappingByFunction(S, small,
                                   function(x)
                                       local pos;
                                       pos := Position(AsSSortedList(S),x);
@@ -283,7 +283,7 @@ end);
 ##
 #M  IdSmallSemigroup( <S> )
 ##
-InstallMethod( IdSmallSemigroup, "for a semigroup", [IsSemigroup], 0, 
+InstallMethod( IdSmallSemigroup, "for a semigroup", [IsSemigroup], 0,
 s -> IdSmallSemigroup( Range( EquivalenceSmallSemigroup( s ))));
 
 ###########################################################################
@@ -296,12 +296,12 @@ SetInfoLevel( InfoSmallsemi, 1 );
 ###########################################################################
 ##
 #M  IsomorphismTransformationSemigroup( <table> );
-##	
+##
 ##  converts a small semigroup into an isomorphic transformation semigroup.
 ##
-##  The reference documentation states monoids are embedded in T_n! AD 
-##  
-InstallOtherMethod(IsomorphismTransformationSemigroup, [IsSmallSemigroup], 
+##  The reference documentation states monoids are embedded in T_n! AD
+##
+InstallOtherMethod(IsomorphismTransformationSemigroup, [IsSmallSemigroup],
 function(S)
 local table, right, gens, T, elts, iso;
 
@@ -362,7 +362,7 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
             Add( mat, line{[ 1+(i-1)*size .. i*size ]} );
         od;
 
-        return mat; 
+        return mat;
     end;
 
     # returns the integer represented by <str> with characters in [0-<bas>]
@@ -387,7 +387,7 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
                 Info( InfoSmallsemi, 1,
                       "Smallsemi: loading data for semigroups of size 7." );
             fi;
-            file := Filename( DirectoriesPackageLibrary( "smallsemi", 
+            file := Filename( DirectoriesPackageLibrary( "smallsemi",
                                                          "data/data2to7" ),
                               Concatenation( "data", String(size), ".gl" ));
             DATA2TO7[ size-1 ] := SplitString( StringFile( file ), "\n" );
@@ -405,9 +405,9 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
             fi;
             Info( InfoSmallsemi, 1,
                   "Smallsemi: loading data for semigroups of size 8." );
-            file := Filename( DirectoriesPackageLibrary( "smallsemi", 
+            file := Filename( DirectoriesPackageLibrary( "smallsemi",
                                                          "data/data8" ),
-                              Concatenation( "8diag", 
+                              Concatenation( "8diag",
                                              Concatenation(List(diag,String)),
                                              ".gl" ));
             DATA8[ pos-1 ] := SplitString( StringFile( file ), "\n" );
@@ -431,11 +431,11 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
         nr := nr - MOREDATA2TO8[8].3nilendpositions[pos-1];
         # search from which stored solution to start from
         for pos in [ 3NIL_DATA.next..Length(3NIL_DATA.positions) ] do
-            if 3NIL_DATA.positions[ pos-1 ] <= nr 
-               and 3NIL_DATA.positions[ pos ] > nr then 
+            if 3NIL_DATA.positions[ pos-1 ] <= nr
+               and 3NIL_DATA.positions[ pos ] > nr then
                 3NIL_DATA.next := pos;
                 pos := pos-1;
-                break; 
+                break;
             fi;
         od;
         if Length(3NIL_DATA.positions) = 1 then pos := 1; fi;
@@ -444,7 +444,7 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
                 if 3NIL_DATA.positions[ pos ] > nr then
                     3NIL_DATA.next := pos;
                     pos := pos-1;
-                    break; 
+                    break;
                 fi;
             od;
         elif 3NIL_DATA.next <> pos+1 then
@@ -453,7 +453,7 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
 
         m := Length( 3NIL_DATA.diag );
         line := List( [ 1..m^2-m ], i -> 3NIL_DATA.strlist[i][pos] );
-    
+
         int := BinInt( line, 8-m );
         int := int + ( nr - 3NIL_DATA.positions[pos] );
 
@@ -466,7 +466,7 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
                 int := (int - rem) / (8-m);
                 mat[9-i][9-j] := rem + 1;
             od;
-            mat[9-i][9-i] := 3NIL_DATA.diag[m-i+1];       
+            mat[9-i][9-i] := 3NIL_DATA.diag[m-i+1];
             for j in [ i+1..m ] do
                 rem := RemInt( int, 8-m );
                 int := (int - rem) / (8-m);
@@ -510,8 +510,8 @@ M:=Objectify(SmallSemigroupType, rec(table:=A));;
 SetIsAssociative(M, true);
 SetSize( M, Length(A));
 
-elms := Immutable( List( [1..Length(A)], function ( i ) return 
-Objectify( SmallSemigroupEltType, rec( index:=i, semi:=M) ); end ) ); 
+elms := Immutable( List( [1..Length(A)], function ( i ) return
+Objectify( SmallSemigroupEltType, rec( index:=i, semi:=M) ); end ) );
 
 SetIsSSortedList( elms, true );
 SetGeneratorsOfMagma(M, elms);
@@ -532,20 +532,20 @@ InstallGlobalFunction( SemigroupByMultiplicationTableNC, function( A )
     return A;
 end );
 
-    
+
 ###########################################################################
 ##
 #F  SmallSemigroup( <size>, <nr> )
 ##
 
-InstallGlobalFunction( SmallSemigroup,  
+InstallGlobalFunction( SmallSemigroup,
 function( arg )
 local table, S, size, nr;
 
-if Length(arg)=2 and ForAll(arg, IsPosInt) then 
+if Length(arg)=2 and ForAll(arg, IsPosInt) then
 	size:=arg[1];
 	nr:=arg[2];
-elif Length(arg)=1 and ForAll(arg[1], IsPosInt) then 
+elif Length(arg)=1 and ForAll(arg[1], IsPosInt) then
 	size:=arg[1][1];
 	nr:=arg[1][2];
 else
@@ -571,7 +571,7 @@ end );
 #F  SmallSemigroupNC( <size>, <nr> )
 ##
 
-InstallGlobalFunction( SmallSemigroupNC,  
+InstallGlobalFunction( SmallSemigroupNC,
 function( size, nr )
 local table, s;
 
@@ -593,7 +593,7 @@ InstallGlobalFunction( UnloadSmallsemiData, function( uselater )
          Unbind( DATA2TO7[pos] );
      od;
 
-     # unbind data for semigroups size 8 which are not 3-nilpotent 
+     # unbind data for semigroups size 8 which are not 3-nilpotent
      pos := PositionBound( DATA8 );
      if pos <> fail then
          Unbind( DATA8[pos] );
@@ -601,9 +601,9 @@ InstallGlobalFunction( UnloadSmallsemiData, function( uselater )
 
      # unbind data for semigroups size 8 which are 3-nilpotent
      3NIL_DATA.diag := fail ;
-     Unbind( 3NIL_DATA.strlist ); 
-     Unbind( 3NIL_DATA.positions ); 
-     Unbind( 3NIL_DATA.next ); 
+     Unbind( 3NIL_DATA.strlist );
+     Unbind( 3NIL_DATA.positions );
+     Unbind( 3NIL_DATA.next );
 
      # unbind data essential for the use of smallsemi
      if not uselater then
@@ -713,7 +713,7 @@ end);
 ##
 #F  READ_MOREDATA2TO8( )
 ##
-InstallGlobalFunction( READ_MOREDATA2TO8, 
+InstallGlobalFunction( READ_MOREDATA2TO8,
 function()
 local dir, files, md, n, file, i, prop;
 dir:=DirectoriesPackageLibrary( "smallsemi", "data");
@@ -723,9 +723,9 @@ Info( InfoSmallsemi, 1,
 
 md:=[];
 
-for n in [1..8] do 
+for n in [1..8] do
 	file:=Filename(dir, Concatenation("info", String(n), ".g"));
-	if not file=fail then 
+	if not file=fail then
 		md[n]:=EvalString(StringFile(file));
 	else
 		md[n]:=rec();
@@ -757,17 +757,17 @@ end);
 
 InstallMethod( \=, "for two small semis", IsIdenticalObj,
   [ IsSmallSemigroup, IsSmallSemigroup ], 10,
-  function( x, y ) 
-  return IdSmallSemigroup(x)=IdSmallSemigroup(y); 
+  function( x, y )
+  return IdSmallSemigroup(x)=IdSmallSemigroup(y);
   end );
 
 InstallMethod( \<, "for two small semis", IsIdenticalObj, [IsSmallSemigroup,
-  IsSmallSemigroup], 
+  IsSmallSemigroup],
   function( x , y )
   return IdSmallSemigroup(x)<IdSmallSemigroup(y);
   end );
-  
-  
+
+
 #############################################################################
 ##
 #M  Representative( <sgrp> ) . . . for an object in IsSmallSemigroup
@@ -836,7 +836,7 @@ InstallMethod( \*,
       IsSmallSemigroupElt ],
     function( x, y )
     local table;
-    if x!.semi=y!.semi then 
+    if x!.semi=y!.semi then
         table:=x!.semi!.table;
         return AsList(x!.semi)[table[ x!.index ][ y!.index ]];
     else
@@ -856,8 +856,8 @@ local table, pos;
 table:=x!.semi!.table;
 pos:=Position(table, [1..Length(table)]);
 
-if not pos=fail then 
-	if List(table, x-> x[pos])=[1..Length(table)] then 
+if not pos=fail then
+	if List(table, x-> x[pos])=[1..Length(table)] then
 		return AsList(x!.semi)[pos];
 	fi;
 fi;
@@ -892,6 +892,10 @@ InstallMethod(ViewObj,  "for a small semigroup elt", [IsSmallSemigroupElt],
 function(x)
 Print("s", x!.index);
 return;
+end);
+InstallMethod(ViewString,  "for a small semigroup elt", [IsSmallSemigroupElt],
+function(x)
+return Concatenation("s", String(x!.index));
 end);
 
 

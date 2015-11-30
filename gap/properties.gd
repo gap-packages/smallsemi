@@ -326,8 +326,10 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 ##  <ManSection>
 ##  <Prop Name="IsGroupAsSemigroup" Arg="sgrp"/>
 ##  <Description>
-##  returns <C>true</C> if the semigroup <A>sgrp</A> is a group and 
-##  <C>false</C> otherwise.
+##  returns <C>true</C> if the small semigroup <A>sgrp</A>
+##  is mathematically a group, and returns <C>false</C> otherwise.
+##  Note that no small semigroup can lie in the category
+##  <Ref Prop="IsGroup" BookName="ref"/>.
 ##  <Example>
 ##gap&gt; s:=SmallSemigroup(7,7);
 ##&lt;small semigroup of size 7&gt;
@@ -614,7 +616,6 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsNilpotentSemigroup", IsSmallSemigroup);
 
 ###########################################################################
 ##
@@ -997,8 +998,8 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 ##  gap> NilpotencyDegree(s);
 ##  3
 ##  </Example> <!-- properties.tst --> 
-##    Note that for size 8 a semigroup in the library with ID <M>(8,n)</M>
-##    is nilpotent of rank 3 if and only if <M>n</M> is greater than 11433106.
+##    Note that for size 8 a semigroup in the library with ID <M>(8,n)</M> is
+##    nilpotent of degree 3 if and only if <M>n</M> is greater than 11433106.
 ##  <Example>
 ##  gap> s := SmallSemigroup(8, 11433106+1231);;
 ##  gap> NilpotencyDegree(s);
@@ -1011,7 +1012,6 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareAttribute("NilpotencyDegree", IsSmallSemigroup);
 
 #Internal Functions
 ###########################################################################

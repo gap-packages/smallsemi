@@ -34,11 +34,10 @@ true
 gap> t1 := Transformation( [ 2, 2, 1 ] );;
 gap> t2 := Transformation( [ 2, 1, 1 ] );;
 gap> sgrp := SemigroupByGenerators([t1,t2]);
-<transformation semigroup on 3 pts with 2 generators>
+<transformation semigroup of degree 3 with 2 generators>
 gap> map := EquivalenceSmallSemigroup(sgrp);
-MappingByFunction( <transformation semigroup of size 6, 
- on 3 pts with 2 generators>, <small semigroup of size 
-6>, function( x ) ... end )
+MappingByFunction( <transformation semigroup of size 6, degree 3 with 2 
+ generators>, <small semigroup of size 6>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
 gap> PreImage(map,MinimalGeneratingSet(Range(map))); 
@@ -63,7 +62,7 @@ gap> RecoverMultiplicationTable(5, 1000);
 gap> SmallSemigroupCreator(last);
 <small semigroup of size 5>
 gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
-<semigroup with 2 generators>
+<semigroup of size 2, with 2 generators>
 gap> IsSmallSemigroup(s);
 false
 gap> RecoverMultiplicationTable(10,2);
@@ -88,10 +87,10 @@ gap> map:=EquivalenceSmallSemigroup(s);;
 gap> IsBijective(map);
 true
 gap> s:=SemigroupByMultiplicationTableNC( [ [ 1, 2 ], [ 1, 2 ] ] );
-<semigroup with 2 generators>
+<semigroup of size 2, with 2 generators>
 gap> map:=EquivalenceSmallSemigroup(s);   
-MappingByFunction( <semigroup with 2 generators>, <small semigroup of size 
-2>, function( x ) ... end )
+MappingByFunction( <semigroup of size 2, with 2 generators>
+ , <small semigroup of size 2>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
 gap> SmallSemigroupEltFamily;;
