@@ -1,0 +1,415 @@
+  
+  [1X3 [33X[0;0YExtended Examples[133X[101X
+  
+  [33X[0;0YThe  main  features  of  the  library  can be summarized in three points: it
+  provides a complete set of semigroups up to isomorphism and anti-isomorphism
+  of  sizes up to 8; it carries a vast amount of precomputed information about
+  these  semigroups;  and  there  is  an identification function which takes a
+  semigroup  with  at  most 8 elements and returns a map to the equivalent one
+  from the library.[133X
+  
+  [33X[0;0YThese features lead to different ways of using the library. It is impossible
+  to  describe  -  or  even  to anticipate - all possible types of usage. Most
+  problems  will  admit  multiple  solutions.  We find it difficult to predict
+  which  will  be  most effective. The examples in this chapter should give an
+  idea  of  the  differences  in the various functions and help you to find an
+  alternative  if  a  computation  uses  more  time  or  memory  than you have
+  available.[133X
+  
+  [33X[0;0YLet  us  go  step by step through some ways to use the library showing which
+  tools are provided.[133X
+  
+  
+  [1X3.1 [33X[0;0YLists, Enumerators and Iterators of Semigroups[133X[101X
+  
+  [33X[0;0YAt  first  one could want to search through the stored semigroups for one or
+  all semigroups with a certain property. Going through all the semigroups can
+  take  a  long time. Just to create all the 1.8 billion semigroups as objects
+  in  [5XGAP[105X  takes  around  a day on a modern PC. Doing a simple test on all the
+  semigroups  in  the  library  might take another day. Performing complicated
+  tests  easily  takes weeks. To avoid this, many properties of the semigroups
+  were  precomputed.  Semigroups with or without a precomputed property can be
+  accessed  as quickly as simply creating the same number of semigroups. (Note
+  that  timings  of  two  calls  to  the same command may vary and, of course,
+  heavily depend on your machine.)[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X# obtain a list of all semigroups with 6 elements[127X[104X
+    [4X[25Xgap>[125X [27XAllSmallSemigroups( 6 );;[127X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X2636[128X[104X
+    [4X[25Xgap>[125X [27X# obtain a list of all commutative semigroups with 7 elements  [127X[104X
+    [4X[25Xgap>[125X [27XAllSmallSemigroups( 7, IsCommutative, true );;[127X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X2957[128X[104X
+    [4X[25Xgap>[125X [27X# compare the numbers of semigroups in the two lists[127X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups( 6 ); NrSmallSemigroups( 7, IsCommutative, true );[127X[104X
+    [4X[28X15973[128X[104X
+    [4X[28X17291[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y(In  all  the  examples in this section the info messages which are given by
+  default     when     data     is     loaded     are     turned    off    via
+  [10XSetInfoLevel(InfoSmallSemi,0)[110X.)[133X
+  
+  [33X[0;0YWe  provide  three  commands  that  can  be used if one is interested in all
+  semigroups  with  some  properties.  These  are  [2XAllSmallSemigroups[102X ([14X4.5-1[114X),
+  [2XEnumeratorOfSmallSemigroups[102X ([14X4.5-2[114X), and [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X).
+  Which  one is best to use depends a lot on the situation. Here we attempt to
+  provide some insight about the essential differences.[133X
+  
+  
+  [1X3.1-1 [33X[0;0YPrecomputed properties[133X[101X
+  
+  [33X[0;0YWe  start  with  examples  using  only precomputed information. In this case
+  there  is  essentially  no  advantage  of  calling an iterator instead of an
+  enumerator.      Thus      only      [2XAllSmallSemigroups[102X      ([14X4.5-1[114X)     and
+  [2XEnumeratorOfSmallSemigroups[102X ([14X4.5-2[114X) will be considered.[133X
+  
+  [33X[0;0YWe  first  compare  the  memory  usage  and  the  setup  time. Assume we are
+  interested in the commutative semigroups with at most 7 elements.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xlist := AllSmallSemigroups([1..7],IsCommutativeSemigroup,true);;[127X[104X
+    [4X[25Xgap>[125X [27Xtime; # the time needed will always depend on your machine[127X[104X
+    [4X[28X3180[128X[104X
+    [4X[25Xgap>[125X [27Xenum := EnumeratorOfSmallSemigroups([1..7],IsCommutativeSemigroup,true);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 1 .. 7 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X8[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  enumerator  stores  the  information, which semigroups it contains, but
+  only creates the semigroups when asked for them explicitly.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X# now the semigroups have to be created ...[127X[104X
+    [4X[25Xgap>[125X [27Xfor sg in enum do[127X[104X
+    [4X[28X# do nothing, the semigroup will be created anyway[128X[104X
+    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X3428[128X[104X
+    [4X[25Xgap>[125X [27X# ... and again if you want to look through them another time ...[127X[104X
+    [4X[25Xgap>[125X [27Xfor sg in enum do[127X[104X
+    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X3437[128X[104X
+    [4X[25Xgap>[125X [27X# ... not so for the list of semigroups though[127X[104X
+    [4X[25Xgap>[125X [27Xfor sg in list do[127X[104X
+    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThere  are  several reasons why one would nevertheless prefer an enumerator,
+  one  is  the smaller need for memory. While the number of semigroups in this
+  example is rather moderate (compared with all the semigroups in the library)
+  the difference is remarkable:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xnr := Length(enum);[127X[104X
+    [4X[28X17291[128X[104X
+    [4X[25Xgap>[125X [27XMemoryUsage(enum);                                 [127X[104X
+    [4X[28X70507[128X[104X
+    [4X[25Xgap>[125X [27XMemoryUsage(list); # this will take a while ...[127X[104X
+    [4X[28X19089280[128X[104X
+    [4X[25Xgap>[125X [27X# ... but you can get a close approximation much faster[127X[104X
+    [4X[25Xgap>[125X [27Xsg := OneSmallSemigroup(7,IsCommutativeSemigroup,true);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27Xnr*MemoryUsage(sg);[127X[104X
+    [4X[28X19020100[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YAs  said before the advantage of the enumerator comes from the fact that the
+  members of it are created anew every time they are called. This means on the
+  other hand that information that is computed is not stored.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(list[3]); # a semigroup from the list ...[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(list[3]); # ... can store new information[127X[104X
+    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", [128X[104X
+    [4X[28X  "IsAssociative", "IsCommutativeSemigroup", "IsZeroSemigroup" ][128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(enum[3]); # semigroups in the enumerator ...[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(enum[3]); # ... are created anew in every call [127X[104X
+    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", [128X[104X
+    [4X[28X  "IsAssociative", "IsCommutativeSemigroup" ][128X[104X
+    [4X[25Xgap>[125X [27X# but if it turns out this is the semigroup you want to analyse, just do[127X[104X
+    [4X[25Xgap>[125X [27Xsg := enum[3];[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YObserve  that  in  the  last  example the semigroup from the enumerator knew
+  about  the  property  that was used to create the enumerator. The enumerator
+  stores this knowledge and passes it on whenever a member is called.[133X
+  
+  [33X[0;0YAnother  reason to prefer an enumerator is that one might only be interested
+  in some of the elements it contains. This could become clear after analysing
+  some  of  the  elements  and  then  there  is no time wasted in creating all
+  semigroups  in the enumerator. Or possibly creating the enumerator involving
+  precomputed  properties was just the first step. As described in Section [14X4.5[114X
+  enumerators  themselves can be given as argument to get to a more restricted
+  class of semigroups. This leads us to the next part of this section.[133X
+  
+  
+  [1X3.1-2 [33X[0;0YUser functions[133X[101X
+  
+  [33X[0;0YWe  now  come to examples dealing with properties that are not precomputed -
+  including  user  defined  functions.  This  makes  [2XIteratorOfSmallSemigroups[102X
+  ([14X4.5-11[114X)  interesting  again.  Assume  you  want  to work with bands ([2XIsBand[102X
+  ([14X4.2-5[114X))  of  order  8  having  1  Green's  [22XD[122X-class (see [14X'Reference: Green's
+  Relations'[114X).  You  might  feel  tempted  to  implement  a function testing a
+  semigroup for this combination of properties.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XisFascinatingSemigroup := function(sgrp)[127X[104X
+    [4X[28Xlocal dclasses;[128X[104X
+    [4X[28Xdclasses := GreensDClasses(sgrp);[128X[104X
+    [4X[28Xreturn IsBand(sgrp) and Length(dclasses) = 1;[128X[104X
+    [4X[28Xend;[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YBut  then  the  precomputed  property  [2XIsBand[102X  ([14X4.2-5[114X) is hidden inside your
+  function  and  a call like [10XAllSmallSemigroups(8,isFascinatingSemigroup,true)[110X
+  would take days to complete.[133X
+  
+  [33X[0;0YThe following finds the same semigroups more efficiently:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xlist:=AllSmallSemigroups(8,IsBand,true,x->Size(GreensDClasses(x)),1);[127X[104X
+    [4X[28X[ <small semigroup of size 8>, <small semigroup of size 8> ][128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X49211[128X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups(8,IsBand,true,x->Size(GreensDClasses(x)),1);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X48723[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YObserve  that  the  enumerator  lost  its  advantage of returning the answer
+  faster because not all properties are precomputed. Thus all bands have to be
+  constructed  to  test  their  number  of  [22XD[122X-classes.  As  the number of such
+  semigroups is small, [2XAllSmallSemigroups[102X ([14X4.5-1[114X) is the better choice in this
+  example  -  remember  that  the  semigroups  from  the enumerator have to be
+  recreated  in  every  call.  Often  one does not have this kind of knowledge
+  beforehand.  Even  for a large number of semigroups the enumerator still has
+  the  advantage  of  using  far  less memory as it stores only the IDs of the
+  semigroups. Before explaining more about this let us for a moment go back to
+  the  semigroups  from  the  previous  example.  It  turns out they are the 2
+  non-equivalent   rectangular   bands  ([2XIsRectangularBand[102X  ([14X4.2-22[114X))  with  8
+  elements.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XForAll(list,IsRectangularBand);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YAs  a last example in this subsection we look at semigroups from the library
+  that  are  not nilpotent. As there are quite some of these we will first try
+  an enumerator. The obvious call seems to be[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroups([1..7],IsNilpotentSemigroup,false);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 2, 3, 4, 5, 6, 7 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X103403[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YHowever,  we  would  like  to  include the semigroups of order 8 as well. As
+  [2XIsNilpotentSemigroup[102X  ([14X4.2-20[114X)  is not a precomputed property in the current
+  version  of  [5XSmallsemi[105X  this  would  take  a  long  time.  Here,  additional
+  knowledge,  about  the  way  the  semigroups  are  stored in the library, is
+  helpful.  The  description of [2XNilpotencyDegree[102X ([14X4.2-34[114X) contains information
+  on  the  IDs  of  all  3-nilpotent  semigroups  of order 8. We can create an
+  enumerator without those semigroups doing the following:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X# all 8 element semigroups that are not 3-nilpotent[127X[104X
+    [4X[25Xgap>[125X [27Xenum2 := EnumeratorOfSmallSemigroupsByIds([8],[[1..11433106]]);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YOut  of  this  enumerator  the  subclass  of not nilpotent semigroups can be
+  extracted.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum3 := EnumeratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);[127X[104X
+    [4X[25Xgap>[125X [27X# This still takes quite a while though[127X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X1931140[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YYou  can  avoid the waiting time at setup by using an iterator instead of an
+  enumerator. An iterator does not know how many elements it contains, one can
+  always  just  access  the  next element - if such exists - and one cannot go
+  back. (Making copies of an iterator can help to circumvent this problem.) On
+  the  other hand one could in the above example start investigating the first
+  couple of elements right away.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);[127X[104X
+    [4X[28X<iterator of semigroups of size 8>[128X[104X
+    [4X[25Xgap>[125X [27Xfor i in [1..100000] do [127X[104X
+    [4X[28XNextIterator(iter);[128X[104X
+    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xtime;[127X[104X
+    [4X[28X30785[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YBut  even  if  you  know  you  want  to  inspect all the semigroups having a
+  property  which  is  not  precomputed, an iterator has the advantage that it
+  does  not  create  the semigroups before you can actually work with them. To
+  create  an  enumerator  all  semigroups in question will be created and - as
+  said before - every element is created anew when it is accessed. An iterator
+  on  the other hand creates the semigroups in question one-by-one and returns
+  the  next one having the property. This makes a big difference if the number
+  of  semigroups  one  is  interested  in  is  big  like in the example of not
+  nilpotent  semigroups  of size 8. In the former example with the rectangular
+  bands  it  would  not play a role and the disadvantages of an iterator would
+  prevail.[133X
+  
+  [33X[0;0YAs  you  can see the number of semigroups you are interested in is even more
+  important  in the case of user defined functions than it was in the previous
+  section  about precomputed properties. Sometimes you might have a rough idea
+  about  the  numbers  -  or  even  a  very good one - to base your choice on.
+  Otherwise  the best approach seems to consist of two steps. First, create an
+  enumerator involving all precomputed properties (try to find as many implied
+  properties  as  possible).  Then  work with an iterator, call the semigroups
+  one-by-one  and store them in a separate list if you think you might want to
+  look at them again at a later stage.[133X
+  
+  
+  [1X3.1-3 [33X[0;0YSemigroups of order 8[133X[101X
+  
+  [33X[0;0YWhen using enumerators and iterators of semigroups of order 8 there are some
+  limitations.  In a 32-bit system the number of semigroups of order 8 exceeds
+  the  maximal  length  of  a list in [5XGAP[105X. The following will work in a 64-bit
+  system, but not on a 32-bit system.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(8);[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  all  other  cases  there  is  currently no difference between 32-bit and
+  64-bit systems. Hence the following will fail in any case.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  though  that  an enumerator of semigroups of order 8 can be created if
+  one  of the required properties is precomputed and takes [10Xtrue[110X as value. This
+  fact  was  used  in the previous subsection, when creating the enumerator of
+  all bands of order 8 having 1 Green's [22XD[122X-class.[133X
+  
+  [33X[0;0YOne  could  try to circumvent the described problem by using a iterator. The
+  command[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);[127X[104X
+    [4X[28X<iterator>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Ywill  succeed.  But  running through the elements in the iterator can take a
+  long  time  since the precomputed information is not utilized. A better idea
+  in the current version of [5XSmallsemi[105X is to divide the enumerator into smaller
+  pieces  by restricting the range of IDs considered at once to at most [22X2^28-1[122X
+  (the  maximal  length  of  a  list in a 32-bit [5XGAP[105X) or possibly by a smaller
+  value,  depending  on  the  amount of memory you have available. For example
+  start with[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+    [4X[25Xgap>[125X [27Xenum2 := EnumeratorOfSmallSemigroups(enum1, IsCommutativeSemigroup, false);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThanks  go  to  Michal  Stolorz  for  the  idea of circumventing the current
+  performance  issue  for  enumerators  of  small  semigroups  of  order  8 by
+  splitting it in the described way.[133X
+  
+  
+  [1X3.2 [33X[0;0YIdentifying Semigroups[133X[101X
+  
+  [33X[0;0YThe  data  in  [5XSmallsemi[105X  is  as  a big catalogue of all structural types of
+  semigroups  with at most 8 elements making it possible to refer to the types
+  by  their  catalogue  number,  that  is  by  their ID. With [2XIdSmallSemigroup[102X
+  ([14X4.1-6[114X) one can find the ID of the structural type of a particular semigroup
+  with at most 8 elements.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xt1 := RandomTransformation(3);[127X[104X
+    [4X[28XTransformation( [ 1, 3, 1 ] )[128X[104X
+    [4X[25Xgap>[125X [27Xt2 := RandomTransformation(3);[127X[104X
+    [4X[28XTransformation( [ 1, 2, 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27Xsgrp := SemigroupByGenerators([t1,t2]);[127X[104X
+    [4X[28X<semigroup with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XSize(sgrp);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(sgrp);[127X[104X
+    [4X[28X[ 3, 8 ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YMoreover, one can draw conclusions about a semigroup of size at most 8 using
+  the precomputed information about the equivalent semigroup from the library.
+  The   precomputed   properties  are  all  invariant  under  isomorphism  and
+  anti-isomorphism.  This  is most useful in the case where there is no method
+  in  [5XGAP[105X  to  decide  the  property  in  the  original  representation of the
+  semigroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X# use the semigroup from the previous example[127X[104X
+    [4X[25Xgap>[125X [27XIsCommutative(sgrp); # no need to use the library for this[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27X# for the following there exists no method for a trans-[127X[104X
+    [4X[25Xgap>[125X [27X# formation semigroup; access the precomputed information instead [127X[104X
+    [4X[25Xgap>[125X [27XIsMultSemigroupOfNearRing(SmallSemigroup([3,8]));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[2XEquivalenceSmallSemigroup[102X   ([14X4.1-7[114X)   even   provides   an   isomorphism  or
+  anti-isomorphism  to  a  semigroup  from the library. This means one can map
+  elements  between  the  semigroups. Remember that an isomorphism is returned
+  whenever  one  exists. This allows to distinguish between structure types up
+  to  isomorphism.  Note  though, that no information about subsets - like the
+  set  of  idempotents  or a generating set - is precomputed for semigroups in
+  the  library. If an operation has a method for the semigroup in the original
+  representation, it is usually more sensible to simply call this.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xt1 := RandomTransformation(3);[127X[104X
+    [4X[28XTransformation( [ 2, 2, 1 ] )[128X[104X
+    [4X[25Xgap>[125X [27Xt2 := RandomTransformation(3);[127X[104X
+    [4X[28XTransformation( [ 2, 1, 1 ] )[128X[104X
+    [4X[25Xgap>[125X [27Xsgrp := SemigroupByGenerators([t1,t2]);[127X[104X
+    [4X[28X<semigroup with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XSize(sgrp);[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27Xmap := EquivalenceSmallSemigroup(sgrp); [127X[104X
+    [4X[28XMappingByFunction( <semigroup with 2 generators>, <small semigroup of size [128X[104X
+    [4X[28X6>, function( x ) ... end )[128X[104X
+    [4X[25Xgap>[125X [27XRespectsMultiplication(map); # verify that this is an anti-isomorphism[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(Range(map));[127X[104X
+    [4X[28X[ s2, s4 ][128X[104X
+    [4X[25Xgap>[125X [27XPreImage(map,last); # get a minimal generating set of <sgrp>[127X[104X
+    [4X[28X[ Transformation( [ 1, 1, 2 ] ), Transformation( [ 2, 1, 1 ] ) ][128X[104X
+    [4X[25Xgap>[125X [27XIdempotents(Range(map));[127X[104X
+    [4X[28X[ s1, s3, s5 ][128X[104X
+    [4X[25Xgap>[125X [27XPreImage(map,last); # in the same way you can get the idempotents ...[127X[104X
+    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), [128X[104X
+    [4X[28X  Transformation( [ 2, 2, 2 ] ) ][128X[104X
+    [4X[25Xgap>[125X [27XIdempotents(sgrp); # ... but this can be done directly instead [127X[104X
+    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), [128X[104X
+    [4X[28X  Transformation( [ 2, 2, 2 ] ) ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  for  a  certain  application  you are interested in the semigroups up to
+  isomorphism  you  can  still  use the IDs from [5XSmallsemi[105X. Simply mark the ID
+  with  [22X*[122X, or however else you denote the dual of a semigroup, to refer to the
+  semigroup  being  anti-isomorphic  to the one in the library having the same
+  ID.  For  all  semigroups  [2XIsSelfDualSemigroup[102X ([14X4.2-25[114X) is precomputed. This
+  will  help  to  decide  whether  a  semigroup  and  its  dual  are  actually
+  non-isomorphic.[133X
+  

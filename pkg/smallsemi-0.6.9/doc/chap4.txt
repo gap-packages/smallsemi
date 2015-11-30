@@ -1,0 +1,1865 @@
+  
+  [1X4 [33X[0;0YFunctionality[133X[101X
+  
+  
+  [1X4.1 [33X[0;0YIndividual Semigroups[133X[101X
+  
+  [33X[0;0YThe  semigroups  of  sizes  1  to  8  are  available  up  to isomorphism and
+  anti-isomorphism  in [5XSmallsemi[105X. Every semigroup in the library is identified
+  by its size [22Xm[122X and a number [22Xn[122X lying between 1 and the number of semigroups of
+  size [22Xm[122X (see Table [14X1.[114X). We call the pair [22X(m,n)[122X the [13XID[113X of the semigroup.[133X
+  
+  [33X[0;0YIn  this  section we give details about the functions relating to individual
+  semigroups  in  [5XSmallsemi[105X.  This  includes  how  to access semigroups in the
+  library  and  how  to identify the semigroup in the library equivalent to an
+  arbitrary semigroup (of size 1 to 8).[133X
+  
+  [33X[0;0YIf  you  are  interested  in the properties of a semigroup in the library or
+  would  like  to find all the semigroups satisfying a given set of properties
+  please see Section [14X4.2[114X or Section [14X4.5[114X respectively.[133X
+  
+  [1X4.1-1 SmallSemigroup[101X
+  
+  [29X[2XSmallSemigroup[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  [29X[2XSmallSemigroupNC[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  
+  [33X[0;0Yreturns  the  semigroup  with  ID  [22X([3Xm,n[103X)[122X  from  the library, that is the [3Xn[103Xth
+  semigroup with [3Xm[103X elements.[133X
+  
+  [33X[0;0YIn  [10XSmallSemigroupNC[110X  no check is performed to verify that [3Xm[103X and [3Xn[103X are valid
+  arguments.[133X
+  
+  [33X[0;0YIn  [10XSmallSemigroup[110X an error is signalled if the semigroups of size [3Xm[103X are not
+  classified or if [3Xn[103X is greater than the number of semigroups with [3Xm[103X elements.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallSemigroup(8,1353452);[127X[104X
+    [4X[28X<small semigroup of size 8>[128X[104X
+    [4X[25Xgap>[125X [27XSmallSemigroupNC(5,1);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XSmallSemigroupNC(5,1)=SmallSemigroup(5,1);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.1-2 IsSmallSemigroup[101X
+  
+  [29X[2XIsSmallSemigroup[102X( [3Xsgrp[103X ) [32X filter
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  [3Xsgrp[103X  is  a semigroup from the library, that is if it was
+  created using [2XSmallSemigroup[102X ([14X4.1-1[114X). Otherwise [10Xfalse[110X is returned.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xsgrp:=RandomSmallSemigroup(5);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsSmallSemigroup(sgrp);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xsgrp:=Semigroup(Transformation([1]));;[127X[104X
+    [4X[25Xgap>[125X [27XIsSmallSemigroup(sgrp);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.1-3 IsSmallSemigroupElt[101X
+  
+  [29X[2XIsSmallSemigroupElt[102X( [3Xx[103X ) [32X filter
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if [3Xx[103X is an element of a semigroup from the library, and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0Y[3XIsSmallSemigroupElt[103X is a representation satisfying [3XIsPositionalObjectRep[103X and
+  [2XIsMultiplicativeElement[102X     ([14XReference:     IsMultiplicativeElement[114X)     and
+  [3XIsAttributeStoringRep[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsSmallSemigroupElt(Transformation([1]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xsgrp:=RandomSmallSemigroup(5);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSmallSemigroupElt(Random(sgrp));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.1-4 RecoverMultiplicationTable[101X
+  
+  [29X[2XRecoverMultiplicationTable[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  [29X[2XRecoverMultiplicationTableNC[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  
+  [33X[0;0Yreturn  the  multiplication table of the [3Xn[103X-th semigroup with [3Xm[103X elements from
+  the library.[133X
+  
+  [33X[0;0YIf [3Xm[103X is greater than 8 or [3Xn[103X greater than the number of semigroups of size [3Xm[103X,
+  then  [10Xfail[110X  is  returned.  The  NC version does not perform any tests on the
+  input and will most likely run into an error in such a case.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XRecoverMultiplicationTable(10,2);[127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[25Xgap>[125X [27XRecoverMultiplicationTable(1,2); [127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[25Xgap>[125X [27XRecoverMultiplicationTable(2,1);[127X[104X
+    [4X[28X[ [ 1, 1 ], [ 1, 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XRecoverMultiplicationTable(8,11111111);[127X[104X
+    [4X[28X[ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ], [128X[104X
+    [4X[28X  [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ], [128X[104X
+    [4X[28X  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ], [128X[104X
+    [4X[28X  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 8, 8, 8, 8, 8, 8, 8, 8 ] ][128X[104X
+    [4X[25Xgap>[125X [27XRecoverMultiplicationTable(2,11111111);[127X[104X
+    [4X[28Xfail[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  that  no semigroup is created calling this function but just the table
+  is  created.  This makes it useful if one wants to perform very simple (i.e.
+  quick  in  [5XGAP[105X) tests on a large number of semigroups which can be performed
+  on the multiplication table.[133X
+  
+  [33X[0;0YTo   create   a   semigroup   with  the  multiplication  table  obtained  by
+  [10XRecoverMultiplicationTable([3Xm,n[103X[10X)[110X use the function [2XSmallSemigroup[102X ([14X4.1-1[114X) with
+  arguments [3Xm,n[103X.[133X
+  
+  [1X4.1-5 SemigroupByMultiplicationTableNC[101X
+  
+  [29X[2XSemigroupByMultiplicationTableNC[102X( [3Xtable[103X ) [32X function
+  
+  [33X[0;0Yreturns   an   object   with   [2XIsSemigroup[102X   ([14XReference:   IsSemigroup[114X)  and
+  multiplication table [3Xtable[103X without checking if the multiplication defined by
+  the table is associative.[133X
+  
+  [33X[0;0YIf  [3Xtable[103X  is  not associative, this can lead to errors and wrong results or
+  might even crash [5XGAP[105X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);[127X[104X
+    [4X[28X<semigroup of size 2, with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XIsSmallSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote that this function is [13Xnot[113X used to create semigroups when [2XSmallSemigroup[102X
+  ([14X4.1-1[114X)    is    called.    It   can   be   useful   in   combination   with
+  [2XRecoverMultiplicationTable[102X  ([14X4.1-4[114X)  if  one wants to avoid that a semigroup
+  knows it comes from the library.[133X
+  
+  [1X4.1-6 IdSmallSemigroup[101X
+  
+  [29X[2XIdSmallSemigroup[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  a pair [10X[m, n][110X such that [22X(m,n)[122X is the ID of a semigroup in [5XSmallsemi[105X
+  equivalent  to  [3Xsgrp[103X.  The  argument [3Xsgrp[103X has to be a semigroup of size 8 or
+  less, otherwise an error is signalled.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xsgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), Transformation( [ 1, 2, 3 ] ));;[127X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(sgrp);[127X[104X
+    [4X[28X[ 2, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.1-7 EquivalenceSmallSemigroup[101X
+  
+  [29X[2XEquivalenceSmallSemigroup[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  a mapping [10Xmap[110X from [3Xsgrp[103X to the semigroup in [5XSmallsemi[105X equivalent to
+  [3Xsgrp[103X.  The  mapping is an isomorphism if such exists and an anti-isomorphism
+  otherwise.  The  argument  [3Xsgrp[103X  has  to  be  a semigroup of size 8 or less,
+  otherwise an error is signalled.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xsgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), [127X[104X
+    [4X[25X>[125X [27XTransformation( [ 1, 2, 3 ] ));;[127X[104X
+    [4X[25Xgap>[125X [27XEquivalenceSmallSemigroup(sgrp);[127X[104X
+    [4X[28XSemigroupHomomorphismByImages ( Monoid( [128X[104X
+    [4X[28X[ Transformation( [ 1, 2, 2 ] ) ] )-><small semigroup of size 2>)[128X[104X
+  [4X[32X[104X
+  
+  [1X4.1-8 InfoSmallsemi[101X
+  
+  [29X[2XInfoSmallsemi[102X[32X info class
+  
+  [33X[0;0Yis  the  info class (see [14X'Reference: Info Functions'[114X) of [5XSmallsemi[105X. The info
+  level is initially set to 1 which triggers a message whenever data is loaded
+  into [5XGAP[105X.[133X
+  
+  [1X4.1-9 UnloadSmallsemiData[101X
+  
+  [29X[2XUnloadSmallsemiData[102X( [3Xuse_later[103X ) [32X function
+  
+  [33X[0;0Ydeletes  most  or  all of the data from the [5XGAP[105X workspace that was loaded by
+  [5XSmallsemi[105X.[133X
+  
+  [33X[0;0YIf  the  boolean  [3Xuse_later[103X is [10Xfalse[110X all data loaded by [5XSmallsemi[105X is deleted
+  from  the  workspace,  in  which  case  [5XSmallsemi[105X  is not guaranteed to work
+  properly without restarting your [5XGAP[105X session.[133X
+  
+  [33X[0;0YIf  the boolean [3Xuse_later[103X is [10Xtrue[110X only the recoverable data is deleted. This
+  leaves roughly 10 MB of data in the workspace.[133X
+  
+  
+  [1X4.2 [33X[0;0YProperties of Semigroups[133X[101X
+  
+  [33X[0;0YIn  this  section  we detail the [5XGAP[105X functions that can be used to determine
+  whether  a  small  semigroup  satisfies  a  certain  property.  Let  [3XS[103X  be a
+  semigroup. Then[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is a [13Xleft zero semigroup[113X if [3Xxy=x[103X for all [3Xx,y[103X in [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is a [13Xright zero semigroup[113X if [3Xxy=y[103X for all [3Xx,y[103X in [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is [13Xcommutative[113X if [3Xxy=yx[103X for all [3Xx,y[103X in [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is [13Xsimple[113X if it has no proper two-sided ideals.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is [13Xzero simple[113X if the only 2-sided ideals are [3X{0}[103X and [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is [13Xregular[113X if for all [3Xx[103X in [3XS[103X there exists [3Xy[103X in [3XS[103X such that [3Xxyx=x[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is [13Xcompletely regular[113X if every element of [3XS[103X lies in a subgroup.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  an  [13Xinverse  semigroup[113X  if  every  element  [3Xx[103X in [3XS[103X has a unique
+        semigroup  inverse,  that  is,  a unique element [3Xy[103X such that [3Xxyx=x[103X and
+        [3Xyxy=y[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  a  [13XClifford  semigroup[113X  if  it  is  a  regular  semigroup whose
+        idempotents are central, that is, for all [3Xe,x[103X in [3XS[103X where [3Xe^2=e[103X we have
+        that [3Xex=xe[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is a [13Xband[113X if every element is an idempotent, that is, [3Xx^2=x[103X for all
+        [3Xx[103X in [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is a [13XBrandt semigroup[113X if it is inverse and zero simple.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  a [13Xrectangular band[113X if for all [3Xx,y,z[103X in [3XS[103X we have that [3Xx^2=x[103X and
+        [3Xxyz=xz[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  a  [13Xsemiband[113X if it is generated by its idempotent elements, that
+        is, elements satisfying [3Xx^2=x[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  an  [13Xorthodox  semigroup[113X  if  it  is regular and its idempotents
+        (elements satisfying [3Xx^2=x[103X) form a subsemigroup.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X is a [13Xzero semigroup[113X if there exists an element [3X0[103X in [3XS[103X such that [3Xxy=0[103X
+        for all [3Xx,y[103X in [3XS[103X.[133X
+  
+  [30X    [33X[0;6Y[3XS[103X  is  a  [13Xzero  group[113X  if  there  exists an element [3X0[103X in [3XS[103X such that [3XS[103X
+        without [3X0[103X is a group and for all [3Xx[103X in [3XS[103X we have that [3Xx0=0x=0[103X.[133X
+  
+  [33X[0;0YThe  [5XMONOID[105X  package  was used to determined which semigroups in the library
+  satisfy  the properties above. All of the resulting information is stored in
+  the library.[133X
+  
+  [1X4.2-1 Annihilators[101X
+  
+  [29X[2XAnnihilators[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  the set of annihilators of [3Xsgrp[103X if [3Xsgrp[103X contains a zero element and
+  [10Xfail[110X otherwise.[133X
+  
+  [33X[0;0YAn  element  [22Xx[122X  in  a semigroup with zero [22Xz[122X is an [13Xannihilator[113X if [22Xxy=yx=z[122X for
+  every element [22Xy[122X in the semigroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(5,6);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XAnnihilators(s);[127X[104X
+    [4X[28X[ s1, s2 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-2 DiagonalOfMultiplicationTable[101X
+  
+  [29X[2XDiagonalOfMultiplicationTable[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns the diagonal of the multiplication table of the semigroup [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(8,10101);;[127X[104X
+    [4X[25Xgap>[125X [27XDiagonalOfMultiplicationTable(s);[127X[104X
+    [4X[28X[ 1, 1, 1, 1, 1, 1, 1, 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7,10101);;[127X[104X
+    [4X[25Xgap>[125X [27XDiagonalOfMultiplicationTable(s);[127X[104X
+    [4X[28X[ 1, 1, 1, 1, 1, 1, 1 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-3 DisplaySmallSemigroup[101X
+  
+  [29X[2XDisplaySmallSemigroup[102X( [3Xsgrp[103X ) [32X function
+  
+  [33X[0;0Ydisplays  all  the information about the small semigroup [3Xsgrp[103X that is stored
+  in the library and its Green's classes and idempotents.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(6, 3838);;[127X[104X
+    [4X[25Xgap>[125X [27XDisplaySmallSemigroup(s);[127X[104X
+    [4X[28XIsBand:                              false[128X[104X
+    [4X[28XIsBrandtSemigroup:                   false[128X[104X
+    [4X[28XIsCommutative:                       false[128X[104X
+    [4X[28XIsCompletelyRegularSemigroup:        false[128X[104X
+    [4X[28XIsFullTransformationSemigroupCopy:   false[128X[104X
+    [4X[28XIsGroupAsSemigroup:                  false[128X[104X
+    [4X[28XIsIdempotentGenerated:               false[128X[104X
+    [4X[28XIsInverseSemigroup:                  false[128X[104X
+    [4X[28XIsMonogenicSemigroup:                false[128X[104X
+    [4X[28XIsMonoidAsSemigroup:                 false[128X[104X
+    [4X[28XIsMultSemigroupOfNearRing:           false[128X[104X
+    [4X[28XIsOrthodoxSemigroup:                 false[128X[104X
+    [4X[28XIsRectangularBand:                   false[128X[104X
+    [4X[28XIsRegularSemigroup:                  false[128X[104X
+    [4X[28XIsSelfDualSemigroup:                 false[128X[104X
+    [4X[28XIsSemigroupWithClosedIdempotents:    true[128X[104X
+    [4X[28XIsSimpleSemigroup:                   false[128X[104X
+    [4X[28XIsSingularSemigroupCopy:             false[128X[104X
+    [4X[28XIsZeroSemigroup:                     false[128X[104X
+    [4X[28XIsZeroSimpleSemigroup:               false[128X[104X
+    [4X[28XMinimalGeneratingSet:                [ s3, s4, s5, s6 ][128X[104X
+    [4X[28XIdempotents:                         [ s1, s5, s6 ][128X[104X
+    [4X[28XGreensRClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {\[128X[104X
+    [4X[28Xs6} ][128X[104X
+    [4X[28XGreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ][128X[104X
+    [4X[28XGreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {\[128X[104X
+    [4X[28Xs6} ][128X[104X
+    [4X[28XGreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-4 IndexPeriod[101X
+  
+  [29X[2XIndexPeriod[102X( [3Xx[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  the  minimum numbers [3Xm, r[103X such that [3Xx^{m+r}=x^m[103X; known as the index
+  and period of the small semigroup element [3Xx[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,116);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27Xx:=Elements(s)[3];[127X[104X
+    [4X[28Xs3[128X[104X
+    [4X[25Xgap>[125X [27XIndexPeriod(x);[127X[104X
+    [4X[28X[ 2, 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xx^3=x^2;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xx^2=x^1;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xx^3=x^1;[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-5 IsBand[101X
+  
+  [29X[2XIsBand[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the small semigroup [3Xsgrp[103X is a band and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is a [13Xband[113X if every element is an idempotent, that is, [3Xx^2=x[103X
+  for all [3Xx[103X in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,519);;[127X[104X
+    [4X[25Xgap>[125X [27XIsBand(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsBand, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsBand(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);   [127X[104X
+    [4X[28X[ 5, 1010 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-6 IsBrandtSemigroup[101X
+  
+  [29X[2XIsBrandtSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  small semigroup [3Xsgrp[103X is a Brandt semigroup and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA  finite  semigroup  [3Xsgrp[103X  is  a [13XBrandt semigroup[113X if it is inverse and zero
+  simple.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,519);;[127X[104X
+    [4X[25Xgap>[125X [27XIsBrandtSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsBrandtSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsBrandtSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);   [127X[104X
+    [4X[28X[ 5, 149 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-7 IsCliffordSemigroup[101X
+  
+  [29X[2XIsCliffordSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if the small semigroup [3Xsgrp[103X is a Clifford semigroup and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA  semigroup [3Xsgrp[103X is a [13XClifford semigroup[113X if it is a regular semigroup whose
+  idempotents  are  central,  that is, for all [3Xe,x[103X in [3Xsgrp[103X where [3Xe^2=e[103X we have
+  that [3Xex=xe[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,519);; [127X[104X
+    [4X[25Xgap>[125X [27XIsBand(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsBand, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsBand(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);   [127X[104X
+    [4X[28X[ 5, 1010 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,519);;[127X[104X
+    [4X[25Xgap>[125X [27XIsCliffordSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsCliffordSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsCliffordSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 5, 148 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-8 IsCommutativeSemigroup[101X
+  
+  [29X[2XIsCommutativeSemigroup[102X( [3Xsgrp[103X ) [32X property
+  [29X[2XIsCommutative[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturn [10Xtrue[110X if the small semigroup [3Xsgrp[103X is commutative and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is [13Xcommutative[113X if [3Xxy=yx[103X for all [3Xx,y[103X in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(6,871);;[127X[104X
+    [4X[25Xgap>[125X [27XIsCommutativeSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsCommutative, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsCommutativeSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCommutative(s);         [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 5, 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsCommutativeSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsCommutativeSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCommutative(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-9 IsCompletelyRegularSemigroup[101X
+  
+  [29X[2XIsCompletelyRegularSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  semigroup  [3Xsgrp[103X  is  completely  regular  and  [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA  semigroup  is  [13Xcompletely  regular[113X  if  every  element  is contained in a
+  subgroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(6,13131);                           [127X[104X
+    [4X[28X<small semigroup of size 6>[128X[104X
+    [4X[25Xgap>[125X [27XIsCompletelyRegularSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(6, IsCompletelyRegularSemigroup, true); [127X[104X
+    [4X[28X<small semigroup of size 6>[128X[104X
+    [4X[25Xgap>[125X [27XIsCompletelyRegularSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 6, 3164 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-10 IsFullTransformationSemigroupCopy[101X
+  
+  [29X[2XIsFullTransformationSemigroupCopy[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the semigroup [3Xsgrp[103X is isomorphic to a full transformation
+  semigroup and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YThe size of the full transformation semigroup on an [3Xn[103X element set is [22Xn^n[122X and
+  so there are only two semigroup in the library that have this property.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(1,1);[127X[104X
+    [4X[28X<small semigroup of size 1>[128X[104X
+    [4X[25Xgap>[125X [27XIsFullTransformationSemigroupCopy(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);[127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsFullTransformationSemigroupCopy(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 4, 96 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(6, IsFullTransformationSemigroupCopy, true);[127X[104X
+    [4X[28Xfail[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-11 IsGroupAsSemigroup[101X
+  
+  [29X[2XIsGroupAsSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  small  semigroup [3Xsgrp[103X is mathematically a group, and
+  returns  [10Xfalse[110X  otherwise.  Note  that  no  small  semigroup  can lie in the
+  category [2XIsGroup[102X ([14XReference: IsGroup[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7,7);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsGroupAsSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(4,37);;[127X[104X
+    [4X[25Xgap>[125X [27XIsGroupAsSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.2-12 [33X[0;0YIsIdempotentGenerated[133X[101X
+  
+  [29X[2XIsIdempotentGenerated[102X( [3Xsgrp[103X ) [32X property
+  [29X[2XIsSemiband[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X is a semiband and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is [13Xidempotent generated[113X or equivalently a [13Xsemiband[113X if it is
+  generated by its idempotent elements, i.e elements satisfying [3Xx^2=x[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(3, 13);[127X[104X
+    [4X[28X<small semigroup of size 3>[128X[104X
+    [4X[25Xgap>[125X [27XIsIdempotentGenerated(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(3, IsIdempotentGenerated, false);[127X[104X
+    [4X[28X<small semigroup of size 3>[128X[104X
+    [4X[25Xgap>[125X [27XIsIdempotentGenerated(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 3, 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, IsIdempotentGenerated, true, [127X[104X
+    [4X[25X>[125X [27XIsSingularSemigroupCopy, true);[127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(2, IsIdempotentGenerated, true, [127X[104X
+    [4X[25X>[125X [27XIsSingularSemigroupCopy, true);[127X[104X
+    [4X[28X<small semigroup of size 2>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-13 IsInverseSemigroup[101X
+  
+  [29X[2XIsInverseSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  semigroup  [3Xsgrp[103X  is  an  inverse semigroup and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA  semigroup  [3Xsgrp[103X  is an [13Xinverse semigroup[113X if every element [3Xx[103X in [3Xsgrp[103X has a
+  unique  semigroup  inverse,  that is, a unique element [3Xy[103X such that [3Xxyx=x[103X and
+  [3Xyxy=y[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(7, IsInverseSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsInverseSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 101324);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsInverseSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-14 IsLeftZeroSemigroup[101X
+  
+  [29X[2XIsLeftZeroSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  semigroup  [3Xsgrp[103X  is  a left zero semigroup and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is a [13Xleft zero semigroup[113X if [3Xxy=x[103X for all [3Xx,y[103X in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 438);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsLeftZeroSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 1141);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsLeftZeroSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-15 IsMonogenicSemigroup[101X
+  
+  [29X[2XIsMonogenicSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the small semigroup [3Xsgrp[103X is generated by a single element
+  and [10Xfalse[110X otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=RandomSmallSemigroup(7);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsMonogenicSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(7, IsMonogenicSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsMonogenicSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(s);[127X[104X
+    [4X[28X[ s7 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup( 7, 406945);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsMonogenicSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-16 IsMonoidAsSemigroup[101X
+  
+  [29X[2XIsMonoidAsSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  semigroup  [3Xsgrp[103X  is  a  monoid (i.e. has an identity
+  element) and [10Xfalse[110X otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(4, 126);[127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsMonoidAsSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, IsMonoidAsSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsMonoidAsSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XOne(s);[127X[104X
+    [4X[28Xs1[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 4, 7 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-17 IsMultSemigroupOfNearRing[101X
+  
+  [29X[2XIsMultSemigroupOfNearRing[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns   [10Xtrue[110X   if   [3Xsgrp[103X   is  isomorphic  (or  anti-isomorphic?)  to  the
+  multiplicative semigroup of a near-ring and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YThose  semigroups  in  the  library  that have this property were identified
+  using the [5XSonata[105X package.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(7, IsMultSemigroupOfNearRing, true);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 7, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XIsMultSemigroupOfNearRing(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(2,2);[127X[104X
+    [4X[28X<small semigroup of size 2>[128X[104X
+    [4X[25Xgap>[125X [27XIsMultSemigroupOfNearRing(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-18 IsNGeneratedSemigroup[101X
+  
+  [29X[2XIsNGeneratedSemigroup[102X( [3Xsgrp[103X, [3Xn[103X ) [32X operation
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if the least size of a generating set for the small semigroup
+  [3Xsgrp[103X is [3Xn[103X and [10Xfalse[110X otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 760041);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsNGeneratedSemigroup(s, 4);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsNGeneratedSemigroup(s, 3);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(s);[127X[104X
+    [4X[28X[ s3, s5, s7 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, x-> Length(MinimalGeneratingSet(x)), 4);[127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsNGeneratedSemigroup(s, 4);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-19 IsNIdempotentSemigroup[101X
+  
+  [29X[2XIsNIdempotentSemigroup[102X( [3Xsgrp[103X, [3Xn[103X ) [32X operation
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  small  semigroup  [3Xsgrp[103X  has  [3Xn[103X idempotents and [10Xfalse[110X
+  otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(4, 75);;[127X[104X
+    [4X[25Xgap>[125X [27XIsNIdempotentSemigroup(s, 1);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsNIdempotentSemigroup(s, 2);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsNIdempotentSemigroup(s, 3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.2-20 [33X[0;0YIsNilpotentSemigroup[133X[101X
+  
+  [29X[2XIsNilpotentSemigroup[102X( [3Xsgrp[103X ) [32X property
+  [29X[2XIsNilpotent[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the small semigroup [3Xsgrp[103X is nilpotent and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA  semigroup is [13Xnilpotent[113X if it has a zero element and every element to some
+  power equals this zero.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,116);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsNilpotentSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 673768);;[127X[104X
+    [4X[25Xgap>[125X [27XIsNilpotentSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 657867);;[127X[104X
+    [4X[25Xgap>[125X [27XIsNilpotent(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-21 IsOrthodoxSemigroup[101X
+  
+  [29X[2XIsOrthodoxSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X is orthodox and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA  semigroup  is  [13Xorthodox[113X  if  it  is  regular  and  its idempotents form a
+  subsemigroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(6, 15858);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithClosedIdempotents(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsRegularSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsOrthodoxSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-22 IsRectangularBand[101X
+  
+  [29X[2XIsRectangularBand[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  small semigroup [3Xsgrp[103X is a rectangular band and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is a [13Xrectangular band[113X if for all [3Xx,y,z[103X in [3Xsgrp[103X we have that
+  [3Xx^2=x[103X and [3Xxyz=xz[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 216);;[127X[104X
+    [4X[25Xgap>[125X [27XIsRectangularBand(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(6, 15854);;[127X[104X
+    [4X[25Xgap>[125X [27XIsRectangularBand(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-23 IsRegularSemigroup[101X
+  
+  [29X[2XIsRegularSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the small semigroup [3Xsgrp[103X is a regular semigroup and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is [13Xregular[113X if for all [3Xx[103X in [3Xsgrp[103X there exists [3Xy[103X in [3Xsgrp[103X such
+  that [3Xxyx=x[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(3, 10);;[127X[104X
+    [4X[25Xgap>[125X [27XIsRegularSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(3, 1);;[127X[104X
+    [4X[25Xgap>[125X [27XIsRegularSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true); [127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsRegularSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-24 IsRightZeroSemigroup[101X
+  
+  [29X[2XIsRightZeroSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xfalse[110X  for any small semigroup [3Xsgrp[103X since the library contains only
+  left zero semigroups.[133X
+  
+  [33X[0;0YA semigroup [3Xsgrp[103X is a [13Xright zero semigroup[113X if [3Xxy=y[103X for all [3Xx,y[103X in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 438);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsRightZeroSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-25 IsSelfDualSemigroup[101X
+  
+  [29X[2XIsSelfDualSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X is self dual and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA  semigroup  is  [13Xself  dual[113X  if  it is isomorphic to its dual, that is, the
+  semigroup  [3Xt[103X  with  multiplication  [3X*[103X defined by [3Xx*y=yx[103X where [3Xyx[103X denotes the
+  product in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,116);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=RandomSmallSemigroup(5, IsSelfDualSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDualSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-26 IsSemigroupWithClosedIdempotents[101X
+  
+  [29X[2XIsSemigroupWithClosedIdempotents[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  the  idempotent  elements  of  the  semigroup [3Xsgrp[103X form a
+  subsemigroup and [10Xfalse[110X otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 677);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithClosedIdempotents(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 659);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithClosedIdempotents(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5, 327);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithClosedIdempotents(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-27 IsSemigroupWithZero[101X
+  
+  [29X[2XIsSemigroupWithZero[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X has a zero element and false otherwise.[133X
+  
+  [33X[0;0YAn element [22Xz[122X is a [13Xzero[113X if [22Xz*x=x*z=z[122X for all [22Xx[122X in the semigroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(5,1);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithZero(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(4,26);[127X[104X
+    [4X[28X<small semigroup of size 4>[128X[104X
+    [4X[25Xgap>[125X [27XIsSemigroupWithZero(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.2-28 [33X[0;0YIsSimpleSemigroup[133X[101X
+  
+  [29X[2XIsSimpleSemigroup[102X( [3Xsgrp[103X ) [32X property
+  [29X[2XIsCompletelySimpleSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturn  [10Xtrue[110X  if the semigroup [3Xsgrp[103X is simple or completely simple and [10Xfalse[110X
+  otherwise.[133X
+  
+  [33X[0;0YA  semigroup  is  [13Xsimple[113X  if it has no proper 2-sided ideals. A semigroup is
+  [13Xcompletely  simple[113X  if  it  is  simple  and possesses minimal left and right
+  ideals.[133X
+  
+  [33X[0;0YA finite semigroup is simple if and only if it is completely simple.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 835080);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSimpleSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCompletelySimpleSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 208242);;[127X[104X
+    [4X[25Xgap>[125X [27XIsSimpleSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-29 IsSingularSemigroupCopy[101X
+  
+  [29X[2XIsSingularSemigroupCopy[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X if the semigroup [3Xsgrp[103X is isomorphic to a semigroup of singular
+  (i.e. non-invertible) mappings on a finite set and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YThe  size  of  this  semigroup on an [22Xn[122X element set is [22Xn^n-n![122X and so there is
+  only one semigroup in the library that has this property.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(1,1);[127X[104X
+    [4X[28X<small semigroup of size 1>[128X[104X
+    [4X[25Xgap>[125X [27XIsSingularSemigroupCopy(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(2, IsSingularSemigroupCopy, true);[127X[104X
+    [4X[28X<small semigroup of size 2>[128X[104X
+    [4X[25Xgap>[125X [27XIsSingularSemigroupCopy(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 2, 4 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(4, IsSingularSemigroupCopy, true);[127X[104X
+    [4X[28Xfail[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-30 IsZeroGroup[101X
+  
+  [29X[2XIsZeroGroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X is a zero group and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YThe semigroup [3Xsgrp[103X is a [13Xzero group[113X if there exists an element [22Xz[122X in [3Xsgrp[103X such
+  that [3Xsgrp[103X without [22Xz[122X is a group and for all [22Xx[122X in [22Xsgrp[122X we have that [22Xxz=zx=z[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg:=Group((1,2),(3,4)); [127X[104X
+    [4X[28XGroup([ (1,2), (3,4) ])[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(g); [127X[104X
+    [4X[28X[ 4, 7 ][128X[104X
+    [4X[25Xgap>[125X [27Xs := Range(InjectionZeroMagma(g));[127X[104X
+    [4X[28X<Group([ (1,2), (3,4) ]) with 0 adjoined>[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 5, 149 ][128X[104X
+    [4X[25Xgap>[125X [27XIsZeroGroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-31 IsZeroSemigroup[101X
+  
+  [29X[2XIsZeroSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturns [10Xtrue[110X if the semigroup [3Xsgrp[103X is a zero semigroup and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YThe  semigroup [3Xsgrp[103X is a [13Xzero semigroup[113X if there exists an element [22Xz[122X in [3Xsgrp[103X
+  such that [22Xxy=z[122X for all [22Xx,y[122X in [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsZeroSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 5, 1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=OneSmallSemigroup(5, IsZeroSemigroup, false);[127X[104X
+    [4X[28X<small semigroup of size 5>[128X[104X
+    [4X[25Xgap>[125X [27XIdSmallSemigroup(s);[127X[104X
+    [4X[28X[ 5, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  that  for  each  size  the  unique  zero semigroup is always the first
+  semigroup of this size in the library.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(SmallSemigroup(6,1));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(SmallSemigroup(7,1));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(SmallSemigroup(8,1));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-32 IsZeroSimpleSemigroup[101X
+  
+  [29X[2XIsZeroSimpleSemigroup[102X( [3Xsgrp[103X ) [32X property
+  
+  [33X[0;0Yreturn [10Xtrue[110X if the semigroup [3Xsgrp[103X is zero simple and [10Xfalse[110X otherwise.[133X
+  
+  [33X[0;0YA  semigroup [3Xsgrp[103X is [13Xzero simple[113X if the only 2-sided ideals are the zero [3X{0}[103X
+  and [3Xsgrp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 519799);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSimpleSemigroup(s);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xs:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true); [127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XIsZeroSimpleSemigroup(s);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-33 MinimalGeneratingSet[101X
+  
+  [29X[2XMinimalGeneratingSet[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns a set of generators for [3Xsgrp[103X with minimal size.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(8, 1478885610);;[127X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(s);[127X[104X
+    [4X[28X[ s4, s5, s6, s7, s8 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(7, 673768);;[127X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(s);[127X[104X
+    [4X[28X[ s4, s5, s6, s7 ][128X[104X
+    [4X[25Xgap>[125X [27Xs:=SmallSemigroup(4, 4);;[127X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSet(s);[127X[104X
+    [4X[28X[ s2, s3, s4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.2-34 NilpotencyDegree[101X
+  
+  [29X[2XNilpotencyDegree[102X( [3Xsgrp[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  the  least [22Xn[122X such that every product of [22Xn[122X elements in the nilpotent
+  semigroup  [3Xsgrp[103X  equals  the  zero element and returns [10Xfail[110X if the semigroup
+  [3Xsgrp[103X is not nilpotent.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(5, 1121);;[127X[104X
+    [4X[25Xgap>[125X [27XNilpotencyDegree(s);[127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(7, 393450);;[127X[104X
+    [4X[25Xgap>[125X [27XNilpotencyDegree(s);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  that  for size 8 a semigroup in the library with ID [22X(8,n)[122X is nilpotent
+  of degree 3 if and only if [22Xn[122X is greater than 11433106.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(8, 11433106+1231);;[127X[104X
+    [4X[25Xgap>[125X [27XNilpotencyDegree(s);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(8,NrSmallSemigroups(8));;[127X[104X
+    [4X[25Xgap>[125X [27XNilpotencyDegree(s);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.3 [33X[0;0YNilpotent semigroups by coclass[133X[101X
+  
+  [33X[0;0YA  useful  parameter  in the classification of nilpotent semigroups is their
+  coclass. For a finite nilpotent semigroup of order [22Xn[122X and nilpotency degree [22Xd[122X
+  the coclass is defined as [22Xn-d[122X. In [Dis14] lists up to (anti-)isomorphism are
+  provided  for nilpotent semigroups of coclass 0, 1, and 2. The semigroups in
+  the  lists  are given by finite presentations. In this section we describe a
+  function that allows to access such lists in [5XGAP[105X.[133X
+  
+  [33X[0;0YA  further  invariant  of  a nilpotent semigroup [22XS[122X is the size of its unique
+  minimal  generating  set [22XSbackslash S^2[122X. The possible sizes for a particular
+  coclass  are  restricted. Monogenic nilpotent semigroups are precisely those
+  of coclass 0. For coclass [22Xd ≥ 1[122X the size of the minimal generating set is at
+  least 2 and at most [22Xd+1[122X.[133X
+  
+  [1X4.3-1 NilpotentSemigroupsByCoclass[101X
+  
+  [29X[2XNilpotentSemigroupsByCoclass[102X( [3Xn[103X, [3Xd[103X[, [3Xr[103X] ) [32X function
+  
+  [33X[0;0Yreturns  for  a  positive integer [3Xn[103X and an integer [3Xd[103X with value 0, 1, or 2 a
+  list   of   nilpotent   semigroups   of   order   [3Xn[103X  and  coclass  [3Xd[103X  up  to
+  (anti-)isomorphism.  If  the  optional  third  argument [3Xr[103X is given then only
+  semigroups  of  rank [3Xr[103X are returned. The semigroups in the list are given by
+  finite presentations.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNilpotentSemigroupsByCoclass(5,1);[127X[104X
+    [4X[28X[ <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]>, [128X[104X
+    [4X[28X  <fp semigroup on the generators [ s1, s2 ]> ][128X[104X
+    [4X[25Xgap>[125X [27XNilpotentSemigroupsByCoclass(7,0);[127X[104X
+    [4X[28X[ <fp semigroup on the generators [ s1 ]> ][128X[104X
+    [4X[25Xgap>[125X [27XNilpotentSemigroupsByCoclass(4,2,3);[127X[104X
+    [4X[28X[ <fp semigroup on the generators [ s1, s2, s3 ]> ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.4 [33X[0;0YStarred Green's relations[133X[101X
+  
+  [33X[0;0YIn  this  section  functionality  around  the  starred  Green's relations is
+  described.  The  five  starred Green's relations are [22XR^*[122X, [22XL^*[122X, [22XJ^*[122X, [22XH^*[122X, and
+  [22XD^*[122X;  two elements [22Xa[122X, [22Xb[122X from a semigroup [22XS[122X are [22XR^*[122X-related if for all [22Xx, y ∈
+  S^1: xa=ya[122X if and only if [22Xxb = yb[122X; and [22Xa[122X and [22Xb[122X are [22XL^*[122X-related if for all [22Xx,
+  y  ∈ S^1: ax=ay[122X if and only if [22Xbx = by[122X. In parallel to the classical Green's
+  relations  [14X'Reference:  Green's  Relations'[114X [22XH^*=R^* ∧ L^*[122X and [22XD^*= R^* ∨ L^*[122X
+  (but  [22XR^*  ∘ L^* = L^* ∘ R^*[122X does [13Xnot[113X hold in general). To describe [22XJ^*[122X is a
+  bit  more  technical.  For  [22Xa,b  ∈ S[122X one can show that [22Xb[122X lies in [22XJ^*(a)[122X, the
+  principal  *-ideal  of  [22Xa[122X,  if and only if there exist [22Xc_0,c_1...,c_n∈ S[122X and
+  [22Xx_1,...,x_n,y_1,...,  y_n∈  S^1[122X such that [22Xa=c_0, b=c_n[122X and [22Xc_iD^*x_ic_i-1y_i[122X
+  for [22X1≤ i≤ n[122X. Then [22XaJ^*b[122X if and only if both [22Xa∈ J^*(b)[122X and [22Xb∈ J^*(a)[122X[133X
+  
+  [33X[0;0YNote  that  even  for  finite  semigroups  [22XJ^*[122X does not always equal [22XD^*[122X (in
+  contrast  to the situation for classical Green's relations). Using [5XSmallsemi[105X
+  it was shown that there exist semigroups of order 8 with [22XJ^*≠ D^*[122X [DMU13].[133X
+  
+  [1X4.4-1 IsStarRelation[101X
+  
+  [29X[2XIsStarRelation[102X( [3Xbin-relation[103X ) [32X property
+  [29X[2XIsRStarRelation[102X( [3Xequiv-relation[103X ) [32X property
+  [29X[2XIsLStarRelation[102X( [3Xequiv-relation[103X ) [32X property
+  [29X[2XIsJStarRelation[102X( [3Xequiv-relation[103X ) [32X property
+  [29X[2XIsHStarRelation[102X( [3Xequiv-relation[103X ) [32X property
+  [29X[2XIsDStarRelation[102X( [3Xequiv-relation[103X ) [32X property
+  
+  [33X[0;0YThese  functions  return  [10Xtrue[110X  if  the  argument  is the respective type of
+  relation and [10Xfalse[110X otherwise.[133X
+  
+  [1X4.4-2 RStarRelation[101X
+  
+  [29X[2XRStarRelation[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XLStarRelation[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XJStarRelation[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XDStarRelation[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XHStarRelation[102X( [3Xsemigroup[103X ) [32X attribute
+  
+  [33X[0;0YThe   starred  Green's  relations  (which  are  equivalence  relations)  are
+  attributes of the semigroup [3Xsemigroup[103X.[133X
+  
+  [1X4.4-3 RStarClass[101X
+  
+  [29X[2XRStarClass[102X( [3XS[103X, [3Xa[103X ) [32X operation
+  [29X[2XLStarClass[102X( [3XS[103X, [3Xa[103X ) [32X operation
+  [29X[2XDStarClass[102X( [3XS[103X, [3Xa[103X ) [32X operation
+  [29X[2XJStarClass[102X( [3XS[103X, [3Xa[103X ) [32X operation
+  [29X[2XHStarClass[102X( [3XS[103X, [3Xa[103X ) [32X operation
+  
+  [33X[0;0YCreates  the  [22XX*[122X-class of the element [3Xa[103X in the semigroup [3XS[103X where [22XX[122X is one of
+  [22XL[122X, [22XR[122X, [22XD[122X, [22XJ[122X, or [22XH[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(7, 280142);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27Xelm := AsList(s)[5];;[127X[104X
+    [4X[25Xgap>[125X [27Xjclass := JStarClass(s, elm);[127X[104X
+    [4X[28X{s5}[128X[104X
+    [4X[25Xgap>[125X [27XAsList(jclass);[127X[104X
+    [4X[28X[ s2, s3, s4, s5 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.4-4 RStarClass[101X
+  
+  [29X[2XRStarClass[102X( [3XC[103X ) [32X attribute
+  [29X[2XLStarClass[102X( [3XC[103X ) [32X attribute
+  [29X[2XDStarClass[102X( [3XC[103X ) [32X attribute
+  [29X[2XJStarClass[102X( [3XC[103X ) [32X attribute
+  
+  [33X[0;0Yare  attributes  reflecting  the  natural  ordering over the various starred
+  Green's classes. They return the respective class in which the given class [22XC[122X
+  is contained, where [22XC[122X must be a class from a strictly finer relation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(7, 280142);[127X[104X
+    [4X[28X<small semigroup of size 7>[128X[104X
+    [4X[25Xgap>[125X [27Xelm := AsList(s)[5];;[127X[104X
+    [4X[25Xgap>[125X [27Xhclass := HStarClass(s, elm);[127X[104X
+    [4X[28X{s5}[128X[104X
+    [4X[25Xgap>[125X [27XAsList(LStarClass(hclass));[127X[104X
+    [4X[28X[ s5 ][128X[104X
+    [4X[25Xgap>[125X [27XAsList(RStarClass(hclass));[127X[104X
+    [4X[28X[ s2, s5 ][128X[104X
+    [4X[25Xgap>[125X [27XAsList(DStarClass(hclass));[127X[104X
+    [4X[28X[ s2, s3, s4, s5 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.4-5 IsStarClass[101X
+  
+  [29X[2XIsStarClass[102X( [3Xequiv-class[103X ) [32X property
+  [29X[2XIsRStarClass[102X( [3Xequiv-class[103X ) [32X property
+  [29X[2XIsLStarClass[102X( [3Xequiv-class[103X ) [32X property
+  [29X[2XIsJStarClass[102X( [3Xequiv-class[103X ) [32X property
+  [29X[2XIsHStarClass[102X( [3Xequiv-class[103X ) [32X property
+  [29X[2XIsDStarClass[102X( [3Xequiv-class[103X ) [32X property
+  
+  [33X[0;0Yreturn  [9Xtrue[109X if the equivalence class [3Xequiv-class[103X is a starred Green's class
+  of any type, or of [22XR[122X, [22XL[122X, [22XJ[122X, [22XH[122X, [22XD[122X type, respectively, or [9Xfalse[109X otherwise.[133X
+  
+  [1X4.4-6 RStarClasses[101X
+  
+  [29X[2XRStarClasses[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XLStarClasses[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XJStarClasses[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XDStarClasses[102X( [3Xsemigroup[103X ) [32X attribute
+  [29X[2XHStarClasses[102X( [3Xsemigroup[103X ) [32X attribute
+  
+  [33X[0;0Yreturn  the  [22XR[122X,  [22XL[122X,  [22XJ[122X,  [22XH[122X,  or  [22XD[122X starred Green's classes, respectively for
+  semigroup  [3Xsemigroup[103X.  [10XEquivalenceClasses[110X for a Green's relation lead to one
+  of these functions.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SmallSemigroup(6, 54);[127X[104X
+    [4X[28X<small semigroup of size 6>[128X[104X
+    [4X[25Xgap>[125X [27XJStarClasses(s);[127X[104X
+    [4X[28X[ {s1}, {s2}, {s4}, {s5}, {s6} ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.5 [33X[0;0YFamilies of Semigroups[133X[101X
+  
+  [33X[0;0YIn this section we describe how to find semigroups in the library satisfying
+  a given set of parameters.[133X
+  
+  [33X[0;0YThe following functions have the same usage but may return different values:
+  [2XEnumeratorOfSmallSemigroups[102X     ([14X4.5-2[114X),     [2XAllSmallSemigroups[102X     ([14X4.5-1[114X),
+  [2XEnumeratorSortedOfSmallSemigroups[102X   ([14X4.5-4[114X),  [2XIdsOfSmallSemigroups[102X  ([14X4.5-7[114X),
+  [2XIteratorOfSmallSemigroups[102X      ([14X4.5-11[114X),     [2XNrSmallSemigroups[102X     ([14X4.5-15[114X),
+  [2XOneSmallSemigroup[102X     ([14X4.5-16[114X),     [2XPositionsOfSmallSemigroups[102X     ([14X4.5-17[114X),
+  [2XRandomSmallSemigroup[102X ([14X4.5-20[114X).[133X
+  
+  [33X[0;0YThe number of arguments should be odd:[133X
+  
+  [30X    [33X[0;6Ythe  first  argument  [10Xarg[1][110X  should  be a positive integer, a list of
+        positive  integers,  or  an enumerator or iterator of small semigroups
+        satisfying        [2XIsEnumeratorOfSmallSemigroups[102X       ([14X4.5-8[114X)       or
+        [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X)[133X
+  
+  [30X    [33X[0;6Ythe even arguments [10Xarg[2i][110X, if present, should be a function[133X
+  
+  [30X    [33X[0;6Ythe  odd  arguments [10Xarg[2i+1][110X argument should be a possible value that
+        can be returned by the function [10Xarg[2i][110X.[133X
+  
+  [33X[0;0YIn  the case that the function is [2XAllSmallSemigroups[102X ([14X4.5-1[114X) and [10Xarg[1][110X is a
+  positive integer, then the returned value is a list of all semigroups [22XS[122X with
+  [10Xarg[1][110X elements such that [10Xarg[2i](S)=arg[2i+1][110X.[133X
+  
+  [33X[0;0YFor  example, to obtain all the commutative semigroups with [3X3[103X idempotents of
+  sizes   [3X2[103X   to   [3X5[103X   use   one   of   [2XEnumeratorOfSmallSemigroups[102X   ([14X4.5-2[114X),
+  [2XAllSmallSemigroups[102X   ([14X4.5-1[114X),   [2XEnumeratorSortedOfSmallSemigroups[102X   ([14X4.5-4[114X),
+  [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X) with argument[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[2..5], IsCommutative, true, Is3IdempotentGenerated, true[128X[104X
+    [4X[28X	[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[2XAllSmallSemigroups[102X   ([14X4.5-1[114X)   returns   a  list  of  all  such  semigroups,
+  [2XEnumeratorOfSmallSemigroups[102X    ([14X4.5-2[114X),    [2XEnumeratorSortedOfSmallSemigroups[102X
+  ([14X4.5-4[114X),  and [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X) return an enumerator and an
+  iterator  of  all  such  semigroups,  respectively.  For more information on
+  enumerators   and   iterators   see   [2XEnumerator[102X   ([14XReference:  Enumerator[114X),
+  [2XEnumeratorSorted[102X  ([14XReference:  EnumeratorSorted[114X),  or  [2XIterator[102X  ([14XReference:
+  Iterator[114X).  The  following  are  rules  of  thumb  regarding  the  different
+  situations  when  these  functions  should  be  used  in order of slowest to
+  fastest and greatest memory use to least:[133X
+  
+  [30X    [33X[0;6Y[2XAllSmallSemigroups[102X  ([14X4.5-1[114X) should be used if the number of semigroups
+        is  not  too  large  and  you want to keep the created semigroups in a
+        list.[133X
+  
+  [30X    [33X[0;6Y[2XEnumeratorOfSmallSemigroups[102X                 ([14X4.5-2[114X)                 or
+        [2XEnumeratorSortedOfSmallSemigroups[102X  ([14X4.5-4[114X)  should  be  used  when the
+        functions  in  even  indexed positions are those stored in the library
+        (see [2XPrecomputedSmallSemisInfo[102X ([14X4.5-19[114X)) or you want repeatedly search
+        the  same set of semigroups and there are too many to store in a list.
+        Note that the enumerator stores the id numbers of its elements but not
+        the  semigroups  themselves.  Hence  every  time  an  element  of  the
+        enumerator  is  required  it must be recreated from the multiplication
+        table data.[133X
+  
+  [30X    [33X[0;6Y[2XIteratorOfSmallSemigroups[102X  ([14X4.5-11[114X) should be used if the functions in
+        even   indexed   positions   are   not  stored  in  the  library  (see
+        [2XPrecomputedSmallSemisInfo[102X ([14X4.5-19[114X)) or if you just want to run through
+        all the semigroups satisfying the specified parameters once only. Note
+        that  each new call of [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X) requires [5XGAP[105X
+        to  recompute  its  elements  which  may  be slow if the functions are
+        user-defined or not stored in the library.[133X
+  
+  [33X[0;0YFurther  information on the relative virtues of these different commands can
+  be found in Chapter [14X3[114X.[133X
+  
+  [33X[0;0YAs  a  further  example,  if we want to obtain a single non-simple semigroup
+  with [22X7[122X elements and trivial automorphism group, then we would use one of the
+  functions  [2XOneSmallSemigroup[102X  ([14X4.5-16[114X) or [2XRandomSmallSemigroup[102X ([14X4.5-20[114X) with
+  argument[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X7, IsSimpleSemigroup, false, x-> IsTrivial(AutomorphismGroup(x)), true[128X[104X
+    [4X[28X	[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[2XOneSmallSemigroup[102X  ([14X4.5-16[114X)  should  return  an  answer  more  quickly  than
+  [2XRandomSmallSemigroup[102X  ([14X4.5-20[114X).  Also  note  that [2XOneSmallSemigroup[102X ([14X4.5-16[114X)
+  will  always  return  the  same  semigroup,  i.e. the first semigroup in the
+  library with the given parameters.[133X
+  
+  [1X4.5-1 AllSmallSemigroups[101X
+  
+  [29X[2XAllSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is a positive integer, then [10XAllSmallSemigroups[110X returns a list of
+  all   the  small  semigroups  [10XS[110X  in  the  library  with  [10XSize(S)=arg[1][110X  and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X is a list of positive integers, then [10XAllSmallSemigroups[110X returns a
+  list of all the small semigroups [10XS[110X in the library with [10XSize(S) in arg[1][110X and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XAllSmallSemigroups[110X  returns  a  list  of  all  the small semigroups [10XS[110X in the
+  library with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X  gap> AllSmallSemigroups(2);[128X[104X
+    [4X[28X  [ <small semigroup of size 2>, <small semigroup of size 2>,[128X[104X
+    [4X[28X    <small semigroup of size 2>, <small semigroup of size 2> ][128X[104X
+    [4X[28X  gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,[128X[104X
+    [4X[28X  > x-> Length(GreensRClasses(x)), 1);[128X[104X
+    [4X[28X  [ <small semigroup of size 2>, <small semigroup of size 2>,[128X[104X
+    [4X[28X    <small semigroup of size 3>, <small semigroup of size 3> ][128X[104X
+    [4X[28X  gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,[128X[104X
+    [4X[28X  > IsCommutativeSemigroup, true);;[128X[104X
+    [4X[28X  gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);[128X[104X
+    [4X[28X  [ <small semigroup of size 8>, <small semigroup of size 8>,[128X[104X
+    [4X[28X    <small semigroup of size 8> ][128X[104X
+    [4X[28X  gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);;[128X[104X
+    [4X[28X  gap> AllSmallSemigroups(iter, IsCommutative, true,[128X[104X
+    [4X[28X  > IsSimpleSemigroup, true);[128X[104X
+    [4X[28X  [ <small semigroup of size 7> ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-2 EnumeratorOfSmallSemigroups[101X
+  
+  [29X[2XEnumeratorOfSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf [10Xarg[1][110X is a positive integer, then [10XEnumeratorOfSmallSemigroups[110X returns an
+  enumerator  of all the small semigroups [10XS[110X in the library with [10XSize(S)=arg[1][110X
+  and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is a list of positive integers, then [10XEnumeratorOfSmallSemigroups[110X
+  returns  an  enumerator  of  all  the small semigroups [10XS[110X in the library with
+  [10XSize(S) in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XEnumeratorOfSmallSemigroups[110X   returns   an   enumerator  of  all  the  small
+  semigroups  [10XS[110X  in  the library with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for
+  all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups(7);[127X[104X
+    [4X[28X<enumerator of semigroups of size 7>[128X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups([2,3], IsRegularSemigroup, true);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 2, 3 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,[127X[104X
+    [4X[25X>[125X [27XIsCommutativeSemigroup, true);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(enum, IsCommutativeSemigroup, true,[127X[104X
+    [4X[25X>[125X [27XIsSimpleSemigroup, false);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups(8);[127X[104X
+    [4X[28X<iterator>[128X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,[127X[104X
+    [4X[25X>[125X [27XIsSimpleSemigroup, false);[127X[104X
+    [4X[28X<enumerator of semigroups of size 8>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-3 EnumeratorOfSmallSemigroupsByIds[101X
+  
+  [29X[2XEnumeratorOfSmallSemigroupsByIds[102X( [3Xarg[103X ) [32X operation
+  [29X[2XEnumeratorOfSmallSemigroupsByIdsNC[102X( [3Xarg[103X ) [32X operation
+  
+  [33X[0;0Ythe argument of this function should be one of the following:[133X
+  
+  [30X    [33X[0;6Ya  positive  integer  [3Xarg[1][103X  and a set of positive integers less than
+        [2XNrSmallSemigroups[102X  ([14X4.5-15[114X)  with  argument  [3Xarg[1][103X.  For example, the
+        argument [3X3, [1..10][103X yields the first 10 semigroups with 3 elements.[133X
+  
+  [30X    [33X[0;6Ya  set  of  positive  integers  [3Xarg[1][103X  and a list of sets of positive
+        integers [3Xarg[2][103X such that [3Xx[103X is at most [2XNrSmallSemigroups[102X ([14X4.5-15[114X) with
+        argument  [3Xarg[1][i][103X  for  all  [3Xx[103X  in  [3Xarg[2][i][103X.  For  example, [3X[2,3],
+        [[1..2],[1..10]][103X  yields  the  first  2  semigroups of size 2, and the
+        first 10 semigroups of size 3.[133X
+  
+  [30X    [33X[0;6Ya list of id numbers, for example, [3X[[7,1], [6,1], [5,1]][103X.[133X
+  
+  [33X[0;0YThe  no  check  version  does not check that the arguments are valid and may
+  return unpredictable results.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroupsByIds([[7,1],[6,1],[5,1]]);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 5, 6, 7 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);[127X[104X
+    [4X[28X<enumerator of semigroups of size 7>[128X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroupsByIds([2,3], [[1..2],[1..10]]);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 2, 3 ]>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-4 EnumeratorSortedOfSmallSemigroups[101X
+  
+  [29X[2XEnumeratorSortedOfSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Yaccepts    the   same   arguments   and   returns   the   same   values   as
+  [2XEnumeratorOfSmallSemigroups[102X ([14X4.5-2[114X).[133X
+  
+  [1X4.5-5 FuncsOfSmallSemisInEnum[101X
+  
+  [29X[2XFuncsOfSmallSemisInEnum[102X( [3Xenum[103X ) [32X function
+  
+  [33X[0;0Yreturns  a  list  of the functions and their values that were used to create
+  the enumerator of small semigroups [3Xenum[103X. If you only want the names of these
+  functions use [2XNamesFuncsSmallSemisInEnum[102X ([14X4.5-12[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,[127X[104X
+    [4X[25X>[125X [27XIsRegularSemigroup, true);;                                         [127X[104X
+    [4X[25Xgap>[125X [27XFuncsOfSmallSemisInEnum(enum);[127X[104X
+    [4X[28X[ <Property "IsRegularSemigroup">, true, [128X[104X
+    [4X[28X  <Property "IsSimpleSemigroup">, false ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-6 FuncsOfSmallSemisInIter[101X
+  
+  [29X[2XFuncsOfSmallSemisInIter[102X( [3Xiter[103X ) [32X function
+  
+  [33X[0;0Yreturns  a  list  of the functions and their values that were used to create
+  the  iterator  of small semigroups [3Xiter[103X. If you only want the names of these
+  functions use [2XNamesFuncsSmallSemisInIter[102X ([14X4.5-13[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,[127X[104X
+    [4X[25X>[125X [27XIsRegularSemigroup, true);;                                        [127X[104X
+    [4X[25Xgap>[125X [27XFuncsOfSmallSemisInIter(enum);[127X[104X
+    [4X[28X[ <Property "IsRegularSemigroup">, true, [128X[104X
+    [4X[28X  <Property "IsSimpleSemigroup">, false ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-7 IdsOfSmallSemigroups[101X
+  
+  [29X[2XIdsOfSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf [10Xarg[1][110X is a positive integer, then [10XIdsOfSmallSemigroups[110X returns a list of
+  the  id  numbers  of  all  the  small  semigroups  [10XS[110X  in  the  library  with
+  [10XSize(S)=arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X is a list of positive integers, then [10XIdsOfSmallSemigroups[110X returns
+  a  list  of the id numbers of all the small semigroups [10XS[110X in the library with
+  [10XSize(S) in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XIdsOfSmallSemigroups[110X  returns  a  list  of  the  id numbers of all the small
+  semigroups  [10XS[110X  in  the library with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for
+  all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensRClasses(x)), 1);;[127X[104X
+    [4X[25Xgap>[125X [27XIdsOfSmallSemigroups(enum, IsCommutativeSemigroup, true,[127X[104X
+    [4X[25X>[125X [27XIsSimpleSemigroup, false);                                              [127X[104X
+    [4X[28X[  ][128X[104X
+    [4X[25Xgap>[125X [27XIdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);  [127X[104X
+    [4X[28X[ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [128X[104X
+    [4X[28X  [ 3, 13 ], [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-8 IsEnumeratorOfSmallSemigroups[101X
+  
+  [29X[2XIsEnumeratorOfSmallSemigroups[102X( [3Xenum[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  [3Xenum[103X  is  an enumerator of small semigroups created using
+  [2XEnumeratorOfSmallSemigroups[102X     ([14X4.5-2[114X),    [2XEnumeratorOfSmallSemigroupsByIds[102X
+  ([14X4.5-3[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroupsByIds([[2,1], [3,1], [4,1]]);;[127X[104X
+    [4X[25Xgap>[125X [27XIsEnumeratorOfSmallSemigroups(enum);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-9 IsIdSmallSemigroup[101X
+  
+  [29X[2XIsIdSmallSemigroup[102X( [3Xarg[103X ) [32X property
+  
+  [33X[0;0Yreturn [10Xtrue[110X if the [3Xarg[103X is the id of a small semigroup or [3X[arg[1], arg[2]][103X is
+  the id of a small semigroup.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsIdSmallSemigroup(8,1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsIdSmallSemigroup([1,2]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsIdSmallSemigroup([3,18]);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-10 IsIteratorOfSmallSemigroups[101X
+  
+  [29X[2XIsIteratorOfSmallSemigroups[102X( [3Xiter[103X ) [32X property
+  
+  [33X[0;0Yreturns  [10Xtrue[110X  if  [3Xiter[103X  is  an  iterator  of small semigroups created using
+  [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups(8);;[127X[104X
+    [4X[25Xgap>[125X [27XIsIteratorOfSmallSemigroups(iter);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-11 IteratorOfSmallSemigroups[101X
+  
+  [29X[2XIteratorOfSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is a positive integer, then [10XIteratorOfSmallSemigroups[110X returns an
+  iterator  of  all  the small semigroups [10XS[110X in the library with [10XSize(S)=arg[1][110X
+  and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is  a  list of positive integers, then [10XIteratorOfSmallSemigroups[110X
+  returns  an  iterator  of  all  the  small  semigroups [10XS[110X in the library with
+  [10XSize(S) in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XIteratorOfSmallSemigroups[110X  returns an iterator of all the small semigroups [10XS[110X
+  in the library with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups(8);[127X[104X
+    [4X[28X<iterator>[128X[104X
+    [4X[25Xgap>[125X [27XNextIterator(iter);[127X[104X
+    [4X[28X<small semigroup of size 8>[128X[104X
+    [4X[25Xgap>[125X [27XIsDoneIterator(iter);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true,[127X[104X
+    [4X[25X>[125X [27Xx-> Length(Idempotents(x))=1, true);[127X[104X
+    [4X[28X<iterator>[128X[104X
+    [4X[25Xgap>[125X [27XNextIterator(iter);[127X[104X
+    [4X[28X<small semigroup of size 2>[128X[104X
+    [4X[25Xgap>[125X [27XNextIterator(iter);[127X[104X
+    [4X[28X<small semigroup of size 3>[128X[104X
+    [4X[25Xgap>[125X [27XNextIterator(iter);[127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);[127X[104X
+    [4X[28X<enumerator of semigroups of size 5>[128X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups(enum, x-> Length(GreensRClasses(x))=2, true);[127X[104X
+    [4X[28X<iterator>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-12 NamesFuncsSmallSemisInEnum[101X
+  
+  [29X[2XNamesFuncsSmallSemisInEnum[102X( [3Xenum[103X ) [32X function
+  
+  [33X[0;0Yreturns  a list of the names of functions and their values that were used to
+  create  the enumerator of small semigroups [3Xenum[103X. If you only want the actual
+  functions themselves then use [2XFuncsOfSmallSemisInEnum[102X ([14X4.5-5[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,[127X[104X
+    [4X[25X>[125X [27XIsRegularSemigroup, true);;[127X[104X
+    [4X[25Xgap>[125X [27XNamesFuncsSmallSemisInEnum(enum);[127X[104X
+    [4X[28X[ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-13 NamesFuncsSmallSemisInIter[101X
+  
+  [29X[2XNamesFuncsSmallSemisInIter[102X( [3Xiter[103X ) [32X attribute
+  
+  [33X[0;0Yreturns  a list of the names of functions and their values that were used to
+  create  the  iterator  of small semigroups [3Xiter[103X. If you only want the actual
+  functions themselves then use [2XFuncsOfSmallSemisInIter[102X ([14X4.5-6[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,[127X[104X
+    [4X[25X>[125X [27XIsRegularSemigroup, true);;[127X[104X
+    [4X[25Xgap>[125X [27XNamesFuncsSmallSemisInIter(iter);[127X[104X
+    [4X[28X[ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-14 Nr3NilpotentSemigroups[101X
+  
+  [29X[2XNr3NilpotentSemigroups[102X( [3Xn[103X[, [3Xtype[103X] ) [32X function
+  
+  [33X[0;0Yreturns  the  number  of 3-nilpotent semigroups on a set with [3Xn[103X elements. If
+  the  optional  argument  [3Xtype[103X  is given it must be one of [10X"UpToEquivalence",
+  "UpToIsomorphism",        "SelfDual",       "Commutative",       "Labelled",
+  "Labelled-Commutative"[110X.  The number will be returned for the respective type
+  of semigroup. By default [3Xtype[103X is [10X"UpToEquivalence"[110X.[133X
+  
+  [33X[0;0YThe  function  implements the formulae calculating the number of 3-nilpotent
+  semigroups developed in [Dis10][133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNr3NilpotentSemigroups( 4 );[127X[104X
+    [4X[28X8[128X[104X
+    [4X[25Xgap>[125X [27XNr3NilpotentSemigroups( 9, "UpToIsomorphism" );[127X[104X
+    [4X[28X105931872028455[128X[104X
+    [4X[25Xgap>[125X [27XNr3NilpotentSemigroups( 9, "Labelled" );[127X[104X
+    [4X[28X38430603831264883632[128X[104X
+    [4X[25Xgap>[125X [27XNr3NilpotentSemigroups( 16, "SelfDual" );[127X[104X
+    [4X[28X4975000837941847814744710290469890455985530[128X[104X
+    [4X[25Xgap>[125X [27XNr3NilpotentSemigroups( 19, "Commutative" );[127X[104X
+    [4X[28X12094270656160403920767935604624748908993169949317454767617795[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-15 NrSmallSemigroups[101X
+  
+  [29X[2XNrSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is a positive integer, then [10XNrSmallSemigroups[110X returns the number
+  of   small   semigroups   [10XS[110X   in   the   library   with  [10XSize(S)=arg[1][110X  and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf [10Xarg[1][110X is a list of positive integers, then [10XNrSmallSemigroups[110X returns the
+  number  of  small  semigroups  [10XS[110X  in  the library with [10XSize(S) in arg[1][110X and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XNrSmallSemigroups[110X  returns  the  number of small semigroups [10XS[110X in the library
+  with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XList([1..8], NrSmallSemigroups);[127X[104X
+    [4X[28X[ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128 ][128X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups(8, IsCommutative, true, IsInverseSemigroup, true);[127X[104X
+    [4X[28X4443[128X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups([1..8], IsCliffordSemigroup, true);[127X[104X
+    [4X[28X5610[128X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups(8, IsRegularSemigroup, true,[127X[104X
+    [4X[25X>[125X [27XIsCompletelyRegularSemigroup, false);[127X[104X
+    [4X[28X1164[128X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups(5, NilpotencyDegree, 3);[127X[104X
+    [4X[28X84[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-16 OneSmallSemigroup[101X
+  
+  [29X[2XOneSmallSemigroup[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X  is  a positive integer, then [10XOneSmallSemigroup[110X returns the first
+  small    semigroup    [10XS[110X    in    the   library   with   [10XSize(S)=arg[1][110X   and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf [10Xarg[1][110X is a list of positive integers, then [10XOneSmallSemigroup[110X returns the
+  first  small  semigroup  [10XS[110X  in  the  library  with  [10XSize(S)  in  arg[1][110X  and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XOneSmallSemigroup[110X  returns the first small semigroup [10XS[110X in the library with [10XS
+  in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 8>[128X[104X
+    [4X[25Xgap>[125X [27XOneSmallSemigroup([1..8], IsCliffordSemigroup, true);[127X[104X
+    [4X[28X<small semigroup of size 1>[128X[104X
+    [4X[25Xgap>[125X [27Xiter:=IteratorOfSmallSemigroups(8, IsCommutative, false);[127X[104X
+    [4X[28X<iterator>[128X[104X
+    [4X[25Xgap>[125X [27XOneSmallSemigroup(iter);[127X[104X
+    [4X[28X<small semigroup of size 8>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-17 PositionsOfSmallSemigroups[101X
+  
+  [29X[2XPositionsOfSmallSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X    should   be   a   positive   integer   or   an   enumerator   with
+  [2XIsEnumeratorOfSmallSemigroups[102X   ([14X4.5-8[114X),  the  even  arguments  [10Xarg[2i][110X,  if
+  present,  should  be  functions, and the odd arguments [10Xarg[2i+1][110X should be a
+  value  that  the  preceeding function can have. For example, a typical input
+  might  be  [10X3,  IsRegularSemigroup,  true[110X.  The functions [10Xarg[2i][110X can be user
+  defined  or  existing [5XGAP[105X functions. The argument can be a list [10Xarg[110X with the
+  same components as given above.[133X
+  
+  [33X[0;0YThe function returns a list of the second components of the [2XIdSmallSemigroup[102X
+  ([14X4.1-6[114X)  of  all the small semigroups [10XS[110X in the library satisfying [10XSize(S)[110X in
+  [10Xarg[1][110X     or     [10XSize(S)[110X     in     [10XSizesOfSmallSemisInEnum(arg[1])[110X     and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X partitioned by size of the semigroups.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X  gap> PositionsOfSmallSemigroups(3);[128X[104X
+    [4X[28X  [ [ 1 .. 18 ] ][128X[104X
+    [4X[28X  gap> PositionsOfSmallSemigroups(3, IsRegularSemigroup, false);[128X[104X
+    [4X[28X  [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ][128X[104X
+    [4X[28X  gap> enum:=EnumeratorOfSmallSemigroups(3, IsRegularSemigroup, false);;[128X[104X
+    [4X[28X  gap> PositionsOfSmallSemigroups(enum);[128X[104X
+    [4X[28X  [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ][128X[104X
+    [4X[28X  gap> PositionsOfSmallSemigroups([1..4], IsBand, true);[128X[104X
+    [4X[28X  [ [ 1 ], [ 3, 4 ], [ 12 .. 17 ], [ 98 .. 123 ] ][128X[104X
+    [4X[28X  gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,[128X[104X
+    [4X[28X  > Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);[128X[104X
+    [4X[28X  [ [ 1, 2 ], [ 2, 3, 5, 6, 8, 9, 10, 12, 34, 35, 36, 97 ],[128X[104X
+    [4X[28X    [ 5, 20, 21, 22, 23, 26, 29, 32, 35, 54, 55, 56, 60, 61, 62, 63, 64, 65,[128X[104X
+    [4X[28X        152, 156, 159, 177, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190,[128X[104X
+    [4X[28X        191, 192, 193, 540, 1009, 1157, 1158 ] ][128X[104X
+    [4X[28X  [128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-18 PositionsOfSmallSemisInEnum[101X
+  
+  [29X[2XPositionsOfSmallSemisInEnum[102X( [3Xenum[103X ) [32X function
+  
+  [33X[0;0Yreturns  the  second components of the id numbers of the small semigroups in
+  the  enumerator of small semigroups [3Xenum[103X in a list partitioned according the
+  size   of   the   semigroup.   The   same   value   is   returned  by  using
+  [2XPositionsOfSmallSemigroups[102X ([14X4.5-17[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;[127X[104X
+    [4X[25Xgap>[125X [27XPositionsOfSmallSemisInEnum[127X[104X
+    [4X[25X>[125X [27X(enum);[127X[104X
+    [4X[28X[ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-19 PrecomputedSmallSemisInfo[101X
+  
+  [29X[2XPrecomputedSmallSemisInfo[102X[32X global variable
+  
+  [33X[0;0Ythe  global  variable  [10XPrecomputedSmallSemisInfo[110X  contains a list of all the
+  names  of  precomputed  properties stored in the library. The [10Xi[110Xth element of
+  the  list contains the list of properties that have been precomputed for all
+  semigroups in the library of order [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X  gap> PrecomputedSmallSemisInfo[3];[128X[104X
+    [4X[28X  [ "Is1GeneratedSemigroup", "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", [128X[104X
+    [4X[28X    "IsBand", "IsCliffordSemigroup", "IsCommutative", [128X[104X
+    [4X[28X    "IsCompletelyRegularSemigroup", "IsFullTransformationSemigroupCopy", [128X[104X
+    [4X[28X    "IsGroupAsSemigroup", "IsIdempotentGenerated", "IsInverseSemigroup", [128X[104X
+    [4X[28X    "IsMonoidAsSemigroup", "IsMultSemigroupOfNearRing", "IsRegularSemigroup", [128X[104X
+    [4X[28X    "IsSelfDualSemigroup", "IsSemigroupWithoutClosedIdempotents", [128X[104X
+    [4X[28X    "IsSimpleSemigroup", "IsSingularSemigroupCopy", "IsZeroSemigroup", [128X[104X
+    [4X[28X    "IsZeroSimpleSemigroup" ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-20 RandomSmallSemigroup[101X
+  
+  [29X[2XRandomSmallSemigroup[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0Ythe  number  of  argument of this function should be odd. The first argument
+  [10Xarg[1][110X  should be a positive integer, an enumerator of small semigroups with
+  [2XIsEnumeratorOfSmallSemigroups[102X  ([14X4.5-8[114X),  or  an  iterator of small semigroup
+  with [2XIsIteratorOfSmallSemigroups[102X ([14X4.5-10[114X).[133X
+  
+  [33X[0;0YThe  even  arguments  [10Xarg[2i][110X,  if present, should be functions, and the odd
+  arguments [10Xarg[2i+1][110X should be a value that the preceeding function can have.
+  For  example,  a  typical  input  might  be [10X3, IsRegularSemigroup, true[110X. The
+  functions [10Xarg[2i][110X can be user defined or existing [5XGAP[105X functions.[133X
+  
+  [33X[0;0YPlease see Section [14X4.5[114X or Chapter [14X3[114X for more details.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X is a positive integer, then [10XRandomSmallSemigroup[110X returns a random
+  small    semigroup    [10XS[110X    in    the   library   with   [10XSize(S)=arg[1][110X   and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf  [10Xarg[1][110X is a list of positive integers, then [10XRandomSmallSemigroup[110X returns
+  the  a  random  small  semigroup [10XS[110X in the library with [10XSize(S) in arg[1][110X and
+  [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [33X[0;0YIf   [10Xarg[1][110X   is  an  enumerator  or  iterator  of  small  semigroups,  then
+  [10XRandomSmallSemigroup[110X  returns  the a random small semigroup [10XS[110X in the library
+  with [10XS in arg[1][110X and [10Xarg[2i](S)=arg[2i+1][110X for all [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X  gap> RandomSmallSemigroup(8, IsCommutative, true,[128X[104X
+    [4X[28X  > IsInverseSemigroup, true);[128X[104X
+    [4X[28X  <small semigroup of size 8>[128X[104X
+    [4X[28X  gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);[128X[104X
+    [4X[28X  <small semigroup of size 8>[128X[104X
+    [4X[28X  gap> iter:=IteratorOfSmallSemigroups([1..7]);[128X[104X
+    [4X[28X  <iterator of semigroups of size [ 1 .. 7 ]>[128X[104X
+    [4X[28X  gap> RandomSmallSemigroup(iter);[128X[104X
+    [4X[28X  <small semigroup of size 7>[128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-21 SizesOfSmallSemisInEnum[101X
+  
+  [29X[2XSizesOfSmallSemisInEnum[102X( [3Xenum[103X ) [32X function
+  
+  [33X[0;0Yreturns  the  sizes  of the semigroups in the enumerator of small semigroups
+  [3Xenum[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);[127X[104X
+    [4X[28X<enumerator of semigroups of sizes [ 2, 3, 4 ]>[128X[104X
+    [4X[25Xgap>[125X [27XSizesOfSmallSemisInEnum(enum);[127X[104X
+    [4X[28X[ 2, 3, 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-22 SizesOfSmallSemisInIter[101X
+  
+  [29X[2XSizesOfSmallSemisInIter[102X( [3Xiter[103X ) [32X function
+  
+  [33X[0;0Yreturns  the  sizes  of  the  semigroups  in  the  iterator  [3Xiter[103X  of  small
+  semigroups.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X  gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);[128X[104X
+    [4X[28X  <iterator of semigroups of size 7>[128X[104X
+    [4X[28X  gap> SizesOfSmallSemisInIter(iter);[128X[104X
+    [4X[28X  [ 7 ][128X[104X
+  [4X[32X[104X
+  
+  [1X4.5-23 UpToIsomorphism[101X
+  
+  [29X[2XUpToIsomorphism[102X( [3Xsgrps[103X ) [32X operation
+  
+  [33X[0;0Ytakes  a  list  [3Xsgrps[103X of non-equivalent semigroups from the library as input
+  and  returns  a  list  of non-isomorphic semigroups containing an isomorphic
+  semigroup and an anti-isomorphic semigroup for every semigroup in [3Xsgrps[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);[127X[104X
+    [4X[28X[ <small semigroup of size 5>, <small semigroup of size 6> ][128X[104X
+    [4X[25Xgap>[125X [27XUpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);[127X[104X
+    [4X[28X[ <small semigroup of size 5>, <small semigroup of size 5>, [128X[104X
+    [4X[28X  <semigroup of size 5, with 5 generators> ][128X[104X
+  [4X[32X[104X
+  
