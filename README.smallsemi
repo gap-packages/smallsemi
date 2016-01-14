@@ -78,7 +78,7 @@ Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 The installation follows standard GAP rules as outlined in the following
 steps; see Section 74.1 in the reference manual of GAP for further details:
 
-1) Download the archive 'smallsemi-0.6.9.tar.gz' from
+1) Download the archive 'smallsemi-0.6.10.tar.gz' from
 
        http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php
 
@@ -87,16 +87,16 @@ steps; see Section 74.1 in the reference manual of GAP for further details:
 
 3) Complete the installation by unpacking the archive, e.g. under Linux type 
 
-       tar -xzf smallsemi-0.6.9.tar.gz
+       tar -xzf smallsemi-0.6.10.tar.gz
 
-   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi-0.6.9'
+   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi-0.6.10'
    will be created inside the 'pkg' directory.
 
 ----------
  Contents
 ----------
 
-After installation the folder 'smallsemi-0.6.9' should contain the directories
+After installation the folder 'smallsemi-0.6.10' should contain the directories
 
     data, doc, gap, and tst 
 

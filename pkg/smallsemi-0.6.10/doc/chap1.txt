@@ -1,7 +1,7 @@
   
   [1X1 [33X[0;0YIntroduction[133X[101X
   
-  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.6.9) for [5XGAP[105X.[133X
+  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.6.10) for [5XGAP[105X.[133X
   
   [33X[0;0YThe  [5XSmallsemi[105X  package  is  a  data library of semigroups of small size. It
   provides  all  semigroups  with  at  most  8  elements  as  well  as various
@@ -118,15 +118,15 @@
   [33X[0;0YThe installation follows standard [5XGAP[105X rules as outlined in the following two
   steps; see [14X'Reference: Installing a GAP Package'[114X for further details.[133X
   
-  [31X1[131X   [33X[0;6YDownload    one    of    the    archives   [11Xsmallsemi-0.6.9.tar.gz[111X   or
-        [11Xsmallsemi-0.6.9.tar.bz2[111X from[133X
+  [31X1[131X   [33X[0;6YDownload    one    of    the   archives   [11Xsmallsemi-0.6.10.tar.gz[111X   or
+        [11Xsmallsemi-0.6.10.tar.bz2[111X from[133X
         [33X[0;6Y[7Xhttp://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html[107X[133X
   
   [31X2[131X   [33X[0;6YMove  the  archive inside a [11Xpkg[111X directory. This can be either the main
         [11Xpkg[111X directory in your [5XGAP[105X installation or your personal [11Xpkg[111X directory.[133X
   
   [31X3[131X   [33X[0;6YComplete  the  installation by unpacking the archive, e.g. under Linux
-        type  [11Xtar  -xzf  smallsemi-0.6.9.tar.gz[111X  at the prompt for the gzipped
+        type  [11Xtar  -xzf  smallsemi-0.6.10.tar.gz[111X at the prompt for the gzipped
         [11Xtar[111X-archive.  A  subdirectory [11Xsmallsemi[111X will be created inside the [11Xpkg[111X
         directory.[133X
   
@@ -159,7 +159,7 @@
     [4X[28XSmallsemi - A library of small semigroups[128X[104X
     [4X[28Xby Andreas Distler & James Mitchell[128X[104X
     [4X[28XFor contents, type: ?Smallsemi:[128X[104X
-    [4X[28XLoading Smallsemi 0.6.9 ...[128X[104X
+    [4X[28XLoading Smallsemi 0.6.10 ...[128X[104X
     [4X[28X-----------------------------------------------------------------------------[128X[104X
     [4X[28Xtrue[128X[104X
     [4X[28Xgap>[128X[104X
