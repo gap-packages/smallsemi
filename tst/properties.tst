@@ -10,6 +10,7 @@
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"properties.tst"));
 gap> START_TEST("Smallsemi package: properties.tst");
+gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StartTest(); fi;
 gap> info := InfoLevel( InfoSmallsemi );;
 gap> SetInfoLevel( InfoSmallsemi, 0 );
 gap> s:=SmallSemigroup(5, 6);

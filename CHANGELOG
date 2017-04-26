@@ -9,6 +9,13 @@
 ##
 
 ================
+ Version 0.6.11  (26/04/17)
+================
+
+  - a minor release for compatibility with Semigroups 3.0.0, and to fix an
+  incorrect method for `IsomorphismTransformationSemigroup`.
+
+================
  Version 0.6.10  (13/01/16)
 ================
 
