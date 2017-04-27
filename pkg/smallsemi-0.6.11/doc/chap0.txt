@@ -6,7 +6,7 @@
                                  [1XA [5XGAP[105X package[101X
   
   
-                                 Version 0.6.10
+                                 Version 0.6.11
   
   
                                 Andreas Distler

@@ -301,30 +301,26 @@ SetInfoLevel( InfoSmallsemi, 1 );
 ##
 ##  The reference documentation states monoids are embedded in T_n! AD
 ##
-InstallOtherMethod(IsomorphismTransformationSemigroup, [IsSmallSemigroup],
+
+InstallMethod(IsomorphismTransformationSemigroup, [IsSmallSemigroup],
 function(S)
-local table, right, gens, T, elts, iso;
+  local table, map, T, iso;
 
-right:=x-> TransformationNC(Concatenation(table[x!.index], [x!.index]));
+  table := TransposedMat(MultiplicationTable(S));
+  map   := x -> TransformationNC(Concatenation(table[x!.index], [x!.index]));
 
-table:=MultiplicationTable(S);
-gens:=List(MinimalGeneratingSet(S), right);
-T:=Semigroup(gens);
-SetSize(T, Size(S));
-SetMultiplicationTable(T, table);
-elts:=List(S, right);
-SetAsSSortedList(T, elts);
+  T     := Semigroup(List(MinimalGeneratingSet(S), map));
+  SetSize(T, Size(S));
+  SetMultiplicationTable(T, MultiplicationTable(S));
+  SetAsSSortedList(T, Set(S, map));
+  SetIdSmallSemigroup(T, IdSmallSemigroup(S));
+  UseIsomorphismRelation(S, T);
 
-SetIdSmallSemigroup(T, IdSmallSemigroup(S));
-UseIsomorphismRelation(S, T);
-iso:=SemigroupHomomorphismByImagesNC(S, T, elts);
-SetIsBijective( iso, true );
-#SetIsomorphismSmallSemigroup(T, iso^-1);
+  iso := SemigroupHomomorphismByImagesNC(S, T, List(AsSSortedList(S), map));
+  SetIsBijective(iso, true);
 
-return iso;
-
+  return iso;
 end);
-
 
 ###########################################################################
 ##

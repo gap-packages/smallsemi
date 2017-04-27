@@ -10,8 +10,10 @@
 
 # This file contains the tests for the file small.gi.
 
+
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"small.tst"));
 gap> START_TEST("Smallsemi package: small.tst");
+gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StartTest(); fi;
 gap> cur:=InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
 gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
@@ -140,4 +142,5 @@ gap> SmallSemigroupNC(5,1);
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
 gap> SetInfoLevel(InfoSmallsemi, cur);
+gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StopTest(); fi;
 gap> STOP_TEST( "Smallsemi package: small.tst", 10000);
