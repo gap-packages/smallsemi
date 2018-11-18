@@ -88,6 +88,55 @@ BannerString := Concatenation(
   ListWithIdenticalEntries(SizeScreen()[1]-3, '-'), "\n" ),
 Autoload := false,
 TestFile := "tst/testall.g",
-Keywords := ["small semigroups", "data library", "multiplication tables"]
+Keywords := ["small semigroups", "data library", "multiplication tables"],
+
+AutoDoc := rec(
+    TitlePage := rec(
+        Version := Concatenation( "Version ", ~.Version ),
+        Copyright := """
+            &copyright; 2008-15 A. Distler &amp; J. D. Mitchell.<P/>
+
+            <Package>Smallsemi</Package> is free software: you can
+            redistribute it and/or modify it under the terms of the GNU
+            General Public License as published by the Free Software
+            Foundation, either version 3 of the license, or (at your option)
+            any later version.<P/>
+
+            <Package>Smallsemi</Package> is distributed in the hope that it
+            will be useful, but WITHOUT ANY WARRANTY; without even the
+            implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+            PURPOSE. See the GNU General Public License for more details.<P/>
+
+            A copy of the GNU General Public License is available in the file
+            'GPLv3'; for the latest version
+            see`http://www.gnu.org/licenses/.<P/>
+
+            This file is part of <Package>Smallsemi</Package>, though as
+            documentation it is released under the GNU Free Documentation
+            License (see
+            <URL>http://www.gnu.org/licenses/licenses.html#FDL</URL>).
+            """,
+
+        Colophon := """
+            If you use <Package>Smallsemi</Package>, please tell us by
+            sending an email to <Email>a.distler@tu-bs.de</Email> or
+            <Email>jdm3@st-and.ac.uk</Email>.
+            <P/>
+            If you find any bugs or have any suggestions or comments, we
+            would very much appreciate it if you would let us know. Also, we
+            would like to hear about applications of this software.
+            """,
+
+        Acknowledgements := """
+            We would like to thank Tom Kelsey for making this library
+            possible by running all the initial computations in Minion <Cite
+            Key="minion"/>. <Br/>
+
+            The first author acknowledges financial support of the University
+            of St Andrews. The second author acknowledges support of EPSRC
+            grant number GR/S/56085/01.
+            """,
+    ),
+),
 ));
 

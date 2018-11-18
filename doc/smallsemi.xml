@@ -1,78 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd"
 [<#Include Label="PKGVERSIONDATA">] >
 
 <Book Name="smallsemi">
 
-<TitlePage>
-	<Title><Package>Smallsemi</Package></Title>
-	<Subtitle>A &GAP; package</Subtitle>
-	<Version>Version &VERSION;</Version>
-	<Author>Andreas Distler
-         <Address>
-	 Institut Computational Mathematics<Br/>
-	 Rebenring 31 (A14)<Br/>
-	 38106 Braunschweig<Br/>
-         Germany
-	 </Address>
-        <Email>a.distler@tu-bs.de</Email> 
-	</Author>
-
-	<Author>J. D. Mitchell
-         <Address>
-	 Mathematical Institute<Br/>
-	 North Haugh<Br/>
-	 St Andrews, Fife<Br/>
-         KY16 9SS<Br/>
-         Scotland, UK
-	 </Address>
-        <Email>jdm3@st-and.ac.uk</Email>
-        <Homepage>http://www-groups.mcs.st-and.ac.uk/~jamesm</Homepage>
-	</Author>
-
-	<Copyright>&copyright; 2008-15 A. Distler &amp; J. D. Mitchell.<P/>
-
-    <Package>Smallsemi</Package> is free software: you can redistribute it
-    and/or modify it under the terms of the GNU General Public License as
-    published by the Free Software Foundation, either version 3 of the license,
-    or (at your option) any later version.<P/>
-
-    <Package>Smallsemi</Package> is distributed in the hope that it will be
-    useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-    Public License for more details.<P/>
-
-    A copy of the GNU General Public License is available in the file 'GPLv3';
-    for the latest version see`http://www.gnu.org/licenses/.<P/>
- 
-    This file is part of <Package>Smallsemi</Package>, though as documentation
-    it is released under the GNU Free Documentation License (see
-    <URL>http://www.gnu.org/licenses/licenses.html#FDL</URL>).  </Copyright>
-
-	<Colophon>
-                If you use <Package>Smallsemi</Package>, please tell
-		us by sending an email to
-		<Email>a.distler@tu-bs.de</Email> or
-		<Email>jdm3@st-and.ac.uk</Email>.
-		<P/>
-                If you find any bugs or have any suggestions
-                or comments, we would very much appreciate it if you
-                would let us know. Also, we would like
-		to hear about applications of this software.
-	</Colophon>
-
-	<Acknowledgements>
-	We would like to thank Tom Kelsey for making
-	this library possible by running all the initial computations
-	in Minion <Cite Key="minion"/>. <Br/>
-	
-	The first author acknowledges financial support of the University of
-        St Andrews. The second author acknowledges support of EPSRC grant
-        number GR/S/56085/01.	
-	</Acknowledgements>
-
-</TitlePage>
+<#Include SYSTEM "title.xml">
 
 <TableOfContents/>
 
