@@ -8,7 +8,6 @@
 #############################################################################
 ##
 
-## $Id$
 
 ##  The functions in this file are used to test whether a given 
 ##  small semigroup has a given property.  
