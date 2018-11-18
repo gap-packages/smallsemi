@@ -76,9 +76,9 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.7",
+  GAP := ">=4.8",
   NeededOtherPackages := [],
-  SuggestedOtherPackages := [["gapdoc",">=1.3"]],
+  SuggestedOtherPackages := [],
   ExternalConditions :=
    ["gzip is needed in standard location if data files are used uncompressed"]),
 AvailabilityTest := ReturnTrue,
