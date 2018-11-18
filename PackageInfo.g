@@ -17,10 +17,8 @@ SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
 Version := "0.6.11",
-Date := "26/04/2017",
-ArchiveURL :=
-  "http://tinyurl.com/jdmitchell/smallsemi/smallsemi-0.6.11",
-ArchiveFormats := ".tar.gz",
+Date := "26/04/2017", # this is in dd/mm/yyyy format
+
 Persons := [
   rec(LastName      := "Distler",
       FirstNames    := "Andreas",
@@ -49,17 +47,23 @@ Persons := [
 ],
 Status := "deposited",
 
-README_URL :=
-  "http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi/README.txt",
-PackageInfoURL :=
-  "http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi/PackageInfo.g",
+PackageWWWHome  := "https://gap-packages.github.io/smallsemi/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/smallsemi",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/smallsemi-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 AbstractHTML :=
   "The <Package>Smallsemi</Package> package is a data library of semigroups \
    of small size. It provides all semigroups with at most 8 elements as well \
    as various information about these objects.",
-
-PackageWWWHome := "http://www-groups.mcs.st-and.ac.uk/~jamesm/smallsemi/",
 
 PackageDoc := rec(
   BookName  := "Smallsemi",
