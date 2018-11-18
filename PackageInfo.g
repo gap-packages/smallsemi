@@ -9,14 +9,14 @@
 ##
 
 ##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "0.6.11">
+##  <!ENTITY VERSION "0.6.11dev">
 ##  <!ENTITY ARCHIVENAME "smallsemi-0.6.11">
 ##  <#/GAPDoc>
 
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.11",
+Version := "0.6.11dev",
 Date := "26/04/2017", # this is in dd/mm/yyyy format
 
 Persons := [
