@@ -1318,7 +1318,7 @@ end);
 ###########################################################################
 ###########################################################################
 
-InstallGlobalFunction(STORED_INFO, [IsPosInt, IsString], function(n, name)
+InstallGlobalFunction(STORED_INFO, function(n, name)
     local i;
 
     if name in RecNames(MOREDATA2TO8[n]) then 

@@ -497,10 +497,10 @@ end);
 
 ###############
 
-InstallGlobalFunction(FuncsOfSmallSemisInEnum, [IsEnumeratorOfSmallSemigroups], 
+InstallGlobalFunction(FuncsOfSmallSemisInEnum,
 enum-> enum!.funcs);
 
-InstallGlobalFunction(FuncsOfSmallSemisInIter, [IsIteratorOfSmallSemigroups],
+InstallGlobalFunction(FuncsOfSmallSemisInIter,
 enum-> enum!.funcs);
 
 ###############
@@ -764,10 +764,10 @@ end);
 ##################
 
 InstallGlobalFunction(NamesFuncsSmallSemisInEnum,
-[IsEnumeratorOfSmallSemigroups], enum-> enum!.names);
+enum-> enum!.names);
 
 InstallGlobalFunction(NamesFuncsSmallSemisInIter,
-[IsIteratorOfSmallSemigroups], enum-> enum!.names);
+enum-> enum!.names);
 
 ##################
 
@@ -1371,7 +1371,7 @@ end);
 
 ##################
 
-InstallGlobalFunction(PositionsOfSmallSemisInEnum,[IsEnumeratorOfSmallSemigroups], enum-> enum!.pos);
+InstallGlobalFunction(PositionsOfSmallSemisInEnum, enum-> enum!.pos);
 
 ##################
 
@@ -1429,10 +1429,10 @@ end);
 
 ###################
 
-InstallGlobalFunction(SizesOfSmallSemisInEnum, [IsEnumeratorOfSmallSemigroups],
+InstallGlobalFunction(SizesOfSmallSemisInEnum,
 enum-> enum!.sizes);
 
-InstallGlobalFunction(SizesOfSmallSemisInIter, [IsIteratorOfSmallSemigroups],
+InstallGlobalFunction(SizesOfSmallSemisInIter,
 enum-> enum!.sizes);
 
 
