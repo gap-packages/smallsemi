@@ -770,7 +770,7 @@ DeclareProperty("IsSelfDualSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsSemigroupWithClosedIdempotents", IsSmallSemigroup);
+DeclareProperty("IsSemigroupWithClosedIdempotents", IsSemigroup);
 
 ############################################################################
 ##  <#GAPDoc Label="IsSemigroupWithZero">
