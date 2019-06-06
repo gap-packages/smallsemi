@@ -770,7 +770,9 @@ DeclareProperty("IsSelfDualSemigroup", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsSemigroupWithClosedIdempotents", IsSmallSemigroup);
+if not IsBoundGlobal("IsSemigroupWithClosedIdempotents") then
+  DeclareProperty("IsSemigroupWithClosedIdempotents", IsSemigroup);
+fi;
 
 ############################################################################
 ##  <#GAPDoc Label="IsSemigroupWithZero">
