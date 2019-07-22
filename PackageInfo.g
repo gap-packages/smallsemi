@@ -8,11 +8,6 @@
 #############################################################################
 ##
 
-##  <#GAPDoc Label="PKGVERSIONDATA">
-##  <!ENTITY VERSION "0.6.11dev">
-##  <!ENTITY ARCHIVENAME "smallsemi-0.6.11">
-##  <#/GAPDoc>
-
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
@@ -95,6 +90,10 @@ TestFile := "tst/testall.g",
 Keywords := ["small semigroups", "data library", "multiplication tables"],
 
 AutoDoc := rec(
+    entities := rec(
+        VERSION := ~.Version,
+        ARCHIVENAME := Remove( SplitString( ~.ArchiveURL, "/" ) ),
+    ),
     TitlePage := rec(
         Version := Concatenation( "Version ", ~.Version ),
         Copyright := """
