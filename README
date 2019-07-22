@@ -13,7 +13,7 @@
 +   GNU General Public License for more details.                            +
 +                                                                           +
 +   A copy of the GNU General Public License is available in the file       +
-+   'GPLv3'; or for later versions see <http://www.gnu.org/licenses/>.      +
++   'LICENSE'; or for later versions see <http://www.gnu.org/licenses/>.    +
 +                                                                           +
 +   You can find information on how to contact us at the end of the         +
 +   README file and on the front page of the documentation.                 +
@@ -102,7 +102,7 @@ After installation the folder 'smallsemi-0.6.11' should contain the directories
 
 and the files
 
-    CHANGELOG, GPLv3, init.g, PackageInfo.g, read.g and README
+    CHANGELOG, LICENSE, PackageInfo.g, README, init.g, makedoc.g, and read.g
 
 ---------
  Loading

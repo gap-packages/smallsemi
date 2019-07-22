@@ -112,7 +112,7 @@ AutoDoc := rec(
             PURPOSE. See the GNU General Public License for more details.<P/>
 
             A copy of the GNU General Public License is available in the file
-            'GPLv3'; for the latest version
+            'LICENSE'; for the latest version
             see`http://www.gnu.org/licenses/.<P/>
 
             This file is part of <Package>Smallsemi</Package>, though as

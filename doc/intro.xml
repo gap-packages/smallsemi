@@ -188,7 +188,7 @@ files and folders:
 <Item>contains the documentation</Item></Row>
 <Row><Item><F>gap</F></Item>
 <Item>contains the &GAP; code</Item></Row>
-<Row><Item><F>GPLv3</F></Item>
+<Row><Item><F>LICENSE</F></Item>
 <Item>version 3 of the GNU General Public License</Item></Row>
 <Row><Item><F>init.g</F></Item>
 <Item>implementation file of <Package>Smallsemi</Package></Item></Row>
