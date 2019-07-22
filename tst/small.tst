@@ -19,8 +19,6 @@ gap> SetInfoLevel(InfoSmallsemi, 1);
 gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
 #I  This is a test for the info class.
 gap> SetInfoLevel(InfoSmallsemi, 0);
-gap> ValidatePackageInfo(Filename(DirectoriesPackageLibrary("smallsemi",""),"PackageInfo.g"));
-true
 gap> sgrp := SemigroupByMultiplicationTable([[1]]);;
 gap> map:=EquivalenceSmallSemigroup(sgrp);;
 gap> Size(Range(map));
