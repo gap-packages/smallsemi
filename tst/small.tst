@@ -139,6 +139,40 @@ gap> SmallSemigroupNC(5,1);
 <small semigroup of size 5>
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
+
+# Issue 2 (Github 2019)
+gap> BruteForceIsoCheck := function(iso)
+>   local x, y;
+>   if not IsInjective(iso) or not IsSurjective(iso) then
+>     return false;
+>   fi;
+>   for x in GeneratorsOfSemigroup(Source(iso)) do
+>     for y in GeneratorsOfSemigroup(Source(iso)) do
+>       if x ^ iso * y ^ iso <> (x * y) ^ iso then
+>         return false;
+>       fi;
+>     od;
+>   od;
+>   return true;
+> end;;
+gap> BruteForceInverseCheck := function(map)
+> local inv;
+>   inv := InverseGeneralMapping(map);
+>   return ForAll(Source(map), x -> x = (x ^ map) ^ inv)
+>     and ForAll(Range(map), x -> x = (x ^ inv) ^ map);
+> end;;
+gap> S := SmallSemigroup(4, 18);
+<small semigroup of size 4>
+gap> map := IsomorphismTransformationSemigroup(S);
+SemigroupHomomorphismByImages ( <small semigroup of size 4>->Semigroup( 
+[ Transformation( [ 1, 1, 1, 4, 2 ] ), Transformation( [ 1, 1, 1, 4, 3 ] ), 
+  Transformation( [ 1, 1, 1, 4, 4 ] ) ] ))
+gap> BruteForceIsoCheck(map);
+true
+gap> BruteForceInverseCheck(map);
+true
+
+#
 gap> SetInfoLevel(InfoSmallsemi, cur);
 gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StopTest(); fi;
 gap> STOP_TEST( "Smallsemi package: small.tst", 10000);

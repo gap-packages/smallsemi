@@ -311,7 +311,6 @@ function(S)
   T     := Semigroup(List(MinimalGeneratingSet(S), map));
   SetSize(T, Size(S));
   SetMultiplicationTable(T, MultiplicationTable(S));
-  SetAsSSortedList(T, Set(S, map));
   SetIdSmallSemigroup(T, IdSmallSemigroup(S));
   UseIsomorphismRelation(S, T);
 
