@@ -8,6 +8,7 @@
 #############################################################################
 ##
 
+DeclareGlobalFunction("SmallsemiMakeDoc");
 DeclareGlobalFunction("SmallsemiManualExamples");
 DeclareGlobalFunction("SmallsemiTestAll");
 DeclareGlobalFunction("SmallsemiTestManualExamples");

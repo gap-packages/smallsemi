@@ -8,6 +8,16 @@
 #############################################################################
 ##
 
+InstallGlobalFunction(SmallsemiMakeDoc,
+function()
+  MakeGAPDocDoc(Concatenation(PackageInfo("smallsemi")[1]!.
+   InstallationPath, "/doc"), "smallsemi.xml",
+   [ "../PackageInfo.g", "data.xml", "examples.xml", "intro.xml",
+     "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
+     "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g"],
+   "smallsemi", "../../..");;
+end);
+
 InstallGlobalFunction(SmallsemiTestAll,
 function()
   local record;
