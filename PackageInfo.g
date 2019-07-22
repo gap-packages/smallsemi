@@ -113,12 +113,11 @@ AutoDoc := rec(
 
             A copy of the GNU General Public License is available in the file
             'LICENSE'; for the latest version
-            see`http://www.gnu.org/licenses/.<P/>
+            see <URL>https://www.gnu.org/licenses/#GPL</URL>.<P/>
 
             This file is part of <Package>Smallsemi</Package>, though as
             documentation it is released under the GNU Free Documentation
-            License (see
-            <URL>http://www.gnu.org/licenses/licenses.html#FDL</URL>).
+            License (see <URL>https://www.gnu.org/licenses/#FDL</URL>).
             """,
 
         Colophon := """

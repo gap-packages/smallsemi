@@ -157,7 +157,7 @@ for further details.
 <Item> Download one of the archives <F>&ARCHIVENAME;.tar.gz</F> or
 <F>&ARCHIVENAME;.tar.bz2</F> from
 <Br></Br>
-<URL>http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</URL>
+<URL>http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php</URL>
 </Item>
 
 <Item> Move the archive inside a <F>pkg</F> directory. This can be
