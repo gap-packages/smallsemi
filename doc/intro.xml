@@ -157,7 +157,7 @@ for further details.
 <Item> Download one of the archives <F>&ARCHIVENAME;.tar.gz</F> or
 <F>&ARCHIVENAME;.tar.bz2</F> from
 <Br></Br>
-<URL>http://www-history.mcs.st-andrews.ac.uk/~jamesm/smallsemi/index.html</URL>
+<URL>http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php</URL>
 </Item>
 
 <Item> Move the archive inside a <F>pkg</F> directory. This can be
@@ -188,7 +188,7 @@ files and folders:
 <Item>contains the documentation</Item></Row>
 <Row><Item><F>gap</F></Item>
 <Item>contains the &GAP; code</Item></Row>
-<Row><Item><F>GPLv3</F></Item>
+<Row><Item><F>LICENSE</F></Item>
 <Item>version 3 of the GNU General Public License</Item></Row>
 <Row><Item><F>init.g</F></Item>
 <Item>implementation file of <Package>Smallsemi</Package></Item></Row>
