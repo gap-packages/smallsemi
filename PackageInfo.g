@@ -18,6 +18,7 @@ PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
 Version := "0.6.11dev",
 Date := "26/04/2017", # this is in dd/mm/yyyy format
+License := "GPL-3.0-or-later",
 
 Persons := [
   rec(LastName      := "Distler",
@@ -98,7 +99,7 @@ AutoDoc := rec(
     TitlePage := rec(
         Version := Concatenation( "Version ", ~.Version ),
         Copyright := """
-            &copyright; 2008-15 A. Distler &amp; J. D. Mitchell.<P/>
+            &copyright; 2008-19 A. Distler &amp; J. D. Mitchell.<P/>
 
             <Package>Smallsemi</Package> is free software: you can
             redistribute it and/or modify it under the terms of the GNU
