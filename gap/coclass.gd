@@ -18,20 +18,20 @@
 ##  <A>d</A> up to (anti-)isomorphism. If the optional third argument <A>r</A>
 ##  is given then only semigroups of rank <A>r</A> are returned. The semigroups
 ##  in the list are given by finite presentations.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsByCoclass(5,1);
-##  [ &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]> ]
+##  [ <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]> ]
 ##  gap> NilpotentSemigroupsByCoclass(7,0);
-##  [ &lt;fp semigroup on the generators [ s1 ]> ]
+##  [ <fp semigroup on the generators [ s1 ]> ]
 ##  gap> NilpotentSemigroupsByCoclass(4,2,3);
-##  [ &lt;fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -47,10 +47,10 @@ DeclareGlobalFunction("NilpotentSemigroupsByCoclass");
 ##  returns for a positive integer <A>n</A> a list of length one containing
 ##  a finitely presented semigroup of coclass 0, that is a nilpotent, 
 ##  monogenic semigroup, of order <A>n</A>.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass0(513);
-##  [ &lt;fp semigroup on the generators [ s1 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -65,20 +65,20 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass0");
 ##  <Description>
 ##  returns for a positive integer <A>n</A> a list of nilpotent semigroups of 
 ##  coclass 1 up to (anti-)isomorphism as finitely presented semigroups.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass1(2);
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass1(3);
-##  [ &lt;fp semigroup on the generators [ s1, s2 ]> ]
+##  [ <fp semigroup on the generators [ s1, s2 ]> ]
 ##  gap> NilpotentSemigroupsCoclass1(5);
-##  [ &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -93,12 +93,12 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass1");
 ##  <Description>
 ##  returns for a positive integer <A>n</A> a list of nilpotent semigroups of 
 ##  coclass 2 up to (anti-)isomorphism as finitely presented semigroups.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass2(3);
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass2(4);
-##  [ &lt;fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -116,22 +116,22 @@ DeclareGlobalFunction("IsomorphicFpSemigroup");
 ##  returns for a positive integer <A>n</A> a list of nilpotent 2-generated
 ##  semigroups of coclass 2 up to (anti-)isomorphism as finitely presented
 ##  semigroups.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass2Rank2(4);
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass2Rank2(5);
-##  [ &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]>, 
-##    &lt;fp semigroup on the generators [ s1, s2 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]>, 
+##    <fp semigroup on the generators [ s1, s2 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -147,12 +147,12 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass2Rank2");
 ##  returns for a positive integer <A>n</A> a list of nilpotent 3-generated
 ##  semigroups of coclass 2 up to (anti-)isomorphism as finitely presented
 ##  semigroups.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass2Rank3(3);
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass2Rank3(4);
-##  [ &lt;fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  </Example> <!-- properties.tst --> 
+##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
+##  ]]></Example> <!-- properties.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
