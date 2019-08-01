@@ -43,16 +43,15 @@
 ##  library with <C>S in arg[1]</C> and <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>. <P/>
 ##  <Example><![CDATA[
 ##  gap> AllSmallSemigroups(2);
-##  [ <small semigroup of size 2>, <small semigroup of size 2>,
+##  [ <small semigroup of size 2>, <small semigroup of size 2>, 
 ##    <small semigroup of size 2>, <small semigroup of size 2> ]
 ##  gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,
 ##  > x-> Length(GreensRClasses(x)), 1);
-##  [ <small semigroup of size 2>, <small semigroup of size 2>,
-##    <small semigroup of size 3>, <small semigroup of size 3> ]
+##  [ <small semigroup of size 2>, <small semigroup of size 3> ]
 ##  gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
 ##  > IsCommutativeSemigroup, true);;
 ##  gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);
-##  [ <small semigroup of size 8>, <small semigroup of size 8>,
+##  [ <small semigroup of size 8>, <small semigroup of size 8>, 
 ##    <small semigroup of size 8> ]
 ##  gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);;
 ##  gap> AllSmallSemigroups(iter, IsCommutative, true,
@@ -258,8 +257,8 @@ DeclareGlobalFunction("EnumeratorSortedOfSmallSemigroups");
 ##  > IsSimpleSemigroup, false);
 ##  [  ]
 ##  gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
-##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], 
-##    [ 3, 13 ], [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
+##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ], 
+##    [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 ##  ]]></Example> <!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -300,8 +299,8 @@ DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
 ##  gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;
 ##  gap> FuncsOfSmallSemisInEnum(enum);
-##  [ <Property "IsRegularSemigroup">, true, 
-##    <Property "IsSimpleSemigroup">, false ]
+##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+##    false ]
 ##  ]]></Example><!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -365,8 +364,8 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 ##  gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;
 ##  gap> FuncsOfSmallSemisInIter(enum);
-##  [ <Property "IsRegularSemigroup">, true, 
-##    <Property "IsSimpleSemigroup">, false ]
+##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+##    false ]
 ##  ]]></Example><!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -664,10 +663,7 @@ DeclareGlobalFunction("OneSmallSemigroup");
 ##  [ [ 1 ], [ 3, 4 ], [ 12 .. 17 ], [ 98 .. 123 ] ]
 ##  gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
 ##  > Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
-##  [ [ 1, 2 ], [ 2, 3, 5, 6, 8, 9, 10, 12, 34, 35, 36, 97 ],
-##    [ 5, 20, 21, 22, 23, 26, 29, 32, 35, 54, 55, 56, 60, 61, 62, 63, 64, 65,
-##        152, 156, 159, 177, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190,
-##        191, 192, 193, 540, 1009, 1157, 1158 ] ]
+##  [ [ 1, 2 ] ]
 ##  ]]></Example> <!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -739,7 +735,7 @@ DeclareGlobalFunction("PositionsOfSmallSemisInEnum");
 ##  gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);
 ##  <small semigroup of size 8>
 ##  gap> iter:=IteratorOfSmallSemigroups([1..7]);
-##  <iterator of semigroups of size [ 1 .. 7 ]>
+##  <iterator>
 ##  gap> RandomSmallSemigroup(iter);
 ##  <small semigroup of size 7>
 ##  ]]></Example><!-- enums.tst -->
@@ -779,7 +775,7 @@ DeclareGlobalFunction("SizesOfSmallSemisInEnum");
 ##  of small semigroups.
 ##  <Example><![CDATA[
 ##  gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-##  <iterator of semigroups of size 7>
+##  <iterator>
 ##  gap> SizesOfSmallSemisInIter(iter);
 ##  [ 7 ]
 ##  ]]></Example>

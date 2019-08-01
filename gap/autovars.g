@@ -29,14 +29,15 @@ BindGlobal("BLUEPRINT_MATS", GENERATE_BLUEPRINT_MATS( ) );
 ##  precomputed for all semigroups in the library of order <C>i</C>. 
 ##  <Example><![CDATA[
 ##  gap> PrecomputedSmallSemisInfo[3];
-##  [ "Is1GeneratedSemigroup", "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", 
-##    "IsBand", "IsCliffordSemigroup", "IsCommutative", 
+##  [ "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", "Is4GeneratedSemigroup", 
+##    "Is5GeneratedSemigroup", "Is6GeneratedSemigroup", "Is7GeneratedSemigroup", 
+##    "Is8GeneratedSemigroup", "IsBand", "IsCommutative", 
 ##    "IsCompletelyRegularSemigroup", "IsFullTransformationSemigroupCopy", 
 ##    "IsGroupAsSemigroup", "IsIdempotentGenerated", "IsInverseSemigroup", 
-##    "IsMonoidAsSemigroup", "IsMultSemigroupOfNearRing", "IsRegularSemigroup", 
-##    "IsSelfDualSemigroup", "IsSemigroupWithoutClosedIdempotents", 
-##    "IsSimpleSemigroup", "IsSingularSemigroupCopy", "IsZeroSemigroup", 
-##    "IsZeroSimpleSemigroup" ]
+##    "IsMonogenicSemigroup", "IsMonoidAsSemigroup", "IsMultSemigroupOfNearRing", 
+##    "IsMunnSemigroup", "IsRegularSemigroup", "IsSelfDualSemigroup", 
+##    "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup", 
+##    "IsSingularSemigroupCopy", "IsZeroSemigroup", "IsZeroSimpleSemigroup" ]
 ##  ]]></Example> <!-- no test --> 
 ##  </Description>
 ##  </ManSection>

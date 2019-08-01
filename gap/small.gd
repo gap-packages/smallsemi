@@ -24,8 +24,8 @@
 ##  gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), 
 ##  > Transformation( [ 1, 2, 3 ] ));;
 ##  gap> EquivalenceSmallSemigroup(sgrp);
-##  SemigroupHomomorphismByImages ( Monoid( 
-##  [ Transformation( [ 1, 2, 2 ] ) ] )-><small semigroup of size 2>)
+##  SemigroupHomomorphismByImages ( Monoid( [ Transformation( [ 1, 2, 2 ] ) 
+##   ] )-><small semigroup of size 2>)
 ##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
