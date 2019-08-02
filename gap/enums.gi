@@ -83,6 +83,8 @@ iter:=IteratorByFunctions( rec(
 				
 				NextIterator := ReturnFail,
 				
+				PrintObj := function( iter ) Print( "<empty iterator of semigroups>"); end,
+				
 				ShallowCopy := SHALLOWCOPYITERATORSMALLSEMI,
 				
 				at := 0, 
@@ -510,7 +512,7 @@ ReturnFalse);
 
 ###############
 
-InstallMethod(PrintObj, [IsIteratorOfSmallSemigroups], 
+BindGlobal( "PrintObj_IsIteratorOfSmallSemigroups",
 function(iter)
 if not iter!.sizes=[0] then
 	if Length(iter!.sizes)>1 then  
@@ -548,6 +550,8 @@ if Length(arg)=1 and IsPosInt(arg[1]) then #all semigroups
 				IsDoneIterator := iter-> iter!.next(iter, false)=fail,
 				
 				NextIterator := iter-> iter!.next(iter, true),
+				
+				PrintObj := PrintObj_IsIteratorOfSmallSemigroups,
 				
 				next:=function(iter, advance) 
 				
@@ -655,6 +659,8 @@ elif IsOddInt(Length(arg)) and (IsPosInt(arg[1]) or
 				IsDoneIterator := iter-> iter!.next(iter, IsDoneIterator)=fail,
 				
 				NextIterator := iter-> iter!.next(iter, NextIterator),
+				
+				PrintObj := PrintObj_IsIteratorOfSmallSemigroups,
 				
 				next:=function(iter, called_by) #JDM new!
 					local enum, user, s;

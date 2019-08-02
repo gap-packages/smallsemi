@@ -173,11 +173,11 @@ gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);
 [ <small semigroup of size 8>, <small semigroup of size 8>, 
   <small semigroup of size 8> ]
 gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);
-<iterator>
+<iterator of semigroups of size 7>
 gap> AllSmallSemigroups(iter, IsCommutative, true, IsSimpleSemigroup, true);
 [ <small semigroup of size 7> ]
 gap> iter:=IteratorOfSmallSemigroups(5, x-> Length(GreensDClasses(x)), 1);
-<iterator>
+<iterator of semigroups of size 5>
 gap> AllSmallSemigroups(iter);
 [ <small semigroup of size 5>, <small semigroup of size 5> ]
 gap> AllSmallSemigroups(iter)=AllSmallSemigroups(5, IsSimpleSemigroup, true);
@@ -255,7 +255,7 @@ true
 gap> EmptyEnumeratorOfSmallSemigroups(); 
 <empty enumerator of semigroups>
 gap> EmptyIteratorOfSmallSemigroups();
-<iterator>
+<empty iterator of semigroups>
 gap> enum:=EnumeratorOfSmallSemigroups(7);
 <enumerator of semigroups of size 7>
 gap> EnumeratorOfSmallSemigroups(2);
@@ -278,7 +278,7 @@ gap> EnumeratorOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 <empty enumerator of semigroups>
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true, 
 > IsSimpleSemigroup, false);
 <enumerator of semigroups of size 8>
@@ -379,26 +379,26 @@ false
 gap> IsIdSmallSemigroup([3,20, "t"]);
 false
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> IsIteratorOfSmallSemigroups(iter);
 true
 gap> iter:=EmptyIteratorOfSmallSemigroups();
-<iterator>
+<empty iterator of semigroups>
 gap> IsIteratorOfSmallSemigroups(iter);     
 true
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> iter:=IteratorOfSmallSemigroups([8]);
-<iterator>
+<iterator of semigroups of size 8>
 gap> NextIterator(iter);
 <small semigroup of size 8>
 gap> IsDoneIterator(iter);
 false
 gap> IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true);
-<iterator>
+<iterator of semigroups of sizes [ 2, 3 ]>
 gap> iter:=IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true,
 > x-> Length(Idempotents(x))=1, true);
-<iterator>
+<iterator of semigroups of sizes [ 2, 3 ]>
 gap> NextIterator(iter); 
 <small semigroup of size 2>
 gap> NextIterator(iter);
@@ -408,7 +408,7 @@ fail
 gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);
 <enumerator of semigroups of size 5>
 gap> iter:=IteratorOfSmallSemigroups(enum, x-> Length(GreensRClasses(x))=2, true);
-<iterator>
+<iterator of semigroups of size 5>
 gap> NextIterator(iter);
 <small semigroup of size 5>
 gap> NextIterator(iter);
@@ -416,12 +416,12 @@ gap> NextIterator(iter);
 gap> NextIterator(iter);
 <small semigroup of size 5>
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> IteratorOfSmallSemigroups(iter);
-<iterator>
+<iterator of semigroups of size 8>
 gap> IteratorOfSmallSemigroups(iter, IsInverseSemigroup, true,          
 > x-> Length(Idempotents(x))=1, true, x-> Length(GreensRClasses(x))=2, true);
-<iterator>
+<iterator of semigroups of size 8>
 gap> NextIterator(iter);
 <small semigroup of size 8>
 gap> NextIterator(iter);
@@ -449,11 +449,11 @@ gap> OneSmallSemigroup(8, IsRegularSemigroup, true,
 gap> OneSmallSemigroup(6, NilpotencyDegree, 3);
 <small semigroup of size 6>
 gap> iter:=IteratorOfSmallSemigroups([1..8]);
-<iterator>
+<iterator of semigroups of sizes [ 1 .. 8 ]>
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 1>
 gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
-<iterator>
+<iterator of semigroups of size 8>
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 gap> OneSmallSemigroup(iter, IsRegularSemigroup, true);
@@ -489,7 +489,7 @@ gap> NamesFuncsSmallSemisInEnum(enum);
 [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
 gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);
-<iterator>
+<iterator of semigroups of sizes [ 2 .. 4 ]>
 gap> FuncsOfSmallSemisInIter(iter);
 [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
   false ]
@@ -506,10 +506,10 @@ gap> RandomSmallSemigroup(6, NilpotencyDegree, 3);
 gap> RandomSmallSemigroup(5, NilpotencyDegree, 6);
 fail
 gap> iter:=IteratorOfSmallSemigroups([1..7]);
-<iterator>
+<iterator of semigroups of sizes [ 1 .. 7 ]>
 gap> RandomSmallSemigroup(iter);;
 gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-<iterator>
+<iterator of semigroups of size 7>
 gap>  RandomSmallSemigroup(iter);
 <small semigroup of size 7>
 gap> RandomSmallSemigroup(iter, IsRegularSemigroup, true);
@@ -519,7 +519,7 @@ gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
 gap> SizesOfSmallSemisInEnum(enum);
 [ 2, 3, 4 ]
 gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-<iterator>
+<iterator of semigroups of size 7>
 gap> SizesOfSmallSemisInIter(iter);
 [ 7 ]
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutativeSemigroup, true);
@@ -529,7 +529,7 @@ gap> SMALLSEMI_CONVERT_ARG_NC(5, IsSemigroupWithClosedIdempotents, false);
 gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutative, true);         
 [ 5, <Property "IsCommutative">, true ]
 gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyDegree,fail);
-<iterator>
+<iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
 false
 <small semigroup of size 4>
@@ -542,7 +542,7 @@ gap>  IsDoneIterator(iter);NextIterator(iter);
 true
 fail
 gap> iter:=IteratorOfSmallSemigroups(4,NilpotencyDegree,2);
-<iterator>
+<iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
 false
 <small semigroup of size 4>
@@ -550,7 +550,7 @@ gap> IsDoneIterator(iter);NextIterator(iter);
 true
 fail
 gap> iter:=IteratorOfSmallSemigroups(4,IsZeroSemigroup,true);
-<iterator>
+<iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);NextIterator(iter);
 false
 <small semigroup of size 4>
@@ -558,13 +558,13 @@ gap> IsDoneIterator(iter);NextIterator(iter);
 true
 fail
 gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyDegree, 5);
-<iterator>
+<iterator of semigroups of size 4>
 gap> IsDoneIterator(iter);
 true
 gap> NextIterator(iter);
 fail
 gap> iter:=IteratorOfSmallSemigroups(4, NilpotencyDegree, 5);
-<iterator>
+<iterator of semigroups of size 4>
 gap> NextIterator(iter);
 fail
 gap> IsDoneIterator(iter);
