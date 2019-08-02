@@ -139,12 +139,12 @@ InstallTrueMethod(IsStarClass, IsDStarClass);
 ##  starred Green's classes, respectively for semigroup <A>semigroup</A>.
 ##  <C>EquivalenceClasses</C> for a Green's relation
 ##  lead to one of these functions.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> s := SmallSemigroup(6, 54);
-##  &lt;small semigroup of size 6>
+##  <small semigroup of size 6>
 ##  gap> JStarClasses(s);
 ##  [ {s1}, {s2}, {s4}, {s5}, {s6} ]
-##  </Example> <!-- greensstar.tst --> 
+##  ]]></Example> <!-- greensstar.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -181,9 +181,9 @@ DeclareAttribute("LStarClasses", IsDStarClass);
 ##  Green's classes. They return the respective class in which the given
 ##  class <M>C</M> is contained, where <M>C</M> must be a class from a 
 ##  strictly finer relation.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> s := SmallSemigroup(7, 280142);
-##  &lt;small semigroup of size 7>
+##  <small semigroup of size 7>
 ##  gap> elm := AsList(s)[5];;
 ##  gap> hclass := HStarClass(s, elm);
 ##  {s5}
@@ -193,7 +193,7 @@ DeclareAttribute("LStarClasses", IsDStarClass);
 ##  [ s2, s5 ]
 ##  gap> AsList(DStarClass(hclass));
 ##  [ s2, s3, s4, s5 ]
-##  </Example> <!-- greensstar.tst --> 
+##  ]]></Example> <!-- greensstar.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -224,15 +224,15 @@ DeclareAttribute("JStarClass", IsStarClass);
 ##  Creates the <M>X*</M>-class of the element <A>a</A>
 ##  in the semigroup <A>S</A> where <M>X</M> is one of
 ##  <M>L</M>, <M>R</M>, <M>D</M>, <M>J</M>, or <M>H</M>.
-##  <Example>
+##  <Example><![CDATA[
 ##  gap> s := SmallSemigroup(7, 280142);
-##  &lt;small semigroup of size 7>
+##  <small semigroup of size 7>
 ##  gap> elm := AsList(s)[5];;
 ##  gap> jclass := JStarClass(s, elm);
 ##  {s5}
 ##  gap> AsList(jclass);
 ##  [ s2, s3, s4, s5 ]
-##  </Example> <!-- greensstar.tst --> 
+##  ]]></Example> <!-- greensstar.tst --> 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>

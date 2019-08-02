@@ -8,5 +8,6 @@
 #############################################################################
 
 LoadPackage("smallsemi");
+SetInfoLevel(InfoSmallsemi, 0);
 dirs := DirectoriesPackageLibrary( "smallsemi", "tst" );
 TestDirectory(dirs, rec(exitGAP := true));
