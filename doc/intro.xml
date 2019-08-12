@@ -212,7 +212,7 @@ To use the package, start a &GAP; session and type
 <C>LoadPackage("smallsemi");</C> at the &GAP; prompt. You should see
 the following:
 
-<Log>
+<Log><![CDATA[
 gap> LoadPackage("smallsemi");
 -----------------------------------------------------------------------------
 Smallsemi - A library of small semigroups
@@ -222,7 +222,7 @@ Loading Smallsemi &VERSION; ...
 -----------------------------------------------------------------------------
 true
 gap>
-</Log>
+]]></Log>
 
 You might want to start &GAP; with a specified amount of memory; see Subsection <Ref Subsect="memory"/>.
 
@@ -238,7 +238,7 @@ As mentioned in Subsection <Ref Subsect="ram"/>, working with <Package>smallsemi
 </Item>
 <Item>extend the amount memory used by typing <C>return;</C> in the
 break-loop whenever &GAP; runs out of memory. For example,
-<Log>
+<Log><![CDATA[
 gap> s:=SmallSemigroup(8, 183244314);
 #I  Loading 'smallsemi' data. Please be patient.
 #I  Loading 'smallsemi' data.
@@ -246,10 +246,10 @@ Error, exceeded the permitted memory (`-o' command line option)
 SplitString( StringFile( file ), "\n" ) called from
 READ_3NIL_DATA( diag ); called from
 RecoverMultiplicationTable( size, nr ) called from
-&lt;function>( &lt;arguments&gt; ) called from read-eval-loop
+<function>( <arguments> ) called from read-eval-loop
 you can 'return;'
 brk>
-</Log>
+]]></Log>
 </Item>
 </Enum>
 </Subsection>
@@ -261,7 +261,7 @@ file. This is done by the following command and should return a
 similar output (the number of <C>GAP4stones</C> might differ depending
 on the speed of your machine):
 
-<Log>
+<Log><![CDATA[
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
 Smallsemi package: small.tst
 GAP4stones: 41
@@ -269,7 +269,7 @@ Smallsemi package: properties.tst
 GAP4stones: 0
 Smallsemi package: enums.tst
 GAP4stones: 1
-</Log>
+]]></Log>
 </Subsection>
 
 <Subsection><Heading>Customizing</Heading>
@@ -279,12 +279,12 @@ to put the command <C>LoadPackage("smallsemi");</C> into your
 BookName="ref"/>. 
 Another option is to save a workspace after
 loading <Package>Smallsemi</Package> and executing the following commands
-<Log>
+<Log><![CDATA[
 gap> SmallSemigroup(7,1);; MOREDATA2TO8;;
 #I  smallsemi: loading data for semigroups of size 7.
 #I  smallsemi: loading data for semigroup properties. Please be patient.
-gap> SaveWorkspace( "&lt;filename for the workspace>" );
-</Log>
+gap> SaveWorkspace( "<filename for the workspace>" );
+]]></Log>
 Doing this will mean that it is not necessary to load the data from the library
 every time you start a new &GAP; session; see 
 <Ref Sect="Saving and Loading a Workspace" BookName="ref"/>.<P/>
