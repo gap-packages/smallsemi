@@ -12,7 +12,7 @@ gap> START_TEST( "smallsemi01.tst");
 
 # doc/examples.xml:337-340
 gap> iter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);
-<iterator>
+<iterator of semigroups of size 8>
 
 # doc/examples.xml:349-354
 gap> enum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);

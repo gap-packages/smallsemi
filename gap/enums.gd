@@ -144,7 +144,7 @@ DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
 ##  > IsSimpleSemigroup, false);
 ##  <enumerator of semigroups of size 8>
 ##  gap> iter:=IteratorOfSmallSemigroups(8);
-##  <iterator>
+##  <iterator of semigroups of size 8>
 ##  gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,
 ##  > IsSimpleSemigroup, false);
 ##  <enumerator of semigroups of size 8>
@@ -415,14 +415,14 @@ DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 ##  <P/>
 ##  <Example><![CDATA[
 ##  gap> iter:=IteratorOfSmallSemigroups(8);
-##  <iterator>
+##  <iterator of semigroups of size 8>
 ##  gap> NextIterator(iter);
 ##  <small semigroup of size 8>
 ##  gap> IsDoneIterator(iter);
 ##  false
 ##  gap> iter:=IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true,
 ##  > x-> Length(Idempotents(x))=1, true);
-##  <iterator>
+##  <iterator of semigroups of sizes [ 2, 3 ]>
 ##  gap> NextIterator(iter);
 ##  <small semigroup of size 2>
 ##  gap> NextIterator(iter);
@@ -432,7 +432,7 @@ DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 ##  gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);
 ##  <enumerator of semigroups of size 5>
 ##  gap> iter:=IteratorOfSmallSemigroups(enum, x-> Length(GreensRClasses(x))=2, true);
-##  <iterator>
+##  <iterator of semigroups of size 5>
 ##  ]]></Example><!-- enums.tst -->
 ##  </Description>
 ##  </ManSection>
@@ -619,7 +619,7 @@ DeclareGlobalFunction("NrSmallSemigroups");
 ##  gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
 ##  <small semigroup of size 1>
 ##  gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
-##  <iterator>
+##  <iterator of semigroups of size 8>
 ##  gap> OneSmallSemigroup(iter);
 ##  <small semigroup of size 8>
 ##  ]]></Example><!-- enums.tst -->
@@ -735,7 +735,7 @@ DeclareGlobalFunction("PositionsOfSmallSemisInEnum");
 ##  gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);
 ##  <small semigroup of size 8>
 ##  gap> iter:=IteratorOfSmallSemigroups([1..7]);
-##  <iterator>
+##  <iterator of semigroups of sizes [ 1 .. 7 ]>
 ##  gap> RandomSmallSemigroup(iter);
 ##  <small semigroup of size 7>
 ##  ]]></Example><!-- enums.tst -->
@@ -775,7 +775,7 @@ DeclareGlobalFunction("SizesOfSmallSemisInEnum");
 ##  of small semigroups.
 ##  <Example><![CDATA[
 ##  gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-##  <iterator>
+##  <iterator of semigroups of size 7>
 ##  gap> SizesOfSmallSemisInIter(iter);
 ##  [ 7 ]
 ##  ]]></Example>

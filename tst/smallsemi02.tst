@@ -568,7 +568,7 @@ gap> EnumeratorOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 <enumerator of semigroups of size 8>
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 <enumerator of semigroups of size 8>
@@ -624,14 +624,14 @@ true
 
 # doc/../gap/enums.gd:416-436
 gap> iter:=IteratorOfSmallSemigroups(8);
-<iterator>
+<iterator of semigroups of size 8>
 gap> NextIterator(iter);
 <small semigroup of size 8>
 gap> IsDoneIterator(iter);
 false
 gap> iter:=IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true,
 > x-> Length(Idempotents(x))=1, true);
-<iterator>
+<iterator of semigroups of sizes [ 2, 3 ]>
 gap> NextIterator(iter);
 <small semigroup of size 2>
 gap> NextIterator(iter);
@@ -641,7 +641,7 @@ fail
 gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);
 <enumerator of semigroups of size 5>
 gap> iter:=IteratorOfSmallSemigroups(enum, x-> Length(GreensRClasses(x))=2, true);
-<iterator>
+<iterator of semigroups of size 5>
 
 # doc/../gap/enums.gd:452-457
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
@@ -686,7 +686,7 @@ gap> OneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
 gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
 <small semigroup of size 1>
 gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
-<iterator>
+<iterator of semigroups of size 8>
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 
@@ -729,7 +729,7 @@ gap> RandomSmallSemigroup(8, IsCommutative, true,
 gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);
 <small semigroup of size 8>
 gap> iter:=IteratorOfSmallSemigroups([1..7]);
-<iterator>
+<iterator of semigroups of sizes [ 1 .. 7 ]>
 gap> RandomSmallSemigroup(iter);
 <small semigroup of size 7>
 
@@ -741,7 +741,7 @@ gap> SizesOfSmallSemisInEnum(enum);
 
 # doc/../gap/enums.gd:776-781
 gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-<iterator>
+<iterator of semigroups of size 7>
 gap> SizesOfSmallSemisInIter(iter);
 [ 7 ]
 
