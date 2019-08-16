@@ -19,7 +19,7 @@ Persons := [
   rec(LastName      := "Distler",
       FirstNames    := "Andreas",
       IsAuthor      := true,
-      IsMaintainer  := true,
+      IsMaintainer  := false,
       Email         := "a.distler@tu-bs.de",
       PostalAddress := Concatenation( [
                        "AG Algebra und Diskrete Mathematik\n",
