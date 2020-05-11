@@ -13,8 +13,8 @@ matrix:
     - env: GAPBRANCH=stable-4.9
 
 branches:
-  only:
-    - master
+  except:
+    - /^rc-v\d+\.\d+\.\d+/
 
 before_script:
   - git clone https://github.com/gap-system/pkg-ci-scripts.git scripts
