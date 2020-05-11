@@ -23,8 +23,7 @@ gap> sgrp := SemigroupByMultiplicationTable([[1]]);;
 gap> map:=EquivalenceSmallSemigroup(sgrp);;
 gap> Size(Range(map));
 1
-gap> grp:=SmallGroup(7,1);
-<pc group of size 7 with 1 generators>
+gap> grp:=SmallGroup(7,1);;
 gap> map:=EquivalenceSmallSemigroup(grp); 
 SemigroupHomomorphismByImages ( Group( [ f1 ] )-><small semigroup of size 7>)
 gap> id:=IdSmallSemigroup(Range(map));
