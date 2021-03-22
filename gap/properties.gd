@@ -978,7 +978,8 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
-
+# MinimalGeneratingSet was only declared for IsGroup in GAP < 4.12. This
+# declaration and comment can be removed if smallsemi ever requires GAP >= 4.12.
 DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 
 ###########################################################################
