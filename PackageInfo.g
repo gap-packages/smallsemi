@@ -68,7 +68,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "a library of small semigroups",
-  Autoload  := true
 ),
 
 Dependencies := rec(
@@ -86,7 +85,6 @@ BannerString := Concatenation(
   "For contents, type: ?Smallsemi:\n" ,
   "Loading ", ~.PackageName, " ", ~.Version, " ...\n",
   ListWithIdenticalEntries(SizeScreen()[1]-3, '-'), "\n" ),
-Autoload := false,
 TestFile := "tst/testall.g",
 Keywords := ["small semigroups", "data library", "multiplication tables"],
 
