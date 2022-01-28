@@ -1,12 +1,20 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2015            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2019            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
+
+================
+ Version 0.6.12  (16/08/19)
+================
+
+  - a minor release, with a bug fixed in IsomorphismTransformationSemigroup,
+    and various janitorial changes (e.g. http -> https, moved package website,
+    improved viewing/printing for IsIteratorOfSmallSemigroups)
 
 ================
  Version 0.6.11  (26/04/17)
