@@ -12,8 +12,7 @@
   [18XCommunications in Algebra[118X, [19X42[119X, 3 (2014), 1136-1150.
   
   [[20XDMU13[120X] [16XDistler, A., Maltcev, V. and Umar, A.[116X, [17XJ*=D* need not hold in finite
-  semigroups[117X,     [18Xsubmitted[118X    (2013),    ((https://arxiv.org/abs/1302.0985)),
-  {\verb+https://arxiv.org/abs/1302.0985+}.
+  semigroups[117X, [18Xsubmitted[118X (2013).
   
   [[20XFor55[120X]  [16XForsythe,  G. E.[116X, [17XSWAC computes 126 distinct semigroups of order 4[117X,
   [18XProc. Amer. Math. Soc.[118X, [19X6[119X (1955), 443--447.
@@ -23,7 +22,7 @@
   Solver[117X,  in  The  European  Conference on Artificial Intelligence 2006 (ECAI
   06), IOS Press (2006), 98-102.
   
-  [[20XJW77[120X]  [16XJ{\"u}rgensen,  H.  and Wick, P.[116X, [17XDie Halbgruppen der Ordnungen ≤ 7[117X,
+  [[20XJW77[120X]  [16XJürgensen,  H.  and  Wick,  P.[116X,  [17XDie  Halbgruppen der Ordnungen ≤ 7[117X,
   [18XSemigroup Forum[118X, [19X14[119X, 1 (1977), 69--79.
   
   [[20XPle67[120X]  [16XPlemmons,  R.  J.[116X,  [17XThere  are  15973  semigroups of order 6[117X, [18XMath.

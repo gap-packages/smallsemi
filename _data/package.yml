@@ -1,6 +1,6 @@
 name: Smallsemi
-version: "0.6.12"
-date: 2019-08-16
+version: "0.6.13"
+date: 2022-02-28
 description: |
     A library of small semigroups
 
@@ -22,7 +22,7 @@ packageinfo: https://gap-packages.github.io/smallsemi/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/smallsemi/releases/download/v0.6.12/smallsemi-0.6.12.tar.gz
+      url: https://github.com/gap-packages/smallsemi/releases/download/v0.6.13/smallsemi-0.6.13.tar.gz
 
 abstract: |
     The <Package>Smallsemi</Package> package is a data library of semigroups    of small size. It provides all semigroups with at most 8 elements as well    as various information about these objects.
@@ -34,26 +34,27 @@ keywords: |
     small semigroups, data library, multiplication tables.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>DM19</span>]   <b class='BibAuthor'>Distler, A. and Mitchell, J.</b>,
+    [<span class='BibKey'>DM22</span>]   <b class='BibAuthor'>Distler, A. and Mitchell, J.</b>,
      <i class='BibTitle'>Smallsemi, A library of small semigroups,
-             Version 0.6.12</i>
-     (<span class='BibYear'>2019</span>)<br />
+             Version 0.6.13</i>
+     (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/smallsemi/">https://gap-packages.github.io/smallsemi/</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ Smallsemi0.6.12,
+    @misc{ Smallsemi0.6.13,
       author =           {Distler, A. and Mitchell, J.},
-      title =            {{Smallsemi}, A library of small semigroups, {V}ersion 0.6.12},
-      month =            {Aug},
-      year =             {2019},
+      title =            {{Smallsemi},  A library of small semigroups, {V}ersion
+                          0.6.13},
+      month =            {Feb},
+      year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href              {https://gap-packages.github.io/smallsemi/}
+      howpublished =     {\href      {https://gap-packages.github.io/smallsemi/}
                           {\texttt{https://gap-packages.github.io/}\discretionary
                           {}{}{}\texttt{smallsemi/}}},
       keywords =         {small semigroups; data library; multiplication tables},
-      printedkey =       {DM19}
+      printedkey =       {DM22}
     }
 

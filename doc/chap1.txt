@@ -1,7 +1,7 @@
   
   [1X1 [33X[0;0YIntroduction[133X[101X
   
-  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.6.12) for [5XGAP[105X.[133X
+  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.6.13) for [5XGAP[105X.[133X
   
   [33X[0;0YThe  [5XSmallsemi[105X  package  is  a  data library of semigroups of small size. It
   provides  all  semigroups  with  at  most  8  elements  as  well  as various
@@ -118,15 +118,15 @@
   [33X[0;0YThe installation follows standard [5XGAP[105X rules as outlined in the following two
   steps; see [14X'Reference: Installing a GAP Package'[114X for further details.[133X
   
-  [31X1[131X   [33X[0;6YDownload    one    of    the   archives   [11Xsmallsemi-0.6.12.tar.gz[111X   or
-        [11Xsmallsemi-0.6.12.tar.bz2[111X from[133X
+  [31X1[131X   [33X[0;6YDownload    one    of    the   archives   [11Xsmallsemi-0.6.13.tar.gz[111X   or
+        [11Xsmallsemi-0.6.13.tar.bz2[111X from[133X
         [33X[0;6Y[7Xhttp://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php[107X[133X
   
   [31X2[131X   [33X[0;6YMove  the  archive inside a [11Xpkg[111X directory. This can be either the main
         [11Xpkg[111X directory in your [5XGAP[105X installation or your personal [11Xpkg[111X directory.[133X
   
   [31X3[131X   [33X[0;6YComplete  the  installation by unpacking the archive, e.g. under Linux
-        type  [11Xtar  -xzf  smallsemi-0.6.12.tar.gz[111X at the prompt for the gzipped
+        type  [11Xtar  -xzf  smallsemi-0.6.13.tar.gz[111X at the prompt for the gzipped
         [11Xtar[111X-archive.  A  subdirectory [11Xsmallsemi[111X will be created inside the [11Xpkg[111X
         directory.[133X
   
@@ -198,17 +198,32 @@
   
   [33X[0;0YYou  should verify the success of the installation by running the test file.
   This  is  done  by  the following command and should return a similar output
-  (the  number  of  [10XGAP4stones[110X  might  differ  depending  on the speed of your
-  machine):[133X
+  (the timings will differ depending on the speed of your machine):[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XReadPackage( "smallsemi", "tst/testall.g" );[127X[104X
-    [4X[28XSmallsemi package: small.tst[128X[104X
-    [4X[28XGAP4stones: 41[128X[104X
-    [4X[28XSmallsemi package: properties.tst[128X[104X
-    [4X[28XGAP4stones: 0[128X[104X
-    [4X[28XSmallsemi package: enums.tst[128X[104X
-    [4X[28XGAP4stones: 1[128X[104X
+    [4X[28XArchitecture: aarch64-apple-darwin21.3.0-default64-kv8[128X[104X
+    [4X[28X[128X[104X
+    [4X[28Xtesting: smallsemi/tst/coclass.tst[128X[104X
+    [4X[28X    2350 ms (323 ms GC) and 471MB allocated for coclass.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/enums.tst[128X[104X
+    [4X[28X    3452 ms (923 ms GC) and 2.69GB allocated for enums.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/greensstar.tst[128X[104X
+    [4X[28X     173 ms (109 ms GC) and 90.1MB allocated for greensstar.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/properties.tst[128X[104X
+    [4X[28X     574 ms (233 ms GC) and 213MB allocated for properties.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/small.tst[128X[104X
+    [4X[28X     322 ms (201 ms GC) and 174MB allocated for small.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/smallsemi01.tst[128X[104X
+    [4X[28X     323 ms (56 ms GC) and 128MB allocated for smallsemi01.tst[128X[104X
+    [4X[28Xtesting: smallsemi/tst/smallsemi02.tst[128X[104X
+    [4X[28X    2079 ms (587 ms GC) and 1.23GB allocated for smallsemi02.tst[128X[104X
+    [4X[28X-----------------------------------[128X[104X
+    [4X[28Xtotal      9273 ms (2432 ms GC) and 4.98GB allocated[128X[104X
+    [4X[28X              0 failures in 7 files[128X[104X
+    [4X[28X[128X[104X
+    [4X[28X#I  No errors detected while testing[128X[104X
+    [4X[28X[128X[104X
   [4X[32X[104X
   
   

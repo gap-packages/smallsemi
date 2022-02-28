@@ -11,8 +11,8 @@
 SetPackageInfo( rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.12",
-Date := "16/08/2019", # this is in dd/mm/yyyy format
+Version := "0.6.13",
+Date := "28/02/2022", # this is in dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [
@@ -21,12 +21,7 @@ Persons := [
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "a.distler@tu-bs.de",
-      PostalAddress := Concatenation( [
-                       "AG Algebra und Diskrete Mathematik\n",
-                       "TU Braunschweig\n", "Rebenring 31 (A14)\n",
-                       "38106 Braunschweig\n", "Germany"] ),
-      Place         := "Braunschweig",
-      Institution   := "Technische Universität Braunschweig"),
+  ),
   rec(
       LastName      := "Mitchell",
       FirstNames    := "James",
@@ -68,7 +63,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "a library of small semigroups",
-  Autoload  := true
 ),
 
 Dependencies := rec(
@@ -86,7 +80,6 @@ BannerString := Concatenation(
   "For contents, type: ?Smallsemi:\n" ,
   "Loading ", ~.PackageName, " ", ~.Version, " ...\n",
   ListWithIdenticalEntries(SizeScreen()[1]-3, '-'), "\n" ),
-Autoload := false,
 TestFile := "tst/testall.g",
 Keywords := ["small semigroups", "data library", "multiplication tables"],
 
@@ -121,13 +114,9 @@ AutoDoc := rec(
             """,
 
         Colophon := """
-            If you use <Package>Smallsemi</Package>, please tell us by
-            sending an email to <Email>a.distler@tu-bs.de</Email> or
-            <Email>jdm3@st-and.ac.uk</Email>.
-            <P/>
-            If you find any bugs or have any suggestions or comments, we
-            would very much appreciate it if you would let us know. Also, we
-            would like to hear about applications of this software.
+            If you find any bugs or have any suggestions or comments, we would
+            very much appreciate it if you would let us know via our
+            issue tracker (see <URL>https://github.com/gap-packages/smallsemi/issues</URL>).
             """,
 
         Acknowledgements := """

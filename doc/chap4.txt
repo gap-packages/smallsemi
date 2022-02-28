@@ -170,7 +170,7 @@
   
   [1X4.1-8 InfoSmallsemi[101X
   
-  [33X[1;0Y[29X[2XInfoSmallsemi[102X[32X info class[133X
+  [33X[1;0Y[29X[2XInfoSmallsemi[102X [32X info class[133X
   
   [33X[0;0Yis  the  info class (see [14X'Reference: Info Functions'[114X) of [5XSmallsemi[105X. The info
   level is initially set to 1 which triggers a message whenever data is loaded
@@ -1753,7 +1753,7 @@
   
   [1X4.5-19 PrecomputedSmallSemisInfo[101X
   
-  [33X[1;0Y[29X[2XPrecomputedSmallSemisInfo[102X[32X global variable[133X
+  [33X[1;0Y[29X[2XPrecomputedSmallSemisInfo[102X [32X global variable[133X
   
   [33X[0;0Ythe  global  variable  [10XPrecomputedSmallSemisInfo[110X  contains a list of all the
   names  of  precomputed  properties stored in the library. The [10Xi[110Xth element of

@@ -6,10 +6,10 @@
                         [1X A library of small semigroups [101X
   
   
-                                 Version 0.6.12
+                                 Version 0.6.13
   
   
-                                 16 August 2019
+                                28 February 2022
   
   
                                 Andreas Distler
@@ -20,13 +20,6 @@
   
   Andreas Distler
       Email:    [7Xmailto:a.distler@tu-bs.de[107X
-      Address:  [33X[0;14YAG Algebra und Diskrete Mathematik[133X
-                [33X[0;14YTU Braunschweig[133X
-                [33X[0;14YRebenring 31 (A14)[133X
-                [33X[0;14Y38106 Braunschweig[133X
-                [33X[0;14YGermany[133X
-  
-  
   James Mitchell
       Email:    [7Xmailto:jdm3@st-and.ac.uk[107X
       Homepage: [7Xhttp://tinyurl.com/jdmitchell[107X
@@ -71,12 +64,9 @@
   
   -------------------------------------------------------
   [1XColophon[101X
-  [33X[0;0YIf   you   use   [5XSmallsemi[105X,   please   tell   us  by  sending  an  email  to
-  [7Xmailto:a.distler@tu-bs.de[107X or [7Xmailto:jdm3@st-and.ac.uk[107X.[133X
-  
   [33X[0;0YIf you find any bugs or have any suggestions or comments, we would very much
-  appreciate  it  if  you would let us know. Also, we would like to hear about
-  applications of this software.[133X
+  appreciate  it  if  you  would  let  us  know  via  our  issue  tracker (see
+  [7Xhttps://github.com/gap-packages/smallsemi/issues[107X).[133X
   
   
   -------------------------------------------------------
