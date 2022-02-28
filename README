@@ -78,25 +78,25 @@ Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 The installation follows standard GAP rules as outlined in the following
 steps; see Section 74.1 in the reference manual of GAP for further details:
 
-1) Download the archive 'smallsemi-0.6.11.tar.gz' from
+1) Download the archive 'smallsemi-0.6.13.tar.gz' from
 
-       http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php
+       https://gap-packages.github.io/smallsemi/
 
 2) Move the archive inside a 'pkg' directory. This can be either the main
    'pkg' directory in your GAP installation or your personal 'pkg' directory.
 
 3) Complete the installation by unpacking the archive, e.g. under Linux type 
 
-       tar -xzf smallsemi-0.6.11.tar.gz
+       tar -xzf smallsemi-0.6.13.tar.gz
 
-   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi-0.6.11'
+   at the prompt for the gzipped tar-archive. A subdirectory 'smallsemi-0.6.13'
    will be created inside the 'pkg' directory.
 
 ----------
  Contents
 ----------
 
-After installation the folder 'smallsemi-0.6.11' should contain the directories
+After installation the folder 'smallsemi-0.6.13' should contain the directories
 
     data, doc, gap, and tst 
 
@@ -114,43 +114,20 @@ To use the package type 'LoadPackage("smallsemi");' at the GAP prompt.
  Testing
 ---------
 
-You can verify the success of the installation by running the test file:
+You can verify the success of the installation by running the test file.
+To do so, enter the following command into a fresh GAP session.
 
-gap> ReadPackage( "smallsemi", "tst/testall.g" );
-Smallsemi package: small.tst
-GAP4stones: 41
-Smallsemi package: properties.tst
-GAP4stones: 12
-Smallsemi package: enums.tst
-GAP4stones: 1
-Smallsemi package: greensstar.tst
-GAP4stones: 4
-true
-gap>
+    ReadPackage( "smallsemi", "tst/testall.g" );
+
+If successful it will exit GAP with the message
+
+    #I  No errors detected while testing
 
 ---------
  Contact
 ---------
 
-If you use 'Smallsemi', please tell us by sending an email to
-<a.distler@tu-bs.de> or <jdm3@st-and.ac.uk>.
-
 If you find any bugs or have any suggestions or comments, we would
-very much appreciate it if you would let us know. Also, we would like
-to hear about applications of this software.
+very much appreciate it if you would let us know via our
+issue tracker <https://github.com/gap-packages/smallsemi/issues>.
 
-Andreas Distler and James Mitchell, St Andrews, 24th of February 2014.
-
-Andreas Distler
-  TU Braunschweig
-  AG Algebra und Diskrete Mathematik
-  Rebenring 31 (A14)
-  38106 Braunschweig
-  Germany
-
-James Mitchell
-  Mathematical Institute
-  North Haugh
-  St Andrews, Fife
-  KY16 9SS
-  Scotland, UK

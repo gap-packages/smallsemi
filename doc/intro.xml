@@ -258,17 +258,33 @@ brk>
 
 You should verify the success of the installation by running the test
 file. This is done by the following command and should return a
-similar output (the number of <C>GAP4stones</C> might differ depending
-on the speed of your machine):
+similar output (the timings will differ depending on the speed of your
+machine):
 
 <Log><![CDATA[
 gap> ReadPackage( "smallsemi", "tst/testall.g" );
-Smallsemi package: small.tst
-GAP4stones: 41
-Smallsemi package: properties.tst
-GAP4stones: 0
-Smallsemi package: enums.tst
-GAP4stones: 1
+Architecture: aarch64-apple-darwin21.3.0-default64-kv8
+
+testing: smallsemi/tst/coclass.tst
+    2350 ms (323 ms GC) and 471MB allocated for coclass.tst
+testing: smallsemi/tst/enums.tst
+    3452 ms (923 ms GC) and 2.69GB allocated for enums.tst
+testing: smallsemi/tst/greensstar.tst
+     173 ms (109 ms GC) and 90.1MB allocated for greensstar.tst
+testing: smallsemi/tst/properties.tst
+     574 ms (233 ms GC) and 213MB allocated for properties.tst
+testing: smallsemi/tst/small.tst
+     322 ms (201 ms GC) and 174MB allocated for small.tst
+testing: smallsemi/tst/smallsemi01.tst
+     323 ms (56 ms GC) and 128MB allocated for smallsemi01.tst
+testing: smallsemi/tst/smallsemi02.tst
+    2079 ms (587 ms GC) and 1.23GB allocated for smallsemi02.tst
+-----------------------------------
+total      9273 ms (2432 ms GC) and 4.98GB allocated
+              0 failures in 7 files
+
+#I  No errors detected while testing
+
 ]]></Log>
 </Subsection>
 
