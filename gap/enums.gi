@@ -1379,6 +1379,10 @@ end);
 
 InstallGlobalFunction(PositionsOfSmallSemisInEnum, enum-> enum!.pos);
 
+###################
+
+BindGlobal( "SMALLSEMI_RS", RandomSource(IsMersenneTwister));
+
 ##################
 
 InstallGlobalFunction(RandomSmallSemigroup, 
@@ -1854,10 +1858,6 @@ SMALLSEMI_TAB_LEVEL:=SMALLSEMI_TAB_LEVEL-1;
 return input;
 end);
 
-
-###################
-
-InstallValue(SMALLSEMI_RS, RandomSource(IsMersenneTwister));
 
 ###################
 

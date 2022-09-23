@@ -1053,7 +1053,7 @@ DeclareProperty("IsSemigroupWithoutClosedIdempotents", IsSmallSemigroup);
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareGlobalVariable("SMALLSEMI_ALWAYS_FALSE");
+#DeclareGlobalVariable("SMALLSEMI_ALWAYS_FALSE");
 
 ###########################################################################
 ##  <#GAPDoc Label="SMALLSEMI_EQUIV">
@@ -1104,7 +1104,7 @@ DeclareGlobalVariable("SMALLSEMI_ALWAYS_FALSE");
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareGlobalVariable("SMALLSEMI_EQUIV");
+#DeclareGlobalVariable("SMALLSEMI_EQUIV");
 
 ###########################################################################
 ##
