@@ -1007,20 +1007,6 @@ DeclareGlobalFunction("SMALLSEMI_RETURN");
 
 ###########################################################################
 ##
-##  <#GAPDoc Label="SMALLSEMI_RS">
-##  <ManSection>
-##  <Var Name="SMALLSEMI_RS" />
-##  <Description>
-##  <Example><![CDATA[
-##  ]]></Example>
-##  </Description>
-##  </ManSection>
-##  <#/GAPDoc>
-
-DeclareGlobalVariable("SMALLSEMI_RS");
-
-###########################################################################
-##
 ##  <#GAPDoc Label="SMALLSEMI_TAB_LEVEL">
 ##  <ManSection>
 ##  <Func Name="SMALLSEMI_TAB_LEVEL" Arg="arg"/>

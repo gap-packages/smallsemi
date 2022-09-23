@@ -328,8 +328,8 @@ DeclareGlobalVariable("3NIL_DATA",
 ##  </ManSection>
 ##  <#/GAPDoc>
 ##
-DeclareGlobalVariable("BLUEPRINT_MATS",
-                      "list of matrices to built 3-nilpotent semigroups");
+# DeclareGlobalVariable("BLUEPRINT_MATS",
+#                       "list of matrices to built 3-nilpotent semigroups");
 
 ###########################################################################
 ##
@@ -403,7 +403,7 @@ DeclareGlobalVariable("DATA8","raw data for semigroup tables size 8");
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareGlobalVariable("MOREDATA2TO8");
+# DeclareGlobalVariable("MOREDATA2TO8");
 
 ########################
 ## INTERNAL FUNCTIONS ##

@@ -1341,15 +1341,15 @@ end);
 #IsCommutative and IsSemigroup.
 
 if IsBound(IsSingularSemigroup) then 
-	InstallValue(SMALLSEMI_ALWAYS_FALSE,
+	BindGlobal( "SMALLSEMI_ALWAYS_FALSE",
              [IsFullTransformationSemigroup, 
               IsSingularSemigroup]);
 else
-		InstallValue(SMALLSEMI_ALWAYS_FALSE,
+		BindGlobal( "SMALLSEMI_ALWAYS_FALSE",
              [IsFullTransformationSemigroup]);
 fi;
 
-#InstallValue(SMALLSEMI_EQUIV, 
+#BindGlobal( "SMALLSEMI_EQUIV", 
 #             [["IsCompletelySimpleSemigroup", "IsSimpleSemigroup"],
 #              ["IsCommutativeSemigroup", "IsCommutative"], 
 #              ["IsNilpotent", "IsNilpotentSemigroup"]]);
@@ -1360,7 +1360,7 @@ fi;
 # component of every instance in SMALLSEMI_EQUIV should have length
 # two!
 
-InstallValue(SMALLSEMI_EQUIV, [
+BindGlobal( "SMALLSEMI_EQUIV", [
 [[IsCliffordSemigroup, true],
 [IsCompletelyRegularSemigroup, true, IsInverseSemigroup, true]], 
 
@@ -1404,7 +1404,7 @@ InstallValue(SMALLSEMI_EQUIV, [
 
 ]);
 
-#InstallValue(SMALLSEMI_CONVERSE, 
+#BindGlobal( "SMALLSEMI_CONVERSE", 
 #             [["Is4GeneratedSemigroup", 
 #               [Is1GeneratedSemigroup, false, Is2GeneratedSemigroup, false, 
 #                Is3GeneratedSemigroup, false, Is5GeneratedSemigroup, false, 
