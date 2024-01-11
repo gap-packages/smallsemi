@@ -8,10 +8,9 @@
 #############################################################################
 ##
 
-ReadPackage("smallsemi/gap/small.gi");
-ReadPackage("smallsemi/gap/properties.gi");
-ReadPackage("smallsemi/gap/enums.gi");
-ReadPackage("smallsemi/gap/utils.gi");
-ReadPackage("smallsemi/gap/greensstar.gi");
-ReadPackage("smallsemi/gap/coclass.gi");
-
+ReadPackage("smallsemi", "gap/small.gi");
+ReadPackage("smallsemi", "gap/properties.gi");
+ReadPackage("smallsemi", "gap/enums.gi");
+ReadPackage("smallsemi", "gap/utils.gi");
+ReadPackage("smallsemi", "gap/greensstar.gi");
+ReadPackage("smallsemi", "gap/coclass.gi");
