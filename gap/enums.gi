@@ -72,76 +72,68 @@ end);
 
 InstallGlobalFunction(EnumeratorOfSmallSemigroups,
 function(arg...)
-  local fam, enum, pos, index, tot, lens, enums, i;
+  local fam, record, enum, sizes;
 
   arg := SMALLSEMI_STRIP_ARG(arg);
   SMALLSEMI_ValidateArgs(arg);
 
-  arg:=SMALLSEMI_SORT_ARG_NC(SMALLSEMI_CONVERT_ARG_NC(arg));
+  arg := SMALLSEMI_SORT_ARG_NC(SMALLSEMI_CONVERT_ARG_NC(arg));
 
-#comment out the following if statement to allow the creation of all
-#enumerators of semigroups of size 8. BEWARE this might have unpredictable
-#consequences. JDM
+  if not SMALLSEMI_CAN_CREATE_ENUM_NC(arg) then
+    Error("it is not currently possible to construct every enumerator",
+          "containing semigroups of order 8");
+  fi;
 
-    if not SMALLSEMI_CAN_CREATE_ENUM_NC(arg) then
-      Error("it is not currently possible to find all enumerators containing \n semigroups of order 8");
+  if Length(arg) = 1 then
+    if IsEnumeratorOfSmallSemigroups(arg[1]) then
+      # do nothing
+      return arg[1];
+    elif IsIteratorOfSmallSemigroups(arg[1]) then
+      # convert iterator to enumerator
+      return SMALLSEMI_CREATE_ENUM(SizesOfSmallSemisInIter(arg[1]),
+                                   PositionsOfSmallSemigroups(arg[1]),
+                                   FuncsOfSmallSemisInIter(arg[1]));
+    elif IsPosInt(arg[1]) then
+      # all semigroups
+      fam    := CollectionsFamily(SmallSemigroupEltFamily);
+      record := rec();
+
+      record.ElementNumber := {enum, pos} -> SmallSemigroupNC(arg[1], pos);
+      record.NumberElement := {enum, elm} -> IdSmallSemigroup(elm)[2];
+      record.Length        := enum -> NrSmallSemigroups(arg[1]);
+
+      record.PrintObj := function(_)
+        Print("<enumerator of semigroups of size ", arg[1], ">");
+      end;
+
+      record.pos   := [[1 .. NrSmallSemigroups(arg[1])]];
+      record.funcs := [];
+      record.names := ["AllSmallSemigroups", arg[1]];
+      record.sizes := [arg[1]];
+
+      enum := EnumeratorByFunctions(Domain(fam, []), record);
+      SetIsEnumeratorOfSmallSemigroups(enum, true);
+      SetIsFinite(enum, true);
+    else
+      # arg is list of positive integers
+      enum := SMALLSEMI_CREATE_ENUM(arg[1],
+                                    List(arg[1],
+                                         x -> [1 .. NrSmallSemigroups(x)]),
+                                    arg{[2 .. Length(arg)]});
     fi;
+    return enum;
+  fi;
 
-if Length(arg)=1 and IsEnumeratorOfSmallSemigroups(arg[1]) then
-        return arg[1]; #do nothing
-elif Length(arg)=1 and IsIteratorOfSmallSemigroups(arg[1]) then
-    return SMALLSEMI_CREATE_ENUM(SizesOfSmallSemisInIter(arg[1]),
-     PositionsOfSmallSemigroups(arg[1]), FuncsOfSmallSemisInIter(arg[1]));
-        #convert iterator to enumerator
-elif Length(arg)=1 and IsPosInt(arg[1]) then #all semigroups
-
-    fam:=CollectionsFamily(SmallSemigroupEltFamily);
-
-    enum:=EnumeratorByFunctions(Domain(fam, []), rec(
-    ElementNumber:=function(enum, pos)
-    return SmallSemigroupNC(arg[1], pos);
-    end,
-
-    NumberElement:=function(enum, elm)
-    return IdSmallSemigroup(elm)[2];
-    end,
-
-    Length:=enum -> NrSmallSemigroups(arg[1]),
-
-    PrintObj:=function(enum)
-    Print( "<enumerator of semigroups of size ", arg[1], ">");
-    return;
-    end,
-        pos:= [[1..NrSmallSemigroups(arg[1])]],
-        funcs:=[], names:=["AllSmallSemigroups", arg[1]],
-        sizes:=[arg[1]]));
-
-    SetIsEnumeratorOfSmallSemigroups(enum, true);
-    #SetPositionsOfSmallSemisInEnum(enum, [[1..NrSmallSemigroups(arg[1])]]);
-    #SetFuncsOfSmallSemisInEnum(enum, []);
-    #SetNamesFuncsSmallSemisInEnum(enum, ["AllSmallSemigroups", arg[1]]);
-    #SetSizesOfSmallSemisInEnum(enum, [arg[1]]);
-    SetIsFinite(enum, true);
-elif Length(arg)=1 and ForAll(arg[1], IsPosInt) then
-    enum:=SMALLSEMI_CREATE_ENUM(arg[1], List(arg[1], x->
-     [1..NrSmallSemigroups(x)]), arg{[2..Length(arg)]});
-elif IsPosInt(arg[1]) then
-    #enumerator by list of properties and their values
-    enum:=SMALLSEMI_CREATE_ENUM(arg[1], PositionsOfSmallSemigroups(arg),
-     arg{[2..Length(arg)]});
-elif IsEnumeratorOfSmallSemigroups(arg[1]) then
-    enum:=SMALLSEMI_CREATE_ENUM(SizesOfSmallSemisInEnum(arg[1]),
-      PositionsOfSmallSemigroups(arg), arg{[2..Length(arg)]});
-elif IsIteratorOfSmallSemigroups(arg[1]) then
-    enum:=SMALLSEMI_CREATE_ENUM(SizesOfSmallSemisInIter(arg[1]),
-     PositionsOfSmallSemigroups(arg), arg{[2..Length(arg)]});
-elif Length(arg)>1 and ForAll(arg[1], IsPosInt) then #enumerator over range
-    enum:=SMALLSEMI_CREATE_ENUM(arg[1], PositionsOfSmallSemigroups(arg),
-     arg{[2..Length(arg)]});
-fi;
-
-return enum;
-
+  if IsPosInt(arg[1]) or IsCyclotomicCollection(arg[1]) then
+    sizes := arg[1];
+  elif IsEnumeratorOfSmallSemigroups(arg[1]) then
+    sizes := SizesOfSmallSemisInEnum(arg[1]);
+  elif IsIteratorOfSmallSemigroups(arg[1]) then
+    sizes := SizesOfSmallSemisInIter(arg[1]);
+  fi;
+  return SMALLSEMI_CREATE_ENUM(sizes,
+                               PositionsOfSmallSemigroups(arg),
+                               arg{[2 .. Length(arg)]});
 end);
 
 ##################
@@ -665,15 +657,9 @@ fi;
 
 end);
 
-##################
+InstallGlobalFunction(NamesFuncsSmallSemisInEnum, enum -> enum!.names);
+InstallGlobalFunction(NamesFuncsSmallSemisInIter, enum -> enum!.names);
 
-InstallGlobalFunction(NamesFuncsSmallSemisInEnum,
-enum-> enum!.names);
-
-InstallGlobalFunction(NamesFuncsSmallSemisInIter,
-enum-> enum!.names);
-
-##################
 
 InstallGlobalFunction(Nr3NilpotentSemigroups, function( arg )
 
