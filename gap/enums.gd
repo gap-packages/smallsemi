@@ -1,13 +1,12 @@
 #############################################################################
 ##
-#W  enums.gd                       Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
+##  enums.gd                       Smallsemi - a GAP library of semigroups
+##  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
-
 
 ###########################################################################
 ##
@@ -43,7 +42,7 @@
 ##  library with <C>S in arg[1]</C> and <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>. <P/>
 ##  <Example><![CDATA[
 ##  gap> AllSmallSemigroups(2);
-##  [ <small semigroup of size 2>, <small semigroup of size 2>, 
+##  [ <small semigroup of size 2>, <small semigroup of size 2>,
 ##    <small semigroup of size 2>, <small semigroup of size 2> ]
 ##  gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,
 ##  > x-> Length(GreensRClasses(x)), 1);
@@ -51,7 +50,7 @@
 ##  gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
 ##  > IsCommutativeSemigroup, true);;
 ##  gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);
-##  [ <small semigroup of size 8>, <small semigroup of size 8>, 
+##  [ <small semigroup of size 8>, <small semigroup of size 8>,
 ##    <small semigroup of size 8> ]
 ##  gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);;
 ##  gap> AllSmallSemigroups(iter, IsCommutative, true,
@@ -257,7 +256,7 @@ DeclareGlobalFunction("EnumeratorSortedOfSmallSemigroups");
 ##  > IsSimpleSemigroup, false);
 ##  [  ]
 ##  gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
-##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ], 
+##  [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ],
 ##    [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 ##  ]]></Example> <!-- enums.tst -->
 ##  </Description>
@@ -299,7 +298,7 @@ DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
 ##  gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;
 ##  gap> FuncsOfSmallSemisInEnum(enum);
-##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
 ##    false ]
 ##  ]]></Example><!-- enums.tst -->
 ##  </Description>
@@ -354,17 +353,17 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 ###########################################################################
 ##
 ##  <#GAPDoc Label="FuncsOfSmallSemisInIter">
-##  <ManSection> 
+##  <ManSection>
 ##  <Func Name="FuncsOfSmallSemisInIter" Arg="iter"/>
 ##  <Description>
 ##  returns a list of the functions and their values that were used to create
-##  the iterator of small semigroups <A>iter</A>. If you only want the names 
+##  the iterator of small semigroups <A>iter</A>. If you only want the names
 ##  of these functions use <Ref Func="NamesFuncsSmallSemisInIter"/>.
 ##  <Example><![CDATA[
 ##  gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 ##  > IsRegularSemigroup, true);;
 ##  gap> FuncsOfSmallSemisInIter(enum);
-##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+##  [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
 ##    false ]
 ##  ]]></Example><!-- enums.tst -->
 ##  </Description>
@@ -800,7 +799,7 @@ DeclareGlobalFunction("SizesOfSmallSemisInIter");
 ##  gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);
 ##  [ <small semigroup of size 5>, <small semigroup of size 6> ]
 ##  gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);
-##  [ <small semigroup of size 5>, <small semigroup of size 5>, 
+##  [ <small semigroup of size 5>, <small semigroup of size 5>,
 ##    <semigroup of size 5, with 5 generators> ]
 ##  ]]></Example>
 ##  </Description>
@@ -820,9 +819,9 @@ DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 
 ###########################################################################
 ##
-##  <#GAPDoc Label="SMALLSEMI_ARG_OK">
+##  <#GAPDoc Label="SMALLSEMI_ValidateArgs">
 ##  <ManSection>
-##  <Func Name="SMALLSEMI_ARG_OK" Arg="arg"/>
+##  <Func Name="SMALLSEMI_ValidateArgs" Arg="arg"/>
 ##  <Description>
 ##  checks that the argument <A>arg</A> is valid for any of the functions
 ##  <Ref Func="EnumeratorOfSmallSemigroups" BookName="smallsemi"/>,
@@ -847,7 +846,7 @@ DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareGlobalFunction("SMALLSEMI_ARG_OK");
+DeclareGlobalFunction("SMALLSEMI_ValidateArgs");
 
 ###########################################################################
 ##
@@ -856,7 +855,7 @@ DeclareGlobalFunction("SMALLSEMI_ARG_OK");
 ##  <Func Name="SMALLSEMI_CAN_CREATE_ENUM_NC" Arg="arg"/>
 ##  <Description>
 ##  checks that the argument <A>arg</A> can be used to produce an enumerator.
-##  This function does not check <Ref Func="SMALLSEMI_ARG_OK"/> is <C>true</C> with
+##  This function does not check <Ref Func="SMALLSEMI_ValidateArgs"/> is <C>true</C> with
 ##  argument <A>arg</A> and it is assumed that <A>arg</A> is of this form.<P/>
 ##
 ##  Currently a valid argument is one with:
@@ -883,7 +882,7 @@ DeclareGlobalFunction("SMALLSEMI_CAN_CREATE_ENUM_NC");
 ##  <ManSection>
 ##  <Func Name="SMALLSEMI_CONVERT_ARG_NC" Arg="arg"/>
 ##  <Description>
-##  <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ARG_OK"/>
+##  <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ValidateArgs"/>
 ##  <C>(arg)=true</C> but this is not checked.
 ##
 ##  <C>SMALLSEMI_CONVERT_ARG_NC</C> replaces every function <A>arg[2i]</A>
@@ -962,7 +961,7 @@ DeclareGlobalFunction("SMALLSEMI_ENTAB");
 ##  <ManSection>
 ##  <Func Name="SMALLSEMI_SORT_ARG_NC" Arg="arg"/>
 ##  <Description>
-##  <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ARG_OK"/>
+##  <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ValidateArgs"/>
 ##  <C>(arg)=true</C> but this is not checked.
 ##
 ##  <C>SMALLSEMI_SORT_ARG_NC</C> sorts <A>arg</A> so that the functions
