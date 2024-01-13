@@ -191,9 +191,17 @@ DeclareGlobalFunction("EnumeratorOfSmallSemigroups");
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareOperation("EnumeratorOfSmallSemigroupsByIds", [IsCyclotomicCollection , IsCyclotomicCollColl]);
+DeclareOperation("EnumeratorOfSmallSemigroupsByIds",
+                 [IsCyclotomicCollection, IsCyclotomicCollColl]);
+DeclareOperation("EnumeratorOfSmallSemigroupsByIds",
+                 [IsPosInt, IsCyclotomicCollection]);
+DeclareOperation("EnumeratorOfSmallSemigroupsByIds",
+                 [IsList]);
 
-DeclareOperation("EnumeratorOfSmallSemigroupsByIdsNC", [IsCyclotomicCollection , IsCyclotomicCollColl]);
+DeclareOperation("EnumeratorOfSmallSemigroupsByIdsNC",
+                 [IsCyclotomicCollection, IsCyclotomicCollColl]);
+DeclareOperation("EnumeratorOfSmallSemigroupsByIdsNC",
+                 [IsPosInt, IsCyclotomicCollection]);
 
 #############################################################################
 ##
@@ -283,7 +291,7 @@ DeclareGlobalFunction("IdsOfSmallSemigroups");
 ##  </ManSection>
 ##  <#/GAPDoc>
 
-DeclareProperty("IsEnumeratorOfSmallSemigroups", IsEnumeratorByFunctions);
+DeclareProperty("IsEnumeratorOfSmallSemigroups", IsObject);
 
 ###########################################################################
 ##
