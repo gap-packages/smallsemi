@@ -9,8 +9,8 @@
 ##
 
 
-##  The functions in this file are used to test whether a given 
-##  small semigroup has a given property.  
+##  The functions in this file are used to test whether a given
+##  small semigroup has a given property.
 
 InstallMethod( Annihilators, "for a small semigroup", [ IsSmallSemigroup ],
 function( sg )
@@ -26,7 +26,7 @@ function( sg )
     mt := MultiplicationTable( sg );
     zero := MultiplicativeZero( sg )!.index;
 
-    indices := Filtered( [ 1..n ], i -> Unique( mt{[ 1..n ]}[i] ) = [ zero ] 
+    indices := Filtered( [ 1..n ], i -> Unique( mt{[ 1..n ]}[i] ) = [ zero ]
                                         and Unique( mt[i] ) = [ zero ] );
 
     return Elements( sg ){ indices };
@@ -40,10 +40,10 @@ x -> DiagonalOfMat(MultiplicationTable(x)));
 
 ###########################################################################
 
-InstallGlobalFunction(DisplaySmallSemigroup, 
+InstallGlobalFunction(DisplaySmallSemigroup,
 function(s)
 local id, pre, out, info, max, eval, tab;
-if not IsSmallSemigroup(s) then 
+if not IsSmallSemigroup(s) then
 	return fail;
 fi;
 
@@ -71,7 +71,7 @@ info:=Difference(info,["IsSemigroupWithoutClosedIdempotents",
 info := Concatenation( info, [ "MinimalGeneratingSet", "Idempotents",
                                "GreensRClasses","GreensLClasses",
                                "GreensHClasses","GreensDClasses"] );
-                 
+
 out:=[];
 max:=Maximum(List(info, Length));
 
@@ -101,7 +101,7 @@ end);
 
 #############################################################################
 
-InstallMethod(IndexPeriod, "for a small semigroup elt", true, [IsSmallSemigroupElt], 0, 
+InstallMethod(IndexPeriod, "for a small semigroup elt", true, [IsSmallSemigroupElt], 0,
 function(x)
 local i, y, m, powers;
 
@@ -109,8 +109,8 @@ i:=1;
 y:=x;
 powers:=[y];
 
-repeat 
-	i:=i+1; 
+repeat
+	i:=i+1;
 	y:=y*x;
 	Add(powers, y);
 until not IsDuplicateFreeList(powers);
@@ -128,22 +128,22 @@ InstallMethod(IsBand, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(s)
 
-if HasIsCompletelyRegularSemigroup(s) and not IsCompletelyRegularSemigroup(s) then 
+if HasIsCompletelyRegularSemigroup(s) and not IsCompletelyRegularSemigroup(s) then
    return false;
 else
 	return DiagonalOfMat(s!.table)=[1..Size(s)];
-fi; 
+fi;
 end);
 
 ###########################################################################
 
-InstallMethod(IsBrandtSemigroup, "for a small semigroup", 
-true, [IsSmallSemigroup], 0, 
+InstallMethod(IsBrandtSemigroup, "for a small semigroup",
+true, [IsSmallSemigroup], 0,
 function(s)
 
-if HasIsInverseSemigroup(s) and not IsInverseSemigroup(s) then 
+if HasIsInverseSemigroup(s) and not IsInverseSemigroup(s) then
 	return false;
-elif HasIsZeroSimpleSemigroup(s) and not IsZeroSimpleSemigroup(s) then 
+elif HasIsZeroSimpleSemigroup(s) and not IsZeroSimpleSemigroup(s) then
 	return false;
 fi;
 
@@ -152,19 +152,19 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsCliffordSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsCliffordSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(M)
 
-if HasIsInverseSemigroup(M) and not IsInverseSemigroup(M) then 
+if HasIsInverseSemigroup(M) and not IsInverseSemigroup(M) then
 	return false;
-elif HasIsRegularSemigroup(M) and not IsRegularSemigroup(M) then 
+elif HasIsRegularSemigroup(M) and not IsRegularSemigroup(M) then
 	return false;
-elif HasIsCompletelyRegularSemigroup(M) and not IsCompletelyRegularSemigroup(M) then 
+elif HasIsCompletelyRegularSemigroup(M) and not IsCompletelyRegularSemigroup(M) then
 	return false;
-elif HasIsGroupAsSemigroup(M) and IsGroupAsSemigroup(M) then 
+elif HasIsGroupAsSemigroup(M) and IsGroupAsSemigroup(M) then
 	return true;
 else
-	if ForAll(Idempotents(M), x-> x in Center(M)) then 
+	if ForAll(Idempotents(M), x-> x in Center(M)) then
 		return IsRegularSemigroup(M);
 	fi;
 fi;
@@ -188,17 +188,17 @@ InstallMethod(IsCompletelySimpleSemigroup, "for a small semigroup",
 InstallMethod(IsSemiband, "for a small semigroup",
 [IsSmallSemigroup], IsIdempotentGenerated);
 
-InstallMethod(IsSemilattice, "for a small semigroup", 
+InstallMethod(IsSemilattice, "for a small semigroup",
 [IsSmallSemigroup], s-> IsCommutative(s) and IsBand(s));
 
 ###########################################################################
 
-InstallMethod( IsCompletelyRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
+InstallMethod( IsCompletelyRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(M)
 
-if HasIsRegularSemigroup(M) and not IsRegularSemigroup(M) then 
+if HasIsRegularSemigroup(M) and not IsRegularSemigroup(M) then
 	return false;
-elif IsRegularSemigroup(M) then 
+elif IsRegularSemigroup(M) then
 	return Length(GreensHClasses(M))=Length(Idempotents(M));
 fi;
 
@@ -207,7 +207,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsFullTransformationSemigroupCopy, "for a small semigroup", 
+InstallMethod(IsFullTransformationSemigroupCopy, "for a small semigroup",
 [IsSmallSemigroup], function(s)
     return IdSmallSemigroup(s)=[4,96] or IdSmallSemigroup(s)=[1,1];
 end);
@@ -215,7 +215,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsGroupAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsGroupAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(s)
 local table, id;
 
@@ -231,7 +231,7 @@ SetIsRegularSemigroup(s, true);
 SetIsSimpleSemigroup(s, true);
 SetIsCompletelyRegularSemigroup(s, true);
 SetIsCliffordSemigroup(s, true);
-if Size(s)>1 then 
+if Size(s)>1 then
 	SetIsRectangularBand(s, false);
 else
 	SetIsRectangularBand(s, true);
@@ -241,13 +241,13 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsIdempotentGenerated, "for a small semigroup", 
+InstallMethod(IsIdempotentGenerated, "for a small semigroup",
 true, [IsSmallSemigroup], 0, function(S)
 
     # semigroup contains only idempotents
-    if IsBand(S) then 
+    if IsBand(S) then
 	return true;
-    # in a nilpotent semigroup zero does not generate the semigroup 
+    # in a nilpotent semigroup zero does not generate the semigroup
     # (except if size is 1, but then it is already a band)
     elif IsNilpotentSemigroup(S) then
         return false;
@@ -257,21 +257,21 @@ true, [IsSmallSemigroup], 0, function(S)
 end);
 
 ###########################################################################
-#JDM is the `other' required here? 
+#JDM is the `other' required here?
 
-InstallMethod(IsInverseSemigroup, "for a small semigroup", 
+InstallMethod(IsInverseSemigroup, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(M)
 local i, j, idem;
 
-if HasIsCliffordSemigroup(M) and IsCliffordSemigroup(M) then 
+if HasIsCliffordSemigroup(M) and IsCliffordSemigroup(M) then
 	return true;
-elif IsRegularSemigroup(M) then 
+elif IsRegularSemigroup(M) then
 idem:=Idempotents(M);
 
-for i in [1..Length(idem)] do 
+for i in [1..Length(idem)] do
 	for j in [i+1..Length(idem)] do
-		if not idem[i]*idem[j]=idem[j]*idem[i] then 	
+		if not idem[i]*idem[j]=idem[j]*idem[i] then
 			return false;
 		fi;
 	od;
@@ -285,7 +285,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsLeftZeroSemigroup, "for a small semigroup", 
+InstallMethod(IsLeftZeroSemigroup, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(S)
     local table, i, j;
@@ -305,7 +305,7 @@ end);
 
 ###################
 
-InstallMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsMonoidAsSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(S)
 local table, id, pos;
 
@@ -314,7 +314,7 @@ id:=IdSmallSemigroup(S);
 
 pos:=Position(table, [1..id[1]]);
 
-if not pos=fail then 
+if not pos=fail then
 	return List(table, x-> x[pos])=[1..id[1]];
 fi;
 
@@ -324,7 +324,7 @@ end);
 ###################
 
 InstallMethod(IsMultSemigroupOfNearRing, "for a small semigroup", true,
-[IsSmallSemigroup], 0, 
+[IsSmallSemigroup], 0,
 function(s)
     local id, vals;
 
@@ -341,7 +341,7 @@ end);
 
 #########################
 
-InstallMethod(IsNGeneratedSemigroup, "for a small semigroup and a pos. int", 
+InstallMethod(IsNGeneratedSemigroup, "for a small semigroup and a pos. int",
 [IsSmallSemigroup, IsPosInt], function(S, n)
     local id, funcname, idlist;
 
@@ -355,7 +355,7 @@ InstallMethod(IsNGeneratedSemigroup, "for a small semigroup and a pos. int",
 
     idlist := STORED_INFO( id[1], funcname );
 
-    if not idlist=fail then 
+    if not idlist=fail then
 	return id[2] in idlist;
     else
 	return Length(MinimalGeneratingSet(S))=n;
@@ -364,14 +364,14 @@ end);
 
 #########################
 
-InstallMethod(Is1GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is1GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 1);
-if out then 
+if out then
 	SetIs2GeneratedSemigroup(S, false);
-	SetIs3GeneratedSemigroup(S, false); 
+	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
 	SetIs6GeneratedSemigroup(S, false);
@@ -383,14 +383,14 @@ end);
 
 #########################
 
-InstallMethod(Is2GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is2GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 2);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs3GeneratedSemigroup(S, false); 
+	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
 	SetIs6GeneratedSemigroup(S, false);
@@ -402,14 +402,14 @@ end);
 
 #########################
 
-InstallMethod(Is3GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is3GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 3);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
 	SetIs6GeneratedSemigroup(S, false);
@@ -421,14 +421,14 @@ end);
 
 #########################
 
-InstallMethod(Is4GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is4GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 4);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs3GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
 	SetIs6GeneratedSemigroup(S, false);
@@ -440,14 +440,14 @@ end);
 
 #########################
 
-InstallMethod(Is5GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is5GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 5);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs6GeneratedSemigroup(S, false);
@@ -459,14 +459,14 @@ end);
 
 #########################
 
-InstallMethod(Is6GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is6GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 6);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
@@ -478,14 +478,14 @@ end);
 
 #########################
 
-InstallMethod(Is7GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is7GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 7);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
@@ -497,14 +497,14 @@ end);
 
 #########################
 
-InstallMethod(Is8GeneratedSemigroup, "for a small semigroup", true, 
+InstallMethod(Is8GeneratedSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNGeneratedSemigroup(S, 8);
-if out then 
+if out then
 	SetIs1GeneratedSemigroup(S, false);
-	SetIs2GeneratedSemigroup(S, false); 
+	SetIs2GeneratedSemigroup(S, false);
 	SetIs3GeneratedSemigroup(S, false);
 	SetIs4GeneratedSemigroup(S, false);
 	SetIs5GeneratedSemigroup(S, false);
@@ -526,18 +526,18 @@ end);
 # Besides, storing of the values should probably behave in a different way.
 # The values for Is<n>IdempotentSemigroup are at the moment not known after
 # calling IsNIdempotentSemigroup (compare maybe MovedPoints vs. NrMovedPoints
-# for Permutations). 
+# for Permutations).
 #
-InstallMethod(IsNIdempotentSemigroup, "for a small semigroup and a pos. int", 
-true, [IsSmallSemigroup, IsPosInt], 0, 
+InstallMethod(IsNIdempotentSemigroup, "for a small semigroup and a pos. int",
+true, [IsSmallSemigroup, IsPosInt], 0,
 function(S, n)
 
-if n>Size(S) then 
+if n>Size(S) then
 	return false;
 fi;
 
-if IsBand(S) then 
-	if n=Size(S) then 
+if IsBand(S) then
+	if n=Size(S) then
 		return true;
 	fi;
 	return false;
@@ -548,14 +548,14 @@ end);
 
 #########################
 
-InstallMethod(Is1IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is1IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 1);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -567,14 +567,14 @@ end);
 
 #########################
 
-InstallMethod(Is2IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is2IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 2);
-if out then 
+if out then
 	SetIs1IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -586,14 +586,14 @@ end);
 
 #########################
 
-InstallMethod(Is3IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is3IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 3);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs1IdempotentSemigroup(S, false); 
+	SetIs1IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -605,14 +605,14 @@ end);
 
 #########################
 
-InstallMethod(Is4IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is4IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 4);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs1IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -624,14 +624,14 @@ end);
 
 #########################
 
-InstallMethod(Is5IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is5IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 5);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs1IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -643,14 +643,14 @@ end);
 
 #########################
 
-InstallMethod(Is6IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is6IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 6);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs1IdempotentSemigroup(S, false);
@@ -662,14 +662,14 @@ end);
 
 #########################
 
-InstallMethod(Is7IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is7IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 7);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -681,14 +681,14 @@ end);
 
 #########################
 
-InstallMethod(Is8IdempotentSemigroup, "for a small semigroup", true, 
+InstallMethod(Is8IdempotentSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0, function(S)
 local out;
 
 out:=IsNIdempotentSemigroup(S, 8);
-if out then 
+if out then
 	SetIs2IdempotentSemigroup(S, false);
-	SetIs3IdempotentSemigroup(S, false); 
+	SetIs3IdempotentSemigroup(S, false);
 	SetIs4IdempotentSemigroup(S, false);
 	SetIs5IdempotentSemigroup(S, false);
 	SetIs6IdempotentSemigroup(S, false);
@@ -728,7 +728,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsRectangularBand, "for a small semigroup", 
+InstallMethod(IsRectangularBand, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(s)
 return IsBand(s) and IsSimpleSemigroup(s);
@@ -739,11 +739,11 @@ end);
 InstallMethod(IsRegularSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function ( s )
 
-if HasIsCompletelyRegularSemigroup(s) and IsCompletelyRegularSemigroup(s) then 
+if HasIsCompletelyRegularSemigroup(s) and IsCompletelyRegularSemigroup(s) then
 	return true;
-elif HasIsGroupAsSemigroup(s) and IsGroupAsSemigroup(s) then 
+elif HasIsGroupAsSemigroup(s) and IsGroupAsSemigroup(s) then
 	return true;
-elif IsBand(s) then 
+elif IsBand(s) then
 	return true;
 else
 	return ForAll(GreensRClasses(s), x-> ForAny(Idempotents(s), y-> y in x));
@@ -756,12 +756,12 @@ end);
 # be applicable to every semigroup with multiplication table
 #
 
-InstallMethod(IsRightZeroSemigroup, "for a small semigroup", 
+InstallMethod(IsRightZeroSemigroup, "for a small semigroup",
 [IsSmallSemigroup], function(s)
 
     Info(InfoSmallsemi, 1, "Semigroups are stored up to isomorphism ",
          "and anti-isomorphism in Smallsemi");
-    Info(InfoSmallsemi, 1, 
+    Info(InfoSmallsemi, 1,
          "and there are only left zero semigroups in the library.");
 
     return false;
@@ -786,16 +786,16 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsSemigroupWithClosedIdempotents, "for a small semigroup", 
+InstallMethod(IsSemigroupWithClosedIdempotents, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(s)
     local idems, i, j;
 
-    if HasIsBand(s) and IsBand(s) then 
+    if HasIsBand(s) and IsBand(s) then
         return true;
     fi;
 
-    if HasIsNilpotentSemigroup(s) and IsNilpotentSemigroup(s) then 
+    if HasIsNilpotentSemigroup(s) and IsNilpotentSemigroup(s) then
         return true;
     fi;
 
@@ -823,7 +823,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsSemigroupWithoutClosedIdempotents, "for a small semigroup", 
+InstallMethod(IsSemigroupWithoutClosedIdempotents, "for a small semigroup",
 true, [IsSmallSemigroup], 0,
 function(s)
 
@@ -880,7 +880,7 @@ InstallMethod( IsSelfDualSemigroup, "for a small semigroup",
     LitNum := function(ln, n)
         return [QuoInt(ln-1,n^2)+1,QuoInt((ln-1) mod n^2,n)+1,(ln-1) mod n+1];
     end;
- 
+
     NumLit := function(lit,n)
         local row,col, val;
         row := lit[1];
@@ -934,16 +934,16 @@ end);
 
 ###########################################################################
 
-InstallMethod( IsSimpleSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,  
+InstallMethod( IsSimpleSemigroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(M)
 
-if IsGroupAsSemigroup(M) then 
+if IsGroupAsSemigroup(M) then
 	return true;
-elif HasIsCompletelyRegularSemigroup(M) and not IsCompletelyRegularSemigroup(M) then 
+elif HasIsCompletelyRegularSemigroup(M) and not IsCompletelyRegularSemigroup(M) then
 	return false;
 fi;
 
-if Length(GreensDClasses(M))=1 then 
+if Length(GreensDClasses(M))=1 then
 	SetIsCompletelyRegularSemigroup(M,true);
 	SetIsRegularSemigroup(M, true);
 	return true;
@@ -955,7 +955,7 @@ end);
 
 ###########################################################################
 
-InstallMethod(IsSingularSemigroupCopy, "for a small semigroup", 
+InstallMethod(IsSingularSemigroupCopy, "for a small semigroup",
 [IsSmallSemigroup], function(s)
     return IdSmallSemigroup(s)=[2,4];
 end);
@@ -964,15 +964,15 @@ end);
 
 #JDM the following method could surely be better
 
-InstallMethod(IsZeroGroup, "for a small semigroup", true, [IsSmallSemigroup], 0, 
+InstallMethod(IsZeroGroup, "for a small semigroup", true, [IsSmallSemigroup], 0,
 function(s)
 local zero, elts;
 
 zero:=MultiplicativeZero(s);
-if not zero=fail then 
+if not zero=fail then
 	elts:=Difference(Elements(s), [zero]);
 	return IsGroupAsSemigroup(SmallSemigroup(IdSmallSemigroup(Semigroup(elts))));
-fi;	#JDM the previous line is a good example of why IsomorphismSmallSemigroup is required 
+fi;	#JDM the previous line is a good example of why IsomorphismSmallSemigroup is required
         # AD shouldn't this rather be something like:
         # AD return fail <> AsGroup( elts );
 return false;
@@ -982,25 +982,25 @@ end);
 ###########################################################################
 
 InstallMethod(IsZeroSemigroup, "for a small semigroup",
-[IsSmallSemigroup], 
+[IsSmallSemigroup],
 function(s)
     return Length( Unique( Flat(MultiplicationTable(s)))) = 1;
 end);
 
 ###########################################################################
 
-InstallMethod( IsZeroSimpleSemigroup, "for a small semigroup", true, 
+InstallMethod( IsZeroSimpleSemigroup, "for a small semigroup", true,
 [IsSmallSemigroup], 0,
 function(M)
 local zero;
 
-if IsGroupAsSemigroup(M) then 
+if IsGroupAsSemigroup(M) then
 	return false;
-elif HasIsCompletelyRegularSemigroup(M) and IsCompletelyRegularSemigroup(M) then 
+elif HasIsCompletelyRegularSemigroup(M) and IsCompletelyRegularSemigroup(M) then
 	return false;
-elif IsRegularSemigroup(M) then 
+elif IsRegularSemigroup(M) then
 	zero:=MultiplicativeZero(M);
-	if not zero=fail and Length(GreensDClasses(M))=2 then 
+	if not zero=fail and Length(GreensDClasses(M))=2 then
 		return true;
 	fi;
 fi;
@@ -1052,7 +1052,7 @@ function(s)
         # subsets of elements not generated by <gens>
         subsets := Combinations( entries, k );
         for subset in subsets do
-            if Length(generatedSubSG(Concatenation(gens,subset)))=Size(s) then 
+            if Length(generatedSubSG(Concatenation(gens,subset)))=Size(s) then
                 return  AsSSortedList(s){Concatenation(gens,subset)};
             fi;
         od;
@@ -1076,7 +1076,7 @@ function( S )
 
     # special treatment for 3-nilpotent semigroups of size 8
     if Size(S) = 8 and IdSmallSemigroup(S)[2] > 11433106 then
-        return 3; 
+        return 3;
     fi;
 
     # the generators of a nilpotent semigroup are precisely the elements
@@ -1094,7 +1094,7 @@ function( S )
         for gen in gens do
             for elm in elms do
                 Add( elmslist, MultiplicationTable(S)[gen][elm] );
-            od;            
+            od;
         od;
         elms := Unique( elmslist );
     od;
@@ -1107,13 +1107,13 @@ end);
 ###########################################################################
 ###########################################################################
 
-InstallMethod(GreensRClasses, "for a small semigroup", [IsSmallSemigroup], 
+InstallMethod(GreensRClasses, "for a small semigroup", [IsSmallSemigroup],
 function(S)
 local pos, elms, id, class, gens, graph, out, i;
 
 elms:=AsSSortedList(S);
 
-if HasMinimalGeneratingSet(S) then 
+if HasMinimalGeneratingSet(S) then
 	gens:=List(MinimalGeneratingSet(S), x-> x!.index);
 else
 	gens:=List(GeneratorsOfSemigroup(S), x-> x!.index);
@@ -1124,7 +1124,7 @@ class:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(graph);
 
 elms:=AsSet(List(class, x-> AsSet(elms{x})));
 out:=[];
-for i in [1..Length(elms)] do 
+for i in [1..Length(elms)] do
 	out[i]:=GreensRClassOfElement(S, elms[i][1]);
 	SetAsSSortedList(out[i], elms[i]);
 od;
@@ -1135,25 +1135,25 @@ end);
 
 ###########################################################################
 
-InstallMethod(GreensLClasses, "for a small semigroup", [IsSmallSemigroup], 
+InstallMethod(GreensLClasses, "for a small semigroup", [IsSmallSemigroup],
 function(S)
 local pos, elms, id, class, gens, graph, out, i;
 
 elms:=AsSSortedList(S);
 
-if HasMinimalGeneratingSet(S) then 
+if HasMinimalGeneratingSet(S) then
 	gens:=List(MinimalGeneratingSet(S), x-> x!.index);
 else
 	gens:=List(GeneratorsOfSemigroup(S), x-> x!.index);
 fi;
 
-graph:=List(TransposedMat(MultiplicationTable(S)), x-> x{gens}); 
+graph:=List(TransposedMat(MultiplicationTable(S)), x-> x{gens});
 #the right Cayley graph
 class:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(graph);
 
 elms:=AsSet(List(class, x-> AsSet(elms{x})));
 out:=[];
-for i in [1..Length(elms)] do 
+for i in [1..Length(elms)] do
 	out[i]:=GreensLClassOfElement(S, elms[i][1]);
 	SetAsSSortedList(out[i], elms[i]);
 od;
@@ -1164,8 +1164,8 @@ end);
 
 ###########################################################################
 
-InstallMethod(GreensHClasses, "for a small semigroup", true, 
-[IsSmallSemigroup], 0, 
+InstallMethod(GreensHClasses, "for a small semigroup", true,
+[IsSmallSemigroup], 0,
 function(S)
 local r, l, H, c, i, h;
 
@@ -1174,37 +1174,37 @@ l:=GreensLClasses(S);
 
 #Info(InfoWarning, 1, "THIS FUNCTION IS CURRENTLY FAULTY");
 
-if Length(r)=Size(S) then 
-	SetGreensDClasses(S, List(l, x-> 
+if Length(r)=Size(S) then
+	SetGreensDClasses(S, List(l, x->
 	 GreensDClassOfElement(S, Representative(x))));
-	
-	for i in [1..Length(GreensLClasses(S))] do 
+
+	for i in [1..Length(GreensLClasses(S))] do
 		SetAsSSortedList(GreensDClasses(S)[i], Elements(GreensLClasses(S)[i]));
 	od;
-	
-	SetGreensHClasses(S, List(r, x-> 
+
+	SetGreensHClasses(S, List(r, x->
 	 GreensHClassOfElement(S, Representative(x))));
-	
-	for c in GreensHClasses(S) do 
+
+	for c in GreensHClasses(S) do
 		SetAsSSortedList(c, [Representative(c)]);
 	od;
-	
+
 	return GreensHClasses(S);
-elif Length(l)=Size(S) then 
-	SetGreensDClasses(S, List(r, x-> 
+elif Length(l)=Size(S) then
+	SetGreensDClasses(S, List(r, x->
 	 GreensDClassOfElement(S, Representative(x))));
-	 
-	for i in [1..Length(GreensRClasses(S))] do 
+
+	for i in [1..Length(GreensRClasses(S))] do
 		SetAsSSortedList(GreensDClasses(S)[i], Elements(GreensRClasses(S)[i]));
 	od;
-	
-	SetGreensHClasses(S, List(l, x-> 
+
+	SetGreensHClasses(S, List(l, x->
 	 GreensHClassOfElement(S, Representative(x))));
-	
-	for c in GreensHClasses(S) do 
+
+	for c in GreensHClasses(S) do
 		SetAsSSortedList(c, [Representative(c)]);
 	od;
-	
+
 	return GreensHClasses(S);
 fi;
 
@@ -1215,12 +1215,12 @@ H:=[];
 
 repeat
 	c:=r[1];
-	i:=0; 
+	i:=0;
 	repeat
 		i:=i+1;
-		if not l[i]=[] then 
+		if not l[i]=[] then
 			h:=Intersection(c, l[i]);
-			if not h=[] then 
+			if not h=[] then
 				Add(H, h);
 				SubtractSet(l[i], h);
 				SubtractSet(c, h);
@@ -1232,7 +1232,7 @@ until r=[];
 
 SetGreensHClasses(S, List(H, x-> GreensHClassOfElement(S, Elements(S)[x[1]])));
 
-for i in [1..Length(H)] do 
+for i in [1..Length(H)] do
 	SetAsSSortedList(GreensHClasses(S)[i], Elements(S){H[i]});
 od;
 
@@ -1242,50 +1242,50 @@ end);
 
 ###########################################################################
 
-InstallMethod(GreensDClasses, "for a small semigroup", true, 
-[IsSmallSemigroup], 0, 
+InstallMethod(GreensDClasses, "for a small semigroup", true,
+[IsSmallSemigroup], 0,
 function(S)
 local elts, gens, r, l, d, i, c;
 
-if HasGreensRClasses(S) and Length(GreensRClasses(S))=Size(S) then 
-	SetGreensHClasses(S, List(GreensRClasses(S), x-> 
+if HasGreensRClasses(S) and Length(GreensRClasses(S))=Size(S) then
+	SetGreensHClasses(S, List(GreensRClasses(S), x->
 	 GreensHClassOfElement(S, Representative(x))));
-	
-	for c in GreensHClasses(S) do 
+
+	for c in GreensHClasses(S) do
 		SetAsSSortedList(c, [Representative(c)]);
 	od;
-	
-	SetGreensDClasses(S, List(GreensLClasses(S), x-> GreensDClassOfElement(S, 
+
+	SetGreensDClasses(S, List(GreensLClasses(S), x-> GreensDClassOfElement(S,
 	 Representative(x))));
-	
-	for i in [1..Length(GreensLClasses(S))] do 
+
+	for i in [1..Length(GreensLClasses(S))] do
 		SetAsSSortedList(GreensDClasses(S)[i], Elements(GreensLClasses(S)[i]));
 	od;
-	
+
 	return GreensDClasses(S);
-	
-	elif HasGreensLClasses(S) and Length(GreensLClasses(S))=Size(S) then 
-		SetGreensHClasses(S, List(GreensLClasses(S), x-> 
+
+	elif HasGreensLClasses(S) and Length(GreensLClasses(S))=Size(S) then
+		SetGreensHClasses(S, List(GreensLClasses(S), x->
 	 		GreensHClassOfElement(S, Representative(x))));
-	 	for c in GreensHClasses(S) do 
+	 	for c in GreensHClasses(S) do
 			SetAsSSortedList(c, [Representative(c)]);
 		od;
-		
-	SetGreensDClasses(S, List(GreensRClasses(S), x-> 
+
+	SetGreensDClasses(S, List(GreensRClasses(S), x->
 		 GreensDClassOfElement(S, Representative(x))));
-		 
-	for i in [1..Length(GreensRClasses(S))] do 
+
+	for i in [1..Length(GreensRClasses(S))] do
 		SetAsSSortedList(GreensDClasses(S)[i], Elements(GreensRClasses(S)[i]));
 	od;
 fi;
 
-if HasMinimalGeneratingSet(S) then 
+if HasMinimalGeneratingSet(S) then
 	gens:=List(MinimalGeneratingSet(S), x-> x!.index);
 else
 	gens:=List(GeneratorsOfSemigroup(S), x-> x!.index);
 fi;
 
-r:=List(TransposedMat(MultiplicationTable(S)), x-> x{gens}); #right 
+r:=List(TransposedMat(MultiplicationTable(S)), x-> x{gens}); #right
 l:=List(MultiplicationTable(S), x-> x{gens}); #left
 
 d:=List([1..Size(S)], i-> Union(r[i], l[i])); #union of the two graphs
@@ -1294,7 +1294,7 @@ d:=STRONGLY_CONNECTED_COMPONENTS_DIGRAPH(d);
 elts:=AsSSortedList(S);
 elts:=AsSet(List(d, x-> AsSet(elts{x})));
 d:=[];
-for i in [1..Length(elts)] do 
+for i in [1..Length(elts)] do
 	d[i]:=GreensDClassOfElement(S, elts[i][1]);
 	SetAsSSortedList(d[i], elts[i]);
 od;
@@ -1307,7 +1307,7 @@ end);
 ##
 #M  String( <greensclass> ) . . . for Green's classes
 ##
-InstallMethod(String, "for Green's classes of a semigroup", [IsGreensClass], 
+InstallMethod(String, "for Green's classes of a semigroup", [IsGreensClass],
 function(c)
 return Concatenation("{", String(Representative( c )), "}");
 end);
@@ -1321,54 +1321,49 @@ end);
 InstallGlobalFunction(STORED_INFO, function(n, name)
     local i;
 
-    if name in RecNames(MOREDATA2TO8[n]) then 
+    if name in RecNames(MOREDATA2TO8[n]) then
         return MOREDATA2TO8[n].(name);
-    elif name="IsBand" then 
+    elif name="IsBand" then
         i := Position(MOREDATA2TO8[n].diags, [1..n]);
-	return [ MOREDATA2TO8[n].endpositions[i]+1 .. 
+	return [ MOREDATA2TO8[n].endpositions[i]+1 ..
                      MOREDATA2TO8[n].endpositions[i+1]];
-    else 
+    else
         return fail;
     fi;
 end);
 
-#this is the same as using DeclareSynonymAttr(SMALLSEMI_EQUIV[1], 
-#SMALLSEMI_EQUIV[2]) but where SMALLSEMI_EQUIV[2] is not a property of 
-#semigroups alone or is not true for all semigroups. For example, 
-#IsMonogenicSemigroup implies Is1GeneratedSemigroup for all semigroups, and is 
-#hence a synonym. On the other hand, IsCompletelySimpleSemigroup only holds for 
-#IsSimpleSemigroup and IsFinite, and IsCommutativeSemigroup only holds for 
+#this is the same as using DeclareSynonymAttr(SMALLSEMI_EQUIV[1],
+#SMALLSEMI_EQUIV[2]) but where SMALLSEMI_EQUIV[2] is not a property of
+#semigroups alone or is not true for all semigroups. For example,
+#IsMonogenicSemigroup implies Is1GeneratedSemigroup for all semigroups, and is
+#hence a synonym. On the other hand, IsCompletelySimpleSemigroup only holds for
+#IsSimpleSemigroup and IsFinite, and IsCommutativeSemigroup only holds for
 #IsCommutative and IsSemigroup.
 
-if IsBound(IsSingularSemigroup) then 
+if IsBound(IsSingularSemigroup) then
 	BindGlobal( "SMALLSEMI_ALWAYS_FALSE",
-             [IsFullTransformationSemigroup, 
+             [IsFullTransformationSemigroup,
               IsSingularSemigroup]);
 else
 		BindGlobal( "SMALLSEMI_ALWAYS_FALSE",
              [IsFullTransformationSemigroup]);
 fi;
 
-#BindGlobal( "SMALLSEMI_EQUIV", 
-#             [["IsCompletelySimpleSemigroup", "IsSimpleSemigroup"],
-#              ["IsCommutativeSemigroup", "IsCommutative"], 
-#              ["IsNilpotent", "IsNilpotentSemigroup"]]);
-
-# the entries in the variable SMALLSEMI_EQUIV should be sorted according to 
+# the entries in the variable SMALLSEMI_EQUIV should be sorted according to
 # SMALLSEMI_SORT_ARG_NC, i.e. the ones with true as argument come
-# first and then are sorted alphabetically. Currently, the first 
+# first and then are sorted alphabetically. Currently, the first
 # component of every instance in SMALLSEMI_EQUIV should have length
 # two!
 
 BindGlobal( "SMALLSEMI_EQUIV", [
 [[IsCliffordSemigroup, true],
-[IsCompletelyRegularSemigroup, true, IsInverseSemigroup, true]], 
+[IsCompletelyRegularSemigroup, true, IsInverseSemigroup, true]],
 
 [[IsCompletelySimpleSemigroup, true], [IsSimpleSemigroup, true]],
 
 [[IsCompletelySimpleSemigroup, false], [IsSimpleSemigroup, false]],
 
-[[IsCommutativeSemigroup, true], [IsCommutative, true]], 
+[[IsCommutativeSemigroup, true], [IsCommutative, true]],
 
 [[IsCommutativeSemigroup, false], [IsCommutative, false]],
 
@@ -1385,33 +1380,11 @@ BindGlobal( "SMALLSEMI_EQUIV", [
 [[IsSemilattice, true],
 [IsBand, true, IsCommutative, true]],
 
-#JDM see comment in the NV note about the four below. Waiting for 
-#JDM anti-position list to allow for [IsOrthodoxSemigroup, false] and similar.
-
-# [[Is4GeneratedSemigroup, true], 
-# [Is1GeneratedSemigroup, false, Is2GeneratedSemigroup, false, 
-#  Is3GeneratedSemigroup, false, Is5GeneratedSemigroup, false, 
-#  Is6GeneratedSemigroup, false, Is7GeneratedSemigroup, false,
-#  Is8GeneratedSemigroup, false ]],
-
 [[IsRectangularBand, true], [IsBand, true, IsSimpleSemigroup, true]],
 
-[[IsOrthodoxSemigroup, true], 
+[[IsOrthodoxSemigroup, true],
 [IsRegularSemigroup, true, IsSemigroupWithoutClosedIdempotents, false]],
-              
-[[IsBrandtSemigroup, true], [IsInverseSemigroup, true, 
+
+[[IsBrandtSemigroup, true], [IsInverseSemigroup, true,
  IsZeroSimpleSemigroup, true]],
-
 ]);
-
-#BindGlobal( "SMALLSEMI_CONVERSE", 
-#             [["Is4GeneratedSemigroup", 
-#               [Is1GeneratedSemigroup, false, Is2GeneratedSemigroup, false, 
-#                Is3GeneratedSemigroup, false, Is5GeneratedSemigroup, false, 
-#                Is6GeneratedSemigroup, false, Is7GeneratedSemigroup, false]],
-#              ["IsRectangularBand", [IsBand, true, IsSimpleSemigroup, true]],
-#              ["IsOrthodoxSemigroup", 
-#               [IsRegularSemigroup, true, 
-#                IsSemigroupWithoutClosedIdempotents, false]],
-#              ["IsSemigroupWithClosedIdempotents",
-#               [IsSemigroupWithoutClosedIdempotents, false]]]);
