@@ -8,6 +8,17 @@
 #############################################################################
 ##
 
+BindGlobal("SMALLSEMI_RS", RandomSource(IsMersenneTwister));
+
+InstallGlobalFunction(NamesFuncsSmallSemisInEnum, enum -> enum!.names);
+InstallGlobalFunction(PositionsOfSmallSemisInEnum, enum -> enum!.pos);
+InstallGlobalFunction(FuncsOfSmallSemisInEnum, enum -> enum!.funcs);
+InstallGlobalFunction(SizesOfSmallSemisInEnum, enum -> enum!.sizes);
+
+InstallGlobalFunction(NamesFuncsSmallSemisInIter, iter -> iter!.names);
+InstallGlobalFunction(FuncsOfSmallSemisInIter, iter -> iter!.funcs);
+InstallGlobalFunction(SizesOfSmallSemisInIter, iter -> iter!.sizes);
+
 InstallGlobalFunction(AllSmallSemigroups,
 function(arg...)
   return ConstantTimeAccessList(
@@ -348,9 +359,6 @@ function(arg...)
   return 0 < m and m < 9 and 1 <= n and n <= nr;
 end);
 
-InstallGlobalFunction(FuncsOfSmallSemisInEnum, enum -> enum!.funcs);
-InstallGlobalFunction(FuncsOfSmallSemisInIter, enum -> enum!.funcs);
-InstallGlobalFunction(PositionsOfSmallSemisInEnum, enum -> enum!.pos);
 
 InstallOtherMethod(IsIteratorOfSmallSemigroups, "for an object", [IsObject],
 ReturnFalse);
@@ -370,7 +378,8 @@ end);
 
 InstallGlobalFunction(IteratorOfSmallSemigroups,
 function(arg...)
-  local iter, enum, user, i, max, sizes, names, funcs;
+  local record, iter, sizes, names, funcs, enum, user, max, FuncNameOrString,
+        i;
 
   arg := SMALLSEMI_STRIP_ARG(arg);
   SMALLSEMI_ValidateArgs(arg);
@@ -394,10 +403,10 @@ function(arg...)
     end;
 
     record.ShallowCopy := SHALLOWCOPYITERATORSMALLSEMI;
-    record.at := 0,
+    record.at := 0;
     record.max := NrSmallSemigroups(arg[1]);
     record.enum := [];
-    record.user := []
+    record.user := [];
     record.sizes := [arg[1]];
     record.funcs := [];
     record.names := ["AllSmallSemigroups", arg[1]];
@@ -405,177 +414,161 @@ function(arg...)
     iter := IteratorByFunctions(record);
     SetIsIteratorOfSmallSemigroups(iter, true);
     return iter;
+  fi;
 
-elif IsOddInt(Length(arg)) and (IsPosInt(arg[1]) or
-  IsEnumeratorOfSmallSemigroups(arg[1]) or
-  IsIteratorOfSmallSemigroups(arg[1]) or
-  (IsCyclotomicCollection(arg[1]) and ForAll(arg[1], IsPosInt))) then
-    #for a list of functions and their values
-
-    if IsPosInt(arg[1]) then
-        sizes:=[arg[1]];
-        names:=[];
-        funcs:=[];
-    elif IsEnumeratorOfSmallSemigroups(arg[1]) then
-        if Length(arg[1])=0 then
-            return EmptyIteratorOfSmallSemigroups();
-        fi;
-        sizes:=SizesOfSmallSemisInEnum(arg[1]);
-        names:=NamesFuncsSmallSemisInEnum(arg[1]);
-        funcs:=FuncsOfSmallSemisInEnum(arg[1]);
-    elif IsIteratorOfSmallSemigroups(arg[1]) then
-        sizes:=SizesOfSmallSemisInIter(arg[1]);
-        names:=NamesFuncsSmallSemisInIter(arg[1]);
-        funcs:=FuncsOfSmallSemisInIter(arg[1]);
-    elif IsCyclotomicCollection(arg[1]) and ForAll(arg[1], IsPosInt) then
-        sizes:=arg[1];
-        names:=[];
-        funcs:=[];
+  if IsPosInt(arg[1]) then
+    sizes := [arg[1]];
+    names := [];
+    funcs := [];
+  elif IsEnumeratorOfSmallSemigroups(arg[1]) then
+    if Length(arg[1]) = 0 then
+      return EmptyIteratorOfSmallSemigroups();
     fi;
+    sizes := SizesOfSmallSemisInEnum(arg[1]);
+    names := NamesFuncsSmallSemisInEnum(arg[1]);
+    funcs := FuncsOfSmallSemisInEnum(arg[1]);
+  elif IsIteratorOfSmallSemigroups(arg[1]) then
+    sizes := SizesOfSmallSemisInIter(arg[1]);
+    names := NamesFuncsSmallSemisInIter(arg[1]);
+    funcs := FuncsOfSmallSemisInIter(arg[1]);
+  else
+    # list of positive integers
+    sizes := arg[1];
+    names := [];
+    funcs := [];
+  fi;
 
-    arg:=SMALLSEMI_SORT_ARG_NC(SMALLSEMI_CONVERT_ARG_NC(arg));
+  arg := SMALLSEMI_SORT_ARG_NC(SMALLSEMI_CONVERT_ARG_NC(arg));
 
-    enum:=[arg[1]];
-    user:=[];
+  enum := [arg[1]];
+  user := [];
 
-    for i in [2,4..Length(arg)-1] do
-        if NAME_FUNC(arg[i]) in SMALLSEMI_ALWAYS_FALSE and arg[i+1] then
-            return EmptyIteratorOfSmallSemigroups();
-        elif ForAll(sizes, j-> NAME_FUNC(arg[i])
-          in PrecomputedSmallSemisInfo[j]) then #precomputed function
-            enum:=Concatenation(enum, [arg[i], arg[i+1]]);
-        else #user function
-            user:=Concatenation(user, [arg[i], arg[i+1]]);
-        fi;
-    od;
-
-    if IsEnumeratorOfSmallSemigroups(arg[1]) and enum=[arg[1]] then
-        enum:=enum[1];
-        max:=Length(enum);
-        if Length(enum)=0 then
-            return EmptyIteratorOfSmallSemigroups();
-        fi;
-    elif not enum=[arg[1]] and SMALLSEMI_CAN_CREATE_ENUM_NC(enum) then
-        enum:=EnumeratorOfSmallSemigroups(enum);
-        max:=Length(enum);
-        if Length(enum)=0 then
-            return EmptyIteratorOfSmallSemigroups();
-        fi;
+  for i in [2, 4 .. Length(arg) - 1] do
+    if NAME_FUNC(arg[i]) in SMALLSEMI_ALWAYS_FALSE and arg[i + 1] then
+      return EmptyIteratorOfSmallSemigroups();
+    elif ForAll(sizes,
+                j -> NAME_FUNC(arg[i]) in PrecomputedSmallSemisInfo[j]) then
+      # precomputed function
+      enum := Concatenation(enum, [arg[i], arg[i + 1]]);
     else
-        enum:=[];
-        max:=Sum(sizes, j-> NrSmallSemigroups(j));
-        user:=arg{[2..Length(arg)]};
+      # user function
+      user := Concatenation(user, [arg[i], arg[i + 1]]);
+    fi;
+  od;
+
+  if IsEnumeratorOfSmallSemigroups(arg[1]) and enum = [arg[1]] then
+    enum := enum[1];
+    max := Length(enum);
+    if Length(enum) = 0 then
+      return EmptyIteratorOfSmallSemigroups();
+    fi;
+  elif not enum = [arg[1]] and SMALLSEMI_CAN_CREATE_ENUM_NC(enum) then
+    enum := EnumeratorOfSmallSemigroups(enum);
+    max := Length(enum);
+    if Length(enum) = 0 then
+      return EmptyIteratorOfSmallSemigroups();
+    fi;
+  else
+    enum := [];
+    max := Sum(sizes, NrSmallSemigroups);
+    user := arg{[2 .. Length(arg)]};
+  fi;
+
+  record := rec();
+
+  record.IsDoneIterator := iter -> iter!.next(iter, IsDoneIterator) = fail;
+  record.NextIterator := iter -> iter!.next(iter, NextIterator);
+  record.PrintObj := PrintObj_IsIteratorOfSmallSemigroups;
+
+  record.next := function(iter, called_by)
+    local enum, user, s;
+
+    if iter!.last_called = IsDoneIterator then
+      iter!.last_called := called_by;
+      return iter!.last_value;
     fi;
 
-    iter:=IteratorByFunctions( rec(
+    if iter!.last_called = NextIterator then
+      iter!.last_called := called_by;
+      if iter!.at = iter!.max or iter!.last_value = fail then
+        iter!.last_value := fail;
+        return fail;
+      fi;
 
-                #JDM changes here...
+      enum := iter!.enum;
+      user := iter!.user;
 
-                IsDoneIterator := iter-> iter!.next(iter, IsDoneIterator)=fail,
+      if not IsEmpty(enum) and Length(enum) <= iter!.at then
+        iter!.last_value := fail;
+        return fail;
+      fi;
 
-                NextIterator := iter-> iter!.next(iter, NextIterator),
-
-                PrintObj := PrintObj_IsIteratorOfSmallSemigroups,
-
-                next:=function(iter, called_by) #JDM new!
-                    local enum, user, s;
-
-                    if iter!.last_called = IsDoneIterator then
-                        iter!.last_called := called_by;
-                        return iter!.last_value;
-                    fi;
-
-                    if iter!.last_called = NextIterator then
-                        iter!.last_called := called_by;
-                        if iter!.at=iter!.max or iter!.last_value=fail then
-                            iter!.last_value:=fail;
-                            return fail;
-                        fi;
-
-                        enum:=iter!.enum; user:=iter!.user;
-
-                        if not enum = [] and Length(enum) <= iter!.at then
-                            #JDM shouldn't this be IdSmallSemigroup(enum[Length[enum]])[2]<=
-                            iter!.last_value:=fail;
-                            return fail;
-                        fi;
-
-                        repeat
-                            iter!.at:=iter!.at+1;
-                            if not enum=[] then
-                                s:=enum[iter!.at];
-                            else
-                                s:=SmallSemigroupNC(iter!.at_size, iter!.at-
-                                Sum(Filtered(iter!.sizes, x-> x< iter!.at_size),
+      repeat
+        iter!.at := iter!.at + 1;
+        if not IsEmpty(enum) then
+          s := enum[iter!.at];
+        else
+          s := SmallSemigroupNC(iter!.at_size,
+                                iter!.at -
+                                Sum(Filtered(iter!.sizes,
+                                             x -> x < iter!.at_size),
                                     NrSmallSemigroups));
-                            fi;
+        fi;
 
-                            if not enum=[] then
-                                iter!.at_size:=Size(s);
-                            elif Length(iter!.sizes)>1 and iter!.at<iter!.max and iter!.at-
-                                Sum(Filtered(iter!.sizes, x-> x< iter!.at_size),
-                                    NrSmallSemigroups)>=NrSmallSemigroups(iter!.at_size) then
-                                iter!.at_size:=
-                                    iter!.sizes[Position(iter!.sizes, iter!.at_size)+1];
-                            fi;
+        if not enum = [] then
+          iter!.at_size := Size(s);
+        elif Length(iter!.sizes) > 1
+            and iter!.at < iter!.max
+            and iter!.at - Sum(Filtered(iter!.sizes, x -> x < iter!.at_size),
+                               NrSmallSemigroups) >=
+              NrSmallSemigroups(iter!.at_size) then
+          iter!.at_size := iter!.sizes[Position(iter!.sizes, iter!.at_size) + 1];
+        fi;
 
-                            if Length(user)=0 then
-                                iter!.last_value:=s;
-                                return s;
-                            elif ForAll([1,3..Length(user)-1], i-> user[i](s)=user[i+1])
-                                then
-                                iter!.last_value:=s;
-                                return s;
-                            else
-                                iter!.last_value:=fail;
-                            fi;
-                        until iter!.at=iter!.max;
+        if Length(user) = 0 then
+          iter!.last_value := s;
+          return s;
+        elif ForAll([1, 3 .. Length(user) - 1],
+                    i -> user[i](s) = user[i + 1]) then
+            iter!.last_value := s;
+            return s;
+          else
+            iter!.last_value := fail;
+          fi;
+        until iter!.at = iter!.max;
 
-                        iter!.last_value:=fail;
-                        return fail;
-                    fi;
-                end,
+        iter!.last_value := fail;
+        return fail;
+      fi;
+    end;
 
-                last_called := NextIterator,
+    record.last_called := NextIterator;
+    record.last_value := 0;
+    record.ShallowCopy := SHALLOWCOPYITERATORSMALLSEMI;
+    record.at := 0;
+    record.max := max;
+    record.enum := enum;
+    record.user := user;
+    record.sizes := sizes;
+    record.at_size := sizes[1];
+    record.funcs := Concatenation(funcs, arg{[2 .. Length(arg)]});
 
-                last_value := 0,
+    FuncNameOrString := function(x)
+      if IsFunction(x) then
+        return NAME_FUNC(x);
+      else
+        return x;
+      fi;
+    end;
 
-                #JDM ...changes end.
+    record.names := Concatenation(names,
+                                  List(arg{[2 .. Length(arg)]},
+                                       FuncNameOrString));
 
-                ShallowCopy:= SHALLOWCOPYITERATORSMALLSEMI,
-
-                at := 0,
-
-                max:= max,
-
-                enum:=enum,
-
-                user:=user,
-
-                sizes:=sizes, #JDM changed from n
-
-                at_size:=sizes[1],
-
-                                funcs:=Concatenation(funcs, arg{[2..
-                                Length(arg)]}),
-
-                                names:= Concatenation(names, List(arg{[2..
-                                Length(arg)]},
-                                        function(x)
-                                                if IsFunction(x) then return
-                                                NAME_FUNC(x); else return x; fi;
-                                                end))
-                ));
-
-
+    iter := IteratorByFunctions(record);
     SetIsIteratorOfSmallSemigroups(iter, true);
     return iter;
-fi;
-
 end);
-
-InstallGlobalFunction(NamesFuncsSmallSemisInEnum, enum -> enum!.names);
-InstallGlobalFunction(NamesFuncsSmallSemisInIter, enum -> enum!.names);
 
 InstallGlobalFunction(Nr3NilpotentSemigroups, function( arg )
 
@@ -980,30 +973,26 @@ function(arg...)
 end);
 
 InstallGlobalFunction(OneSmallSemigroup,
-function(arg)
-local iter;
+function(arg...)
+  local iter;
 
-
-
-if Length(arg)=1 then
-    if IsEnumeratorOfSmallSemigroups(arg[1]) and not Length(arg[1])=0 then
-        return arg[1][1];
+  if Length(arg) = 1 then
+    if IsEnumeratorOfSmallSemigroups(arg[1]) and IsEmpty(arg[1]) then
+      return arg[1][1];
     elif IsIteratorOfSmallSemigroups(arg[1]) then
-        iter:=arg[1];
+      iter := arg[1];
     else
-        iter:=IteratorOfSmallSemigroups(arg);
+      iter := IteratorOfSmallSemigroups(arg);
     fi;
-else
-    iter:=IteratorOfSmallSemigroups(arg);
-fi;
+  else
+    iter := IteratorOfSmallSemigroups(arg);
+  fi;
 
-if not IsDoneIterator(iter) then
+  if not IsDoneIterator(iter) then
     return NextIterator(IteratorOfSmallSemigroups(arg));
-fi;
-return fail;
+  fi;
+  return fail;
 end);
-
-##################
 
 InstallGlobalFunction(PositionsOfSmallSemigroups,
 function(arg...)
@@ -1128,7 +1117,6 @@ fi;
 return positions;
 end);
 
-BindGlobal("SMALLSEMI_RS", RandomSource(IsMersenneTwister));
 
 InstallGlobalFunction(RandomSmallSemigroup,
 function(arg...)
@@ -1172,8 +1160,6 @@ function(arg...)
   return fail;
 end);
 
-InstallGlobalFunction(SizesOfSmallSemisInEnum, enum -> enum!.sizes);
-InstallGlobalFunction(SizesOfSmallSemisInIter, enum -> enum!.sizes);
 
 InstallMethod(UpToIsomorphism, "for a list of non-equivalent semigroups",
 [IsList],
