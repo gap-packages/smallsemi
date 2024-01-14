@@ -780,12 +780,11 @@ DeclareGlobalFunction("SizesOfSmallSemisInIter");
 ##  </ManSection>
 ##  <#/GAPDoc>
 ##
-DeclareOperation("UpToIsomorphism", [ IsList ]);
-DeclareOperation("UpToIsomorphism", [ IsSmallSemigroup ]);
+DeclareOperation("UpToIsomorphism", [IsList]);
+DeclareOperation("UpToIsomorphism", [IsSmallSemigroup]);
 
-#Internal Functions
-###################
-
+###########################################################################
+# Internal Functions
 ###########################################################################
 # undocumented: required by iterators.
 
@@ -917,20 +916,6 @@ DeclareGlobalFunction("SMALLSEMI_CREATE_ENUM");
 
 ###########################################################################
 ##
-##  <#GAPDoc Label="SMALLSEMI_ENTAB">
-##  <ManSection>
-##  <Func Name="SMALLSEMI_ENTAB" Arg="str"/>
-##  <Description>
-##  returns the string <A>str</A> with <Ref Var="SMALLSEMI_TAB_LEVEL"/>
-##  characters '>' and a space juxtaposed at the beginning.
-##  </Description>
-##  </ManSection>
-##  <#/GAPDoc>
-
-DeclareGlobalFunction("SMALLSEMI_ENTAB");
-
-###########################################################################
-##
 ##  <#GAPDoc Label="SMALLSEMI_SORT_ARG_NC">
 ##  <ManSection>
 ##  <Func Name="SMALLSEMI_SORT_ARG_NC" Arg="arg"/>
@@ -963,37 +948,3 @@ DeclareGlobalFunction("SMALLSEMI_SORT_ARG_NC");
 ##  <#/GAPDoc>
 
 DeclareGlobalFunction("SMALLSEMI_STRIP_ARG");
-
-###########################################################################
-##
-##  <#GAPDoc Label="SMALLSEMI_RETURN">
-##  <ManSection>
-##  <Func Name="SMALLSEMI_RETURN" Arg="arg"/>
-##  <Description>
-##
-##  <Example><![CDATA[
-##  ]]></Example>
-##  </Description>
-##  </ManSection>
-##  <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_RETURN");
-
-###########################################################################
-##
-##  <#GAPDoc Label="SMALLSEMI_TAB_LEVEL">
-##  <ManSection>
-##  <Func Name="SMALLSEMI_TAB_LEVEL" Arg="arg"/>
-##  <Description>
-##
-##  <Example><![CDATA[
-##  ]]></Example>
-##  </Description>
-##  </ManSection>
-##  <#/GAPDoc>
-
-SMALLSEMI_TAB_LEVEL:=-1;
-
-#OLD?
-###################
-
-#DeclareAttribute("ParentEnumOfSmallSemi", IsSmallSemigroup);

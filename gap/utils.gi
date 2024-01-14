@@ -23,7 +23,7 @@ InstallGlobalFunction(SmallsemiManualExamples,
 function()
   return ExtractExamples(DirectoriesPackageLibrary("smallsemi","doc"),
       "smallsemi.xml",  [ "data.xml", "examples.xml", "intro.xml",
-      "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
+      "../gap/3nil.gd", "../gap/coclass.gd", "../gap/enums.gd", "../gap/greensstar.gd",
       "../gap/properties.gd", "../gap/small.gd", "../gap/autovars.g",
       "../PackageInfo.g" ], "Single");
 end);
@@ -39,9 +39,9 @@ function()
   SetInfoLevel(InfoWarning, 0);
   SetInfoLevel(InfoSmallsemi, 0);
 
-  RunExamples(SmallsemiManualExamples());
+  RunExamples(SmallsemiManualExamples(),
+              rec(compareFunction := "uptowhitespace"));
 
   SetInfoLevel(InfoWarning, record.InfoWarningLevel);
   SetInfoLevel(InfoSmallsemi, record.InfoSmallsemiLevel);
-  return;
 end);
