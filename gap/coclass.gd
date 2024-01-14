@@ -1,14 +1,12 @@
 #############################################################################
 ##
 ##  coclass.gd                     Smallsemi - a GAP library of semigroups
-##  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
+##  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 
-###########################################################################
-##
 ##  <#GAPDoc Label="NilpotentSemigroupsByCoclass">
 ##  <ManSection>
 ##  <Func Name="NilpotentSemigroupsByCoclass" Arg="n, d[, r]"/>
@@ -19,7 +17,7 @@
 ##  is given then only semigroups of rank <A>r</A> are returned. The semigroups
 ##  in the list are given by finite presentations.
 ##  <Example><![CDATA[
-##  gap> NilpotentSemigroupsByCoclass(5,1);
+##  gap> NilpotentSemigroupsByCoclass(5, 1);
 ##  [ <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]>,
@@ -27,15 +25,15 @@
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]> ]
-##  gap> NilpotentSemigroupsByCoclass(7,0);
+##  gap> NilpotentSemigroupsByCoclass(7, 0);
 ##  [ <fp semigroup on the generators [ s1 ]> ]
-##  gap> NilpotentSemigroupsByCoclass(4,2,3);
+##  gap> NilpotentSemigroupsByCoclass(4, 2, 3);
 ##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
-##
+
 DeclareGlobalFunction("NilpotentSemigroupsByCoclass");
 
 ###########################################################################
@@ -50,7 +48,7 @@ DeclareGlobalFunction("NilpotentSemigroupsByCoclass");
 ##  <Example><![CDATA[
 ##  gap> NilpotentSemigroupsCoclass0(513);
 ##  [ <fp semigroup on the generators [ s1 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -78,7 +76,7 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass0");
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -98,7 +96,7 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass1");
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass2(4);
 ##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -131,7 +129,7 @@ DeclareGlobalFunction("IsomorphicFpSemigroup");
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]>,
 ##    <fp semigroup on the generators [ s1, s2 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -152,7 +150,7 @@ DeclareGlobalFunction("NilpotentSemigroupsCoclass2Rank2");
 ##  [  ]
 ##  gap> NilpotentSemigroupsCoclass2Rank3(4);
 ##  [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
-##  ]]></Example> <!-- properties.tst -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
