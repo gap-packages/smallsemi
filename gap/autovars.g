@@ -32,7 +32,7 @@ BindGlobal("BLUEPRINT_MATS", GENERATE_BLUEPRINT_MATS());
 ##    "IsMunnSemigroup", "IsRegularSemigroup", "IsSelfDualSemigroup",
 ##    "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup",
 ##    "IsSingularSemigroupCopy", "IsZeroSemigroup", "IsZeroSimpleSemigroup" ]
-##  ]]></Example> <!-- no test -->
+##  ]]></Example>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
