@@ -1,7 +1,7 @@
 #############################################################################
 ##
 ##  PackageInfo.g                  Smallsemi - a GAP library of semigroups
-##  Copyright (C) 2008-2015            Andreas Distler & James D. Mitchell
+##  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
