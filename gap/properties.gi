@@ -467,6 +467,30 @@ function(S)
   return false;
 end);
 
+InstallGlobalFunction(SMALLSEMI_TableToLiterals,
+function(table, n, NumLit)
+  local i, j, literals, val;
+  literals := [];
+  for i in [1 .. n] do
+    for j in [1 .. n] do
+      val := table[i][j];
+      Add(literals, NumLit([i, j, val], n));
+    od;
+  od;
+  return literals;
+end);
+
+InstallGlobalFunction(SMALLSEMI_OnLiterals,
+{n, LitNum, NumLit} -> function(ln, pi)
+  local lit, imlit;
+  lit := LitNum(ln, n);
+  imlit := OnTuples(lit, pi);
+  if (n + 1) ^ pi = n + 2 then
+    imlit := Permuted(imlit, (1, 2));
+  fi;
+  return NumLit(imlit, n);
+end);
+
 InstallMethod(IsSelfDualSemigroup, "for a small semigroup",
 [IsSmallSemigroup],
 function(S)
@@ -484,27 +508,8 @@ function(S)
     return val + (row - 1) * n ^ 2 + (col - 1) * n;
   end;
 
-  tbl2lits := function(table, n)
-    local i, j, literals, val;
-    literals := [];
-    for i in [1 .. n] do
-      for j in [1 .. n] do
-        val := table[i][j];
-        Add(literals, NumLit([i, j, val], n));
-      od;
-    od;
-    return literals;
-  end;
-
-  onLiterals := n -> function(ln, pi)
-    local lit, imlit;
-    lit := LitNum(ln, n);
-    imlit := OnTuples(lit, pi);
-    if (n + 1) ^ pi = n + 2 then
-      imlit := Permuted(imlit, (1, 2));
-    fi;
-    return NumLit(imlit, n);
-  end;
+  tbl2lits := {table, n} -> SMALLSEMI_TableToLiterals(table, n, NumLit);
+  onLiterals := n -> SMALLSEMI_OnLiterals(n, LitNum, NumLit);
 
   n := Size(S);
   vals := STORED_INFO(n, "IsSelfDualSemigroup");

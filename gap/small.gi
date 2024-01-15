@@ -41,37 +41,17 @@ function(S)
             QuoInt((ln - 1) mod n ^ 2, n) + 1, (ln - 1) mod n + 1];
   end;
 
-  NumLit    := {lit, n} -> (lit[1] - 1) * n ^ 2 + (lit[2] - 1) * n + lit[3];
-  diag2lits := {diag, n} -> List([1 .. n], i -> NumLit([i, i, diag[i]], n));
-
-  tbl2lits := function(table, n)
-    local i, j, literals, val;
-    literals := [];
-    for i in [1 .. n] do
-      for j in [1 .. n] do
-        val := table[i][j];
-        Add(literals, NumLit([i, j, val], n));
-      od;
-    od;
-    return literals;
-  end;
-
-  onLiterals := n -> function(ln, pi)
-      local lit, imlit;
-      lit := LitNum(ln, n);
-      imlit := OnTuples(lit, pi);
-      if (n + 1) ^ pi = n + 2 then
-              imlit := Permuted(imlit, (1, 2));
-      fi;
-      return NumLit(imlit, n);
-  end;
+  NumLit     := {lit, n} -> (lit[1] - 1) * n ^ 2 + (lit[2] - 1) * n + lit[3];
+  diag2lits  := {diag, n} -> List([1 .. n], i -> NumLit([i, i, diag[i]], n));
+  tbl2lits   := {table, n} -> SMALLSEMI_TableToLiterals(table, n, NumLit);
+  onLiterals := n -> SMALLSEMI_OnLiterals(n, LitNum, NumLit);
 
   is3nilpotent := function(table)
     local n, zero, entries, i;
 
     n := Size(table);
     zero := First([1 .. n], i -> table[i] = ListWithIdenticalEntries(n, i)
-                    and table{[1 .. n]}[i] = ListWithIdenticalEntries(n, i));
+                  and table{[1 .. n]}[i] = ListWithIdenticalEntries(n, i));
     if zero = fail then
       return false;
     else

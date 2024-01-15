@@ -396,3 +396,6 @@ DeclareProperty("IsSemigroupWithoutClosedIdempotents", IsSmallSemigroup);
 # </ManSection>
 # <#/GAPDoc>
 DeclareGlobalFunction("STORED_INFO");
+
+DeclareGlobalFunction("SMALLSEMI_TableToLiterals");
+DeclareGlobalFunction("SMALLSEMI_OnLiterals");

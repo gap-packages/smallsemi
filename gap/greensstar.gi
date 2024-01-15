@@ -130,44 +130,31 @@ end);
 
 ### AD The following methods should probably be installed for ViewString
 
-# AD This is overwritten by the method for LeftSemigroupCongruence
-InstallMethod(ViewObj, "for Green's R*-relation", [IsRStarRelation],
-16,  # to beat IsLeftSemigroupCongruence
-function(obj)
-  Print(" <R*-relation on ");
+BindGlobal("SMALLSEMI_ViewStarRelation",
+function(obj, type)
+  Print("<", type, "*-relation on ");
   ViewObj(Source(obj));
   Print(">");
 end);
+
+# AD This is overwritten by the method for LeftSemigroupCongruence
+InstallMethod(ViewObj, "for Green's R*-relation", [IsRStarRelation],
+16,  # to beat IsLeftSemigroupCongruence
+obj -> SMALLSEMI_ViewStarRelation(obj, "R"));
 
 # AD This is overwritten by the method for RightSemigroupCongruence
 InstallMethod(ViewObj, "for Green's L*-relation", [IsLStarRelation],
 16,  # to beat IsRightSemigroupCongruence
-function(obj)
-  Print("<L*-relation on ");
-  ViewObj(Source(obj));
-  Print(">");
-end);
+obj -> SMALLSEMI_ViewStarRelation(obj, "L"));
 
 InstallMethod(ViewObj, "for Green's J*-relation", [IsJStarRelation],
-function(obj)
-  Print("<J*-relation on ");
-  ViewObj(Source(obj));
-  Print(">");
-end);
+obj -> SMALLSEMI_ViewStarRelation(obj, "J"));
 
 InstallMethod(ViewObj, "for Green's D*-relation", [IsDStarRelation],
-function(obj)
-  Print("<D*-relation on ");
-  ViewObj(Source(obj));
-  Print(">");
-end);
+obj -> SMALLSEMI_ViewStarRelation(obj, "D"));
 
 InstallMethod(ViewObj, "for Green's H*-relation", [IsHStarRelation],
-function(obj)
-  Print("<H*-relation on ");
-  ViewObj(Source(obj));
-  Print(">");
-end);
+obj -> SMALLSEMI_ViewStarRelation(obj, "H"));
 
 InstallMethod(\=, "for starred Green's relations", IsIdenticalObj,
 [IsStarRelation and IsEquivalenceRelation,

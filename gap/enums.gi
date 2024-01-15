@@ -686,7 +686,7 @@ function(arg...)
         repeat
           i := i + 2;
           stored := STORED_INFO(sizes[j], NAME_FUNC(enum[i]));
-          if not stored = fail then
+          if stored <> fail then
             if enum[i + 1] = true then
               IntersectSet(positions[j], stored);
             elif enum[i + 1] = false then
@@ -903,10 +903,8 @@ function(arg...)
   out := [arg[1]];
 
   for i in [2, 4 .. Length(arg) - 1] do
-
     pos1 := PositionProperty(SMALLSEMI_EQUIV, x -> [arg[i], arg[i + 1]] = x[1]);
-
-    if not pos1 = fail then
+    if pos1 <> fail then
       out := Concatenation(out, SMALLSEMI_EQUIV[pos1][2]);
     elif not (arg[i] in SMALLSEMI_ALWAYS_FALSE and not arg[i + 1]) then
       out := Concatenation(out, [arg[i], arg[i + 1]]);
