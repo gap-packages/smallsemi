@@ -1,6 +1,6 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                           +
-+   Copyright (C) 2008-2015          Andreas Distler & James D. Mitchell    +
++   Copyright (C) 2008-2024          Andreas Distler & James D. Mitchell    +
 +                                                                           +
 +   'Smallsemi' is free software: you can redistribute it and/or modify     +
 +   it under the terms of the GNU General Public License as published by    +
@@ -20,7 +20,7 @@
 +                                                                           +
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-       This is the 
+       This is the
                    README
                    ======
                           file for the
@@ -67,7 +67,7 @@ least 1 GB of RAM available. With less than 512 MB not all the semigroups of
 size 8 can be accessed.
 
 ***disk space***
-As the data in the library is compressed, 30 MB of disk space will be 
+As the data in the library is compressed, 30 MB of disk space will be
 sufficient to install 'Smallsemi' under Unix. To use the library under
 Windows the data has to be uncompressed and will then occupy approx. 1.6 GB.
 
@@ -85,7 +85,7 @@ steps; see Section 74.1 in the reference manual of GAP for further details:
 2) Move the archive inside a 'pkg' directory. This can be either the main
    'pkg' directory in your GAP installation or your personal 'pkg' directory.
 
-3) Complete the installation by unpacking the archive, e.g. under Linux type 
+3) Complete the installation by unpacking the archive, e.g. under Linux type
 
        tar -xzf smallsemi-0.6.13.tar.gz
 
@@ -98,7 +98,7 @@ steps; see Section 74.1 in the reference manual of GAP for further details:
 
 After installation the folder 'smallsemi-0.6.13' should contain the directories
 
-    data, doc, gap, and tst 
+    data, doc, gap, and tst
 
 and the files
 

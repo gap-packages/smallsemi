@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  small.tst                       smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2012             Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2024             Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -13,6 +13,7 @@
 
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"small.tst"));
 gap> START_TEST("Smallsemi package: small.tst");
+gap> LoadPackage("smallsemi", false);;
 gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StartTest(); fi;
 gap> cur:=InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
@@ -24,7 +25,7 @@ gap> map:=EquivalenceSmallSemigroup(sgrp);;
 gap> Size(Range(map));
 1
 gap> grp:=SmallGroup(7,1);;
-gap> map:=EquivalenceSmallSemigroup(grp); 
+gap> map:=EquivalenceSmallSemigroup(grp);
 SemigroupHomomorphismByImages ( Group( [ f1 ] )-><small semigroup of size 7>)
 gap> id:=IdSmallSemigroup(Range(map));
 [ 7, 836017 ]
@@ -39,7 +40,7 @@ MappingByFunction( <transformation semigroup of size 6, degree 3 with 2
  generators>, <small semigroup of size 6>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
-gap> PreImage(map,MinimalGeneratingSet(Range(map))); 
+gap> PreImage(map,MinimalGeneratingSet(Range(map)));
 [ Transformation( [ 1, 1, 2 ] ), Transformation( [ 2, 1, 1 ] ) ]
 gap> Idempotents(Range(map));
 [ s1, s3, s5 ]
@@ -66,7 +67,7 @@ gap> IsSmallSemigroup(s);
 false
 gap> RecoverMultiplicationTable(10,2);
 fail
-gap> RecoverMultiplicationTable(1,2); 
+gap> RecoverMultiplicationTable(1,2);
 fail
 gap> RecoverMultiplicationTable(2,1);
 [ [ 1, 1 ], [ 1, 1 ] ]
@@ -87,7 +88,7 @@ gap> IsBijective(map);
 true
 gap> s:=SemigroupByMultiplicationTableNC( [ [ 1, 2 ], [ 1, 2 ] ] );
 <semigroup of size 2, with 2 generators>
-gap> map:=EquivalenceSmallSemigroup(s);   
+gap> map:=EquivalenceSmallSemigroup(s);
 MappingByFunction( <semigroup of size 2, with 2 generators>
  , <small semigroup of size 2>, function( x ) ... end )
 gap> RespectsMultiplication(map);
@@ -131,10 +132,10 @@ gap> DATA8;
       "222", "222", "333", "000", "111", "444", "222", "222", "445", "333", 
       "000", "111", "444", "222", "222", "455" ] ]
 gap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;
-gap> 3NIL_DATA;                                  
+gap> 3NIL_DATA;
 rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ], 
   strlist := [ "0013", "0313" ] )
-gap> SmallSemigroupNC(5,1); 
+gap> SmallSemigroupNC(5,1);
 <small semigroup of size 5>
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true

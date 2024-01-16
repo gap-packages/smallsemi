@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2019            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -55,8 +55,8 @@
 ===============
 
   - a minor release fixing some bugs in the references in the documentation,
-    and moving some declarations of properties and associated true methods to 
-    the GAP library to avoid clashes with the forthcoming Semigroups package. 
+    and moving some declarations of properties and associated true methods to
+    the GAP library to avoid clashes with the forthcoming Semigroups package.
   - Smallsemi now requires GAP 4.7
 
 ===============
@@ -64,7 +64,7 @@
 ===============
 
   - added starred Green's relations
-  - fixed the swap of L- and R-classes  
+  - fixed the swap of L- and R-classes
   - fixed bug in D-class computation when MinimalGeneratingSet is known
 
 ===============
@@ -78,13 +78,13 @@
  Version 0.6.4  (10/10/11)
 ===============
 
-  - made Smallsemi compatible with Citrus 0.2. 
+  - made Smallsemi compatible with Citrus 0.2.
 
 ===============
  Version 0.6.3  (13/09/11)
 ===============
 
-  - made Smallsemi compatible with GAP 4.5 and Citrus 0.1.  
+  - made Smallsemi compatible with GAP 4.5 and Citrus 0.1.
 
   - introduced SmallsemiMakeDoc, SmallsemiTestAll, SmallsemiTestManualExamples.
 
@@ -92,12 +92,12 @@
  Version 0.6.2  (06/07/10)
 ===============
 
-  - included an example in the manual which explains a workaround for a 
+  - included an example in the manual which explains a workaround for a
     current performance issue of enumerators of semigroups of order 8
     suggested by Michal Stolorz.
 
-  - minor changes relating to the compatibility of Smallsemi with the 
-    MONOID package and with some library functions. 
+  - minor changes relating to the compatibility of Smallsemi with the
+    MONOID package and with some library functions.
 
 ===============
  Version 0.6.0  (12/02/10)

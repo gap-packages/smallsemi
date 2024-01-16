@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  coclass.tst                    Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2014            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
@@ -11,6 +11,8 @@
 #ReadTest(Filename(DirectoriesPackageLibrary("smallsemi","tst"),"coclass.tst"));
 
 gap> START_TEST("Smallsemi package: coclass.tst");
+gap> LoadPackage("smallsemi", false);
+true
 gap> __InfoSmallsemiLevel := InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 0);
 gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StartTest(); fi;

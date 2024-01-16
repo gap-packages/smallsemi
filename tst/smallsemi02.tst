@@ -10,7 +10,7 @@
 #
 gap> START_TEST("smallsemi02.tst");
 
-# doc/../gap/small.gd:231-238
+# doc/../gap/small.gd:204-211
 gap> SmallSemigroup(8,1353452);
 <small semigroup of size 8>
 gap> SmallSemigroupNC(5,1);
@@ -18,7 +18,7 @@ gap> SmallSemigroupNC(5,1);
 gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
 true
 
-# doc/../gap/small.gd:96-104
+# doc/../gap/small.gd:81-89
 gap> sgrp:=RandomSmallSemigroup(5);
 <small semigroup of size 5>
 gap> IsSmallSemigroup(sgrp);
@@ -27,53 +27,54 @@ gap> sgrp:=Semigroup(Transformation([1]));;
 gap> IsSmallSemigroup(sgrp);
 false
 
-# doc/../gap/small.gd:125-131
+# doc/../gap/small.gd:106-112
 gap> IsSmallSemigroupElt(Transformation([1]));
 false
 gap> sgrp:=RandomSmallSemigroup(5);;
 gap> IsSmallSemigroupElt(Random(sgrp));
 true
 
-# doc/../gap/small.gd:155-169
+# doc/../gap/small.gd:135-149
 gap> RecoverMultiplicationTable(10,2);
 fail
-gap> RecoverMultiplicationTable(1,2); 
+gap> RecoverMultiplicationTable(1,2);
 fail
 gap> RecoverMultiplicationTable(2,1);
 [ [ 1, 1 ], [ 1, 1 ] ]
 gap> RecoverMultiplicationTable(8,11111111);
-[ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ], 
-  [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ], 
-  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ], 
+[ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ],
+  [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ],
+  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ],
   [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 8, 8, 8, 8, 8, 8, 8, 8 ] ]
 gap> RecoverMultiplicationTable(2,11111111);
 fail
 
-# doc/../gap/small.gd:198-203
+# doc/../gap/small.gd:175-180
 gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
 <semigroup of size 2, with 2 generators>
 gap> IsSmallSemigroup(s);
 false
 
-# doc/../gap/small.gd:46-50
-gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), Transformation( [ 1, 2, 3 ] ));;
+# doc/../gap/small.gd:40-45
+gap> sgrp := Semigroup(Transformation([1, 2, 2]),
+>                      Transformation([1, 2, 3]));;
 gap> IdSmallSemigroup(sgrp);
 [ 2, 3 ]
 
-# doc/../gap/small.gd:23-29
-gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ), 
+# doc/../gap/small.gd:20-26
+gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ),
 > Transformation( [ 1, 2, 3 ] ));;
 gap> EquivalenceSmallSemigroup(sgrp);
-SemigroupHomomorphismByImages ( Monoid( [ Transformation( [ 1, 2, 2 ] ) 
+SemigroupHomomorphismByImages ( Monoid( [ Transformation( [ 1, 2, 2 ] )
  ] )-><small semigroup of size 2>)
 
-# doc/../gap/properties.gd:22-27
+# doc/../gap/properties.gd:20-25
 gap> s := SmallSemigroup(5,6);
 <small semigroup of size 5>
 gap> Annihilators(s);
 [ s1, s2 ]
 
-# doc/../gap/properties.gd:42-49
+# doc/../gap/properties.gd:37-44
 gap> s:=SmallSemigroup(8,10101);;
 gap> DiagonalOfMultiplicationTable(s);
 [ 1, 1, 1, 1, 1, 1, 1, 1 ]
@@ -81,7 +82,7 @@ gap> s:=SmallSemigroup(7,10101);;
 gap> DiagonalOfMultiplicationTable(s);
 [ 1, 1, 1, 1, 1, 1, 1 ]
 
-# doc/../gap/properties.gd:65-94
+# doc/../gap/properties.gd:57-86
 gap> s:=SmallSemigroup(6, 3838);;
 gap> DisplaySmallSemigroup(s);
 IsBand:                              false
@@ -111,7 +112,7 @@ GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
 GreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 
-# doc/../gap/properties.gd:110-123
+# doc/../gap/properties.gd:98-111
 gap> s:=SmallSemigroup(5,116);
 <small semigroup of size 5>
 gap> x:=Elements(s)[3];
@@ -125,7 +126,7 @@ false
 gap> x^3=x^1;
 false
 
-# doc/../gap/properties.gd:143-153
+# doc/../gap/properties.gd:127-137
 gap> s:=SmallSemigroup(5,519);;
 gap> IsBand(s);
 false
@@ -136,7 +137,7 @@ true
 gap> IdSmallSemigroup(s);
 [ 5, 1010 ]
 
-# doc/../gap/properties.gd:170-180
+# doc/../gap/properties.gd:151-161
 gap> s:=SmallSemigroup(5,519);;
 gap> IsBrandtSemigroup(s);
 false
@@ -147,8 +148,8 @@ true
 gap> IdSmallSemigroup(s);
 [ 5, 149 ]
 
-# doc/../gap/properties.gd:200-219
-gap> s:=SmallSemigroup(5,519);; 
+# doc/../gap/properties.gd:177-196
+gap> s:=SmallSemigroup(5,519);;
 gap> IsBand(s);
 false
 gap> s:=OneSmallSemigroup(5, IsBand, true);
@@ -167,7 +168,7 @@ true
 gap> IdSmallSemigroup(s);
 [ 5, 148 ]
 
-# doc/../gap/properties.gd:237-255
+# doc/../gap/properties.gd:211-229
 gap> s:=SmallSemigroup(6,871);;
 gap> IsCommutativeSemigroup(s);
 false
@@ -186,19 +187,19 @@ true
 gap> IsCommutative(s);
 true
 
-# doc/../gap/properties.gd:271-282
+# doc/../gap/properties.gd:242-253
 gap> s:=SmallSemigroup(6,13131);
 <small semigroup of size 6>
 gap> IsCompletelyRegularSemigroup(s);
 false
-gap> s:=OneSmallSemigroup(6, IsCompletelyRegularSemigroup, true); 
+gap> s:=OneSmallSemigroup(6, IsCompletelyRegularSemigroup, true);
 <small semigroup of size 6>
 gap> IsCompletelyRegularSemigroup(s);
 true
 gap> IdSmallSemigroup(s);
 [ 6, 3164 ]
 
-# doc/../gap/properties.gd:300-313
+# doc/../gap/properties.gd:269-282
 gap> s:=SmallSemigroup(1,1);
 <small semigroup of size 1>
 gap> IsFullTransformationSemigroupCopy(s);
@@ -212,7 +213,7 @@ gap> IdSmallSemigroup(s);
 gap> s:=OneSmallSemigroup(6, IsFullTransformationSemigroupCopy, true);
 fail
 
-# doc/../gap/properties.gd:331-339
+# doc/../gap/properties.gd:296-304
 gap> s:=SmallSemigroup(7,7);
 <small semigroup of size 7>
 gap> IsGroupAsSemigroup(s);
@@ -221,7 +222,7 @@ gap> s:=SmallSemigroup(4,37);;
 gap> IsGroupAsSemigroup(s);
 true
 
-# doc/../gap/properties.gd:357-374
+# doc/../gap/properties.gd:320-337
 gap> s:=SmallSemigroup(3, 13);
 <small semigroup of size 3>
 gap> IsIdempotentGenerated(s);
@@ -232,14 +233,14 @@ gap> IsIdempotentGenerated(s);
 false
 gap> IdSmallSemigroup(s);
 [ 3, 1 ]
-gap> s:=OneSmallSemigroup(4, IsIdempotentGenerated, true, 
+gap> s:=OneSmallSemigroup(4, IsIdempotentGenerated, true,
 > IsSingularSemigroupCopy, true);
 fail
-gap> s:=OneSmallSemigroup(2, IsIdempotentGenerated, true, 
+gap> s:=OneSmallSemigroup(2, IsIdempotentGenerated, true,
 > IsSingularSemigroupCopy, true);
 <small semigroup of size 2>
 
-# doc/../gap/properties.gd:392-401
+# doc/../gap/properties.gd:352-361
 gap> s:=OneSmallSemigroup(7, IsInverseSemigroup, true);
 <small semigroup of size 7>
 gap> IsInverseSemigroup(s);
@@ -249,7 +250,7 @@ gap> s:=SmallSemigroup(7, 101324);
 gap> IsInverseSemigroup(s);
 false
 
-# doc/../gap/properties.gd:417-426
+# doc/../gap/properties.gd:375-384
 gap> s:=SmallSemigroup(5, 438);
 <small semigroup of size 5>
 gap> IsLeftZeroSemigroup(s);
@@ -259,7 +260,7 @@ gap> s:=SmallSemigroup(5, 1141);
 gap> IsLeftZeroSemigroup(s);
 true
 
-# doc/../gap/properties.gd:439-454
+# doc/../gap/properties.gd:395-410
 gap> s:=RandomSmallSemigroup(7);
 <small semigroup of size 7>
 gap> IsMonogenicSemigroup(s);
@@ -275,7 +276,7 @@ gap> s:=SmallSemigroup( 7, 406945);
 gap> IsMonogenicSemigroup(s);
 false
 
-# doc/../gap/properties.gd:469-482
+# doc/../gap/properties.gd:423-436
 gap> s:=SmallSemigroup(4, 126);
 <small semigroup of size 4>
 gap> IsMonoidAsSemigroup(s);
@@ -289,7 +290,7 @@ s1
 gap> IdSmallSemigroup(s);
 [ 4, 7 ]
 
-# doc/../gap/properties.gd:499-510
+# doc/../gap/properties.gd:451-462
 gap> s:=OneSmallSemigroup(7, IsMultSemigroupOfNearRing, true);
 <small semigroup of size 7>
 gap> IdSmallSemigroup(s);
@@ -301,7 +302,7 @@ gap> s:=SmallSemigroup(2,2);
 gap> IsMultSemigroupOfNearRing(s);
 false
 
-# doc/../gap/properties.gd:527-540
+# doc/../gap/properties.gd:476-489
 gap> s:=SmallSemigroup(7, 760041);
 <small semigroup of size 7>
 gap> IsNGeneratedSemigroup(s, 4);
@@ -315,7 +316,7 @@ gap> s:=OneSmallSemigroup(4, x-> Length(MinimalGeneratingSet(x)), 4);
 gap> IsNGeneratedSemigroup(s, 4);
 true
 
-# doc/../gap/properties.gd:563-571
+# doc/../gap/properties.gd:510-518
 gap> s:=SmallSemigroup(4, 75);;
 gap> IsNIdempotentSemigroup(s, 1);
 false
@@ -324,7 +325,7 @@ false
 gap> IsNIdempotentSemigroup(s, 3);
 true
 
-# doc/../gap/properties.gd:601-612
+# doc/../gap/properties.gd:546-557
 gap> s:=SmallSemigroup(5,116);
 <small semigroup of size 5>
 gap> IsNilpotentSemigroup(s);
@@ -336,7 +337,7 @@ gap> s:=SmallSemigroup(7, 657867);;
 gap> IsNilpotent(s);
 true
 
-# doc/../gap/properties.gd:630-638
+# doc/../gap/properties.gd:572-580
 gap> s:=SmallSemigroup(6, 15858);;
 gap> IsSemigroupWithClosedIdempotents(s);
 true
@@ -345,7 +346,7 @@ true
 gap> IsOrthodoxSemigroup(s);
 true
 
-# doc/../gap/properties.gd:655-662
+# doc/../gap/properties.gd:594-601
 gap> s:=SmallSemigroup(5, 216);;
 gap> IsRectangularBand(s);
 false
@@ -353,25 +354,25 @@ gap> s:=SmallSemigroup(6, 15854);;
 gap> IsRectangularBand(s);
 true
 
-# doc/../gap/properties.gd:680-691
+# doc/../gap/properties.gd:616-627
 gap> s:=SmallSemigroup(3, 10);;
 gap> IsRegularSemigroup(s);
 true
 gap> s:=SmallSemigroup(3, 1);;
 gap> IsRegularSemigroup(s);
 false
-gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true); 
+gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
 <small semigroup of size 4>
 gap> IsRegularSemigroup(s);
 true
 
-# doc/../gap/properties.gd:708-713
+# doc/../gap/properties.gd:642-647
 gap> s:=SmallSemigroup(5, 438);
 <small semigroup of size 5>
 gap> IsRightZeroSemigroup(s);
 false
 
-# doc/../gap/properties.gd:731-740
+# doc/../gap/properties.gd:662-671
 gap> s:=SmallSemigroup(5,116);
 <small semigroup of size 5>
 gap> IsSelfDualSemigroup(s);
@@ -381,7 +382,7 @@ gap> s:=RandomSmallSemigroup(5, IsSelfDualSemigroup, true);
 gap> IsSelfDualSemigroup(s);
 true
 
-# doc/../gap/properties.gd:756-766
+# doc/../gap/properties.gd:684-694
 gap> s:=SmallSemigroup(5, 677);;
 gap> IsSemigroupWithClosedIdempotents(s);
 true
@@ -392,7 +393,7 @@ gap> s:=SmallSemigroup(5, 327);;
 gap> IsSemigroupWithClosedIdempotents(s);
 false
 
-# doc/../gap/properties.gd:787-796
+# doc/../gap/properties.gd:714-723
 gap> s:=SmallSemigroup(5,1);
 <small semigroup of size 5>
 gap> IsSemigroupWithZero(s);
@@ -402,7 +403,7 @@ gap> s:=SmallSemigroup(4,26);
 gap> IsSemigroupWithZero(s);
 false
 
-# doc/../gap/properties.gd:818-827
+# doc/../gap/properties.gd:742-751
 gap> s:=SmallSemigroup(7, 835080);;
 gap> IsSimpleSemigroup(s);
 true
@@ -412,7 +413,7 @@ gap> s:=SmallSemigroup(7, 208242);;
 gap> IsSimpleSemigroup(s);
 false
 
-# doc/../gap/properties.gd:844-857
+# doc/../gap/properties.gd:766-779
 gap> s:=SmallSemigroup(1,1);
 <small semigroup of size 1>
 gap> IsSingularSemigroupCopy(s);
@@ -426,10 +427,10 @@ gap> IdSmallSemigroup(s);
 gap> s:=OneSmallSemigroup(4, IsSingularSemigroupCopy, true);
 fail
 
-# doc/../gap/properties.gd:877-888
-gap> g:=Group((1,2),(3,4)); 
+# doc/../gap/properties.gd:796-807
+gap> g:=Group((1,2),(3,4));
 Group([ (1,2), (3,4) ])
-gap> IdSmallSemigroup(g); 
+gap> IdSmallSemigroup(g);
 [ 4, 7 ]
 gap> s := Range(InjectionZeroMagma(g));
 <Group([ (1,2), (3,4) ]) with 0 adjoined>
@@ -438,7 +439,7 @@ gap> IdSmallSemigroup(s);
 gap> IsZeroGroup(s);
 true
 
-# doc/../gap/properties.gd:905-918
+# doc/../gap/properties.gd:822-835
 gap> s:=OneSmallSemigroup(5, IsZeroSemigroup, true);
 <small semigroup of size 5>
 gap> IsZeroSemigroup(s);
@@ -452,7 +453,7 @@ gap> IdSmallSemigroup(s);
 gap> IsZeroSemigroup(s);
 false
 
-# doc/../gap/properties.gd:921-928
+# doc/../gap/properties.gd:838-845
 gap> IsZeroSemigroup(SmallSemigroup(6,1));
 true
 gap> IsZeroSemigroup(SmallSemigroup(7,1));
@@ -460,17 +461,17 @@ true
 gap> IsZeroSemigroup(SmallSemigroup(8,1));
 true
 
-# doc/../gap/properties.gd:945-954
+# doc/../gap/properties.gd:859-868
 gap> s:=SmallSemigroup(7, 519799);
 <small semigroup of size 7>
 gap> IsZeroSimpleSemigroup(s);
 false
-gap> s:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true); 
+gap> s:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true);
 <small semigroup of size 7>
 gap> IsZeroSimpleSemigroup(s);
 true
 
-# doc/../gap/properties.gd:967-977
+# doc/../gap/properties.gd:878-888
 gap> s:=SmallSemigroup(8, 1478885610);;
 gap> MinimalGeneratingSet(s);
 [ s4, s5, s6, s7, s8 ]
@@ -481,7 +482,7 @@ gap> s:=SmallSemigroup(4, 4);;
 gap> MinimalGeneratingSet(s);
 [ s2, s3, s4 ]
 
-# doc/../gap/properties.gd:994-1001
+# doc/../gap/properties.gd:903-910
 gap> s := SmallSemigroup(5, 1121);;
 gap> NilpotencyDegree(s);
 fail
@@ -489,7 +490,7 @@ gap> s := SmallSemigroup(7, 393450);;
 gap> NilpotencyDegree(s);
 3
 
-# doc/../gap/properties.gd:1004-1011
+# doc/../gap/properties.gd:913-920
 gap> s := SmallSemigroup(8, 11433106+1231);;
 gap> NilpotencyDegree(s);
 3
@@ -497,21 +498,21 @@ gap> s := SmallSemigroup(8,NrSmallSemigroups(8));;
 gap> NilpotencyDegree(s);
 3
 
-# doc/../gap/coclass.gd:21-34
-gap> NilpotentSemigroupsByCoclass(5,1);
-[ <fp semigroup on the generators [ s1, s2 ]>, 
-  <fp semigroup on the generators [ s1, s2 ]>, 
-  <fp semigroup on the generators [ s1, s2 ]>, 
-  <fp semigroup on the generators [ s1, s2 ]>, 
-  <fp semigroup on the generators [ s1, s2 ]>, 
-  <fp semigroup on the generators [ s1, s2 ]>, 
+# doc/../gap/coclass.gd:19-32
+gap> NilpotentSemigroupsByCoclass(5, 1);
+[ <fp semigroup on the generators [ s1, s2 ]>,
+  <fp semigroup on the generators [ s1, s2 ]>,
+  <fp semigroup on the generators [ s1, s2 ]>,
+  <fp semigroup on the generators [ s1, s2 ]>,
+  <fp semigroup on the generators [ s1, s2 ]>,
+  <fp semigroup on the generators [ s1, s2 ]>,
   <fp semigroup on the generators [ s1, s2 ]> ]
-gap> NilpotentSemigroupsByCoclass(7,0);
+gap> NilpotentSemigroupsByCoclass(7, 0);
 [ <fp semigroup on the generators [ s1 ]> ]
-gap> NilpotentSemigroupsByCoclass(4,2,3);
+gap> NilpotentSemigroupsByCoclass(4, 2, 3);
 [ <fp semigroup on the generators [ s1, s2, s3 ]> ]
 
-# doc/../gap/greensstar.gd:227-235
+# doc/../gap/greensstar.gd:167-175
 gap> s := SmallSemigroup(7, 280142);
 <small semigroup of size 7>
 gap> elm := AsList(s)[5];;
@@ -520,7 +521,7 @@ gap> jclass := JStarClass(s, elm);
 gap> AsList(jclass);
 [ s2, s3, s4, s5 ]
 
-# doc/../gap/greensstar.gd:184-196
+# doc/../gap/greensstar.gd:133-145
 gap> s := SmallSemigroup(7, 280142);
 <small semigroup of size 7>
 gap> elm := AsList(s)[5];;
@@ -533,15 +534,15 @@ gap> AsList(RStarClass(hclass));
 gap> AsList(DStarClass(hclass));
 [ s2, s3, s4, s5 ]
 
-# doc/../gap/greensstar.gd:142-147
+# doc/../gap/greensstar.gd:99-104
 gap> s := SmallSemigroup(6, 54);
 <small semigroup of size 6>
 gap> JStarClasses(s);
 [ {s1}, {s2}, {s4}, {s5}, {s6} ]
 
-# doc/../gap/enums.gd:44-60
+# doc/../gap/enums.gd:48-64
 gap> AllSmallSemigroups(2);
-[ <small semigroup of size 2>, <small semigroup of size 2>, 
+[ <small semigroup of size 2>, <small semigroup of size 2>,
   <small semigroup of size 2>, <small semigroup of size 2> ]
 gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,
 > x-> Length(GreensRClasses(x)), 1);
@@ -549,14 +550,14 @@ gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,
 gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
 > IsCommutativeSemigroup, true);;
 gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);
-[ <small semigroup of size 8>, <small semigroup of size 8>, 
+[ <small semigroup of size 8>, <small semigroup of size 8>,
   <small semigroup of size 8> ]
 gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);;
 gap> AllSmallSemigroups(iter, IsCommutative, true,
 > IsSimpleSemigroup, true);
 [ <small semigroup of size 7> ]
 
-# doc/../gap/enums.gd:135-151
+# doc/../gap/enums.gd:138-154
 gap> enum:=EnumeratorOfSmallSemigroups(7);
 <enumerator of semigroups of size 7>
 gap> EnumeratorOfSmallSemigroups([2,3], IsRegularSemigroup, true);
@@ -573,7 +574,7 @@ gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 <enumerator of semigroups of size 8>
 
-# doc/../gap/enums.gd:183-190
+# doc/../gap/enums.gd:189-196
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([[7,1],[6,1],[5,1]]);
 <enumerator of semigroups of sizes [ 5, 6, 7 ]>
 gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
@@ -581,30 +582,30 @@ gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([2,3], [[1..2],[1..10]]);
 <enumerator of semigroups of sizes [ 2, 3 ]>
 
-# doc/../gap/enums.gd:298-304
+# doc/../gap/enums.gd:302-308
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> FuncsOfSmallSemisInEnum(enum);
-[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 
-# doc/../gap/enums.gd:363-369
+# doc/../gap/enums.gd:359-365
 gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> FuncsOfSmallSemisInIter(enum);
-[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
+[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 
-# doc/../gap/enums.gd:254-262
+# doc/../gap/enums.gd:264-272
 gap>  enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensRClasses(x)), 1);;
 gap> IdsOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 [  ]
 gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
-[ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ], 
+[ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ],
   [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 
-# doc/../gap/enums.gd:278-282
+# doc/../gap/enums.gd:285-289
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([[2,1], [3,1], [4,1]]);;
 gap> IsEnumeratorOfSmallSemigroups(enum);
 true
@@ -617,12 +618,12 @@ false
 gap> IsIdSmallSemigroup([3,18]);
 true
 
-# doc/../gap/enums.gd:343-347
+# doc/../gap/enums.gd:341-345
 gap> iter:=IteratorOfSmallSemigroups(8);;
 gap> IsIteratorOfSmallSemigroups(iter);
 true
 
-# doc/../gap/enums.gd:416-436
+# doc/../gap/enums.gd:409-430
 gap> iter:=IteratorOfSmallSemigroups(8);
 <iterator of semigroups of size 8>
 gap> NextIterator(iter);
@@ -640,22 +641,23 @@ gap> NextIterator(iter);
 fail
 gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);
 <enumerator of semigroups of size 5>
-gap> iter:=IteratorOfSmallSemigroups(enum, x-> Length(GreensRClasses(x))=2, true);
+gap> iter:=IteratorOfSmallSemigroups(enum,
+> x-> Length(GreensRClasses(x))=2, true);
 <iterator of semigroups of size 5>
 
-# doc/../gap/enums.gd:452-457
+# doc/../gap/enums.gd:443-448
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> NamesFuncsSmallSemisInEnum(enum);
 [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
 
-# doc/../gap/enums.gd:474-479
+# doc/../gap/enums.gd:461-466
 gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> NamesFuncsSmallSemisInIter(iter);
 [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
 
-# doc/../gap/enums.gd:501-512
+# doc/../gap/3nil.gd:24-35
 gap> Nr3NilpotentSemigroups( 4 );
 8
 gap> Nr3NilpotentSemigroups( 9, "UpToIsomorphism" );
@@ -667,7 +669,7 @@ gap> Nr3NilpotentSemigroups( 16, "SelfDual" );
 gap> Nr3NilpotentSemigroups( 19, "Commutative" );
 12094270656160403920767935604624748908993169949317454767617795
 
-# doc/../gap/enums.gd:558-570
+# doc/../gap/enums.gd:509-521
 gap> List([1..8], NrSmallSemigroups);
 [ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128 ]
 gap> NrSmallSemigroups(8, IsCommutative, true, IsInverseSemigroup, true);
@@ -680,7 +682,7 @@ gap> NrSmallSemigroups(8, IsRegularSemigroup, true,
 gap> NrSmallSemigroups(5, NilpotencyDegree, 3);
 84
 
-# doc/../gap/enums.gd:616-625
+# doc/../gap/enums.gd:565-574
 gap> OneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
 <small semigroup of size 8>
 gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
@@ -690,7 +692,7 @@ gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 
-# doc/../gap/enums.gd:654-667
+# doc/../gap/enums.gd:600-613
 gap> PositionsOfSmallSemigroups(3);
 [ [ 1 .. 18 ] ]
 gap> PositionsOfSmallSemigroups(3, IsRegularSemigroup, false);
@@ -704,25 +706,25 @@ gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
 > Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
 [ [ 1, 2 ] ]
 
-# doc/../gap/enums.gd:685-690
+# doc/../gap/enums.gd:627-632
 gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
 gap> PositionsOfSmallSemisInEnum
 > (enum);
 [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
 
-# doc/../gap/autovars.g:30-41
+# doc/../gap/autovars.g:58-69
 gap> PrecomputedSmallSemisInfo[3];
-[ "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", "Is4GeneratedSemigroup", 
-  "Is5GeneratedSemigroup", "Is6GeneratedSemigroup", "Is7GeneratedSemigroup", 
-  "Is8GeneratedSemigroup", "IsBand", "IsCommutative", 
-  "IsCompletelyRegularSemigroup", "IsFullTransformationSemigroupCopy", 
-  "IsGroupAsSemigroup", "IsIdempotentGenerated", "IsInverseSemigroup", 
-  "IsMonogenicSemigroup", "IsMonoidAsSemigroup", "IsMultSemigroupOfNearRing", 
-  "IsMunnSemigroup", "IsRegularSemigroup", "IsSelfDualSemigroup", 
-  "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup", 
+[ "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", "Is4GeneratedSemigroup",
+  "Is5GeneratedSemigroup", "Is6GeneratedSemigroup", "Is7GeneratedSemigroup",
+  "Is8GeneratedSemigroup", "IsBand", "IsCommutative",
+  "IsCompletelyRegularSemigroup", "IsFullTransformationSemigroupCopy",
+  "IsGroupAsSemigroup", "IsIdempotentGenerated", "IsInverseSemigroup",
+  "IsMonogenicSemigroup", "IsMonoidAsSemigroup", "IsMultSemigroupOfNearRing",
+  "IsMunnSemigroup", "IsRegularSemigroup", "IsSelfDualSemigroup",
+  "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup",
   "IsSingularSemigroupCopy", "IsZeroSemigroup", "IsZeroSimpleSemigroup" ]
 
-# doc/../gap/enums.gd:731-741
+# doc/../gap/enums.gd:675-685
 gap> RandomSmallSemigroup(8, IsCommutative, true,
 > IsInverseSemigroup, true);
 <small semigroup of size 8>
@@ -733,23 +735,23 @@ gap> iter:=IteratorOfSmallSemigroups([1..7]);
 gap> RandomSmallSemigroup(iter);
 <small semigroup of size 7>
 
-# doc/../gap/enums.gd:756-761
+# doc/../gap/enums.gd:698-703
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
 gap> SizesOfSmallSemisInEnum(enum);
 [ 2, 3, 4 ]
 
-# doc/../gap/enums.gd:776-781
+# doc/../gap/enums.gd:716-721
 gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
 <iterator of semigroups of size 7>
 gap> SizesOfSmallSemisInIter(iter);
 [ 7 ]
 
-# doc/../gap/enums.gd:799-805
+# doc/../gap/enums.gd:736-742
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);
 [ <small semigroup of size 5>, <small semigroup of size 6> ]
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);
-[ <small semigroup of size 5>, <small semigroup of size 5>, 
+[ <small semigroup of size 5>, <small semigroup of size 5>,
   <semigroup of size 5, with 5 generators> ]
 
 #

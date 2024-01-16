@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W  enums.tst                        smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2014              Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2024              Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
