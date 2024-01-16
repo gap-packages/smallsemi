@@ -164,8 +164,9 @@ gap> BruteForceInverseCheck := function(map)
 gap> S := SmallSemigroup(4, 18);
 <small semigroup of size 4>
 gap> map := IsomorphismTransformationSemigroup(S);
-<small semigroup of size 4> -> <transformation semigroup of size 4, degree 5 
-  with 4 generators>
+SemigroupHomomorphismByImages ( <small semigroup of size 4>->Semigroup( 
+[ Transformation( [ 1, 1, 1, 4, 2 ] ), Transformation( [ 1, 1, 1, 4, 3 ] ), 
+  Transformation( [ 1, 1, 1, 4, 4 ] ) ] ))
 gap> BruteForceIsoCheck(map);
 true
 gap> BruteForceInverseCheck(map);
