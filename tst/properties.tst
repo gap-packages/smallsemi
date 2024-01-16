@@ -95,14 +95,14 @@ gap> x^2=x^1;
 false
 gap> x^3=x^1;
 false
-gap> s:=SmallSemigroup(5,519);;
+gap> s:=SmallSemigroup(5,519);; 
 gap> IsBand(s);
 false
 gap> s:=OneSmallSemigroup(5, IsBand, true);
 <small semigroup of size 5>
 gap> IsBand(s);
 true
-gap> IdSmallSemigroup(s);
+gap> IdSmallSemigroup(s);   
 [ 5, 1010 ]
 gap> s:=SmallSemigroup(5,519);;
 gap> IsCliffordSemigroup(s);
@@ -120,7 +120,7 @@ gap> s:=OneSmallSemigroup(5, IsCommutative, true);
 <small semigroup of size 5>
 gap> IsCommutativeSemigroup(s);
 true
-gap> IsCommutative(s);
+gap> IsCommutative(s);         
 true
 gap> IdSmallSemigroup(s);
 [ 5, 1 ]
@@ -128,7 +128,7 @@ gap> s:=OneSmallSemigroup(5, IsCommutativeSemigroup, true);
 <small semigroup of size 5>
 gap> IsCommutativeSemigroup(s);
 true
-gap> IsCommutative(s);
+gap> IsCommutative(s);                                     
 true
 gap> IdSmallSemigroup(s);
 [ 5, 1 ]
@@ -258,7 +258,7 @@ true
 gap> s:=SmallSemigroup(3, 1);;
 gap> IsRegularSemigroup(s);
 false
-gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
+gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true); 
 <small semigroup of size 4>
 gap> IsRegularSemigroup(s);
 true
@@ -266,13 +266,13 @@ gap> s:=SmallSemigroup(5, 438);
 <small semigroup of size 5>
 gap> IsRightZeroSemigroup(s);
 false
-gap> s:=SmallSemigroup(5,1);
+gap> s:=SmallSemigroup(5,1);  
 <small semigroup of size 5>
 gap> IsSemigroupWithZero(s);
 true
 gap> s:=SmallSemigroup(8,NrSmallSemigroups(8));
 <small semigroup of size 8>
-gap> IsSemigroupWithZero(s);
+gap> IsSemigroupWithZero(s);                   
 true
 gap> IsSemigroupWithZero(SmallSemigroup([6,1213]));
 true
@@ -318,13 +318,13 @@ true
 gap> s:=SmallSemigroup(7, 208242);;
 gap> IsSimpleSemigroup(s);
 false
-gap> s:=Group((1,2),(3,4));
+gap> s:=Group((1,2),(3,4)); 
 Group([ (1,2), (3,4) ])
-gap> IdSmallSemigroup(s);
+gap> IdSmallSemigroup(s); 
 [ 4, 7 ]
-gap> g:=Group((1,2),(3,4));
+gap> g:=Group((1,2),(3,4)); 
 Group([ (1,2), (3,4) ])
-gap> IdSmallSemigroup(g);
+gap> IdSmallSemigroup(g); 
 [ 4, 7 ]
 gap> s := Range(InjectionZeroMagma(g));
 <Group([ (1,2), (3,4) ]) with 0 adjoined>
@@ -353,7 +353,7 @@ gap> s:=SmallSemigroup(7, 519799);
 <small semigroup of size 7>
 gap> IsZeroSimpleSemigroup(s);
 false
-gap> s:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true);
+gap> s:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true); 
 <small semigroup of size 7>
 gap> IsZeroSimpleSemigroup(s);
 true
@@ -374,7 +374,7 @@ gap> OneSmallSemigroup(4, IsRightZeroSemigroup, true);
 fail
 gap> RandomSmallSemigroup(4, IsRightZeroSemigroup, true);
 fail
-gap> OneSmallSemigroup(4, IsLeftZeroSemigroup, true);
+gap> OneSmallSemigroup(4, IsLeftZeroSemigroup, true); 
 <small semigroup of size 4>
 gap> RandomSmallSemigroup(4, IsLeftZeroSemigroup, true);
 <small semigroup of size 4>
@@ -395,8 +395,8 @@ gap> GreensDClasses(s);
 gap> Elements(last[1]);
 [ s1, s2, s3, s4, s5, s6, s7 ]
 gap> GreensHClasses(s);
-[ <Green's H-class: s1>, <Green's H-class: s2>, <Green's H-class: s3>,
-  <Green's H-class: s4>, <Green's H-class: s5>, <Green's H-class: s6>,
+[ <Green's H-class: s1>, <Green's H-class: s2>, <Green's H-class: s3>, 
+  <Green's H-class: s4>, <Green's H-class: s5>, <Green's H-class: s6>, 
   <Green's H-class: s7> ]
 gap> List(last, Elements);
 [ [ s1 ], [ s2 ], [ s3 ], [ s4 ], [ s5 ], [ s6 ], [ s7 ] ]
@@ -419,7 +419,7 @@ gap> IdSmallSemigroup(s);
 [ 5, 149 ]
 gap> s:=SmallSemigroup(5, 1141);
 <small semigroup of size 5>
-gap> IsLeftZeroSemigroup(s);
+gap> IsLeftZeroSemigroup(s);   
 true
 gap> SetInfoLevel( InfoSmallsemi, info );
 gap> STOP_TEST( "Smallsemi package: properties.tst", 10000);

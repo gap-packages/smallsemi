@@ -24,13 +24,13 @@ gap> JStarClasses(s) = DStarClasses(s);
 false
 gap> List(JStarClasses(s), DStarClasses);
 [ [ {s1} ], [ {s2}, {s6} ], [ {s8} ] ]
-gap> HStarClasses(s);
+gap> HStarClasses(s);                       
 [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6}, {s7}, {s8} ]
 gap> cl := DStarClass(s, Elements(s)[3]);
 {s3}
 gap> IsStarClass(cl);
 true
-gap> s := SmallSemigroup(6, 54);
+gap> s := SmallSemigroup(6, 54);  
 <small semigroup of size 6>
 gap> JStarClasses(s);
 [ {s1}, {s2}, {s4}, {s5}, {s6} ]
