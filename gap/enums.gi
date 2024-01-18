@@ -19,6 +19,46 @@ function(x)
   fi;
 end);
 
+InstallGlobalFunction(SMALLSEMI_ValidateArgs,
+function(arg...)
+  local x, i;
+
+  arg := SMALLSEMI_STRIP_ARG(arg);
+
+  if not IsOddInt(Length(arg)) then
+    Error("there must be an odd number arguments");
+  elif not ForAny([IsPosInt,
+                   IsCyclotomicCollection,
+                   IsEnumeratorOfSmallSemigroups,
+                   IsIteratorOfSmallSemigroups], f -> f(arg[1])) then
+    Error("the 1st argument must be a positive integer, cyclotomic collection, ",
+          "enumerator, or iterator of small semigroups");
+  fi;
+
+  if IsPosInt(arg[1]) and arg[1] > 8 then
+    Error("the 1st argument (a positive integer) must be at most 8, found ",
+          arg[1]);
+  elif IsCyclotomicCollection(arg[1]) then
+    for i in [1 .. Length(arg[1])] do
+      x := arg[1][i];
+      if not IsPosInt(x) then
+        Error("the 1st argument (a list) must consist of positive integers",
+              ", found ", TNAM_OBJ(x), " in position ", i);
+      elif x = 0 or x > 8 then
+        Error("the 1st argument (a list) must consist of positive integers",
+              " in the range [1, 8), found ", x);
+      fi;
+    od;
+  fi;
+
+  for i in [2, 4 .. Length(arg) - 1] do
+    if not IsFunction(arg[i]) then
+      Error("the argument in even positions must be functions, found ",
+            TNAM_OBJ(arg[i]), " in position ", i);
+    fi;
+  od;
+end);
+
 # <A>arg</A> is assumed to satisfy SMALLSEMI_ValidateArgs(arg)=true but this is
 # not checked.
 #
@@ -62,18 +102,18 @@ function(arg...)
   arg := SMALLSEMI_STRIP_ARG(arg);
   if IsEnumeratorOfSmallSemigroups(arg[1]) then
     return true;
-  fi;
-
-  if IsPosInt(arg[1]) then
-    max := arg[1];
-  elif IsList(arg[1]) then
-    max := Maximum(arg[1]);
   elif IsIteratorOfSmallSemigroups(arg[1]) then
     arg := Concatenation([SizesOfSmallSemisInIter(arg[1])],
                          arg{[2 .. Length(arg)]},
                          FuncsOfSmallSemisInIter(arg[1]));
     arg := SMALLSEMI_NormalizeArgs(arg);
     return SMALLSEMI_CanCreateEnumerator(arg);
+  fi;
+
+  if IsPosInt(arg[1]) then
+    max := arg[1];
+  elif IsList(arg[1]) then
+    max := Maximum(arg[1]);
   fi;
 
   if Length(arg) > 1 then
@@ -87,7 +127,6 @@ function(arg...)
       or (GAPInfo.BytesPerVariable = 8 and IsPosInt(arg[1]))
       or (GAPInfo.BytesPerVariable = 8 and ForAll(arg[1], IsPosInt));
 end);
-
 
 InstallGlobalFunction(NamesFuncsSmallSemisInEnum, enum -> enum!.names);
 InstallGlobalFunction(PositionsOfSmallSemisInEnum, enum -> enum!.pos);
@@ -877,46 +916,6 @@ function(it)
              n := it!.n);
 end);
 
-InstallGlobalFunction(SMALLSEMI_ValidateArgs,
-function(arg...)
-  local x, i;
-
-  arg := SMALLSEMI_STRIP_ARG(arg);
-
-  if not IsOddInt(Length(arg)) then
-    Error("there must be an odd number arguments");
-  elif not ForAny([IsPosInt,
-                   IsCyclotomicCollection,
-                   IsEnumeratorOfSmallSemigroups,
-                   IsIteratorOfSmallSemigroups], f -> f(arg[1])) then
-    Error("the 1st argument must be a positive integer, cyclotomic collection, ",
-          "enumerator, or iterator of small semigroups");
-  fi;
-
-  if IsPosInt(arg[1]) and arg[1] > 8 then
-    Error("the 1st argument (a positive integer) must be at most 8, found ",
-          arg[1]);
-  elif IsCyclotomicCollection(arg[1]) then
-    for i in [1 .. Length(arg[1])] do
-      x := arg[1][i];
-      if not IsPosInt(x) then
-        Error("the 1st argument (a list) must consist of positive integers",
-              ", found ", TNAM_OBJ(x), " in position ", i);
-      elif x = 0 or x > 8 then
-        Error("the 1st argument (a list) must consist of positive integers",
-              " in the range [1, 8), found ", x);
-      fi;
-    od;
-  fi;
-
-  for i in [2, 4 .. Length(arg) - 1] do
-    if not IsFunction(arg[i]) then
-      Error("the argument in even positions must be functions, found ",
-            TNAM_OBJ(arg[i]), " in position ", i);
-    fi;
-  od;
-  return true;  # TODO remove
-end);
 
 
 InstallGlobalFunction(SMALLSEMI_CREATE_ENUM,
