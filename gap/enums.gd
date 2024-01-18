@@ -787,69 +787,6 @@ DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 # <#/GAPDoc>
 DeclareGlobalFunction("SMALLSEMI_ValidateArgs");
 
-# <#GAPDoc Label="SMALLSEMI_CAN_CREATE_ENUM_NC">
-# <ManSection>
-# <Func Name="SMALLSEMI_CAN_CREATE_ENUM_NC" Arg="arg"/>
-# <Description>
-# checks that the argument <A>arg</A> can be used to produce an enumerator.
-# This function does not check <Ref Func="SMALLSEMI_ValidateArgs"/> is
-# <C>true</C> with argument <A>arg</A> and it is assumed that <A>arg</A> is of
-# this form.
-# <P/>
-#
-# Currently a valid argument is one with:
-# <List>
-#   <Item>
-#     the maximum size of semigroup satisfying <A>arg</A> at most 7; OR
-#   </Item>
-#   <Item>
-#     the maximum size of semigroup satisfying <A>arg</A> equal 8 and there
-#     exists <C>i</C> such that <A>arg[2i]</A> in <Ref
-#     Var="PrecomputedSmallSemisInfo" BookName="smallsemi"/><C>[8]</C> and
-#     <A>arg[2i+1]</A> is <C>true</C>.
-#   </Item>
-# </List>
-# The reason for this is that on a 32-bit computer the maximum length of a list
-# is smaller than the number of semigroups with 8 elements. Enumerators use
-# lists of id numbers to specify their elements and so it is not currently
-# possible to create arbitrary enumerators of small semigroups containing
-# semigroups with 8 elements.
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_CAN_CREATE_ENUM_NC");
-
-# <#GAPDoc Label="SMALLSEMI_CONVERT_ARG_NC">
-# <ManSection>
-# <Func Name="SMALLSEMI_CONVERT_ARG_NC" Arg="arg"/>
-# <Description>
-# <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ValidateArgs"/>
-# <C>(arg)=true</C> but this is not checked.
-#
-# <C>SMALLSEMI_CONVERT_ARG_NC</C> replaces every function <A>arg[2i]</A> by an
-# equivalent function in <Ref Var="PrecomputedSmallSemisInfo"
-# BookName="smallsemi"/> if it exists.
-# <P/>
-#
-# See  <Ref Var="SMALLSEMI_EQUIV"/> for more details.
-# <Example><![CDATA[
-# gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutativeSemigroup, true);
-# [ 5, <Operation "IsCommutative">, true ]
-# gap> SMALLSEMI_CONVERT_ARG_NC(7, Is4GeneratedSemigroup, true);
-# [ 7, <Operation "Is1GeneratedSemigroup">, false,
-# <Operation "Is2GeneratedSemigroup">, false,
-# <Operation "Is3GeneratedSemigroup">, false,
-# <Operation "Is5GeneratedSemigroup">, false,
-# <Operation "Is6GeneratedSemigroup">, false,
-# <Operation "Is7GeneratedSemigroup">, false ]
-# gap> SMALLSEMI_CONVERT_ARG_NC(5, IsCommutative, true);
-# [ 5, <Operation "IsCommutative">, true ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_CONVERT_ARG_NC");
-
 # <#GAPDoc Label="SMALLSEMI_CREATE_ENUM">
 # <ManSection>
 # <Func Name="SMALLSEMI_CREATE_ENUM" Arg="source, positions, names"/>
