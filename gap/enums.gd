@@ -753,40 +753,6 @@ DeclareOperation("UpToIsomorphism", [IsSmallSemigroup]);
 
 DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 
-# <#GAPDoc Label="SMALLSEMI_ValidateArgs">
-# <ManSection>
-# <Func Name="SMALLSEMI_ValidateArgs" Arg="arg"/>
-# <Description>
-# checks that the argument <A>arg</A> is valid for any of the functions
-# <Ref Func="EnumeratorOfSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="AllSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="EnumeratorSortedOfSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="IdsOfSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="IteratorOfSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="NrSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="OneSmallSemigroup" BookName="smallsemi"/>,
-# <Ref Func="PositionsOfSmallSemigroups" BookName="smallsemi"/>,
-# <Ref Func="RandomSmallSemigroup" BookName="smallsemi"/>.<P/>
-#
-# Currently a valid argument is one with:
-# <List>
-#   <Item>
-#     odd length;
-#   </Item>
-#   <Item>
-#     <A>arg[1]</A> is a positive integer between 1 and 8; a list of positive
-#     integers between 1 and 8; an enumerator of small semigroups; or an iterator
-#     of small semigroups;
-#   </Item>
-#   <Item>
-#     <A>arg[2i]</A> (the even indexed arguments) should be functions.
-#   </Item>
-# </List>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_ValidateArgs");
-
 # <#GAPDoc Label="SMALLSEMI_CREATE_ENUM">
 # <ManSection>
 # <Func Name="SMALLSEMI_CREATE_ENUM" Arg="source, positions, names"/>
