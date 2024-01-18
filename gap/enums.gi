@@ -34,12 +34,8 @@ function(arg...)
 end);
 
 InstallGlobalFunction(EmptyEnumeratorOfSmallSemigroups,
-function(arg...)
+function()
   local record, fam, enum;
-
-  if not IsEmpty(arg) then
-    Error("argument should be empty");
-  fi;
 
   record               := rec();
   record.ElementNumber := ReturnFail;
@@ -61,12 +57,8 @@ function(arg...)
 end);
 
 InstallGlobalFunction(EmptyIteratorOfSmallSemigroups,
-function(arg...)
+function()
   local record, iter;
-
-  if not IsEmpty(arg) then
-    Error("argument should be empty");
-  fi;
 
   record                := rec();
   record.IsDoneIterator := ReturnTrue;
@@ -194,7 +186,7 @@ end);
 
 InstallMethod(EnumeratorOfSmallSemigroupsByIdsNC,
 "for a set of pos. ints. and list of sets of positions",
-[IsCyclotomicCollection, IsCyclotomicCollColl], 0,
+[IsCyclotomicCollection, IsCyclotomicCollColl],
 function(sizes, positions)
   local fam, tot, lens, record, enum, i;
 
