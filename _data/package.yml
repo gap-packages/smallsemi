@@ -1,5 +1,6 @@
 name: Smallsemi
 version: "0.6.13"
+license: "GPL-3.0-or-later"
 date: 2022-02-28
 description: |
     A library of small semigroups
