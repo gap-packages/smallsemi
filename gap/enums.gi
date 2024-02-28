@@ -290,6 +290,7 @@ InstallMethod(EnumeratorOfSmallSemigroupsByIdsNC,
 "for a set of pos. ints. and list of sets of positions",
 [IsCyclotomicCollection, IsCyclotomicCollColl],
 function(sizes, positions)
+  # TODO replace this with a call to SMALLSEMI_CREATE_ENUM
   local fam, tot, lens, record, enum, i;
 
   if ForAll(positions, IsEmpty) then
