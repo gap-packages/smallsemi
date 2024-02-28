@@ -225,7 +225,6 @@ end);
 
 InstallGlobalFunction(EnumeratorOfSmallSemigroups,
 function(arg...)
-  local sizes;
 
   arg := SMALLSEMI_STRIP_ARG(arg);
   SMALLSEMI_ValidateTypeArgs(arg);
@@ -234,32 +233,16 @@ function(arg...)
 
   SMALLSEMI_ValidateEnumeratorArgs(arg);
 
-  if Length(arg) = 1 then
-    if IsEnumeratorOfSmallSemigroups(arg[1]) then
-      # do nothing
-      return arg[1];
-    elif IsIteratorOfSmallSemigroups(arg[1]) then
-      # convert iterator to enumerator
-      return SMALLSEMI_CREATE_ENUM(SizesOfSmallSemisInIter(arg[1]),
-                                   PositionsOfSmallSemigroups(arg[1]),
-                                   FuncsOfSmallSemisInIter(arg[1]));
-    elif IsPosInt(arg[1]) then
-      arg[1] := [arg[1]];
-    fi;
-    # arg is list of positive integers
-    return SMALLSEMI_CREATE_ENUM(arg[1],
-                                 List(arg[1],
-                                      x -> [1 .. NrSmallSemigroups(x)]),
-                                 arg{[2 .. Length(arg)]});
-  fi;
-  if IsPosInt(arg[1]) or IsCyclotomicCollection(arg[1]) then
-    sizes := arg[1];
-  elif IsEnumeratorOfSmallSemigroups(arg[1]) then
-    sizes := SizesOfSmallSemisInEnum(arg[1]);
+  if Length(arg) = 1 and IsEnumeratorOfSmallSemigroups(arg[1]) then
+    # do nothing
+    return arg[1];
   elif IsIteratorOfSmallSemigroups(arg[1]) then
-    sizes := SizesOfSmallSemisInIter(arg[1]);
+    Append(arg, FuncsOfSmallSemisInIter(arg[1]));
+  elif IsEnumeratorOfSmallSemigroups(arg[1]) then
+    Append(arg, FuncsOfSmallSemisInEnum(arg[1]));
   fi;
-  return SMALLSEMI_CREATE_ENUM(sizes,
+
+  return SMALLSEMI_CREATE_ENUM(arg[1],
                                PositionsOfSmallSemigroups(arg),
                                arg{[2 .. Length(arg)]});
 end);
