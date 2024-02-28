@@ -112,7 +112,7 @@ function(arg...)
 end);
 
 # only allow precomputed, sorted, and converted functions as input
-
+# Must declare this and not BindGlobal, since the function calls itself
 DeclareGlobalFunction("SMALLSEMI_CanCreateEnumerator");
 InstallGlobalFunction(SMALLSEMI_CanCreateEnumerator,
 function(arg...)
@@ -940,9 +940,65 @@ function(it)
              n := it!.n);
 end);
 
+BindGlobal("SMALLSEMI_ChainEnumeratorNC",
+function(arg...)
+  local tot, lens, fam, record, enum, i;
+
+  arg := Filtered(arg, x -> not IsEmpty(x));
+  if IsEmpty(arg) then
+    # TODO just return empty list
+    return EmptyEnumeratorOfSmallSemigroups();
+  fi;
+
+  tot := 0;
+  lens := [0];
+  for i in arg do
+    tot := tot + Length(i);
+    Add(lens, tot);
+  od;
+
+  fam := CollectionsFamily(FamilyObj(arg[1]));
+
+  record := rec();
+
+  record.tot := tot;
+  record.lens := lens;
+
+  record.ElementNumber := function(enum, pos)
+    local i;
+    i := PositionProperty(enum!.lens, x -> pos <= x) - 1;
+    return arg[i][pos - enum!.lens[i]];
+  end;
+
+  record.NumberElement := function(enum, elm)
+    local id, i;
+    id := IdSmallSemigroup(elm);
+    i := Position(enum!.sizes, id[2]);
+    return Position(arg[i], elm) + tot[i - 1];
+  end;
+
+  record.Length := enum -> enum!.tot;
+
+  record.PrintObj := function(enum)
+    Print("<enumerator of semigroups of sizes ", enum!.sizes, ">");
+    return;
+  end;
+
+  record.pos   := List(arg, x -> PositionsOfSmallSemisInEnum(x)[1]);
+  record.sizes := List(arg, x -> SizesOfSmallSemisInEnum(x)[1]);
+  # TODO this seems weird
+  record.funcs := FuncsOfSmallSemisInEnum(arg[1]);
+  record.names := List(record.funcs, SMALLSEMI_FuncNameOrString);
+
+  enum := EnumeratorByFunctions(Domain(fam, []), record);
+  SetIsEnumeratorOfSmallSemigroups(enum, true);
+  SetIsFinite(enum, true);
+  return enum;
+end);
+
 InstallGlobalFunction(SMALLSEMI_CREATE_ENUM,
 function(source, position, names)
-  local sizes, j, fam, record, enum, enums, tot, lens, i;
+  local sizes, non_empty_sizes, fam, record, enum, enums, i;
 
   if ForAll(position, IsEmpty) then
     return EmptyEnumeratorOfSmallSemigroups();
@@ -961,16 +1017,11 @@ function(source, position, names)
   fi;
 
   # some inherited sizes may now not occur
-  j := [];
+  non_empty_sizes := Filtered([1 .. Length(sizes)],
+                              i -> not IsEmpty(position[i]));
 
-  for i in [1 .. Length(sizes)] do
-    if not IsEmpty(position[i]) then
-      AddSet(j, i);
-    fi;
-  od;
-
-  sizes := sizes{j};
-  position := position{j};
+  sizes := sizes{non_empty_sizes};
+  position := position{non_empty_sizes};
 
   if Length(sizes) = 1 then  # one size
     fam := CollectionsFamily(SmallSemigroupEltFamily);
@@ -1005,57 +1056,13 @@ function(source, position, names)
     SetIsEnumeratorOfSmallSemigroups(enum, true);
     SetIsFinite(enum, true);
     return enum;
+  else
+    # Range of sizes . . .
+    enums := [];
+    for i in [1 .. Length(sizes)] do
+      enum := SMALLSEMI_CREATE_ENUM(sizes[i], [position[i]], names);
+      Add(enums, enum);
+    od;
+    return CallFuncList(SMALLSEMI_ChainEnumeratorNC, enums);
   fi;
-  # range of sizes
-
-  enums := [];
-  for i in [1 .. Length(sizes)] do
-    enum := SMALLSEMI_CREATE_ENUM(sizes[i], [position[i]], names);
-    Add(enums, enum);
-  od;
-
-  if ForAll(enums, IsEmpty) then
-    return EmptyEnumeratorOfSmallSemigroups();
-  fi;
-
-  tot := 0;
-  lens := [0];
-  for i in enums do
-    tot := tot + Length(i);
-    Add(lens, tot);
-  od;
-
-  enum := First(enums, x -> not IsEmpty(x));
-  fam := CollectionsFamily(FamilyObj(enum[1]));
-
-  record := rec();
-  record.ElementNumber := function(_, pos)
-    local i;
-    i := PositionProperty(lens, x -> pos <= x) - 1;
-    return enums[i][pos - lens[i]];
-  end;
-
-  record.NumberElement := function(enum, elm)
-    local id, i;
-    id := IdSmallSemigroup(elm);
-    i := Position(enum!.sizes, id[2]);
-    return Position(enums[i], elm) + tot[i - 1];
-  end;
-
-  record.Length := enum -> tot;
-
-  record.PrintObj := function(enum)
-    Print("<enumerator of semigroups of sizes ", enum!.sizes, ">");
-    return;
-  end;
-
-  record.pos := List(enums, x -> PositionsOfSmallSemisInEnum(x)[1]);
-
-  record.sizes := sizes;
-  record.funcs := names;
-  record.names := List(names, SMALLSEMI_FuncNameOrString);
-  enum := EnumeratorByFunctions(Domain(fam, []), record);
-  SetIsEnumeratorOfSmallSemigroups(enum, true);
-  SetIsFinite(enum, true);
-  return enum;
 end);
