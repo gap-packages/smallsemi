@@ -10,7 +10,7 @@
 #
 gap> START_TEST("smallsemi02.tst");
 
-# doc/../gap/small.gd:204-211
+# doc/../gap/small.gd:203-210
 gap> SmallSemigroup(8,1353452);
 <small semigroup of size 8>
 gap> SmallSemigroupNC(5,1);
@@ -34,7 +34,7 @@ gap> sgrp:=RandomSmallSemigroup(5);;
 gap> IsSmallSemigroupElt(Random(sgrp));
 true
 
-# doc/../gap/small.gd:135-149
+# doc/../gap/small.gd:134-148
 gap> RecoverMultiplicationTable(10,2);
 fail
 gap> RecoverMultiplicationTable(1,2);
@@ -49,7 +49,7 @@ gap> RecoverMultiplicationTable(8,11111111);
 gap> RecoverMultiplicationTable(2,11111111);
 fail
 
-# doc/../gap/small.gd:175-180
+# doc/../gap/small.gd:174-179
 gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
 <semigroup of size 2, with 2 generators>
 gap> IsSmallSemigroup(s);
@@ -540,7 +540,7 @@ gap> s := SmallSemigroup(6, 54);
 gap> JStarClasses(s);
 [ {s1}, {s2}, {s4}, {s5}, {s6} ]
 
-# doc/../gap/enums.gd:48-64
+# doc/../gap/enums.gd:59-75
 gap> AllSmallSemigroups(2);
 [ <small semigroup of size 2>, <small semigroup of size 2>,
   <small semigroup of size 2>, <small semigroup of size 2> ]
@@ -557,7 +557,7 @@ gap> AllSmallSemigroups(iter, IsCommutative, true,
 > IsSimpleSemigroup, true);
 [ <small semigroup of size 7> ]
 
-# doc/../gap/enums.gd:138-154
+# doc/../gap/enums.gd:119-135
 gap> enum:=EnumeratorOfSmallSemigroups(7);
 <enumerator of semigroups of size 7>
 gap> EnumeratorOfSmallSemigroups([2,3], IsRegularSemigroup, true);
@@ -574,7 +574,7 @@ gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
 <enumerator of semigroups of size 8>
 
-# doc/../gap/enums.gd:189-196
+# doc/../gap/enums.gd:169-176
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([[7,1],[6,1],[5,1]]);
 <enumerator of semigroups of sizes [ 5, 6, 7 ]>
 gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
@@ -582,21 +582,14 @@ gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([2,3], [[1..2],[1..10]]);
 <enumerator of semigroups of sizes [ 2, 3 ]>
 
-# doc/../gap/enums.gd:302-308
+# doc/../gap/enums.gd:590-596
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> FuncsOfSmallSemisInEnum(enum);
 [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 
-# doc/../gap/enums.gd:359-365
-gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-> IsRegularSemigroup, true);;
-gap> FuncsOfSmallSemisInIter(enum);
-[ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
-  false ]
-
-# doc/../gap/enums.gd:264-272
+# doc/../gap/enums.gd:233-241
 gap>  enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensRClasses(x)), 1);;
 gap> IdsOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 > IsSimpleSemigroup, false);
@@ -605,12 +598,12 @@ gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
 [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ],
   [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 
-# doc/../gap/enums.gd:285-289
+# doc/../gap/enums.gd:254-258
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([[2,1], [3,1], [4,1]]);;
 gap> IsEnumeratorOfSmallSemigroups(enum);
 true
 
-# doc/../gap/enums.gd:321-328
+# doc/../gap/enums.gd:272-279
 gap> IsIdSmallSemigroup(8,1);
 true
 gap> IsIdSmallSemigroup([1,2]);
@@ -618,12 +611,12 @@ false
 gap> IsIdSmallSemigroup([3,18]);
 true
 
-# doc/../gap/enums.gd:341-345
+# doc/../gap/enums.gd:291-295
 gap> iter:=IteratorOfSmallSemigroups(8);;
 gap> IsIteratorOfSmallSemigroups(iter);
 true
 
-# doc/../gap/enums.gd:409-430
+# doc/../gap/enums.gd:339-360
 gap> iter:=IteratorOfSmallSemigroups(8);
 <iterator of semigroups of size 8>
 gap> NextIterator(iter);
@@ -645,18 +638,6 @@ gap> iter:=IteratorOfSmallSemigroups(enum,
 > x-> Length(GreensRClasses(x))=2, true);
 <iterator of semigroups of size 5>
 
-# doc/../gap/enums.gd:443-448
-gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-> IsRegularSemigroup, true);;
-gap> NamesFuncsSmallSemisInEnum(enum);
-[ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
-
-# doc/../gap/enums.gd:461-466
-gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-> IsRegularSemigroup, true);;
-gap> NamesFuncsSmallSemisInIter(iter);
-[ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
-
 # doc/../gap/3nil.gd:24-35
 gap> Nr3NilpotentSemigroups( 4 );
 8
@@ -669,7 +650,7 @@ gap> Nr3NilpotentSemigroups( 16, "SelfDual" );
 gap> Nr3NilpotentSemigroups( 19, "Commutative" );
 12094270656160403920767935604624748908993169949317454767617795
 
-# doc/../gap/enums.gd:509-521
+# doc/../gap/enums.gd:403-415
 gap> List([1..8], NrSmallSemigroups);
 [ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128 ]
 gap> NrSmallSemigroups(8, IsCommutative, true, IsInverseSemigroup, true);
@@ -682,7 +663,7 @@ gap> NrSmallSemigroups(8, IsRegularSemigroup, true,
 gap> NrSmallSemigroups(5, NilpotencyDegree, 3);
 84
 
-# doc/../gap/enums.gd:565-574
+# doc/../gap/enums.gd:459-468
 gap> OneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
 <small semigroup of size 8>
 gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
@@ -692,21 +673,7 @@ gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 
-# doc/../gap/enums.gd:600-613
-gap> PositionsOfSmallSemigroups(3);
-[ [ 1 .. 18 ] ]
-gap> PositionsOfSmallSemigroups(3, IsRegularSemigroup, false);
-[ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
-gap> enum:=EnumeratorOfSmallSemigroups(3, IsRegularSemigroup, false);;
-gap> PositionsOfSmallSemigroups(enum);
-[ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
-gap> PositionsOfSmallSemigroups([1..4], IsBand, true);
-[ [ 1 ], [ 3, 4 ], [ 12 .. 17 ], [ 98 .. 123 ] ]
-gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
-> Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
-[ [ 1, 2 ] ]
-
-# doc/../gap/enums.gd:627-632
+# doc/../gap/enums.gd:609-614
 gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
 gap> PositionsOfSmallSemisInEnum
 > (enum);
@@ -724,7 +691,7 @@ gap> PrecomputedSmallSemisInfo[3];
   "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup",
   "IsSingularSemigroupCopy", "IsZeroSemigroup", "IsZeroSimpleSemigroup" ]
 
-# doc/../gap/enums.gd:675-685
+# doc/../gap/enums.gd:550-560
 gap> RandomSmallSemigroup(8, IsCommutative, true,
 > IsInverseSemigroup, true);
 <small semigroup of size 8>
@@ -735,19 +702,13 @@ gap> iter:=IteratorOfSmallSemigroups([1..7]);
 gap> RandomSmallSemigroup(iter);
 <small semigroup of size 7>
 
-# doc/../gap/enums.gd:698-703
+# doc/../gap/enums.gd:573-578
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
 gap> SizesOfSmallSemisInEnum(enum);
 [ 2, 3, 4 ]
 
-# doc/../gap/enums.gd:716-721
-gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-<iterator of semigroups of size 7>
-gap> SizesOfSmallSemisInIter(iter);
-[ 7 ]
-
-# doc/../gap/enums.gd:736-742
+# doc/../gap/enums.gd:632-638
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);
 [ <small semigroup of size 5>, <small semigroup of size 6> ]
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);

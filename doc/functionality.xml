@@ -211,7 +211,6 @@ semigroup. Then
 	The following functions have the same usage but may return different
     values:  <Ref Func="EnumeratorOfSmallSemigroups"/>,
     <Ref Func="AllSmallSemigroups"/>,
-    <Ref Func="EnumeratorSortedOfSmallSemigroups"/>,
     <Ref Func="IdsOfSmallSemigroups"/>,
     <Ref Func="IteratorOfSmallSemigroups"/>,
     <Ref Func="NrSmallSemigroups"/>,
@@ -304,25 +303,19 @@ semigroup. Then
 	<#Include Label="AllSmallSemigroups">
 	<#Include Label="EnumeratorOfSmallSemigroups">
 	<#Include Label="EnumeratorOfSmallSemigroupsByIds">
-	<#Include Label="EnumeratorSortedOfSmallSemigroups">
-	<#Include Label="FuncsOfSmallSemisInEnum">
-	<#Include Label="FuncsOfSmallSemisInIter">
+	<#Include Label="ArgumentsUsedToCreate">
 	<#Include Label="IdsOfSmallSemigroups">
 	<#Include Label="IsEnumeratorOfSmallSemigroups">
 	<#Include Label="IsIdSmallSemigroup">
 	<#Include Label="IsIteratorOfSmallSemigroups">
 	<#Include Label="IteratorOfSmallSemigroups">
-	<#Include Label="NamesFuncsSmallSemisInEnum">
-	<#Include Label="NamesFuncsSmallSemisInIter">
 	<#Include Label="Nr3NilpotentSemigroups">
 	<#Include Label="NrSmallSemigroups">
 	<#Include Label="OneSmallSemigroup">
-	<#Include Label="PositionsOfSmallSemigroups">
-	<#Include Label="PositionsOfSmallSemisInEnum">
+	<#Include Label="PositionsOfSmallSemigroupsIn">
 	<#Include Label="PrecomputedSmallSemisInfo">
 	<#Include Label="RandomSmallSemigroup">
-	<#Include Label="SizesOfSmallSemisInEnum">
-	<#Include Label="SizesOfSmallSemisInIter">
+	<#Include Label="SizesOfSmallSemigroupsIn">
 	<#Include Label="UpToIsomorphism">
 
 </Section>
