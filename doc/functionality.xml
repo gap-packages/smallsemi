@@ -243,21 +243,18 @@ semigroup. Then
     For example, to obtain all the commutative semigroups with <A>3</A>
     idempotents of sizes <A>2</A> to <A>5</A> use one of <Ref
     Func="EnumeratorOfSmallSemigroups"/>, <Ref Func="AllSmallSemigroups"/>,
-    <Ref Func="EnumeratorSortedOfSmallSemigroups"/>,
     <Ref Func="IteratorOfSmallSemigroups"/> with argument
 	<Log>
 [2..5], IsCommutative, true, Is3IdempotentGenerated, true
 	</Log>
     <Ref Func="AllSmallSemigroups"/> returns a list of all such semigroups,
-    <Ref Func="EnumeratorOfSmallSemigroups"/>, <Ref
-    Func="EnumeratorSortedOfSmallSemigroups"/>, and <Ref
-    Func="IteratorOfSmallSemigroups"/> return an enumerator and an iterator of
+    <Ref Func="EnumeratorOfSmallSemigroups"/>, and
+    <Ref Func="IteratorOfSmallSemigroups"/> return an enumerator and an iterator of
     all such semigroups, respectively. For more information on enumerators and
-    iterators see <Ref Attr="Enumerator" BookName="ref"/>, <Ref
-    Attr="EnumeratorSorted" BookName="ref"/>, or <Ref Oper="Iterator"
-        BookName="ref"/>. The following are rules of thumb regarding the
-    different situations when these functions should be used in order of
-    slowest to fastest and greatest memory use to least:
+    iterators see <Ref Attr="Enumerator" BookName="ref"/>, or
+    <Ref Oper="Iterator" BookName="ref"/>. The following are rules of thumb
+    regarding the different situations when these functions should be used in
+    order of slowest to fastest and greatest memory use to least:
 	<List>
 	<Item>
         <Ref Func="AllSmallSemigroups"/> should be used if the number of
@@ -265,10 +262,9 @@ semigroup. Then
         in a list.
     </Item>
 	<Item>
-        <Ref Func="EnumeratorOfSmallSemigroups"/> or
-        <Ref Func="EnumeratorSortedOfSmallSemigroups"/> should be used when the
+        <Ref Func="EnumeratorOfSmallSemigroups"/> should be used when the
         functions in even indexed positions are those stored in the library
-        (see <Ref Var="PrecomputedSmallSemisInfo"/>) or you want repeatedly
+        (see <Ref Var="PrecomputedSmallSemisInfo"/>) or you want to repeatedly
         search the same set of semigroups and there are too many to store in a
         list.  Note that the enumerator stores the id numbers of its elements
         but not the semigroups themselves. Hence every time an element of the
@@ -313,6 +309,7 @@ semigroup. Then
 	<#Include Label="NrSmallSemigroups">
 	<#Include Label="OneSmallSemigroup">
 	<#Include Label="PositionsOfSmallSemigroupsIn">
+	<#Include Label="PositionsOfSmallSemigroups">
 	<#Include Label="PrecomputedSmallSemisInfo">
 	<#Include Label="RandomSmallSemigroup">
 	<#Include Label="SizesOfSmallSemigroupsIn">
