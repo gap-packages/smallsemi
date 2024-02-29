@@ -8,6 +8,17 @@
 #############################################################################
 ##
 
+# TODO remove
+DeclareGlobalFunction("SizesOfSmallSemisInIter");
+# TODO delete
+DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
+# TODO remove
+DeclareGlobalFunction("NamesFuncsSmallSemisInIter");
+# TODO remove
+DeclareGlobalFunction("SMALLSEMI_STRIP_ARG");
+# TODO remove
+DeclareGlobalFunction("FuncsOfSmallSemisInIter");
+
 # <#GAPDoc Label="AllSmallSemigroups">
 # <ManSection>
 # <Func Name="AllSmallSemigroups" Arg="arg"/>
@@ -67,36 +78,6 @@
 # <#/GAPDoc>
 DeclareGlobalFunction("AllSmallSemigroups");
 
-#  <#GAPDoc Label="EmptyEnumeratorOfSmallSemigroups">
-#  <ManSection>
-#  <Func Name="EmptyEnumeratorOfSmallSemigroups" Arg=""/>
-#  <Description>
-#  the argument should be empty and the returned enumerator is too.
-#
-#  <Example><![CDATA[
-#  gap> EmptyEnumeratorOfSmallSemigroups();
-#  <empty enumerator of semigroups>
-#  ]]></Example>
-#  </Description>
-#  </ManSection>
-#  <#/GAPDoc>
-DeclareGlobalFunction("EmptyEnumeratorOfSmallSemigroups");
-
-#  <#GAPDoc Label="EmptyIteratorOfSmallSemigroups">
-#  <ManSection>
-#  <Func Name="EmptyIteratorOfSmallSemigroups" Arg=""/>
-#  <Description>
-#  the argument should be empty and the returned iterator is too.
-#
-#  <Example><![CDATA[
-#  gap> EmptyIteratorOfSmallSemigroups();
-#  <empty iterator of semigroups>
-#  ]]></Example>
-#  </Description>
-#  </ManSection>
-#  <#/GAPDoc>
-DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
-
 # <#GAPDoc Label="EnumeratorOfSmallSemigroups">
 # <ManSection>
 # <Func Name="EnumeratorOfSmallSemigroups" Arg="arg"/>
@@ -155,7 +136,6 @@ DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-
 DeclareGlobalFunction("EnumeratorOfSmallSemigroups");
 
 # <#GAPDoc Label="EnumeratorOfSmallSemigroupsByIds">
@@ -211,17 +191,6 @@ DeclareOperation("EnumeratorOfSmallSemigroupsByIdsNC",
 
 ##  TODO document
 DeclareGlobalFunction("EnumeratorOfSmallSemigroupsByDiagonals");
-
-# <#GAPDoc Label="EnumeratorSortedOfSmallSemigroups">
-# <ManSection>
-# <Func Name="EnumeratorSortedOfSmallSemigroups" Arg="arg"/>
-# <Description>
-# accepts the same arguments and returns the same values as
-# <Ref Func="EnumeratorOfSmallSemigroups"/>.
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("EnumeratorSortedOfSmallSemigroups");
 
 # <#GAPDoc Label="IdsOfSmallSemigroups">
 # <ManSection>
@@ -290,27 +259,9 @@ DeclareGlobalFunction("IdsOfSmallSemigroups");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareProperty("IsEnumeratorOfSmallSemigroups", IsObject);
-
-# <#GAPDoc Label="FuncsOfSmallSemisInEnum">
-# <ManSection>
-# <Func Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
-# <Description>
-# returns a list of the functions and their values that were used to create the
-# enumerator of small semigroups <A>enum</A>. If you only want the names of
-# these functions use <Ref Func="NamesFuncsSmallSemisInEnum"/>.
-# <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-# > IsRegularSemigroup, true);;
-# gap> FuncsOfSmallSemisInEnum(enum);
-# [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
-#   false ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-
-DeclareGlobalFunction("FuncsOfSmallSemisInEnum");
+DeclareCategory("IsEnumeratorOfSmallSemigroups",
+                IsEnumeratorByFunctionsRep
+                and IsEnumeratorByFunctions);
 
 # <#GAPDoc Label="IsIdSmallSemigroup">
 # <ManSection>
@@ -329,7 +280,6 @@ DeclareGlobalFunction("FuncsOfSmallSemisInEnum");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-
 DeclareGlobalFunction("IsIdSmallSemigroup");
 
 # <#GAPDoc Label="IsIteratorOfSmallSemigroups">
@@ -346,28 +296,8 @@ DeclareGlobalFunction("IsIdSmallSemigroup");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-
+# TODO update like IsEnumeratorOfSmallSemigroups
 DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
-
-# <#GAPDoc Label="FuncsOfSmallSemisInIter">
-# <ManSection>
-# <Func Name="FuncsOfSmallSemisInIter" Arg="iter"/>
-# <Description>
-# returns a list of the functions and their values that were used to create the
-# iterator of small semigroups <A>iter</A>. If you only want the names of these
-# functions use <Ref Func="NamesFuncsSmallSemisInIter"/>.
-# <Example><![CDATA[
-# gap> enum:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-# > IsRegularSemigroup, true);;
-# gap> FuncsOfSmallSemisInIter(enum);
-# [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
-#   false ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-
-DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 
 # <#GAPDoc Label="IteratorOfSmallSemigroups">
 # <ManSection>
@@ -432,42 +362,6 @@ DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 # </ManSection>
 # <#/GAPDoc>
 DeclareGlobalFunction("IteratorOfSmallSemigroups");
-
-# <#GAPDoc Label="NamesFuncsSmallSemisInEnum">
-# <ManSection>
-# <Func Name="NamesFuncsSmallSemisInEnum" Arg="enum"/>
-# <Description>
-# returns a list of the names of functions and their values that were used to
-# create the enumerator of small semigroups <A>enum</A>. If you only want the
-# actual functions themselves then use <Ref Func="FuncsOfSmallSemisInEnum"/>.
-# <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-# > IsRegularSemigroup, true);;
-# gap> NamesFuncsSmallSemisInEnum(enum);
-# [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("NamesFuncsSmallSemisInEnum");
-
-# <#GAPDoc Label="NamesFuncsSmallSemisInIter">
-# <ManSection>
-# <Attr Name="NamesFuncsSmallSemisInIter" Arg="iter"/>
-# <Description>
-# returns a list of the names of functions and their values that were used to
-# create the iterator of small semigroups <A>iter</A>. If you only want the
-# actual functions themselves then use <Ref Func="FuncsOfSmallSemisInIter"/>.
-# <Example><![CDATA[
-# gap> iter:=IteratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
-# > IsRegularSemigroup, true);;
-# gap> NamesFuncsSmallSemisInIter(iter);
-# [ "IsRegularSemigroup", true, "IsSimpleSemigroup", false ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("NamesFuncsSmallSemisInIter");
 
 # <#GAPDoc Label="NrSmallSemigroups">
 # <ManSection>
@@ -616,25 +510,6 @@ DeclareGlobalFunction("OneSmallSemigroup");
 # <#/GAPDoc>
 DeclareGlobalFunction("PositionsOfSmallSemigroups");
 
-# <#GAPDoc Label="PositionsOfSmallSemisInEnum">
-# <ManSection>
-# <Func Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
-# <Description>
-# returns the second components of the id numbers of the small semigroups in
-# the enumerator of small semigroups <A>enum</A> in a list partitioned
-# according the size of the semigroup.  The same value is returned by using
-# <Ref Func="PositionsOfSmallSemigroups"/>.
-# <Example><![CDATA[
-# gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
-# gap> PositionsOfSmallSemisInEnum
-# > (enum);
-# [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("PositionsOfSmallSemisInEnum");
-
 # <#GAPDoc Label="RandomSmallSemigroup">
 # <ManSection>
 # <Func Name="RandomSmallSemigroup" Arg="arg"/>
@@ -704,25 +579,46 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareGlobalFunction("SizesOfSmallSemisInEnum");
-
-# <#GAPDoc Label="SizesOfSmallSemisInIter">
+DeclareAttribute("SizesOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
+# <#GAPDoc Label="FuncsOfSmallSemisInEnum">
 # <ManSection>
-# <Func Name="SizesOfSmallSemisInIter" Arg="iter"/>
+# <Func Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
 # <Description>
-# returns the sizes of the semigroups in the iterator <A>iter</A> of small
-# semigroups.
-#
+# returns a list of the functions and their values that were used to create the
+# enumerator of small semigroups <A>enum</A>. If you only want the names of
+# these functions use <Ref Func="NamesFuncsSmallSemisInEnum"/>.
 # <Example><![CDATA[
-# gap> iter:=IteratorOfSmallSemigroups(7, IsCommutative, false);
-# <iterator of semigroups of size 7>
-# gap> SizesOfSmallSemisInIter(iter);
-# [ 7 ]
+# gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
+# > IsRegularSemigroup, true);;
+# gap> FuncsOfSmallSemisInEnum(enum);
+# [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
+#   false ]
 # ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareGlobalFunction("SizesOfSmallSemisInIter");
+DeclareAttribute("FunctionsOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
+# <#GAPDoc Label="PositionsOfSmallSemisInEnum">
+# <ManSection>
+# <Func Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
+# <Description>
+# returns the second components of the id numbers of the small semigroups in
+# the enumerator of small semigroups <A>enum</A> in a list partitioned
+# according the size of the semigroup.  The same value is returned by using
+# <Ref Func="PositionsOfSmallSemigroups"/>.
+# <Example><![CDATA[
+# gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
+# gap> PositionsOfSmallSemisInEnum
+# > (enum);
+# [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
+# ]]></Example>
+# </Description>
+# </ManSection>
+# <#/GAPDoc>
+DeclareAttribute("IndicesOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
+DeclareAttribute("SizesOfSmallSemigroups", IsIteratorOfSmallSemigroups);
+DeclareAttribute("FunctionsOfSmallSemigroups", IsIteratorOfSmallSemigroups);
+DeclareAttribute("IndicesOfSmallSemigroups", IsIteratorOfSmallSemigroups);
 
 # <#GAPDoc Label="UpToIsomorphism">
 # <ManSection>
@@ -753,6 +649,7 @@ DeclareOperation("UpToIsomorphism", [IsSmallSemigroup]);
 
 DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 
+# TODO remove if not used
 # <#GAPDoc Label="SMALLSEMI_CREATE_ENUM">
 # <ManSection>
 # <Func Name="SMALLSEMI_CREATE_ENUM" Arg="source, positions, names"/>
@@ -789,33 +686,3 @@ DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_CREATE_ENUM");
-
-# <#GAPDoc Label="SMALLSEMI_SORT_ARG_NC">
-# <ManSection>
-# <Func Name="SMALLSEMI_SORT_ARG_NC" Arg="arg"/>
-# <Description>
-# <A>arg</A> is assumed to satisfy <Ref Func="SMALLSEMI_ValidateArgs"/>
-# <C>(arg)=true</C> but this is not checked.
-#
-# <C>SMALLSEMI_SORT_ARG_NC</C> sorts <A>arg</A> so that the functions
-# <A>arg[2i]</A> where <A>arg[2i+1]</A> is <C>true</C> come at the start, and
-# then the arguments <A>arg[2i]</A> are ordered alphabetically.
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_SORT_ARG_NC");
-
-# <#GAPDoc Label="SMALLSEMI_STRIP_ARG">
-# <ManSection>
-# <Func Name="SMALLSEMI_STRIP_ARG" Arg="arg"/>
-# <Description>
-# returns <A>arg</A> or <A>arg[1]</A> if <A>arg</A> is a list containing an
-# argument in its first position. This is required as an <C>arg</C> is not
-# input as a list but occurs as a list in the function where it is used. Hence
-# passing the <C>arg</C> to another function passes a list rather than the
-# correct argument.
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareGlobalFunction("SMALLSEMI_STRIP_ARG");

@@ -113,12 +113,11 @@ DeclareCategory("IsSmallSemigroup", IsSemigroup);
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareRepresentation("IsSmallSemigroupElt",
-                      IsPositionalObjectRep
-                      and IsMultiplicativeElement
-                      and IsAssociativeElement
-                      and IsAttributeStoringRep,
-                      [2]);
+DeclareCategory("IsSmallSemigroupElt",
+                IsPositionalObjectRep and IsAssociativeElement);
+
+DeclareCategoryCollections("IsSmallSemigroupElt");
+DeclareCategoryCollections("IsSmallSemigroupEltCollection");
 
 # <#GAPDoc Label="RecoverMultiplicationTable">
 # <ManSection>
