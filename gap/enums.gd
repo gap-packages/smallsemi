@@ -563,7 +563,7 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 # <#/GAPDoc>
 DeclareGlobalFunction("RandomSmallSemigroup");
 
-# <#GAPDoc Label="SizesOfSmallSemisInEnum">
+# <#GAPDoc Label="SizesOfSmallSemigroupsIn">
 # <ManSection>
 # <Func Name="SizesOfSmallSemisInEnum" Arg="enum"/>
 # <Description>
@@ -579,8 +579,8 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareAttribute("SizesOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
-# <#GAPDoc Label="FuncsOfSmallSemisInEnum">
+DeclareAttribute("SizesOfSmallSemigroupsIn", IsEnumeratorOfSmallSemigroups);
+# <#GAPDoc Label="ArgumentsUsedToCreate">
 # <ManSection>
 # <Func Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
 # <Description>
@@ -597,8 +597,8 @@ DeclareAttribute("SizesOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareAttribute("FunctionsOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
-# <#GAPDoc Label="PositionsOfSmallSemisInEnum">
+DeclareAttribute("ArgumentsUsedToCreate", IsEnumeratorOfSmallSemigroups);
+# <#GAPDoc Label="PositionsOfSmallSemigroupsIn">
 # <ManSection>
 # <Func Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
 # <Description>
@@ -615,10 +615,10 @@ DeclareAttribute("FunctionsOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareAttribute("IndicesOfSmallSemigroups", IsEnumeratorOfSmallSemigroups);
-DeclareAttribute("SizesOfSmallSemigroups", IsIteratorOfSmallSemigroups);
-DeclareAttribute("FunctionsOfSmallSemigroups", IsIteratorOfSmallSemigroups);
-DeclareAttribute("IndicesOfSmallSemigroups", IsIteratorOfSmallSemigroups);
+DeclareAttribute("PositionsOfSmallSemigroupsIn", IsEnumeratorOfSmallSemigroups);
+DeclareAttribute("SizesOfSmallSemigroupsIn", IsIteratorOfSmallSemigroups);
+DeclareAttribute("ArgumentsUsedToCreate", IsIteratorOfSmallSemigroups);
+DeclareAttribute("PositionsOfSmallSemigroupsIn", IsIteratorOfSmallSemigroups);
 
 # <#GAPDoc Label="UpToIsomorphism">
 # <ManSection>

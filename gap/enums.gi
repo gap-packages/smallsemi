@@ -129,9 +129,9 @@ function(arg...)
   if IsEnumeratorOfSmallSemigroups(arg[1]) then
     return true;
   elif IsIteratorOfSmallSemigroups(arg[1]) then
-    arg := Concatenation([SizesOfSmallSemigroups(arg[1])],
+    arg := Concatenation([SizesOfSmallSemigroupsIn(arg[1])],
                          arg{[2 .. Length(arg)]},
-                         FunctionsOfSmallSemigroups(arg[1]));
+                         ArgumentsUsedToCreate(arg[1]));
     arg := SMALLSEMI_NormalizeArgs(arg);
     return SMALLSEMI_CanCreateEnumerator(arg);
   elif IsPosInt(arg[1]) then
@@ -184,9 +184,9 @@ function(sizes, positions, funcs)
     fi;
     i := i - 1;
     pos := pos - enum!.Lengths[i];
-    S := SmallSemigroupNC(SizesOfSmallSemigroups(enum)[i],
-                          IndicesOfSmallSemigroups(enum)[i][pos]);
-    funcs := FunctionsOfSmallSemigroups(enum);
+    S := SmallSemigroupNC(SizesOfSmallSemigroupsIn(enum)[i],
+                          PositionsOfSmallSemigroupsIn(enum)[i][pos]);
+    funcs := ArgumentsUsedToCreate(enum);
     for i in [1, 3 .. Length(funcs) - 1] do
       if IsAttribute(funcs[i]) or IsProperty(funcs[i]) then
         Setter(funcs[i])(S, funcs[i + 1]);
@@ -198,8 +198,8 @@ function(sizes, positions, funcs)
   record.NumberElement := function(enum, elm)
     local id, size, index;
     id    := IdSmallSemigroup(elm);
-    size  := Position(SizesOfSmallSemigroups(enum), id[1]);
-    index := Position(IndicesOfSmallSemigroups(enum), id[2]);
+    size  := Position(SizesOfSmallSemigroupsIn(enum), id[1]);
+    index := Position(PositionsOfSmallSemigroupsIn(enum), id[2]);
     return index + enum!.Lengths[size - 1];
   end;
 
@@ -211,7 +211,7 @@ function(sizes, positions, funcs)
       Print("<empty enumerator of semigroups>");
       return;
     fi;
-    sizes := SizesOfSmallSemigroups(enum);
+    sizes := SizesOfSmallSemigroupsIn(enum);
     msg := "size";
     if Length(sizes) > 1 then
       Append(msg, "s");
@@ -223,9 +223,9 @@ function(sizes, positions, funcs)
 
   enum := EnumeratorByFunctions(SmallSemigroupEnumeratorFamily, record);
 
-  SetIndicesOfSmallSemigroups(enum, positions);
-  SetSizesOfSmallSemigroups(enum, sizes);
-  SetFunctionsOfSmallSemigroups(enum, funcs);
+  SetPositionsOfSmallSemigroupsIn(enum, positions);
+  SetSizesOfSmallSemigroupsIn(enum, sizes);
+  SetArgumentsUsedToCreate(enum, funcs);
   return enum;
 end);
 
@@ -238,8 +238,8 @@ function(arg...)
   local enum, size, pos;
 
   enum := EnumeratorOfSmallSemigroups(arg);
-  size := SizesOfSmallSemigroups(enum);
-  pos  := IndicesOfSmallSemigroups(enum);
+  size := SizesOfSmallSemigroupsIn(enum);
+  pos  := PositionsOfSmallSemigroupsIn(enum);
 
   return Concatenation(List([1 .. Length(size)],
                        x -> List(pos[x], y -> [size[x], y])));
@@ -420,7 +420,7 @@ function(arg...)
     if IsPosInt(arg[1]) then
       return [[1 .. NrSmallSemigroups(arg[1])]];
     elif IsEnumeratorOfSmallSemigroups(arg[1]) then
-      return IndicesOfSmallSemigroups(arg[1]);
+      return PositionsOfSmallSemigroupsIn(arg[1]);
     fi;
   fi;
 
@@ -430,7 +430,7 @@ function(arg...)
     sizes := [arg[1]];
   elif IsEnumeratorOfSmallSemigroups(arg[1])
       or IsIteratorOfSmallSemigroups(arg[1]) then
-    sizes := SizesOfSmallSemigroups(arg[1]);
+    sizes := SizesOfSmallSemigroupsIn(arg[1]);
     # TODO set arg as below here too
   elif IsCyclotomicCollection(arg[1]) and ForAll(arg[1], IsPosInt) then
     sizes := arg[1];
@@ -440,9 +440,9 @@ function(arg...)
   user := [];
 
   if IsIteratorOfSmallSemigroups(arg[1]) then
-      arg := Concatenation([SizesOfSmallSemigroups(arg[1])],
+      arg := Concatenation([SizesOfSmallSemigroupsIn(arg[1])],
                            arg{[2 .. Length(arg)]},
-                           FunctionsOfSmallSemigroups(arg[1]));
+                           ArgumentsUsedToCreate(arg[1]));
       arg := SMALLSEMI_NormalizeArgs(arg);
   fi;
 
@@ -460,7 +460,7 @@ function(arg...)
 
   # initialize positions
   if IsEnumeratorOfSmallSemigroups(arg[1]) then
-    positions := List(IndicesOfSmallSemigroups(arg[1]), ShallowCopy);
+    positions := List(PositionsOfSmallSemigroupsIn(arg[1]), ShallowCopy);
   elif ForAny([3, 5 .. Length(prec)], i -> prec[i] = true) then
     i := First([3, 5 .. Length(prec)], i -> prec[i] = true);
     positions := List(sizes,
@@ -522,11 +522,11 @@ end);
 ########################################################################
 
 # TODO remove
-InstallMethod(SizesOfSmallSemigroups, "for an iterator",
+InstallMethod(SizesOfSmallSemigroupsIn, "for an iterator",
 [IsIteratorOfSmallSemigroups], it -> it!.sizes);
 
 # TODO remove
-InstallMethod(FunctionsOfSmallSemigroups, "for an iterator",
+InstallMethod(ArgumentsUsedToCreate, "for an iterator",
 [IsIteratorOfSmallSemigroups], it -> it!.funcs);
 
 InstallGlobalFunction(EnumeratorOfSmallSemigroups,
@@ -545,8 +545,8 @@ function(arg...)
     sizes := [arg[1]];
   elif IsEnumeratorOfSmallSemigroups(arg[1])
         or IsIteratorOfSmallSemigroups(arg[1]) then
-    sizes := SizesOfSmallSemigroups(arg[1]);
-    Append(arg, FunctionsOfSmallSemigroups(arg[1]));
+    sizes := SizesOfSmallSemigroupsIn(arg[1]);
+    Append(arg, ArgumentsUsedToCreate(arg[1]));
   else
     sizes := arg[1];
   fi;
@@ -778,13 +778,13 @@ function(arg...)
     if IsEmpty(arg[1]) then
       return EmptyIteratorOfSmallSemigroups();
     fi;
-    sizes := SizesOfSmallSemigroups(arg[1]);
+    sizes := SizesOfSmallSemigroupsIn(arg[1]);
     names := [];
-    funcs := FunctionsOfSmallSemigroups(arg[1]);
+    funcs := ArgumentsUsedToCreate(arg[1]);
   elif IsIteratorOfSmallSemigroups(arg[1]) then
-    sizes := SizesOfSmallSemigroups(arg[1]);
+    sizes := SizesOfSmallSemigroupsIn(arg[1]);
     names := [];
-    funcs := FunctionsOfSmallSemigroups(arg[1]);
+    funcs := ArgumentsUsedToCreate(arg[1]);
   else
     # list of positive integers
     sizes := arg[1];
