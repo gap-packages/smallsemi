@@ -322,7 +322,7 @@ gap> Length(enum);
 3
 gap> List(enum, IdSmallSemigroup);
 [ [ 5, 1 ], [ 6, 1 ], [ 7, 1 ] ]
-gap> PositionsOfSmallSemigroups(enum);
+gap> PositionsOfSmallSemigroupsIn(enum);
 [ [ 1 ], [ 1 ], [ 1 ] ]
 gap> ids := [[5, 7], [5, 4], [5, 8]];
 [ [ 5, 7 ], [ 5, 4 ], [ 5, 8 ] ]
@@ -461,12 +461,12 @@ gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
 gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
-gap> PositionsOfSmallSemigroups(enum);
+gap> PositionsOfSmallSemigroupsIn(enum);
 [ [ 3 ], [ 10, 11, 12, 13, 14, 15, 16 ], 
   [ 50, 51, 88, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100, 101, 102, 103, 
       104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 
       118, 119, 120, 121, 124, 125 ] ]
-gap> PositionsOfSmallSemigroups(enum);
+gap> PositionsOfSmallSemigroupsIn(enum);
 [ [ 3 ], [ 10, 11, 12, 13, 14, 15, 16 ], 
   [ 50, 51, 88, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100, 101, 102, 103, 
       104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 
@@ -474,13 +474,13 @@ gap> PositionsOfSmallSemigroups(enum);
 gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
-gap> FunctionsOfSmallSemigroups(enum);
+gap> ArgumentsUsedToCreate(enum);
 [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
   false ]
 gap> iter := IteratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);
 <iterator of semigroups of sizes [ 2 .. 4 ]>
-gap> FunctionsOfSmallSemigroups(iter);
+gap> ArgumentsUsedToCreate(iter);
 [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">, 
   false ]
 gap> RandomSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
@@ -504,11 +504,11 @@ gap> RandomSmallSemigroup(iter, IsRegularSemigroup, true);
 <small semigroup of size 7>
 gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
-gap> SizesOfSmallSemigroups(enum);
+gap> SizesOfSmallSemigroupsIn(enum);
 [ 2, 3, 4 ]
 gap> iter := IteratorOfSmallSemigroups(7, IsCommutative, false);
 <iterator of semigroups of size 7>
-gap> SizesOfSmallSemigroups(iter);
+gap> SizesOfSmallSemigroupsIn(iter);
 [ 7 ]
 gap> SMALLSEMI_NormalizeArgs(5, IsCommutativeSemigroup, true);
 [ 5, <Property "IsCommutative">, true ]
