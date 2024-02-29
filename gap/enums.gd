@@ -488,7 +488,7 @@ DeclareGlobalFunction("OneSmallSemigroup");
 # The function returns a list of the second components of the <Ref
 # Attr="IdSmallSemigroup" /> of all the small semigroups <C>S</C> in the
 # library satisfying <C>Size(S)</C> in <C>arg[1]</C> or <C>Size(S)</C> in
-# <C>SizesOfSmallSemisInEnum(arg[1])</C> and <C>arg[2i](S)=arg[2i+1]</C> for
+# <C>SizesOfSmallSemigroupsIn(arg[1])</C> and <C>arg[2i](S)=arg[2i+1]</C> for
 # all <C>i</C> partitioned by size of the semigroups.
 #
 # <Example><![CDATA[
@@ -565,7 +565,7 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 
 # <#GAPDoc Label="SizesOfSmallSemigroupsIn">
 # <ManSection>
-# <Func Name="SizesOfSmallSemisInEnum" Arg="enum"/>
+# <Func Name="SizesOfSmallSemigroupsIn" Arg="enum"/>
 # <Description>
 # returns the sizes of the semigroups in the enumerator of small semigroups
 # <A>enum</A>.
@@ -573,7 +573,7 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 # <Example><![CDATA[
 # gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
 # <enumerator of semigroups of sizes [ 2, 3, 4 ]>
-# gap> SizesOfSmallSemisInEnum(enum);
+# gap> SizesOfSmallSemigroupsIn(enum);
 # [ 2, 3, 4 ]
 # ]]></Example>
 # </Description>
@@ -582,15 +582,14 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 DeclareAttribute("SizesOfSmallSemigroupsIn", IsEnumeratorOfSmallSemigroups);
 # <#GAPDoc Label="ArgumentsUsedToCreate">
 # <ManSection>
-# <Func Name="FuncsOfSmallSemisInEnum" Arg="enum"/>
+# <Func Name="ArgumentsUsedToCreate" Arg="enum"/>
 # <Description>
 # returns a list of the functions and their values that were used to create the
-# enumerator of small semigroups <A>enum</A>. If you only want the names of
-# these functions use <Ref Func="NamesFuncsSmallSemisInEnum"/>.
+# enumerator of small semigroups <A>enum</A>.
 # <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
+# gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 # > IsRegularSemigroup, true);;
-# gap> FuncsOfSmallSemisInEnum(enum);
+# gap> ArgumentsUsedToCreate(enum);
 # [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
 #   false ]
 # ]]></Example>
@@ -600,7 +599,7 @@ DeclareAttribute("SizesOfSmallSemigroupsIn", IsEnumeratorOfSmallSemigroups);
 DeclareAttribute("ArgumentsUsedToCreate", IsEnumeratorOfSmallSemigroups);
 # <#GAPDoc Label="PositionsOfSmallSemigroupsIn">
 # <ManSection>
-# <Func Name="PositionsOfSmallSemisInEnum" Arg="enum"/>
+# <Func Name="PositionsOfSmallSemigroupsIn" Arg="enum"/>
 # <Description>
 # returns the second components of the id numbers of the small semigroups in
 # the enumerator of small semigroups <A>enum</A> in a list partitioned
@@ -608,7 +607,7 @@ DeclareAttribute("ArgumentsUsedToCreate", IsEnumeratorOfSmallSemigroups);
 # <Ref Func="PositionsOfSmallSemigroups"/>.
 # <Example><![CDATA[
 # gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
-# gap> PositionsOfSmallSemisInEnum
+# gap> PositionsOfSmallSemigroupsIn
 # > (enum);
 # [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
 # ]]></Example>
