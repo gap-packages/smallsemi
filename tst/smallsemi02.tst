@@ -582,10 +582,10 @@ gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
 gap> enum:=EnumeratorOfSmallSemigroupsByIds([2,3], [[1..2],[1..10]]);
 <enumerator of semigroups of sizes [ 2, 3 ]>
 
-# doc/../gap/enums.gd:590-596
-gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false,
+# doc/../gap/enums.gd:589-595
+gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
-gap> FuncsOfSmallSemisInEnum(enum);
+gap> ArgumentsUsedToCreate(enum);
 [ <Property "IsRegularSemigroup">, true, <Property "IsSimpleSemigroup">,
   false ]
 
@@ -673,11 +673,25 @@ gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 
-# doc/../gap/enums.gd:609-614
+# doc/../gap/enums.gd:608-613
 gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
-gap> PositionsOfSmallSemisInEnum
+gap> PositionsOfSmallSemigroupsIn
 > (enum);
 [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
+
+# doc/../gap/enums.gd:494-507
+gap> PositionsOfSmallSemigroups(3);
+[ [ 1 .. 18 ] ]
+gap> PositionsOfSmallSemigroups(3, IsRegularSemigroup, false);
+[ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
+gap> enum:=EnumeratorOfSmallSemigroups(3, IsRegularSemigroup, false);;
+gap> PositionsOfSmallSemigroups(enum);
+[ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
+gap> PositionsOfSmallSemigroups([1..4], IsBand, true);
+[ [ 1 ], [ 3, 4 ], [ 12 .. 17 ], [ 98 .. 123 ] ]
+gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
+> Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
+[ [ 1, 2 ] ]
 
 # doc/../gap/autovars.g:58-69
 gap> PrecomputedSmallSemisInfo[3];
@@ -705,10 +719,10 @@ gap> RandomSmallSemigroup(iter);
 # doc/../gap/enums.gd:573-578
 gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
 <enumerator of semigroups of sizes [ 2, 3, 4 ]>
-gap> SizesOfSmallSemisInEnum(enum);
+gap> SizesOfSmallSemigroupsIn(enum);
 [ 2, 3, 4 ]
 
-# doc/../gap/enums.gd:632-638
+# doc/../gap/enums.gd:631-637
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);
 [ <small semigroup of size 5>, <small semigroup of size 6> ]
 gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);
