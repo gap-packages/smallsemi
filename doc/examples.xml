@@ -293,7 +293,7 @@ the enumerator of all bands of order 8 having 1 Green's
 One could try to circumvent the described problem by using a iterator.
 The command
 <Example><![CDATA[
-gap> iter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);
+gap> iter := IteratorOfSmallSemigroups(8, IsCommutativeSemigroup, false);
 <iterator of semigroups of size 8>
 ]]></Example>
 will succeed. But running through the elements in the iterator can take
@@ -305,7 +305,7 @@ pieces by restricting the range of IDs considered at once to at most
 possibly by a smaller value, depending on the amount of memory you
 have available. For example start with
 <Example><![CDATA[
-gap> enum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);
+gap> enum1 := EnumeratorOfSmallSemigroupsByIds([8], [[1 .. 2 ^ 24 - 1]]);
 <enumerator of semigroups of size 8>
 gap> enum2 := EnumeratorOfSmallSemigroups(enum1, IsCommutativeSemigroup, false);
 <enumerator of semigroups of size 8>
@@ -330,7 +330,7 @@ gap> t1 := RandomTransformation(3);
 Transformation( [ 1, 3, 1 ] )
 gap> t2 := RandomTransformation(3);
 Transformation( [ 1, 2, 3 ] )
-gap> sgrp := SemigroupByGenerators([t1,t2]);
+gap> sgrp := SemigroupByGenerators([t1, t2]);
 <semigroup with 2 generators>
 gap> Size(sgrp);
 3

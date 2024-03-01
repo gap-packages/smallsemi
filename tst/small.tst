@@ -15,80 +15,80 @@
 gap> START_TEST("Smallsemi package: small.tst");
 gap> LoadPackage("smallsemi", false);;
 gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StartTest(); fi;
-gap> cur:=InfoLevel(InfoSmallsemi);;
+gap> cur := InfoLevel(InfoSmallsemi);;
 gap> SetInfoLevel(InfoSmallsemi, 1);
-gap> Info( InfoSmallsemi, 1, "This is a test for the info class.");
+gap> Info(InfoSmallsemi, 1, "This is a test for the info class.");
 #I  This is a test for the info class.
 gap> SetInfoLevel(InfoSmallsemi, 0);
 gap> sgrp := SemigroupByMultiplicationTable([[1]]);;
-gap> map:=EquivalenceSmallSemigroup(sgrp);;
+gap> map := EquivalenceSmallSemigroup(sgrp);;
 gap> Size(Range(map));
 1
-gap> grp:=SmallGroup(7,1);;
-gap> map:=EquivalenceSmallSemigroup(grp);
+gap> grp := SmallGroup(7, 1);;
+gap> map := EquivalenceSmallSemigroup(grp);
 SemigroupHomomorphismByImages ( Group( [ f1 ] )-><small semigroup of size 7>)
-gap> id:=IdSmallSemigroup(Range(map));
+gap> id := IdSmallSemigroup(Range(map));
 [ 7, 836017 ]
 gap> IsGroupAsSemigroup(SmallSemigroup(id));
 true
-gap> t1 := Transformation( [ 2, 2, 1 ] );;
-gap> t2 := Transformation( [ 2, 1, 1 ] );;
-gap> sgrp := SemigroupByGenerators([t1,t2]);
+gap> t1 := Transformation([2, 2, 1]);;
+gap> t2 := Transformation([2, 1, 1]);;
+gap> sgrp := SemigroupByGenerators([t1, t2]);
 <transformation semigroup of degree 3 with 2 generators>
 gap> map := EquivalenceSmallSemigroup(sgrp);
-MappingByFunction( <transformation semigroup of size 6, degree 3 with 2 
+MappingByFunction( <transformation semigroup of size 6, degree 3 with 2
  generators>, <small semigroup of size 6>, function( x ) ... end )
 gap> RespectsMultiplication(map);
 false
-gap> PreImage(map,MinimalGeneratingSet(Range(map)));
+gap> PreImage(map, MinimalGeneratingSet(Range(map)));
 [ Transformation( [ 1, 1, 2 ] ), Transformation( [ 2, 1, 1 ] ) ]
 gap> Idempotents(Range(map));
 [ s1, s3, s5 ]
-gap> sgrp:=RandomSmallSemigroup(5);
+gap> sgrp := RandomSmallSemigroup(5);
 <small semigroup of size 5>
 gap> IsSmallSemigroup(sgrp);
 true
-gap> sgrp:=Semigroup(Transformation([1]));;
+gap> sgrp := Semigroup(Transformation([1]));;
 gap> IsSmallSemigroup(sgrp);
 false
 gap> IsSmallSemigroupElt(Transformation([1]));
 false
-gap> sgrp:=RandomSmallSemigroup(5);;
+gap> sgrp := RandomSmallSemigroup(5);;
 gap> IsSmallSemigroupElt(Random(sgrp));
 true
 gap> RecoverMultiplicationTable(5, 1000);
-[ [ 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 4, 5, 3 ], 
+[ [ 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 4, 5, 3 ],
   [ 1, 2, 5, 3, 4 ] ]
 gap> SmallSemigroupCreator(last);
 <small semigroup of size 5>
-gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
+gap> s := SemigroupByMultiplicationTableNC([[1, 2], [2, 1]]);
 <semigroup of size 2, with 2 generators>
 gap> IsSmallSemigroup(s);
 false
-gap> RecoverMultiplicationTable(10,2);
+gap> RecoverMultiplicationTable(10, 2);
 fail
-gap> RecoverMultiplicationTable(1,2);
+gap> RecoverMultiplicationTable(1, 2);
 fail
-gap> RecoverMultiplicationTable(2,1);
+gap> RecoverMultiplicationTable(2, 1);
 [ [ 1, 1 ], [ 1, 1 ] ]
-gap> RecoverMultiplicationTable(8,11111111);
-[ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ], 
-  [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ], 
-  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ], 
+gap> RecoverMultiplicationTable(8, 11111111);
+[ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ],
+  [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ],
+  [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ],
   [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 8, 8, 8, 8, 8, 8, 8, 8 ] ]
-gap> RecoverMultiplicationTable(2,11111111);
+gap> RecoverMultiplicationTable(2, 11111111);
 fail
-gap> SmallSemigroup(8,1353452);
+gap> SmallSemigroup(8, 1353452);
 <small semigroup of size 8>
-gap> s:=Semigroup(Transformation([ 1, 2, 2 ]),Transformation([ 1, 2, 3 ]));;
+gap> s := Semigroup(Transformation([1, 2, 2]), Transformation([1, 2, 3]));;
 gap> IdSmallSemigroup(s);
 [ 2, 3 ]
-gap> map:=EquivalenceSmallSemigroup(s);;
+gap> map := EquivalenceSmallSemigroup(s);;
 gap> IsBijective(map);
 true
-gap> s:=SemigroupByMultiplicationTableNC( [ [ 1, 2 ], [ 1, 2 ] ] );
+gap> s := SemigroupByMultiplicationTableNC([[1, 2], [1, 2]]);
 <semigroup of size 2, with 2 generators>
-gap> map:=EquivalenceSmallSemigroup(s);
+gap> map := EquivalenceSmallSemigroup(s);
 MappingByFunction( <semigroup of size 2, with 2 generators>
  , <small semigroup of size 2>, function( x ) ... end )
 gap> RespectsMultiplication(map);
@@ -99,7 +99,7 @@ gap> SmallSemigroupType;;
 gap> UnloadSmallsemiData(true);
 gap> IsBound(DATA2TO7[1]);
 false
-gap> RecoverMultiplicationTable(2,1);;
+gap> RecoverMultiplicationTable(2, 1);;
 gap> DATA2TO7[1];
 [ "0100", "0101", "0011" ]
 gap> UnloadSmallsemiData(true);
@@ -107,7 +107,7 @@ gap> DATA2TO7;
 [  ]
 gap> DATA8;
 [  ]
-gap> Display( BLUEPRINT_MATS[3] );
+gap> Display(BLUEPRINT_MATS[3]);
 [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
   [  1,  1,  1,  1,  1,  1,  1,  1 ],
   [  1,  1,  1,  1,  1,  1,  1,  1 ],
@@ -118,26 +118,26 @@ gap> Display( BLUEPRINT_MATS[3] );
   [  1,  1,  1 ] ]
 gap> 3NIL_DATA;
 rec( diag := fail )
-gap> SmallSemigroup( 8, 11433105 );;
+gap> SmallSemigroup(8, 11433105);;
 gap> DATA8;
 [ ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-  ,,,,,,,,,,,,,, 
-  [ "111", "222", "333", "444", "444", "333", "333", "111", "444", "000", 
-      "333", "333", "000", "000", "222", "444", "111", "000", "000", "111", 
-      "111", "333", "000", "111", "222", "222", "444", "444", "444", "333", 
-      "000", "222", "111", "222", "222", "444", "333", "000", "222", "111", 
-      "222", "222", "333", "000", "111", "444", "222", "222", "445", "333", 
+  ,,,,,,,,,,,,,,
+  [ "111", "222", "333", "444", "444", "333", "333", "111", "444", "000",
+      "333", "333", "000", "000", "222", "444", "111", "000", "000", "111",
+      "111", "333", "000", "111", "222", "222", "444", "444", "444", "333",
+      "000", "222", "111", "222", "222", "444", "333", "000", "222", "111",
+      "222", "222", "333", "000", "111", "444", "222", "222", "445", "333",
       "000", "111", "444", "222", "222", "455" ] ]
-gap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;
+gap> SmallSemigroup(8, NrSmallSemigroups(8) - 2);;
 gap> 3NIL_DATA;
-rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ], 
+rec( diag := [ 2, 3 ], next := 4, positions := [ 1, 3, 4, 7 ],
   strlist := [ "0013", "0313" ] )
-gap> SmallSemigroupNC(5,1);
+gap> SmallSemigroupNC(5, 1);
 <small semigroup of size 5>
-gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
+gap> SmallSemigroupNC(5, 1) = SmallSemigroup(5, 1);
 true
 
 # Issue 2 (Github 2019)
@@ -164,8 +164,8 @@ gap> BruteForceInverseCheck := function(map)
 gap> S := SmallSemigroup(4, 18);
 <small semigroup of size 4>
 gap> map := IsomorphismTransformationSemigroup(S);
-SemigroupHomomorphismByImages ( <small semigroup of size 4>->Semigroup( 
-[ Transformation( [ 1, 1, 1, 4, 2 ] ), Transformation( [ 1, 1, 1, 4, 3 ] ), 
+SemigroupHomomorphismByImages ( <small semigroup of size 4>->Semigroup(
+[ Transformation( [ 1, 1, 1, 4, 2 ] ), Transformation( [ 1, 1, 1, 4, 3 ] ),
   Transformation( [ 1, 1, 1, 4, 4 ] ) ] ))
 gap> BruteForceIsoCheck(map);
 true
@@ -175,4 +175,4 @@ true
 #
 gap> SetInfoLevel(InfoSmallsemi, cur);
 gap> if IsBound(SEMIGROUPS) then SEMIGROUPS.StopTest(); fi;
-gap> STOP_TEST( "Smallsemi package: small.tst", 10000);
+gap> STOP_TEST("Smallsemi package: small.tst", 10000);
