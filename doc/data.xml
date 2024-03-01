@@ -19,16 +19,16 @@ found in the last section of this chapter.-->
 <Section><Heading>Creation of the Semigroups</Heading>
 
 This section describes which semigroups are contained in the library
-and how they were determined. 
+and how they were determined.
 <P/>
 The purpose of the library is to provide one semigroup of every
 `structural type'. The semigroups are represented by their
-multiplication table. Usually, say, for groups, `stuctural type' means
+multiplication table. Usually, say, for groups, `structural type' means
 'up to isomorphism' which corresponds to relabelling the
 elements. Roughly speaking, transposing the multiplicationable of a
 semigroup does not alter its important structure features either. More
 precisely, the usual description of the structure of a
-semigroup using Green's relations is invariant under these operations. 
+semigroup using Green's relations is invariant under these operations.
 So, we consider two semigroups to be of the same structure if they
 are isomorphic or anti-isomorphic. We will refer to semigroups that
 are isomorphic or anti-isomorphic as <E>equivalent</E>.
@@ -47,13 +47,13 @@ with 6 elements was found by Plemmons <Cite Key="Ple67"/>, with 7
 elements  by Jürgensen and Wick <Cite Key="JW77"/>, with 8  by Satoh,
 Yama and Tokizawa <Cite Key="SZT94"/>, and with 9 by Distler, Kelsey,
 and Mitchell in 2008. Even if the authors could store their results
-they had no means to make them publically available. Plemmons, for
+they had no means to make them publicly available. Plemmons, for
 example, explicitly states that he had all multiplication tables for
 semigroups of size 6 on magnetic tape. Jürgensen and Wick back in 1977
 did not store the semigroups of size 7 because of their large
 number. The tables for semigroups with 8 elements use up several
 gigabytes of disk space (while the compressed library files in
-<Package>Smallsemi</Package> need only 22 MB).   
+<Package>Smallsemi</Package> need only 22 MB).
 <P/>
 Trying to recreate the results from the existing literature, it
 quickly becomes obvious that even some 15 years later, with
@@ -61,8 +61,8 @@ considerably more computing power available, the task of obtaining
 all semigroups with 8 elements is still by no means trivial. Our
 technique was to find all associative multiplication tables up to
 isomorphism and anti-isomorphism using a combination of &GAP; and the
-Contraint Satisfaction Problem (CSP) solver Minion <Cite
-Key="minion"/>.  
+Constraint Satisfaction Problem (CSP) solver Minion <Cite
+Key="minion"/>.
 <!--Specific mathematical details can found in <Cite Key=""/> and -->
 <!--specific details of the actual computation can be found in <Cite -->
 <!--Key=""/>.-->
@@ -84,11 +84,11 @@ equivalent semigroups with 1 to 8 elements.
 to multiplication tables that define equivalent semigroups as <E>equivalent</E>.-->
 <P/>
 
-The tables for semigroups with 2 to 7 elements are stored in the files 
+The tables for semigroups with 2 to 7 elements are stored in the files
 <F>data2.gl.gz</F> to <F>data7.gl.gz</F> in the directory <F>data/data2to7</F>.
 <P/>
 
-For semigroups of size 8 the data is contained in the directories 
+For semigroups of size 8 the data is contained in the directories
 <F>data/data8-3nil</F> and <F>data/data8</F>. The former contains the data
 relating to 3-nilpotent semigroups (see <Ref Prop="NilpotencyDegree" />)
 and the latter the data for all the remaining semigroups of size 8.

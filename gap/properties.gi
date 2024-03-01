@@ -588,7 +588,7 @@ function(S)
   return false;
 end);
 
-# split in two methods, second one for abitrary semigroups
+# split in two methods, second one for arbitrary semigroups
 InstallMethod(MinimalGeneratingSet, "for a small semigroup", [IsSmallSemigroup],
 function(S)
   local subsets, entries, gens, subset, k, generatedSubSG, mt, generated;

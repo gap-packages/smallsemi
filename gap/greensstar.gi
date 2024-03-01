@@ -405,7 +405,7 @@ function(semi)
   # ... and use as internal representation
   SetInternalRepStarRelation(RStarRelation(semi), partition);
 
-  # create acutal classes as GAP objects
+  # create actual classes as GAP objects
   classes := EmptyPlist(Length(partition));
 
   for part in partition do
@@ -440,7 +440,7 @@ function(semi)
   # ... and use as internal representation
   SetInternalRepStarRelation(LStarRelation(semi), partition);
 
-  # create acutal classes as GAP objects
+  # create actual classes as GAP objects
   classes := EmptyPlist(Length(partition));
 
   for part in partition do

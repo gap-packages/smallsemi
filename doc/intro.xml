@@ -1,14 +1,14 @@
 <Chapter Label="smallsemi"><Heading>Introduction</Heading>
-	
-This  manual  describes the <Package>Smallsemi</Package> 
+
+This  manual  describes the <Package>Smallsemi</Package>
 package (Version &VERSION;) for &GAP;.<P/>
 
-The <Package>Smallsemi</Package> package is a data library of semigroups 
-of small size. It provides all semigroups with at most 8 elements as well as 
+The <Package>Smallsemi</Package> package is a data library of semigroups
+of small size. It provides all semigroups with at most 8 elements as well as
 various information
 about these objects. The reason that semigroups of higher
-orders are not included is the huge number of such objects. 
-The numbers of semigroups of sizes 1 to 9 are given in the table 
+orders are not included is the huge number of such objects.
+The numbers of semigroups of sizes 1 to 9 are given in the table
 below<Alt Not="Text"> (orders not included in the library are in
 italics)</Alt>. The number of semigroups of size 10 is not known at
 the time of writing.
@@ -61,7 +61,7 @@ the time of writing.
 The initial idea for <Package>Smallsemi</Package> was developed out of
 the wish for an extensive number of examples of semigroups of moderate
 size. This lead to the idea of an electronical database. As an
-existing example the <Package>SmallGroups Library</Package> 
+existing example the <Package>SmallGroups Library</Package>
 <Cite Key="smallgroups"/> was an inspiration on how such a project could be
 established. Unfortunately the number of semigroups is so much bigger,
 and most of them bare so little structure, that new techniques to store
@@ -70,31 +70,31 @@ first step was to actually construct all the semigroups.
 <P/>
 
 In the remainder of the introduction we explain
-what you need to do to install and optimize <Package>Smallsemi</Package>; see 
+what you need to do to install and optimize <Package>Smallsemi</Package>; see
 Subsections <Ref Subsect="reqs"/> and <Ref Subsect="install"/>.  <P/>
 
-In Chapter <Ref Chap="data"/> we 
+In Chapter <Ref Chap="data"/> we
 explain how the semigroups where obtained, what exactly is stored and
 how, and which additional properties have been precomputed.  <P/>
 
-The the types of use <Package>Smallsemi</Package> is intended for and its 
-limitations are described in Chapter <Ref Chap="examples"/>. 
+The the types of use <Package>Smallsemi</Package> is intended for and its
+limitations are described in Chapter <Ref Chap="examples"/>.
 The extensive examples can be used as a quick-start guide and as something to
 come back to after reading the technical details about available
 functionality in the subsequent sections. <P/>
 
-Chapter <Ref Chap="small"/> has all the information about available functions. 
+Chapter <Ref Chap="small"/> has all the information about available functions.
 
 <Section Label="reqs"><Heading>Requirements</Heading>
 
 This software is written for &GAP; 4. It requires an existing installation of
-&GAP; in version 4.5 or higher. 
+&GAP; in version 4.5 or higher.
 <P/>
 It is recommended but not necessary to have the &GAP; 4 packages
 <Package>Citrus</Package> and <Package>sgpviz</Package> installed as
 well. <Package>Citrus</Package> provides a wide range of functionality
 for working with semigroups which is not available in the &GAP; core
-system while <Package>sgpviz</Package> is recommended for its ability to 
+system while <Package>sgpviz</Package> is recommended for its ability to
 graphically represent small semigroups.
 <P/>
 <Subsection Label="os"><Heading>Operating System</Heading>
@@ -118,7 +118,7 @@ use as little memory as possible for the &GAP; process try using <Ref Func=
 "UnloadSmallsemiData"/> to free memory after every access to the
 library. This is likely to slow down computations though. <P/>
 
-For further infomation on how &GAP; uses memory see <Ref Subsect="memory"/> or 
+For further information on how &GAP; uses memory see <Ref Subsect="memory"/> or
 <Ref Sect="Command Line Options" BookName="ref"/>.
 
 </Subsection>
@@ -149,8 +149,8 @@ extension <F>.gz</F>.)
 <Subsection>
 <Heading>Download and Extract <Package>Smallsemi</Package></Heading>
 
-The installation follows standard &GAP; rules as outlined in the 
-following two steps; see <Ref Sect="Installing a GAP Package" BookName="ref"/> 
+The installation follows standard &GAP; rules as outlined in the
+following two steps; see <Ref Sect="Installing a GAP Package" BookName="ref"/>
 for further details.
 
 <Enum>
@@ -229,12 +229,12 @@ You might want to start &GAP; with a specified amount of memory; see Subsection 
 </Subsection>
 
 <Subsection Label="memory"><Heading>Memory Issues</Heading>
-	
+
 As mentioned in Subsection <Ref Subsect="ram"/>, working with <Package>smallsemi
 </Package> can be memory expensive.  It is therefore necessary to either:
 <Enum>
-<Item>start &GAP; with 1 GB of memory (if possible), for example, by typing 
-<C>gap -m 1g</C>; or 
+<Item>start &GAP; with 1 GB of memory (if possible), for example, by typing
+<C>gap -m 1g</C>; or
 </Item>
 <Item>extend the amount memory used by typing <C>return;</C> in the
 break-loop whenever &GAP; runs out of memory. For example,
@@ -291,8 +291,8 @@ total      9273 ms (2432 ms GC) and 4.98GB allocated
 <Subsection><Heading>Customizing</Heading>
 If you are using <Package>Smallsemi</Package> regularly you might want
 to put the command <C>LoadPackage("smallsemi");</C> into your
-<F>.gaprc</F> file; see <Ref Sect="The gap.ini and gaprc files" 
-BookName="ref"/>. 
+<F>.gaprc</F> file; see <Ref Sect="The gap.ini and gaprc files"
+BookName="ref"/>.
 Another option is to save a workspace after
 loading <Package>Smallsemi</Package> and executing the following commands
 <Log><![CDATA[
@@ -302,7 +302,7 @@ gap> SmallSemigroup(7,1);; MOREDATA2TO8;;
 gap> SaveWorkspace( "<filename for the workspace>" );
 ]]></Log>
 Doing this will mean that it is not necessary to load the data from the library
-every time you start a new &GAP; session; see 
+every time you start a new &GAP; session; see
 <Ref Sect="Saving and Loading a Workspace" BookName="ref"/>.<P/>
 
 The size of the file containing the saved workspace will be around 76
@@ -314,4 +314,4 @@ and compress the workspace with gzip to roughly 10 MB.)
 </Subsection>
 </Section>
 </Chapter>
-	
+
