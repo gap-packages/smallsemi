@@ -2,25 +2,27 @@
 
 <Section><Heading>Individual Semigroups</Heading>
 
-<!-- from small.g* -->
+    <!-- from small.g* -->
 
-The semigroups of sizes 1 to 8 are available up to isomorphism and
-anti-isomorphism in <Package>Smallsemi</Package>.  Every semigroup in the
-library is identified by its size <M>m</M> and a number <M>n</M> lying between
-1 and the number of semigroups of size <M>m</M> (see Table <Ref
-Label="nrobjects"/>). We call the pair <M>(m,n)</M> the <E>ID</E> of the
-semigroup.
-<P/>
-In this section we give details about the functions relating to individual
-semigroups in <Package>Smallsemi</Package>. This includes how to access
-semigroups in the library and how to identify the semigroup in the library
-equivalent to an arbitrary semigroup (of size
-1 to 8).
-<P/>
-If you are interested in the properties of a semigroup in the library or would
-like to find all the semigroups satisfying a given set of properties please see
-Section <Ref Sect="props"/> or Section <Ref Sect="enums"/> respectively.
-<P/>
+    The semigroups of sizes 1 to 8 are available up to isomorphism and
+    anti-isomorphism in <Package>Smallsemi</Package>.  Every semigroup in the
+    library is identified by its size <M>m</M> and a number <M>n</M> lying between
+    1 and the number of semigroups of size <M>m</M> (see Table <Ref
+    Label="nrobjects"/>). We call the pair <M>(m,n)</M> the <E>ID</E> of the
+    semigroup.
+    <P/>
+
+    In this section we give details about the functions relating to individual
+    semigroups in <Package>Smallsemi</Package>. This includes how to access
+    semigroups in the library and how to identify the semigroup in the library
+    equivalent to an arbitrary semigroup (of size
+    1 to 8).
+    <P/>
+
+    If you are interested in the properties of a semigroup in the library or would
+    like to find all the semigroups satisfying a given set of properties please see
+    Section <Ref Sect="props"/> or Section <Ref Sect="enums"/> respectively.
+    <P/>
 
 	<#Include Label="SmallSemigroup">
 	<#Include Label="IsSmallSemigroup">
@@ -133,7 +135,7 @@ semigroup. Then
 	<#Include Label="IsNGeneratedSemigroup">
 	<#Include Label="IsNIdempotentSemigroup">
 	<#Include Label="IsNilpotentSemigroup">
-        <#Include Label="IsOrthodoxSemigroup">
+    <#Include Label="IsOrthodoxSemigroup">
 	<#Include Label="IsRectangularBand">
 	<#Include Label="IsRegularSemigroup">
 	<#Include Label="IsRightZeroSemigroup">
@@ -245,7 +247,7 @@ semigroup. Then
     Func="EnumeratorOfSmallSemigroups"/>, <Ref Func="AllSmallSemigroups"/>,
     <Ref Func="IteratorOfSmallSemigroups"/> with argument
 	<Log>
-[2..5], IsCommutative, true, Is3IdempotentGenerated, true
+[2 .. 5], IsCommutative, true, Is3IdempotentGenerated, true
 	</Log>
     <Ref Func="AllSmallSemigroups"/> returns a list of all such semigroups,
     <Ref Func="EnumeratorOfSmallSemigroups"/>, and
@@ -289,7 +291,7 @@ semigroup. Then
     one of the functions <Ref Func="OneSmallSemigroup"/> or <Ref
     Func="RandomSmallSemigroup"/> with argument<P/>
 	<Log>
-7, IsSimpleSemigroup, false, x-> IsTrivial(AutomorphismGroup(x)), true
+7, IsSimpleSemigroup, false, x -> IsTrivial(AutomorphismGroup(x)), true
 	</Log>
     <Ref Func="OneSmallSemigroup"/> should return an answer more quickly than
     <Ref Func="RandomSmallSemigroup"/>. Also note that <Ref

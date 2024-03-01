@@ -15,8 +15,6 @@ DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
 # TODO remove
 DeclareGlobalFunction("NamesFuncsSmallSemisInIter");
 # TODO remove
-DeclareGlobalFunction("SMALLSEMI_STRIP_ARG");
-# TODO remove
 DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 
 # <#GAPDoc Label="AllSmallSemigroups">
@@ -30,7 +28,7 @@ DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -60,15 +58,15 @@ DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 # gap> AllSmallSemigroups(2);
 # [ <small semigroup of size 2>, <small semigroup of size 2>,
 #   <small semigroup of size 2>, <small semigroup of size 2> ]
-# gap> AllSmallSemigroups([2,3], IsRegularSemigroup, true,
-# > x-> Length(GreensRClasses(x)), 1);
+# gap> AllSmallSemigroups([2, 3], IsRegularSemigroup, true,
+# > x -> Length(GreensRClasses(x)), 1);
 # [ <small semigroup of size 2>, <small semigroup of size 3> ]
-# gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
+# gap> enum := EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
 # > IsCommutativeSemigroup, true);;
-# gap> AllSmallSemigroups(enum, x-> Length(GreensRClasses(x)), 1);
+# gap> AllSmallSemigroups(enum, x -> Length(GreensRClasses(x)), 1);
 # [ <small semigroup of size 8>, <small semigroup of size 8>,
 #   <small semigroup of size 8> ]
-# gap> iter:=IteratorOfSmallSemigroups(7, x-> Length(GreensRClasses(x)), 1);;
+# gap> iter := IteratorOfSmallSemigroups(7, x -> Length(GreensRClasses(x)), 1);;
 # gap> AllSmallSemigroups(iter, IsCommutative, true,
 # > IsSimpleSemigroup, true);
 # [ <small semigroup of size 7> ]
@@ -89,7 +87,7 @@ DeclareGlobalFunction("AllSmallSemigroups");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -117,17 +115,17 @@ DeclareGlobalFunction("AllSmallSemigroups");
 # <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>.
 #
 # <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroups(7);
+# gap> enum := EnumeratorOfSmallSemigroups(7);
 # <enumerator of semigroups of size 7>
-# gap> EnumeratorOfSmallSemigroups([2,3], IsRegularSemigroup, true);
+# gap> EnumeratorOfSmallSemigroups([2, 3], IsRegularSemigroup, true);
 # <enumerator of semigroups of sizes [ 2, 3 ]>
-# gap> enum:=EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
+# gap> enum := EnumeratorOfSmallSemigroups(8, IsInverseSemigroup, true,
 # > IsCommutativeSemigroup, true);
 # <enumerator of semigroups of size 8>
 # gap> EnumeratorOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 # > IsSimpleSemigroup, false);
 # <enumerator of semigroups of size 8>
-# gap> iter:=IteratorOfSmallSemigroups(8);
+# gap> iter := IteratorOfSmallSemigroups(8);
 # <iterator of semigroups of size 8>
 # gap> EnumeratorOfSmallSemigroups(iter, IsCommutativeSemigroup, true,
 # > IsSimpleSemigroup, false);
@@ -167,11 +165,11 @@ DeclareGlobalFunction("EnumeratorOfSmallSemigroups");
 # return unpredictable results.
 #
 # <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroupsByIds([[7,1],[6,1],[5,1]]);
+# gap> enum := EnumeratorOfSmallSemigroupsByIds([[7, 1], [6, 1], [5, 1]]);
 # <enumerator of semigroups of sizes [ 5, 6, 7 ]>
-# gap> enum:=EnumeratorOfSmallSemigroupsByIds(7, [1..1000]);
+# gap> enum := EnumeratorOfSmallSemigroupsByIds(7, [1 .. 1000]);
 # <enumerator of semigroups of size 7>
-# gap> enum:=EnumeratorOfSmallSemigroupsByIds([2,3], [[1..2],[1..10]]);
+# gap> enum := EnumeratorOfSmallSemigroupsByIds([2, 3], [[1 .. 2], [1 .. 10]]);
 # <enumerator of semigroups of sizes [ 2, 3 ]>
 # ]]></Example>
 # </Description>
@@ -203,7 +201,7 @@ DeclareGlobalFunction("EnumeratorOfSmallSemigroupsByDiagonals");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -231,11 +229,11 @@ DeclareGlobalFunction("EnumeratorOfSmallSemigroupsByDiagonals");
 # <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>.
 #
 # <Example><![CDATA[
-# gap>  enum:=EnumeratorOfSmallSemigroups(5, x-> Length(GreensRClasses(x)), 1);;
+# gap> enum := EnumeratorOfSmallSemigroups(5, x -> Length(GreensRClasses(x)), 1);;
 # gap> IdsOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 # > IsSimpleSemigroup, false);
 # [  ]
-# gap> IdsOfSmallSemigroups([2,3], IsRegularSemigroup, true);
+# gap> IdsOfSmallSemigroups([2, 3], IsRegularSemigroup, true);
 # [ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ], [ 3, 10 ], [ 3, 11 ], [ 3, 12 ], [ 3, 13 ],
 #   [ 3, 14 ], [ 3, 15 ], [ 3, 16 ], [ 3, 17 ], [ 3, 18 ] ]
 # ]]></Example>
@@ -252,7 +250,7 @@ DeclareGlobalFunction("IdsOfSmallSemigroups");
 # created using <Ref Func="EnumeratorOfSmallSemigroups"/>, <Ref
 # Func="EnumeratorOfSmallSemigroupsByIds"/>.
 # <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroupsByIds([[2,1], [3,1], [4,1]]);;
+# gap> enum := EnumeratorOfSmallSemigroupsByIds([[2, 1], [3, 1], [4, 1]]);;
 # gap> IsEnumeratorOfSmallSemigroups(enum);
 # true
 # ]]></Example>
@@ -262,7 +260,6 @@ DeclareGlobalFunction("IdsOfSmallSemigroups");
 DeclareCategory("IsEnumeratorOfSmallSemigroups",
                 IsEnumeratorByFunctionsRep
                 and IsEnumeratorByFunctions
-                and IsSmallSemigroupCollection
                 and IsSmallSemigroupEltCollColl
                 and IsFinite);
 
@@ -273,11 +270,11 @@ DeclareCategory("IsEnumeratorOfSmallSemigroups",
 # return <C>true</C> if the <A>arg</A> is the id of a small semigroup or
 # <A>[arg[1], arg[2]]</A> is the id of a small semigroup.
 # <Example><![CDATA[
-# gap> IsIdSmallSemigroup(8,1);
+# gap> IsIdSmallSemigroup(8, 1);
 # true
-# gap> IsIdSmallSemigroup([1,2]);
+# gap> IsIdSmallSemigroup([1, 2]);
 # false
-# gap> IsIdSmallSemigroup([3,18]);
+# gap> IsIdSmallSemigroup([3, 18]);
 # true
 # ]]></Example>
 # </Description>
@@ -292,7 +289,7 @@ DeclareGlobalFunction("IsIdSmallSemigroup");
 # returns <C>true</C> if <A>iter</A> is an iterator of small semigroups created
 # using <Ref Func="IteratorOfSmallSemigroups"/>.
 # <Example><![CDATA[
-# gap> iter:=IteratorOfSmallSemigroups(8);;
+# gap> iter := IteratorOfSmallSemigroups(8);;
 # gap> IsIteratorOfSmallSemigroups(iter);
 # true
 # ]]></Example>
@@ -313,7 +310,7 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -340,14 +337,14 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 # <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>.
 #
 # <Example><![CDATA[
-# gap> iter:=IteratorOfSmallSemigroups(8);
+# gap> iter := IteratorOfSmallSemigroups(8);
 # <iterator of semigroups of size 8>
 # gap> NextIterator(iter);
 # <small semigroup of size 8>
 # gap> IsDoneIterator(iter);
 # false
-# gap> iter:=IteratorOfSmallSemigroups([2,3], IsRegularSemigroup, true,
-# > x-> Length(Idempotents(x))=1, true);
+# gap> iter := IteratorOfSmallSemigroups([2, 3], IsRegularSemigroup, true,
+# > x -> Length(Idempotents(x)) = 1, true);
 # <iterator of semigroups of sizes [ 2, 3 ]>
 # gap> NextIterator(iter);
 # <small semigroup of size 2>
@@ -355,10 +352,11 @@ DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
 # <small semigroup of size 3>
 # gap> NextIterator(iter);
 # fail
-# gap> enum:=EnumeratorOfSmallSemigroups(5, x-> Length(Idempotents(x))=1, true);
+# gap> enum := EnumeratorOfSmallSemigroups(5, x -> Length(Idempotents(x)) = 1,
+# > true);
 # <enumerator of semigroups of size 5>
-# gap> iter:=IteratorOfSmallSemigroups(enum,
-# > x-> Length(GreensRClasses(x))=2, true);
+# gap> iter := IteratorOfSmallSemigroups(enum,
+# > x -> Length(GreensRClasses(x)) = 2, true);
 # <iterator of semigroups of size 5>
 # ]]></Example>
 # </Description>
@@ -377,7 +375,7 @@ DeclareGlobalFunction("IteratorOfSmallSemigroups");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -404,11 +402,11 @@ DeclareGlobalFunction("IteratorOfSmallSemigroups");
 # <C>i</C>.
 #
 # <Example><![CDATA[
-# gap> List([1..8], NrSmallSemigroups);
+# gap> List([1 .. 8], NrSmallSemigroups);
 # [ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128 ]
 # gap> NrSmallSemigroups(8, IsCommutative, true, IsInverseSemigroup, true);
 # 4443
-# gap> NrSmallSemigroups([1..8], IsCliffordSemigroup, true);
+# gap> NrSmallSemigroups([1 .. 8], IsCliffordSemigroup, true);
 # 5610
 # gap> NrSmallSemigroups(8, IsRegularSemigroup, true,
 # > IsCompletelyRegularSemigroup, false);
@@ -419,7 +417,6 @@ DeclareGlobalFunction("IteratorOfSmallSemigroups");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-
 DeclareGlobalFunction("NrSmallSemigroups");
 
 # <#GAPDoc Label="OneSmallSemigroup">
@@ -433,7 +430,7 @@ DeclareGlobalFunction("NrSmallSemigroups");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have.  For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>.  The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -462,9 +459,9 @@ DeclareGlobalFunction("NrSmallSemigroups");
 # <Example><![CDATA[
 # gap> OneSmallSemigroup(8, IsCommutative, true, IsInverseSemigroup, true);
 # <small semigroup of size 8>
-# gap> OneSmallSemigroup([1..8], IsCliffordSemigroup, true);
+# gap> OneSmallSemigroup([1 .. 8], IsCliffordSemigroup, true);
 # <small semigroup of size 1>
-# gap> iter:=IteratorOfSmallSemigroups(8, IsCommutative, false);
+# gap> iter := IteratorOfSmallSemigroups(8, IsCommutative, false);
 # <iterator of semigroups of size 8>
 # gap> OneSmallSemigroup(iter);
 # <small semigroup of size 8>
@@ -482,7 +479,7 @@ DeclareGlobalFunction("OneSmallSemigroup");
 # <C>arg[1]</C> should be a positive integer or an enumerator with <Ref
 # Func="IsEnumeratorOfSmallSemigroups"/>, the even arguments <C>arg[2i]</C>, if
 # present, should be functions, and the odd arguments <C>arg[2i+1]</C> should
-# be a value that the preceeding function can have.  For example, a typical
+# be a value that the preceding function can have.  For example, a typical
 # input might be <C>3, IsRegularSemigroup, true</C>.  The functions
 # <C>arg[2i]</C> can be user defined or existing &GAP; functions. The argument
 # can be a list <C>arg</C> with the same components as given above.
@@ -499,10 +496,10 @@ DeclareGlobalFunction("OneSmallSemigroup");
 # [ [ 1 .. 18 ] ]
 # gap> PositionsOfSmallSemigroups(3, IsRegularSemigroup, false);
 # [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
-# gap> enum:=EnumeratorOfSmallSemigroups(3, IsRegularSemigroup, false);;
+# gap> enum := EnumeratorOfSmallSemigroups(3, IsRegularSemigroup, false);;
 # gap> PositionsOfSmallSemigroups(enum);
 # [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ]
-# gap> PositionsOfSmallSemigroups([1..4], IsBand, true);
+# gap> PositionsOfSmallSemigroups([1 .. 4], IsBand, true);
 # [ [ 1 ], [ 3, 4 ], [ 12 .. 17 ], [ 98 .. 123 ] ]
 # gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
 # > Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
@@ -524,7 +521,7 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 # <P/>
 #
 # The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceeding function
+# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
 # can have. For example, a typical input might be <C>3, IsRegularSemigroup,
 # true</C>. The functions <C>arg[2i]</C> can be user defined or existing &GAP;
 # functions.
@@ -554,9 +551,9 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 # gap> RandomSmallSemigroup(8, IsCommutative, true,
 # > IsInverseSemigroup, true);
 # <small semigroup of size 8>
-# gap> RandomSmallSemigroup([1..8], IsCliffordSemigroup, true);
+# gap> RandomSmallSemigroup([1 .. 8], IsCliffordSemigroup, true);
 # <small semigroup of size 8>
-# gap> iter:=IteratorOfSmallSemigroups([1..7]);
+# gap> iter := IteratorOfSmallSemigroups([1 .. 7]);
 # <iterator of semigroups of sizes [ 1 .. 7 ]>
 # gap> RandomSmallSemigroup(iter);
 # <small semigroup of size 7>
@@ -574,7 +571,7 @@ DeclareGlobalFunction("RandomSmallSemigroup");
 # <A>enum</A>.
 #
 # <Example><![CDATA[
-# gap> enum:=EnumeratorOfSmallSemigroups([2..4], IsSimpleSemigroup, false);
+# gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false);
 # <enumerator of semigroups of sizes [ 2, 3, 4 ]>
 # gap> SizesOfSmallSemigroupsIn(enum);
 # [ 2, 3, 4 ]
@@ -609,7 +606,7 @@ DeclareAttribute("ArgumentsUsedToCreate", IsEnumeratorOfSmallSemigroups);
 # according the size of the semigroup.  The same value is returned by using
 # <Ref Func="PositionsOfSmallSemigroups"/>.
 # <Example><![CDATA[
-# gap> enum := EnumeratorOfSmallSemigroups([2..4],IsSimpleSemigroup,true);;
+# gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, true);;
 # gap> PositionsOfSmallSemigroupsIn
 # > (enum);
 # [ [ 2, 4 ], [ 17, 18 ], [ 7, 37, 52, 122, 123 ] ]
@@ -632,9 +629,9 @@ DeclareAttribute("PositionsOfSmallSemigroupsIn", IsIteratorOfSmallSemigroups);
 # <A>sgrps</A>.
 #
 # <Example><![CDATA[
-# gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(6,2)]);
+# gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(6, 2)]);
 # [ <small semigroup of size 5>, <small semigroup of size 6> ]
-# gap> UpToIsomorphism([SmallSemigroup(5,126),SmallSemigroup(5,3)]);
+# gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(5, 3)]);
 # [ <small semigroup of size 5>, <small semigroup of size 5>,
 #   <semigroup of size 5, with 5 generators> ]
 # ]]></Example>
