@@ -8,7 +8,7 @@ identification function which takes a semigroup with at most 8
 elements and returns a map to the equivalent one from the library.
 <P/>
 <!-- One possibility is an extensive search for a semigroup with a certain
-property. --> 
+property. -->
 These features lead to different ways of using the library. It is
 impossible to describe - or even to anticipate - all possible types of
 usage. Most problems will admit multiple solutions. We find it
@@ -18,7 +18,7 @@ functions and help you to find an alternative if a computation uses more
 time or memory than you have available.
 <P/>
 Let us go step by step through some ways to use the library showing
-which tools are provided. 
+which tools are provided.
 
 <!-- ############### -->
 
@@ -39,7 +39,7 @@ gap> # obtain a list of all semigroups with 6 elements
 gap> AllSmallSemigroups( 6 );;
 gap> time;
 2636
-gap> # obtain a list of all commutative semigroups with 7 elements  
+gap> # obtain a list of all commutative semigroups with 7 elements
 gap> AllSmallSemigroups( 7, IsCommutative, true );;
 gap> time;
 2957
@@ -50,13 +50,13 @@ gap> NrSmallSemigroups( 6 ); NrSmallSemigroups( 7, IsCommutative, true );
 ]]></Log>
 (In all the examples in this section the info messages which are given
 by default when data is loaded are turned off via
-<C>SetInfoLevel(InfoSmallSemi,0)</C>.) 
+<C>SetInfoLevel(InfoSmallSemi,0)</C>.)
 <P/>
 We provide three commands that can be used if one is interested in all
 semigroups with some properties. These are <Ref
 Oper="AllSmallSemigroups"/>, <Ref Oper="EnumeratorOfSmallSemigroups"/>,
 and <Ref Oper="IteratorOfSmallSemigroups"/>. Which one is best to use
-depends a lot on the situation. Here we attempt to provide some 
+depends a lot on the situation. Here we attempt to provide some
 insight about the essential differences.
 
 <Subsection><Heading>Precomputed properties</Heading>
@@ -104,7 +104,7 @@ semigroups in the library) the difference is remarkable:
 <Log><![CDATA[
 gap> nr := Length(enum);
 17291
-gap> MemoryUsage(enum);                                 
+gap> MemoryUsage(enum);
 70507
 gap> MemoryUsage(list); # this will take a while ...
 19089280
@@ -121,12 +121,12 @@ other hand that information that is computed is not stored.
 gap> IsZeroSemigroup(list[3]); # a semigroup from the list ...
 false
 gap> KnownPropertiesOfObject(list[3]); # ... can store new information
-[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", 
+[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",
   "IsAssociative", "IsCommutativeSemigroup", "IsZeroSemigroup" ]
 gap> IsZeroSemigroup(enum[3]); # semigroups in the enumerator ...
 false
-gap> KnownPropertiesOfObject(enum[3]); # ... are created anew in every call 
-[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", 
+gap> KnownPropertiesOfObject(enum[3]); # ... are created anew in every call
+[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",
   "IsAssociative", "IsCommutativeSemigroup" ]
 gap> # but if it turns out this is the semigroup you want to analyse, just do
 gap> sg := enum[3];
@@ -187,7 +187,7 @@ semigroups the enumerator still has the advantage of using far less
 memory as it stores only the IDs of the semigroups. Before explaining
 more about this let us for a moment go back to the semigroups
 from the previous example. It turns out they are the 2 non-equivalent
-rectangular bands (<Ref Oper="IsRectangularBand"/>) with 8 elements.   
+rectangular bands (<Ref Oper="IsRectangularBand"/>) with 8 elements.
 <Log><![CDATA[
 gap> ForAll(list,IsRectangularBand);
 true
@@ -235,11 +235,11 @@ instead of an enumerator. An iterator does not know how many elements
 it contains, one can always just access the next element - if such
 exists - and one cannot go back. (Making copies of an iterator can help
 to circumvent this problem.) On the other hand one could in the above
-example start investigating the first couple of elements right away. 
+example start investigating the first couple of elements right away.
 <Log><![CDATA[
 gap> iter := IteratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);
 <iterator of semigroups of size 8>
-gap> for i in [1..100000] do 
+gap> for i in [1..100000] do
 NextIterator(iter);
 od;
 gap> time;
@@ -268,48 +268,6 @@ properties (try to find as many implied properties as possible). Then
 work with an iterator, call the semigroups one-by-one and
 store them in a separate list if you think you might want to look at
 them again at a later stage.
-
-<!--For self-defined properties an iterator should be preferred if
-one wishes to go through the semigroups just once.--><P/>
-
-<!-- every (First when setting it up and again whenever
-the enumerator is accesssed.)ione
-advantage. It does not
-an iterator avoids creating them
-element and not 
-Even if the
-property is not precomputed one should try to find implied properties
-and then perform the test only on this subset of all semigroups.<P/>
-<Log><![CDATA[
-gap> NrOfIdempotents := function( sgrp )           
-> return Length( Idempotents( sgrp ) );
-> end;
-function( sgrp ) ... end
-gap> enum:=EnumeratorOfSmallSemigroups(7,IsCommutativeSemigroup,true,         
-> NrOfIdempotents,4);
-<enumerator of semigroups of size 7>
-gap> time;
-2380
-gap> Length(enum);
-3360
-gap> iter:=IteratorOfSmallSemigroups(7,IsCommutativeSemigroup,true,           
-> NrOfIdempotents,4);
-<iterator of semigroups of size 7>
-gap> time;
-0
-gap> MemoryUsage(enum);
-14831
-gap> MemoryUsage(iter);
-1623
-gap> for sg in enum do
-> od;
-gap> time;            
-364
-gap> for sg in iter do
-> od;
-gap> time;
-104246
-]]></Log> -->
 </Subsection>
 
 <Subsection><Heading>Semigroups of order 8</Heading>
@@ -322,7 +280,7 @@ gap> EnumeratorOfSmallSemigroups(8);
 ]]></Log>
 In all other cases there is currently no difference between
 32-bit and 64-bit systems. Hence the following will fail in
-any case. 
+any case.
 <Log><![CDATA[
 gap> EnumeratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);
 ]]></Log>
@@ -352,7 +310,7 @@ gap> enum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);
 gap> enum2 := EnumeratorOfSmallSemigroups(enum1, IsCommutativeSemigroup, false);
 <enumerator of semigroups of size 8>
 ]]></Example>
-Thanks go to Michal Stolorz for the idea of circumventing the current 
+Thanks go to Michal Stolorz for the idea of circumventing the current
 performance issue for enumerators of small semigroups of order 8 by
 splitting it in the described way.
 </Subsection>
@@ -392,7 +350,7 @@ gap> # use the semigroup from the previous example
 gap> IsCommutative(sgrp); # no need to use the library for this
 true
 gap> # for the following there exists no method for a trans-
-gap> # formation semigroup; access the precomputed information instead 
+gap> # formation semigroup; access the precomputed information instead
 gap> IsMultSemigroupOfNearRing(SmallSemigroup([3,8]));
 false
 ]]></Log>
@@ -400,7 +358,7 @@ false
 <Ref Oper="EquivalenceSmallSemigroup"/> even provides an isomorphism
 or anti-isomorphism to a semigroup from the library. This means one
 can map elements between the semigroups. Remember that an
-isomorphism is returned whenever one exists. This allows to 
+isomorphism is returned whenever one exists. This allows to
 distinguish between structure types up to isomorphism.
 Note though, that no information about subsets - like the set of
 idempotents or a generating set - is precomputed for
@@ -417,8 +375,8 @@ gap> sgrp := SemigroupByGenerators([t1,t2]);
 <semigroup with 2 generators>
 gap> Size(sgrp);
 6
-gap> map := EquivalenceSmallSemigroup(sgrp); 
-MappingByFunction( <semigroup with 2 generators>, <small semigroup of size 
+gap> map := EquivalenceSmallSemigroup(sgrp);
+MappingByFunction( <semigroup with 2 generators>, <small semigroup of size
 6>, function( x ) ... end )
 gap> RespectsMultiplication(map); # verify that this is an anti-isomorphism
 false
@@ -429,12 +387,12 @@ gap> PreImage(map,last); # get a minimal generating set of <sgrp>
 gap> Idempotents(Range(map));
 [ s1, s3, s5 ]
 gap> PreImage(map,last); # in the same way you can get the idempotents ...
-[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), 
+[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),
   Transformation( [ 2, 2, 2 ] ) ]
-gap> Idempotents(sgrp); # ... but this can be done directly instead 
-[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), 
+gap> Idempotents(sgrp); # ... but this can be done directly instead
+[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),
   Transformation( [ 2, 2, 2 ] ) ]
-</Log> 
+</Log>
 
 If for a certain application you are interested in the semigroups up
 to isomorphism you can still use the IDs from
@@ -449,9 +407,9 @@ are actually non-isomorphic.
 <!--
 <Section><Heading>Exotic Application</Heading>
 
-We finish this chapter with another example emphasizing the variety of 
-possilbe usages. Assume you are interested in the lattices of a given order.
-It is well known that the lattices of order <M>n</M> are in one-one 
+We finish this chapter with another example emphasizing the variety of
+possible usages. Assume you are interested in the lattices of a given order.
+It is well known that the lattices of order <M>n</M> are in one-one
 correspondence with the semilattices of order <M>n-1</M>. Semilattices on the
 other hand are nothing else but commutative bands.
 <Log><![CDATA[
