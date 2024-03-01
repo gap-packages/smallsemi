@@ -261,7 +261,10 @@ DeclareGlobalFunction("IdsOfSmallSemigroups");
 # <#/GAPDoc>
 DeclareCategory("IsEnumeratorOfSmallSemigroups",
                 IsEnumeratorByFunctionsRep
-                and IsEnumeratorByFunctions);
+                and IsEnumeratorByFunctions
+                and IsSmallSemigroupCollection
+                and IsSmallSemigroupEltCollColl
+                and IsFinite);
 
 # <#GAPDoc Label="IsIdSmallSemigroup">
 # <ManSection>
@@ -647,41 +650,3 @@ DeclareOperation("UpToIsomorphism", [IsSmallSemigroup]);
 # undocumented: required by iterators.
 
 DeclareGlobalFunction("SHALLOWCOPYITERATORSMALLSEMI");
-
-# TODO remove if not used
-# <#GAPDoc Label="SMALLSEMI_CREATE_ENUM">
-# <ManSection>
-# <Func Name="SMALLSEMI_CREATE_ENUM" Arg="source, positions, names"/>
-# <Description>
-# <List>
-#   <Item>
-#     <A>source</A> should be a positive integer between 1 and 8, a list of
-#     positive integers between 1 and 8, an enumerator of small semigroups, or an
-#     iterator of small semigroups;
-#   </Item>
-#   <Item>
-#     <A>positions</A> should be the list such that <A>positions[i]</A> is the
-#     list of second components of id numbers of small semigroups in the
-#     enumerator being created;
-#   </Item>
-#   <Item>
-#     <A>names</A> is the list of functions and values being used to create the
-#     enumerator. It is not checked if it is possible to create an enumerator
-#     using <A>Concatenation([source],names)</A> as an argument. See <Ref
-#     Func="SMALLSEMI_CAN_CREATE_ENUM_NC"/> for more details.
-#   </Item>
-# </List>
-# <C>SMALLSEMI_CREATE_ENUM</C> returns the same value as <Ref
-# Func="EnumeratorOfSmallSemigroupsByIds" BookName="smallsemi"/> but here the
-# attributes <Ref Func="FuncsOfSmallSemisInEnum" BookName="smallsemi"/> and
-# <Ref Func="NamesFuncsSmallSemisInEnum" BookName="smallsemi"/> are set
-# according to the argument <A>names</A>.
-# <P/>
-#
-# Elements of enumerators creating using <C>SMALLSEMI_CREATE_ENUM</C> should
-# have any operation in <A>names</A> set to the value specified when the
-# enumerator was created. That is, it should not be necessary to recompute this
-# information.
-# </Description>
-# </ManSection>
-# <#/GAPDoc>

@@ -10,7 +10,7 @@
 #
 gap> START_TEST("smallsemi02.tst");
 
-# doc/../gap/small.gd:203-210
+# doc/../gap/small.gd:204-211
 gap> SmallSemigroup(8,1353452);
 <small semigroup of size 8>
 gap> SmallSemigroupNC(5,1);
@@ -27,14 +27,14 @@ gap> sgrp:=Semigroup(Transformation([1]));;
 gap> IsSmallSemigroup(sgrp);
 false
 
-# doc/../gap/small.gd:106-112
+# doc/../gap/small.gd:107-113
 gap> IsSmallSemigroupElt(Transformation([1]));
 false
 gap> sgrp:=RandomSmallSemigroup(5);;
 gap> IsSmallSemigroupElt(Random(sgrp));
 true
 
-# doc/../gap/small.gd:134-148
+# doc/../gap/small.gd:135-149
 gap> RecoverMultiplicationTable(10,2);
 fail
 gap> RecoverMultiplicationTable(1,2);
@@ -49,7 +49,7 @@ gap> RecoverMultiplicationTable(8,11111111);
 gap> RecoverMultiplicationTable(2,11111111);
 fail
 
-# doc/../gap/small.gd:174-179
+# doc/../gap/small.gd:175-180
 gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
 <semigroup of size 2, with 2 generators>
 gap> IsSmallSemigroup(s);
