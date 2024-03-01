@@ -18,11 +18,11 @@
 # <E>annihilator</E> if <M>xy=yx=z</M> for every element <M>y</M> in the
 # semigroup.
 # <Example><![CDATA[
-# gap> s := SmallSemigroup(5,6);
+# gap> s := SmallSemigroup(5, 6);
 # <small semigroup of size 5>
 # gap> Annihilators(s);
 # [ s1, s2 ]
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -35,13 +35,13 @@ DeclareAttribute("Annihilators", IsSemigroup);
 # returns the diagonal of the multiplication table of the semigroup
 # <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(8,10101);;
+# gap> s := SmallSemigroup(8, 10101);;
 # gap> DiagonalOfMultiplicationTable(s);
 # [ 1, 1, 1, 1, 1, 1, 1, 1 ]
-# gap> s:=SmallSemigroup(7,10101);;
+# gap> s := SmallSemigroup(7, 10101);;
 # gap> DiagonalOfMultiplicationTable(s);
 # [ 1, 1, 1, 1, 1, 1, 1 ]
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -55,7 +55,7 @@ DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
 # is stored in the library and its Green's classes and
 # idempotents.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(6, 3838);;
+# gap> s := SmallSemigroup(6, 3838);;
 # gap> DisplaySmallSemigroup(s);
 # IsBand:                              false
 # IsBrandtSemigroup:                   false
@@ -83,7 +83,7 @@ DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
 # GreensLClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
 # GreensHClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s5}, {s6} ]
 # GreensDClasses:                      [ {s1}, {s2}, {s3}, {s4}, {s6} ]
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -96,19 +96,19 @@ DeclareGlobalFunction("DisplaySmallSemigroup");
 # returns the minimum numbers <A>m, r</A> such that <A>x^{m+r}=x^m</A>; known
 # as the index and period of the small semigroup element <A>x</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,116);
+# gap> s := SmallSemigroup(5, 116);
 # <small semigroup of size 5>
-# gap> x:=Elements(s)[3];
+# gap> x := Elements(s)[3];
 # s3
 # gap> IndexPeriod(x);
 # [ 2, 1 ]
-# gap> x^3=x^2;
+# gap> x ^ 3 = x ^ 2;
 # true
-# gap> x^2=x^1;
+# gap> x ^ 2 = x ^ 1;
 # false
-# gap> x^3=x^1;
+# gap> x ^ 3 = x ^ 1;
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -125,16 +125,16 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # A semigroup <A>sgrp</A> is a <E>band</E> if every element is an idempotent,
 # that is, <A>x^2=x</A> for all <A>x</A> in <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,519);;
+# gap> s := SmallSemigroup(5, 519);;
 # gap> IsBand(s);
 # false
-# gap> s:=OneSmallSemigroup(5, IsBand, true);
+# gap> s := OneSmallSemigroup(5, IsBand, true);
 # <small semigroup of size 5>
 # gap> IsBand(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 1010 ]
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -149,16 +149,16 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # A finite semigroup <A>sgrp</A> is a <E>Brandt semigroup</E> if it is inverse
 # and zero simple.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,519);;
+# gap> s := SmallSemigroup(5, 519);;
 # gap> IsBrandtSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(5, IsBrandtSemigroup, true);
+# gap> s := OneSmallSemigroup(5, IsBrandtSemigroup, true);
 # <small semigroup of size 5>
 # gap> IsBrandtSemigroup(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 149 ]
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -175,25 +175,25 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # <A>e,x</A> in <A>sgrp</A> where <A>e^2=e</A>
 # we have that <A>ex=xe</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,519);;
+# gap> s := SmallSemigroup(5, 519);;
 # gap> IsBand(s);
 # false
-# gap> s:=OneSmallSemigroup(5, IsBand, true);
+# gap> s := OneSmallSemigroup(5, IsBand, true);
 # <small semigroup of size 5>
 # gap> IsBand(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 1010 ]
-# gap> s:=SmallSemigroup(5,519);;
+# gap> s := SmallSemigroup(5, 519);;
 # gap> IsCliffordSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(5, IsCliffordSemigroup, true);
+# gap> s := OneSmallSemigroup(5, IsCliffordSemigroup, true);
 # <small semigroup of size 5>
 # gap> IsCliffordSemigroup(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 148 ]
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -209,10 +209,10 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # A semigroup <A>sgrp</A> is <E>commutative</E> if <A>xy=yx</A> for all
 # <A>x,y</A> in <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(6,871);;
+# gap> s := SmallSemigroup(6, 871);;
 # gap> IsCommutativeSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(5, IsCommutative, true);
+# gap> s := OneSmallSemigroup(5, IsCommutative, true);
 # <small semigroup of size 5>
 # gap> IsCommutativeSemigroup(s);
 # true
@@ -220,13 +220,13 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 1 ]
-# gap> s:=OneSmallSemigroup(5, IsCommutativeSemigroup, true);
+# gap> s := OneSmallSemigroup(5, IsCommutativeSemigroup, true);
 # <small semigroup of size 5>
 # gap> IsCommutativeSemigroup(s);
 # true
 # gap> IsCommutative(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -240,17 +240,17 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # A semigroup is <E>completely regular</E>
 # if every element is contained in a subgroup.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(6,13131);
+# gap> s := SmallSemigroup(6, 13131);
 # <small semigroup of size 6>
 # gap> IsCompletelyRegularSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(6, IsCompletelyRegularSemigroup, true);
+# gap> s := OneSmallSemigroup(6, IsCompletelyRegularSemigroup, true);
 # <small semigroup of size 6>
 # gap> IsCompletelyRegularSemigroup(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 6, 3164 ]
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -267,19 +267,19 @@ DeclareAttribute("IndexPeriod", IsSmallSemigroupElt);
 # <M>n^n</M> and so there are only two semigroup in the library that have this
 # property.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(1,1);
+# gap> s := SmallSemigroup(1, 1);
 # <small semigroup of size 1>
 # gap> IsFullTransformationSemigroupCopy(s);
 # true
-# gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
+# gap> s := OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
 # <small semigroup of size 4>
 # gap> IsFullTransformationSemigroupCopy(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 4, 96 ]
-# gap> s:=OneSmallSemigroup(6, IsFullTransformationSemigroupCopy, true);
+# gap> s := OneSmallSemigroup(6, IsFullTransformationSemigroupCopy, true);
 # fail
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -294,14 +294,14 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 # Note that no small semigroup can lie in the category
 # <Ref Prop="IsGroup" BookName="ref"/>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(7,7);
+# gap> s := SmallSemigroup(7, 7);
 # <small semigroup of size 7>
 # gap> IsGroupAsSemigroup(s);
 # false
-# gap> s:=SmallSemigroup(4,37);;
+# gap> s := SmallSemigroup(4, 37);;
 # gap> IsGroupAsSemigroup(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -318,23 +318,23 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 # <E>semiband</E> if it is generated by its idempotent elements, i.e elements
 # satisfying <A>x^2=x</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(3, 13);
+# gap> s := SmallSemigroup(3, 13);
 # <small semigroup of size 3>
 # gap> IsIdempotentGenerated(s);
 # true
-# gap> s:=OneSmallSemigroup(3, IsIdempotentGenerated, false);
+# gap> s := OneSmallSemigroup(3, IsIdempotentGenerated, false);
 # <small semigroup of size 3>
 # gap> IsIdempotentGenerated(s);
 # false
 # gap> IdSmallSemigroup(s);
 # [ 3, 1 ]
-# gap> s:=OneSmallSemigroup(4, IsIdempotentGenerated, true,
+# gap> s := OneSmallSemigroup(4, IsIdempotentGenerated, true,
 # > IsSingularSemigroupCopy, true);
 # fail
-# gap> s:=OneSmallSemigroup(2, IsIdempotentGenerated, true,
+# gap> s := OneSmallSemigroup(2, IsIdempotentGenerated, true,
 # > IsSingularSemigroupCopy, true);
 # <small semigroup of size 2>
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -350,15 +350,15 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 # <A>x</A> in <A>sgrp</A> has a unique semigroup inverse, that is, a unique
 # element <A>y</A> such that <A>xyx=x</A> and <A>yxy=y</A>.
 # <Example><![CDATA[
-# gap> s:=OneSmallSemigroup(7, IsInverseSemigroup, true);
+# gap> s := OneSmallSemigroup(7, IsInverseSemigroup, true);
 # <small semigroup of size 7>
 # gap> IsInverseSemigroup(s);
 # true
-# gap> s:=SmallSemigroup(7, 101324);
+# gap> s := SmallSemigroup(7, 101324);
 # <small semigroup of size 7>
 # gap> IsInverseSemigroup(s);
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -373,15 +373,15 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 # A semigroup <A>sgrp</A> is a <E>left zero semigroup</E> if <A>xy=x</A>
 #     for all <A>x,y</A> in <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5, 438);
+# gap> s := SmallSemigroup(5, 438);
 # <small semigroup of size 5>
 # gap> IsLeftZeroSemigroup(s);
 # false
-# gap> s:=SmallSemigroup(5, 1141);
+# gap> s := SmallSemigroup(5, 1141);
 # <small semigroup of size 5>
 # gap> IsLeftZeroSemigroup(s);
 # true
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -393,21 +393,21 @@ DeclareProperty("IsFullTransformationSemigroupCopy", IsSmallSemigroup);
 # returns <K>true</K> if the small semigroup <A>sgrp</A> is generated by a
 # single element and <K>false</K> otherwise.
 # <Example><![CDATA[
-# gap> s:=RandomSmallSemigroup(7);
+# gap> s := RandomSmallSemigroup(7);
 # <small semigroup of size 7>
 # gap> IsMonogenicSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(7, IsMonogenicSemigroup, true);
+# gap> s := OneSmallSemigroup(7, IsMonogenicSemigroup, true);
 # <small semigroup of size 7>
 # gap> IsMonogenicSemigroup(s);
 # true
 # gap> MinimalGeneratingSet(s);
 # [ s7 ]
-# gap> s:=SmallSemigroup( 7, 406945);
+# gap> s := SmallSemigroup(7, 406945);
 # <small semigroup of size 7>
 # gap> IsMonogenicSemigroup(s);
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -421,11 +421,11 @@ DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 # returns <K>true</K> if the semigroup <A>sgrp</A> is a monoid (i.e. has an
 # identity element) and <K>false</K> otherwise.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(4, 126);
+# gap> s := SmallSemigroup(4, 126);
 # <small semigroup of size 4>
 # gap> IsMonoidAsSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(4, IsMonoidAsSemigroup, true);
+# gap> s := OneSmallSemigroup(4, IsMonoidAsSemigroup, true);
 # <small semigroup of size 4>
 # gap> IsMonoidAsSemigroup(s);
 # true
@@ -433,7 +433,7 @@ DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 # s1
 # gap> IdSmallSemigroup(s);
 # [ 4, 7 ]
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -449,17 +449,17 @@ DeclareSynonymAttr("Is1GeneratedSemigroup", IsMonogenicSemigroup);
 # Those semigroups in the library that have this property were identified
 # using the <Package>Sonata</Package> package.
 # <Example><![CDATA[
-# gap> s:=OneSmallSemigroup(7, IsMultSemigroupOfNearRing, true);
+# gap> s := OneSmallSemigroup(7, IsMultSemigroupOfNearRing, true);
 # <small semigroup of size 7>
 # gap> IdSmallSemigroup(s);
 # [ 7, 1 ]
 # gap> IsMultSemigroupOfNearRing(s);
 # true
-# gap> s:=SmallSemigroup(2,2);
+# gap> s := SmallSemigroup(2, 2);
 # <small semigroup of size 2>
 # gap> IsMultSemigroupOfNearRing(s);
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -474,7 +474,7 @@ DeclareProperty("IsMultSemigroupOfNearRing", IsSmallSemigroup);
 # returns <K>true</K> if the least size of a generating set for the
 # small semigroup <A>sgrp</A> is <A>n</A> and <K>false</K> otherwise.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(7, 760041);
+# gap> s := SmallSemigroup(7, 760041);
 # <small semigroup of size 7>
 # gap> IsNGeneratedSemigroup(s, 4);
 # false
@@ -482,17 +482,17 @@ DeclareProperty("IsMultSemigroupOfNearRing", IsSmallSemigroup);
 # true
 # gap> MinimalGeneratingSet(s);
 # [ s3, s5, s7 ]
-# gap> s:=OneSmallSemigroup(4, x-> Length(MinimalGeneratingSet(x)), 4);
+# gap> s := OneSmallSemigroup(4, x -> Length(MinimalGeneratingSet(x)), 4);
 # <small semigroup of size 4>
 # gap> IsNGeneratedSemigroup(s, 4);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
 
 DeclareOperation("IsNGeneratedSemigroup", [IsSmallSemigroup, IsPosInt]);
-
+# TODO remove
 DeclareProperty("Is2GeneratedSemigroup", IsSmallSemigroup);
 DeclareProperty("Is3GeneratedSemigroup", IsSmallSemigroup);
 DeclareProperty("Is4GeneratedSemigroup", IsSmallSemigroup);
@@ -508,20 +508,21 @@ DeclareProperty("Is8GeneratedSemigroup", IsSmallSemigroup);
 # returns <K>true</K> if the small semigroup <A>sgrp</A> has <A>n</A> idempotents
 # and <K>false</K> otherwise.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(4, 75);;
+# gap> s := SmallSemigroup(4, 75);;
 # gap> IsNIdempotentSemigroup(s, 1);
 # false
 # gap> IsNIdempotentSemigroup(s, 2);
 # false
 # gap> IsNIdempotentSemigroup(s, 3);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
 
 DeclareOperation("IsNIdempotentSemigroup", [IsSmallSemigroup, IsPosInt]);
 
+# TODO remove
 DeclareProperty("Is1IdempotentSemigroup", IsSmallSemigroup);
 DeclareProperty("Is2IdempotentSemigroup", IsSmallSemigroup);
 DeclareProperty("Is3IdempotentSemigroup", IsSmallSemigroup);
@@ -544,17 +545,17 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # every element to some power equals this zero.
 #
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,116);
+# gap> s := SmallSemigroup(5, 116);
 # <small semigroup of size 5>
 # gap> IsNilpotentSemigroup(s);
 # false
-# gap> s:=SmallSemigroup(7, 673768);;
+# gap> s := SmallSemigroup(7, 673768);;
 # gap> IsNilpotentSemigroup(s);
 # true
-# gap> s:=SmallSemigroup(7, 657867);;
+# gap> s := SmallSemigroup(7, 657867);;
 # gap> IsNilpotent(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -570,14 +571,14 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # A semigroup is <E>orthodox</E> if it is regular and its idempotents
 # form a subsemigroup.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(6, 15858);;
+# gap> s := SmallSemigroup(6, 15858);;
 # gap> IsSemigroupWithClosedIdempotents(s);
 # true
 # gap> IsRegularSemigroup(s);
 # true
 # gap> IsOrthodoxSemigroup(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -592,13 +593,13 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # A semigroup <A>sgrp</A> is a <E>rectangular band</E> if for all
 # <A>x,y,z</A> in <A>sgrp</A> we have that <A>x^2=x</A> and <A>xyz=xz</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5, 216);;
+# gap> s := SmallSemigroup(5, 216);;
 # gap> IsRectangularBand(s);
 # false
-# gap> s:=SmallSemigroup(6, 15854);;
+# gap> s := SmallSemigroup(6, 15854);;
 # gap> IsRectangularBand(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -614,17 +615,17 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # <A>sgrp</A> there exists <A>y</A> in <A>sgrp</A> such that <A>xyx=x</A>.
 #
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(3, 10);;
+# gap> s := SmallSemigroup(3, 10);;
 # gap> IsRegularSemigroup(s);
 # true
-# gap> s:=SmallSemigroup(3, 1);;
+# gap> s := SmallSemigroup(3, 1);;
 # gap> IsRegularSemigroup(s);
 # false
-# gap> s:=OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
+# gap> s := OneSmallSemigroup(4, IsFullTransformationSemigroupCopy, true);
 # <small semigroup of size 4>
 # gap> IsRegularSemigroup(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -640,11 +641,11 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # for all <A>x,y</A> in <A>sgrp</A>.
 #
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5, 438);
+# gap> s := SmallSemigroup(5, 438);
 # <small semigroup of size 5>
 # gap> IsRightZeroSemigroup(s);
 # false
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -660,15 +661,15 @@ DeclareProperty("Is8IdempotentSemigroup", IsSmallSemigroup);
 # that is, the semigroup <A>t</A> with multiplication <A>*</A> defined
 # by <A>x*y=yx</A> where <A>yx</A> denotes the product in <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,116);
+# gap> s := SmallSemigroup(5, 116);
 # <small semigroup of size 5>
 # gap> IsSelfDualSemigroup(s);
 # false
-# gap> s:=RandomSmallSemigroup(5, IsSelfDualSemigroup, true);
+# gap> s := RandomSmallSemigroup(5, IsSelfDualSemigroup, true);
 # <small semigroup of size 5>
 # gap> IsSelfDualSemigroup(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -682,16 +683,16 @@ DeclareProperty("IsSelfDualSemigroup", IsSmallSemigroup);
 # form a subsemigroup and <K>false</K> otherwise.
 #
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5, 677);;
+# gap> s := SmallSemigroup(5, 677);;
 # gap> IsSemigroupWithClosedIdempotents(s);
 # true
-# gap> s:=SmallSemigroup(5, 659);;
+# gap> s := SmallSemigroup(5, 659);;
 # gap> IsSemigroupWithClosedIdempotents(s);
 # true
-# gap> s:=SmallSemigroup(5, 327);;
+# gap> s := SmallSemigroup(5, 327);;
 # gap> IsSemigroupWithClosedIdempotents(s);
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -712,15 +713,15 @@ fi;
 # <M>x</M> in the semigroup.
 #
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(5,1);
+# gap> s := SmallSemigroup(5, 1);
 # <small semigroup of size 5>
 # gap> IsSemigroupWithZero(s);
 # true
-# gap> s:=SmallSemigroup(4,26);
+# gap> s := SmallSemigroup(4, 26);
 # <small semigroup of size 4>
 # gap> IsSemigroupWithZero(s);
 # false
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -740,12 +741,12 @@ DeclareProperty("IsSemigroupWithZero", IsSemigroup);
 # <P/>
 # A finite semigroup is simple if and only if it is completely simple.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(7, 835080);;
+# gap> s := SmallSemigroup(7, 835080);;
 # gap> IsSimpleSemigroup(s);
 # true
 # gap> IsCompletelySimpleSemigroup(s);
 # true
-# gap> s:=SmallSemigroup(7, 208242);;
+# gap> s := SmallSemigroup(7, 208242);;
 # gap> IsSimpleSemigroup(s);
 # false
 # ]]></Example>
@@ -764,19 +765,19 @@ DeclareProperty("IsSemigroupWithZero", IsSemigroup);
 # The size of this semigroup on an <M>n</M> element set is <M>n^n-n!</M>
 # and so there is only one semigroup in the library that has this property.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(1,1);
+# gap> s := SmallSemigroup(1, 1);
 # <small semigroup of size 1>
 # gap> IsSingularSemigroupCopy(s);
 # false
-# gap> s:=OneSmallSemigroup(2, IsSingularSemigroupCopy, true);
+# gap> s := OneSmallSemigroup(2, IsSingularSemigroupCopy, true);
 # <small semigroup of size 2>
 # gap> IsSingularSemigroupCopy(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 2, 4 ]
-# gap> s:=OneSmallSemigroup(4, IsSingularSemigroupCopy, true);
+# gap> s := OneSmallSemigroup(4, IsSingularSemigroupCopy, true);
 # fail
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -794,7 +795,7 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # <M>z</M> is a group and for all <M>x</M> in <M>sgrp</M> we have that
 # <M>xz=zx=z</M>.
 # <Example><![CDATA[
-# gap> g:=Group((1,2),(3,4));
+# gap> g := Group((1, 2), (3, 4));
 # Group([ (1,2), (3,4) ])
 # gap> IdSmallSemigroup(g);
 # [ 4, 7 ]
@@ -804,7 +805,7 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # [ 5, 149 ]
 # gap> IsZeroGroup(s);
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -820,13 +821,13 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # element <M>z</M> in <A>sgrp</A> such that <M>xy=z</M> for all <M>x,y</M>
 # in <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=OneSmallSemigroup(5, IsZeroSemigroup, true);
+# gap> s := OneSmallSemigroup(5, IsZeroSemigroup, true);
 # <small semigroup of size 5>
 # gap> IsZeroSemigroup(s);
 # true
 # gap> IdSmallSemigroup(s);
 # [ 5, 1 ]
-# gap> s:=OneSmallSemigroup(5, IsZeroSemigroup, false);
+# gap> s := OneSmallSemigroup(5, IsZeroSemigroup, false);
 # <small semigroup of size 5>
 # gap> IdSmallSemigroup(s);
 # [ 5, 2 ]
@@ -836,13 +837,13 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # Note that for each size the unique zero semigroup is always the first
 # semigroup of this size in the library.
 # <Example><![CDATA[
-# gap> IsZeroSemigroup(SmallSemigroup(6,1));
+# gap> IsZeroSemigroup(SmallSemigroup(6, 1));
 # true
-# gap> IsZeroSemigroup(SmallSemigroup(7,1));
+# gap> IsZeroSemigroup(SmallSemigroup(7, 1));
 # true
-# gap> IsZeroSemigroup(SmallSemigroup(8,1));
+# gap> IsZeroSemigroup(SmallSemigroup(8, 1));
 # true
-# ]]></Example><!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -852,16 +853,16 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # <Prop Name="IsZeroSimpleSemigroup" Arg="sgrp"/>
 # <Description>
 # return <K>true</K> if the semigroup <A>sgrp</A> is zero simple
-#      and <K>false</K> otherwise.<P/>
+# and <K>false</K> otherwise.<P/>
 #
 # A semigroup <A>sgrp</A> is <E>zero simple</E> if the only 2-sided ideals
 # are the zero <A>{0}</A> and <A>sgrp</A>.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(7, 519799);
+# gap> s := SmallSemigroup(7, 519799);
 # <small semigroup of size 7>
 # gap> IsZeroSimpleSemigroup(s);
 # false
-# gap> s:=RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true);
+# gap> s := RandomSmallSemigroup(7, IsZeroSimpleSemigroup, true);
 # <small semigroup of size 7>
 # gap> IsZeroSimpleSemigroup(s);
 # true
@@ -876,16 +877,16 @@ DeclareProperty("IsSingularSemigroupCopy", IsSmallSemigroup);
 # <Description>
 # returns a set of generators for <A>sgrp</A> with minimal size.
 # <Example><![CDATA[
-# gap> s:=SmallSemigroup(8, 1478885610);;
+# gap> s := SmallSemigroup(8, 1478885610);;
 # gap> MinimalGeneratingSet(s);
 # [ s4, s5, s6, s7, s8 ]
-# gap> s:=SmallSemigroup(7, 673768);;
+# gap> s := SmallSemigroup(7, 673768);;
 # gap> MinimalGeneratingSet(s);
 # [ s4, s5, s6, s7 ]
-# gap> s:=SmallSemigroup(4, 4);;
+# gap> s := SmallSemigroup(4, 4);;
 # gap> MinimalGeneratingSet(s);
 # [ s2, s3, s4 ]
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -907,17 +908,17 @@ DeclareAttribute("MinimalGeneratingSet", IsSemigroup);
 # gap> s := SmallSemigroup(7, 393450);;
 # gap> NilpotencyDegree(s);
 # 3
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # Note that for size 8 a semigroup in the library with ID <M>(8,n)</M> is
 # nilpotent of degree 3 if and only if <M>n</M> is greater than 11433106.
 # <Example><![CDATA[
-# gap> s := SmallSemigroup(8, 11433106+1231);;
+# gap> s := SmallSemigroup(8, 11433106 + 1231);;
 # gap> NilpotencyDegree(s);
 # 3
-# gap> s := SmallSemigroup(8,NrSmallSemigroups(8));;
+# gap> s := SmallSemigroup(8, NrSmallSemigroups(8));;
 # gap> NilpotencyDegree(s);
 # 3
-# ]]></Example> <!-- properties.tst -->
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
@@ -945,9 +946,9 @@ DeclareProperty("IsSemigroupWithoutClosedIdempotents", IsSmallSemigroup);
 # <Description>
 # returns the value of the component of the record <C>MOREDATA2TO8[n]</C> with
 # name the string <C>str</C>. This is equivalent to doing the following.
-# <Example><![CDATA[
+# <Log><![CDATA[
 # MOREDATA2TO8[n].(name);
-# ]]></Example> <!-- no test -->
+# ]]></Log>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>

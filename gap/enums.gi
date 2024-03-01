@@ -332,7 +332,7 @@ function(arg...)
 end);
 
 InstallMethod(UpToIsomorphism, "for a list of non-equivalent semigroups",
-[IsList],
+[IsList],  # TODO replace with something better?
 function(list)
   local out, dual, equi, S;
 
@@ -379,9 +379,7 @@ function(arg...)
   local stored, sizes, prec, user, positions, i, enum, out, s, j;
 
   CallFuncList(SMALLSEMI_ValidateTypeArgs, arg);
-
   arg := CallFuncList(SMALLSEMI_NormalizeArgs, arg);
-
   CallFuncList(SMALLSEMI_ValidateEnumeratorArgs, arg);
 
   # a single stored value
@@ -410,6 +408,7 @@ function(arg...)
     sizes := SizesOfSmallSemigroupsIn(arg[1]);
     # TODO set arg as below here too
   elif IsCyclotomicCollection(arg[1]) and ForAll(arg[1], IsPosInt) then
+    # TODO just use else here because type checked above
     sizes := arg[1];
   fi;
 
@@ -485,7 +484,6 @@ function(arg...)
       until i = Length(user) - 1 or IsEmpty(positions[j]);
     fi;
   od;
-  ;
 
   if InfoLevel(InfoSmallsemiEnums) = 4 then
     Print("\n");
@@ -529,7 +527,7 @@ function(arg...)
 
   arg := CallFuncList(SMALLSEMI_NormalizeArgs, arg);
   CallFuncList(SMALLSEMI_ValidateEnumeratorArgs, arg);
-
+  # TODO use PositionsOfSmallSemigroupsNC when available
   positions := CallFuncList(PositionsOfSmallSemigroups, arg);
   Assert(0, Length(positions) = Length(sizes));
 
@@ -691,6 +689,7 @@ function()
   SetIsIteratorOfSmallSemigroups(iter, true);
   return iter;
 end);
+
 InstallOtherMethod(IsIteratorOfSmallSemigroups, "for an object", [IsObject],
 ReturnFalse);
 
