@@ -71,27 +71,6 @@ DeclareInfoClass("InfoSmallsemi");
 # <#/GAPDoc>
 DeclareInfoClass("InfoSmallsemiEnums");
 
-# <#GAPDoc Label="IsSmallSemigroup">
-# <ManSection>
-# <Filt Name="IsSmallSemigroup" Arg="sgrp"/>
-# <Description>
-# returns <C>true</C> if <A>sgrp</A> is a semigroup from the library,
-# that is if it was created using <Ref Func="SmallSemigroup"/>. Otherwise
-# <C>false</C> is returned.<P/>
-# <Example><![CDATA[
-# gap> sgrp:=RandomSmallSemigroup(5);
-# <small semigroup of size 5>
-# gap> IsSmallSemigroup(sgrp);
-# true
-# gap> sgrp:=Semigroup(Transformation([1]));;
-# gap> IsSmallSemigroup(sgrp);
-# false
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareCategory("IsSmallSemigroup", IsSemigroup);
-
 # <#GAPDoc Label="IsSmallSemigroupElt">
 # <ManSection>
 # <Filt Name="IsSmallSemigroupElt" Arg="x"/>
@@ -114,10 +93,33 @@ DeclareCategory("IsSmallSemigroup", IsSemigroup);
 # </ManSection>
 # <#/GAPDoc>
 DeclareCategory("IsSmallSemigroupElt",
-                IsPositionalObjectRep and IsAssociativeElement);
+                IsComponentObjectRep and IsAssociativeElement);
 
 DeclareCategoryCollections("IsSmallSemigroupElt");
 DeclareCategoryCollections("IsSmallSemigroupEltCollection");
+
+# <#GAPDoc Label="IsSmallSemigroup">
+# <ManSection>
+# <Filt Name="IsSmallSemigroup" Arg="sgrp"/>
+# <Description>
+# returns <C>true</C> if <A>sgrp</A> is a semigroup from the library,
+# that is if it was created using <Ref Func="SmallSemigroup"/>. Otherwise
+# <C>false</C> is returned.<P/>
+# <Example><![CDATA[
+# gap> sgrp:=RandomSmallSemigroup(5);
+# <small semigroup of size 5>
+# gap> IsSmallSemigroup(sgrp);
+# true
+# gap> sgrp:=Semigroup(Transformation([1]));;
+# gap> IsSmallSemigroup(sgrp);
+# false
+# ]]></Example>
+# </Description>
+# </ManSection>
+# <#/GAPDoc>
+DeclareCategory("IsSmallSemigroup", IsSemigroup and
+IsSmallSemigroupEltCollection);
+DeclareCategoryCollections("IsSmallSemigroup");
 
 # <#GAPDoc Label="RecoverMultiplicationTable">
 # <ManSection>
