@@ -18,8 +18,8 @@
 # The argument <A>sgrp</A> has to be a semigroup of size 8 or less,
 # otherwise an error is signalled.
 # <Example><![CDATA[
-# gap> sgrp:=Semigroup(Transformation( [ 1, 2, 2 ] ),
-# > Transformation( [ 1, 2, 3 ] ));;
+# gap> sgrp := Semigroup(Transformation([1, 2, 2]),
+# >                      Transformation([1, 2, 3]));;
 # gap> EquivalenceSmallSemigroup(sgrp);
 # SemigroupHomomorphismByImages ( Monoid( [ Transformation( [ 1, 2, 2 ] )
 #  ] )-><small semigroup of size 2>)
@@ -71,27 +71,6 @@ DeclareInfoClass("InfoSmallsemi");
 # <#/GAPDoc>
 DeclareInfoClass("InfoSmallsemiEnums");
 
-# <#GAPDoc Label="IsSmallSemigroup">
-# <ManSection>
-# <Filt Name="IsSmallSemigroup" Arg="sgrp"/>
-# <Description>
-# returns <C>true</C> if <A>sgrp</A> is a semigroup from the library,
-# that is if it was created using <Ref Func="SmallSemigroup"/>. Otherwise
-# <C>false</C> is returned.<P/>
-# <Example><![CDATA[
-# gap> sgrp:=RandomSmallSemigroup(5);
-# <small semigroup of size 5>
-# gap> IsSmallSemigroup(sgrp);
-# true
-# gap> sgrp:=Semigroup(Transformation([1]));;
-# gap> IsSmallSemigroup(sgrp);
-# false
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-DeclareCategory("IsSmallSemigroup", IsSemigroup);
-
 # <#GAPDoc Label="IsSmallSemigroupElt">
 # <ManSection>
 # <Filt Name="IsSmallSemigroupElt" Arg="x"/>
@@ -106,19 +85,41 @@ DeclareCategory("IsSmallSemigroup", IsSemigroup);
 # <Example><![CDATA[
 # gap> IsSmallSemigroupElt(Transformation([1]));
 # false
-# gap> sgrp:=RandomSmallSemigroup(5);;
+# gap> sgrp := RandomSmallSemigroup(5);;
 # gap> IsSmallSemigroupElt(Random(sgrp));
 # true
 # ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareRepresentation("IsSmallSemigroupElt",
-                      IsPositionalObjectRep
-                      and IsMultiplicativeElement
-                      and IsAssociativeElement
-                      and IsAttributeStoringRep,
-                      [2]);
+DeclareCategory("IsSmallSemigroupElt",
+                IsComponentObjectRep and IsAssociativeElement);
+
+DeclareCategoryCollections("IsSmallSemigroupElt");
+DeclareCategoryCollections("IsSmallSemigroupEltCollection");
+
+# <#GAPDoc Label="IsSmallSemigroup">
+# <ManSection>
+# <Filt Name="IsSmallSemigroup" Arg="sgrp"/>
+# <Description>
+# returns <C>true</C> if <A>sgrp</A> is a semigroup from the library,
+# that is if it was created using <Ref Func="SmallSemigroup"/>. Otherwise
+# <C>false</C> is returned.<P/>
+# <Example><![CDATA[
+# gap> sgrp := RandomSmallSemigroup(5);
+# <small semigroup of size 5>
+# gap> IsSmallSemigroup(sgrp);
+# true
+# gap> sgrp := Semigroup(Transformation([1]));;
+# gap> IsSmallSemigroup(sgrp);
+# false
+# ]]></Example>
+# </Description>
+# </ManSection>
+# <#/GAPDoc>
+DeclareCategory("IsSmallSemigroup", IsSemigroup and
+IsSmallSemigroupEltCollection);
+DeclareCategoryCollections("IsSmallSemigroup");
 
 # <#GAPDoc Label="RecoverMultiplicationTable">
 # <ManSection>
@@ -133,18 +134,18 @@ DeclareRepresentation("IsSmallSemigroupElt",
 # NC version does not perform any tests on the input and will most likely
 # run into an error in such a case.
 # <Example><![CDATA[
-# gap> RecoverMultiplicationTable(10,2);
+# gap> RecoverMultiplicationTable(10, 2);
 # fail
-# gap> RecoverMultiplicationTable(1,2);
+# gap> RecoverMultiplicationTable(1, 2);
 # fail
-# gap> RecoverMultiplicationTable(2,1);
+# gap> RecoverMultiplicationTable(2, 1);
 # [ [ 1, 1 ], [ 1, 1 ] ]
-# gap> RecoverMultiplicationTable(8,11111111);
+# gap> RecoverMultiplicationTable(8, 11111111);
 # [ [ 1, 1, 1, 1, 1, 1, 1, 1 ], [ 1, 1, 1, 1, 1, 1, 1, 3 ],
 #   [ 3, 3, 3, 3, 3, 3, 3, 3 ], [ 1, 1, 1, 4, 4, 4, 4, 1 ],
 #   [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 1, 2, 3, 4, 5, 6, 7, 1 ],
 #   [ 1, 2, 3, 4, 5, 6, 7, 1 ], [ 8, 8, 8, 8, 8, 8, 8, 8 ] ]
-# gap> RecoverMultiplicationTable(2,11111111);
+# gap> RecoverMultiplicationTable(2, 11111111);
 # fail
 # ]]></Example>
 # Note that no semigroup is created calling this function but just the
@@ -173,7 +174,7 @@ DeclareGlobalFunction("RecoverMultiplicationTableNC");
 # results or might even crash &GAP;.
 #
 # <Example><![CDATA[
-# gap> s:=SemigroupByMultiplicationTableNC([[1,2],[2,1]]);
+# gap> s := SemigroupByMultiplicationTableNC([[1, 2], [2, 1]]);
 # <semigroup of size 2, with 2 generators>
 # gap> IsSmallSemigroup(s);
 # false
@@ -202,11 +203,11 @@ DeclareGlobalFunction("SemigroupByMultiplicationTableNC");
 # <A>m</A> are not classified or if <A>n</A> is greater than the number of
 # semigroups with <A>m</A> elements.
 # <Example><![CDATA[
-# gap> SmallSemigroup(8,1353452);
+# gap> SmallSemigroup(8, 1353452);
 # <small semigroup of size 8>
-# gap> SmallSemigroupNC(5,1);
+# gap> SmallSemigroupNC(5, 1);
 # <small semigroup of size 5>
-# gap> SmallSemigroupNC(5,1)=SmallSemigroup(5,1);
+# gap> SmallSemigroupNC(5, 1) = SmallSemigroup(5, 1);
 # true
 # ]]></Example>
 # </Description>
@@ -262,7 +263,7 @@ DeclareGlobalFunction("UnloadSmallsemiData");
 # true
 # gap> 3NIL_DATA;
 # rec( diag := fail )
-# gap> SmallSemigroup( 8, NrSmallSemigroups(8)-2 );;
+# gap> SmallSemigroup(8, NrSmallSemigroups(8) - 2);;
 # gap> 3NIL_DATA;
 # rec( diag := [ 2, 3 ], strlist := [ "0013", "0313" ],
 #   positions := [ 1, 3, 4, 7 ], next := 4 )
@@ -292,7 +293,7 @@ DeclareGlobalVariable("3NIL_DATA",
 # <Example><![CDATA[
 # gap> IsBound(DATA2TO7[1]);
 # false
-# gap> RecoverMultiplicationTable(2,1);;
+# gap> RecoverMultiplicationTable(2, 1);;
 # gap> DATA2TO7[1];
 # [ "0100", "0101", "0011" ]
 # gap> UnloadSmallsemiData(true);
@@ -377,9 +378,9 @@ DeclareGlobalFunction("READ_MOREDATA2TO8");
 # <Ref Attr="MultiplicationTable" BookName="ref"/> with the property
 # <Ref Prop="IsAssociative" BookName="ref"/> set to <C>true</C>.<P/>
 #
-# Although this function can be used to create semigroups in the category
-# <Ref Filt="IsSmallSemigroup"/> where <A>table</A> is not a  table in the
-# library this may cause problems and there is no reason to do it! <P/>
+# Although this function can be used to create semigroups in the category <Ref
+# Filt="IsSmallSemigroup"/> where <A>table</A> is not a  table in the library
+# this may cause problems and there is no reason to do it! <P/>
 #
 # If you want to create semigroups from multiplication table, then use either
 # <Ref Func="SemigroupByMultiplicationTableNC"/> if you know the table is

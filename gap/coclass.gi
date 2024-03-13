@@ -32,7 +32,7 @@ function(arg...)
   if Length(arg) = 3 then
     r := arg[3];
     if not r in [1, 2, 3] then
-      Error("admissable values for the rank <r> are 1, 2 and 3");
+      Error("admissible values for the rank <r> are 1, 2 and 3");
     elif r = 1 and d <> 0 then
       Info(InfoSmallsemi, 1, "Nilpotent semigroups are 1-generated ",
       "if and only if they have coclass 0.");

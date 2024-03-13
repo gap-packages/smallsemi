@@ -32,7 +32,7 @@ BindGlobal("MOREDATA2TO8", READ_MOREDATA2TO8());
 # <Description>
 # see <Ref Func="GENERATE_BLUEPRINT_MATS"/>.
 # <Example><![CDATA[
-# gap> Display( BLUEPRINT_MATS[3] );
+# gap> Display(BLUEPRINT_MATS[3]);
 # [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
 #   [  1,  1,  1,  1,  1,  1,  1,  1 ],
 #   [  1,  1,  1,  1,  1,  1,  1,  1 ],
