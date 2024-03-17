@@ -9,13 +9,7 @@
 ##
 
 # TODO remove
-DeclareGlobalFunction("SizesOfSmallSemisInIter");
-# TODO delete
 DeclareGlobalFunction("EmptyIteratorOfSmallSemigroups");
-# TODO remove
-DeclareGlobalFunction("NamesFuncsSmallSemisInIter");
-# TODO remove
-DeclareGlobalFunction("FuncsOfSmallSemisInIter");
 
 # <#GAPDoc Label="AllSmallSemigroups">
 # <ManSection>
@@ -229,7 +223,8 @@ DeclareGlobalFunction("EnumeratorOfSmallSemigroupsByDiagonals");
 # <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>.
 #
 # <Example><![CDATA[
-# gap> enum := EnumeratorOfSmallSemigroups(5, x -> Length(GreensRClasses(x)), 1);;
+# gap> enum := EnumeratorOfSmallSemigroups(5,
+# > x -> Length(GreensRClasses(x)), 1);;
 # gap> IdsOfSmallSemigroups(enum, IsCommutativeSemigroup, true,
 # > IsSimpleSemigroup, false);
 # [  ]

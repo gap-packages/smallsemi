@@ -221,10 +221,10 @@ For contents, type: ?Smallsemi:
 Loading Smallsemi &VERSION; ...
 -----------------------------------------------------------------------------
 true
-gap>
 ]]></Log>
 
-You might want to start &GAP; with a specified amount of memory; see Subsection <Ref Subsect="memory"/>.
+You might want to start &GAP; with a specified amount of memory; see Subsection
+<Ref Subsect="memory"/>.
 
 </Subsection>
 
@@ -239,7 +239,7 @@ As mentioned in Subsection <Ref Subsect="ram"/>, working with <Package>smallsemi
 <Item>extend the amount memory used by typing <C>return;</C> in the
 break-loop whenever &GAP; runs out of memory. For example,
 <Log><![CDATA[
-gap> s:=SmallSemigroup(8, 183244314);
+gap> s := SmallSemigroup(8, 183244314);
 #I  Loading 'smallsemi' data. Please be patient.
 #I  Loading 'smallsemi' data.
 Error, exceeded the permitted memory (`-o' command line option)
@@ -262,7 +262,7 @@ similar output (the timings will differ depending on the speed of your
 machine):
 
 <Log><![CDATA[
-gap> ReadPackage( "smallsemi", "tst/testall.g" );
+gap> ReadPackage("smallsemi", "tst/testall.g");
 Architecture: aarch64-apple-darwin21.3.0-default64-kv8
 
 testing: smallsemi/tst/coclass.tst
@@ -296,10 +296,10 @@ BookName="ref"/>.
 Another option is to save a workspace after
 loading <Package>Smallsemi</Package> and executing the following commands
 <Log><![CDATA[
-gap> SmallSemigroup(7,1);; MOREDATA2TO8;;
+gap> SmallSemigroup(7, 1);; MOREDATA2TO8;;
 #I  smallsemi: loading data for semigroups of size 7.
 #I  smallsemi: loading data for semigroup properties. Please be patient.
-gap> SaveWorkspace( "<filename for the workspace>" );
+gap> SaveWorkspace("<filename for the workspace>");
 ]]></Log>
 Doing this will mean that it is not necessary to load the data from the library
 every time you start a new &GAP; session; see
