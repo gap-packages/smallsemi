@@ -180,7 +180,7 @@ function(sizes, positions, funcs)
     return index + enum!.Lengths[size - 1];
   end;
 
-  record.Length := enum -> Last(enum!.Lengths);
+  record.Length := enum -> enum!.Lengths[Length(enum!.Lengths)];
 
   record.PrintObj := function(enum)
     local sizes, msg;
