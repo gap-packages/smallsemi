@@ -683,15 +683,19 @@ end);
 
 BindGlobal("PrintObj_IsIteratorOfSmallSemigroups",
 function(iter)
-  if iter!.sizes = [0] then
+  local sizes, msg;
+  if SizesOfSmallSemigroupsIn(iter) = [0] then
     Print("<empty iterator of semigroups>");
+    return;
   fi;
-  Print("<iterator of semigroups of size");
-  if Length(iter!.sizes) > 1 then
-    Print("s ", iter!.sizes, ">");
+  sizes := SizesOfSmallSemigroupsIn(iter);
+  msg := "size";
+  if Length(sizes) > 1 then
+    Append(msg, "s");
   else
-    Print(" ", iter!.sizes[1], ">");
+    sizes := sizes[1];
   fi;
+  PrintFormatted("<iterator of semigroups of {} {}>", msg, sizes);
 end);
 
 InstallGlobalFunction(IteratorOfSmallSemigroups,
