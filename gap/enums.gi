@@ -12,7 +12,9 @@ BindGlobal("SmallSemigroupEnumeratorFamily",
            NewFamily("SmallSemigroupEnumeratorFamily",
                      IsEnumeratorOfSmallSemigroups));
 
-# TODO SmallSemigroupIteratorFamily
+BindGlobal("SmallSemigroupIteratorFamily",
+           NewFamily("SmallSemigroupIteratorFamily",
+                     IsIteratorOfSmallSemigroups));
 
 #############################################################################
 # Internal stuff
@@ -669,7 +671,7 @@ end);
 # TODO remove
 InstallGlobalFunction(EmptyIteratorOfSmallSemigroups,
 function()
-  local record, iter;
+  local record, type;
 
   record                := rec();
   record.IsDoneIterator := ReturnTrue;
@@ -684,14 +686,10 @@ function()
   record.user        := [];
   record.sizes       := [0];
 
-  iter := IteratorByFunctions(record);
-
-  SetIsIteratorOfSmallSemigroups(iter, true);
-  return iter;
+  type := NewType(SmallSemigroupIteratorFamily,
+                  IsIteratorOfSmallSemigroups and IsMutable);
+  return Objectify(type, record);
 end);
-
-InstallOtherMethod(IsIteratorOfSmallSemigroups, "for an object", [IsObject],
-ReturnFalse);
 
 BindGlobal("PrintObj_IsIteratorOfSmallSemigroups",
 function(iter)
@@ -708,7 +706,7 @@ end);
 
 InstallGlobalFunction(IteratorOfSmallSemigroups,
 function(arg...)
-  local record, iter, sizes, names, funcs, enum, user, max, i;
+  local record, type, sizes, names, funcs, enum, user, max, i;
 
   CallFuncList(SMALLSEMI_ValidateTypeArgs, arg);
 
@@ -739,9 +737,9 @@ function(arg...)
     record.funcs := [];
     record.names := ["AllSmallSemigroups", arg[1]];
 
-    iter := IteratorByFunctions(record);
-    SetIsIteratorOfSmallSemigroups(iter, true);
-    return iter;
+    type := NewType(SmallSemigroupIteratorFamily,
+                    IsIteratorOfSmallSemigroups and IsMutable);
+    return Objectify(type, record);
   fi;
 
   if IsPosInt(arg[1]) then
@@ -886,9 +884,9 @@ function(arg...)
                                   List(arg{[2 .. Length(arg)]},
                                        SMALLSEMI_FuncNameOrString));
 
-    iter := IteratorByFunctions(record);
-    SetIsIteratorOfSmallSemigroups(iter, true);
-    return iter;
+    type := NewType(SmallSemigroupIteratorFamily,
+                    IsIteratorOfSmallSemigroups and IsMutable);
+    return Objectify(type, record);
 end);
 
 ########################################################################
