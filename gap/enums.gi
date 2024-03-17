@@ -790,7 +790,8 @@ function(arg...)
     if IsEmpty(enum) then
       return EmptyIteratorOfSmallSemigroups();
     fi;
-  elif enum <> [arg[1]] and CallFuncList(SMALLSEMI_CanCreateEnumerator, enum) then
+  elif enum <> [arg[1]]
+      and CallFuncList(SMALLSEMI_CanCreateEnumerator, enum) then
     enum := CallFuncList(EnumeratorOfSmallSemigroups, enum);
     max := Length(enum);
     if IsEmpty(enum) then

@@ -1,5 +1,5 @@
 ##  this creates the documentation, needs: GAPDoc and AutoDoc packages, pdflatex
-##  
+##
 ##  Call this with GAP from within the package directory.
 ##
 
@@ -13,10 +13,8 @@ AutoDoc(rec(
             "intro.xml",
             "data.xml",
             "examples.xml",
-            "functionality.xml",
-        ],
-        bib := "smallsemi.bib",
-    ),
-    gapdoc := rec( main := "smallsemi.xml" ),
+            "functionality.xml"],
+        bib := "smallsemi.bib"),
+    gapdoc := rec(main := "smallsemi.xml"),
     extract_examples := true,
 ));
