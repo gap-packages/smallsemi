@@ -291,8 +291,11 @@ DeclareGlobalFunction("IsIdSmallSemigroup");
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-# TODO update like IsEnumeratorOfSmallSemigroups
-DeclareProperty("IsIteratorOfSmallSemigroups", IsIteratorByFunctions);
+DeclareCategory("IsIteratorOfSmallSemigroups",
+                IsIteratorByFunctionsRep
+                and IsIteratorByFunctions
+                and IsSmallSemigroupEltCollColl
+                and IsFinite);
 
 # <#GAPDoc Label="IteratorOfSmallSemigroups">
 # <ManSection>
