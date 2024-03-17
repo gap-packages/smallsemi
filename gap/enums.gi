@@ -20,16 +20,6 @@ BindGlobal("SmallSemigroupIteratorFamily",
 # Internal stuff
 #############################################################################
 
-# TODO remove
-BindGlobal("SMALLSEMI_FuncNameOrString",
-function(x)
-  if IsFunction(x) then
-    return NameFunction(x);
-  else
-    return x;
-  fi;
-end);
-
 BindGlobal("SMALLSEMI_ValidateTypeArgs",
 function(arg...)
   local x, i;
@@ -706,7 +696,7 @@ end);
 
 InstallGlobalFunction(IteratorOfSmallSemigroups,
 function(arg...)
-  local record, type, sizes, names, funcs, enum, user, max, i;
+  local record, type, sizes, funcs, enum, user, max, i;
 
   CallFuncList(SMALLSEMI_ValidateTypeArgs, arg);
 
@@ -735,7 +725,6 @@ function(arg...)
     record.user := [];
     record.sizes := [arg[1]];
     record.funcs := [];
-    record.names := ["AllSmallSemigroups", arg[1]];
 
     type := NewType(SmallSemigroupIteratorFamily,
                     IsIteratorOfSmallSemigroups and IsMutable);
@@ -744,23 +733,19 @@ function(arg...)
 
   if IsPosInt(arg[1]) then
     sizes := [arg[1]];
-    names := [];
     funcs := [];
   elif IsEnumeratorOfSmallSemigroups(arg[1]) then
     if IsEmpty(arg[1]) then
       return EmptyIteratorOfSmallSemigroups();
     fi;
     sizes := SizesOfSmallSemigroupsIn(arg[1]);
-    names := [];
     funcs := ArgumentsUsedToCreate(arg[1]);
   elif IsIteratorOfSmallSemigroups(arg[1]) then
     sizes := SizesOfSmallSemigroupsIn(arg[1]);
-    names := [];
     funcs := ArgumentsUsedToCreate(arg[1]);
   else
     # list of positive integers
     sizes := arg[1];
-    names := [];
     funcs := [];
   fi;
 
@@ -879,10 +864,6 @@ function(arg...)
     record.sizes := sizes;
     record.at_size := sizes[1];
     record.funcs := Concatenation(funcs, arg{[2 .. Length(arg)]});
-
-    record.names := Concatenation(names,
-                                  List(arg{[2 .. Length(arg)]},
-                                       SMALLSEMI_FuncNameOrString));
 
     type := NewType(SmallSemigroupIteratorFamily,
                     IsIteratorOfSmallSemigroups and IsMutable);
