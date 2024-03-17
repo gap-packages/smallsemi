@@ -7,8 +7,7 @@ precomputed information about these semigroups; and there is an
 identification function which takes a semigroup with at most 8
 elements and returns a map to the equivalent one from the library.
 <P/>
-<!-- One possibility is an extensive search for a semigroup with a certain
-property. -->
+
 These features lead to different ways of using the library. It is
 impossible to describe - or even to anticipate - all possible types of
 usage. Most problems will admit multiple solutions. We find it
@@ -17,22 +16,21 @@ this chapter should give an idea of the differences in the various
 functions and help you to find an alternative if a computation uses more
 time or memory than you have available.
 <P/>
+
 Let us go step by step through some ways to use the library showing
 which tools are provided.
 
-<!-- ############### -->
-
 <Section><Heading>Lists, Enumerators and Iterators of Semigroups</Heading>
 
-At first one could want to search through the stored
-semigroups for one or all semigroups with a certain property. Going
-through all the semigroups can take a long time. Just to create all
-the 1.8 billion semigroups as objects in &GAP; takes around a day on a
-modern PC. Doing a simple test on all the semigroups in the library might take another day. Performing complicated tests easily takes weeks. To avoid this, many properties of the semigroups were precomputed.  Semigroups with
-or without a precomputed property can be accessed as
-quickly as simply creating the same number of semigroups. (Note that timings of
-two calls to the same command may vary and, of course, heavily depend on
-your machine.)
+At first one could want to search through the stored semigroups for one or all
+semigroups with a certain property. Going through all the semigroups can take a
+long time. Just to create all the 1.8 billion semigroups as objects in &GAP;
+takes around a day on a modern PC. Doing a simple test on all the semigroups in
+the library might take another day. Performing complicated tests easily takes
+weeks. To avoid this, many properties of the semigroups were precomputed.
+Semigroups with or without a precomputed property can be accessed as quickly as
+simply creating the same number of semigroups. (Note that timings of two calls
+to the same command may vary and, of course, heavily depend on your machine.)
 
 <Log><![CDATA[
 gap> # obtain a list of all semigroups with 6 elements
@@ -52,6 +50,7 @@ gap> NrSmallSemigroups(6); NrSmallSemigroups(7, IsCommutative, true);
 by default when data is loaded are turned off via
 <C>SetInfoLevel(InfoSmallSemi,0)</C>.)
 <P/>
+
 We provide three commands that can be used if one is interested in all
 semigroups with some properties. These are <Ref
 Oper="AllSmallSemigroups"/>, <Ref Oper="EnumeratorOfSmallSemigroups"/>,
@@ -62,10 +61,10 @@ insight about the essential differences.
 <Subsection><Heading>Precomputed properties</Heading>
 We start with examples using only precomputed information. In this case there
 is essentially no advantage of calling an iterator instead of an enumerator.
-<!--(An exception when the enumerator cannot be created is discussed below.)-->
 Thus only <Ref Oper="AllSmallSemigroups"/> and <Ref
 Oper="EnumeratorOfSmallSemigroups"/> will be considered.
 <P/>
+
 We first compare the memory usage and the setup time. Assume we are interested
 in the commutative semigroups with at most 7 elements.
 <Log><![CDATA[
@@ -82,18 +81,16 @@ but only creates the semigroups when asked for them explicitly.
 <Log><![CDATA[
 gap> # now the semigroups have to be created ...
 gap> for sg in enum do
-# do nothing, the semigroup will be created anyway
-od;
+> # do nothing, the semigroup will be created anyway
+> od;
 gap> time;
 3428
 gap> # ... and again if you want to look through them another time ...
-gap> for sg in enum do
-od;
+gap> for sg in enum do od;
 gap> time;
 3437
 gap> # ... not so for the list of semigroups though
-gap> for sg in list do
-od;
+gap> for sg in list do od;
 gap> time;
 4
 ]]></Log>
@@ -135,6 +132,7 @@ Observe that in the last example the semigroup from the enumerator knew about
 the property that was used to create the enumerator. The enumerator stores this
 knowledge and passes it on whenever a member is called.
 <P/>
+
 Another reason to prefer an enumerator is that one might only be
 interested in some of the elements it contains. This could become
 clear after analysing some of the elements and then there is no time
@@ -194,14 +192,6 @@ rectangular bands (<Ref Oper="IsRectangularBand"/>) with 8 elements.
 gap> ForAll(list, IsRectangularBand);
 true
 ]]></Log>
-<!--This was easy to predict if one knows about the structure theorem of
-bands (see for example <Cite Key="How76"/>). For finite bands it
-implies that all <M>D</M>-classes are rectangular bands. Even though
-<Package>Smallsemi</Package> is supposed to be a tool to learn about
-the structure of semigroups and help analysing them the software will
-always be easier to use if one already has good knowledge about
-semigroups.
-<P/>-->
 As a last example in this subsection we look at semigroups from the
 library that are not nilpotent. As there are quite some
 of these we will first try an enumerator. The obvious call seems to be
@@ -257,6 +247,7 @@ big like in the example of not nilpotent semigroups of size 8. In the former
 example with the rectangular bands it would not play a role and the
 disadvantages of an iterator would prevail.
 <P/>
+
 As you can see the number of semigroups you are interested in is even more
 important in the case of user defined functions than it was in the previous
 section about precomputed properties. Sometimes you might have a rough idea
@@ -288,6 +279,7 @@ as value. This fact was used in the previous subsection, when creating
 the enumerator of all bands of order 8 having 1 Green's
 <M>D</M>-class.
 <P/>
+
 One could try to circumvent the described problem by using a iterator.
 The command
 <Example><![CDATA[
@@ -390,7 +382,7 @@ gap> PreImage(map, last);  # in the same way you can get the idempotents .. .
 gap> Idempotents(sgrp);  # ... but this can be done directly instead
 [ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),
   Transformation( [ 2, 2, 2 ] ) ]
-</Log>
+]]></Log>
 
 If for a certain application you are interested in the semigroups up
 to isomorphism you can still use the IDs from
@@ -401,5 +393,4 @@ same ID. For all semigroups <Ref Prop="IsSelfDualSemigroup"/> is
 precomputed. This will help to decide whether a semigroup and its dual
 are actually non-isomorphic.
 </Section>
-
 </Chapter>

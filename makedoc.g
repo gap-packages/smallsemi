@@ -18,3 +18,4 @@ AutoDoc(rec(
     gapdoc := rec(main := "smallsemi.xml"),
     extract_examples := true,
 ));
+QUIT;
