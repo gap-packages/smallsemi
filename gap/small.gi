@@ -392,10 +392,6 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
         data := DATA2TO7[ size-1 ];
     elif size > 8 then
         if not IsBound( DATA9TO12[ size-9 ] ) then
-            if size = 7 then
-                Info( InfoSmallsemi, 1,
-                      "Smallsemi: loading data for semigroups of size 7." );
-            fi;
             file := Filename( DirectoriesPackageLibrary( "smallsemi",
                                                          "data/data9to12" ),
                               Concatenation( "data", String(size), ".gl" ));
