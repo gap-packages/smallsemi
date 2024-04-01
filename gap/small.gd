@@ -181,6 +181,9 @@ IsPositionalObjectRep and IsMultiplicativeElement and IsAssociativeElement and I
 ##
 DeclareGlobalFunction("RecoverMultiplicationTable");
 DeclareGlobalFunction("RecoverMultiplicationTableNC");
+DeclareGlobalFunction("MultiplicationTableToString");
+DeclareGlobalFunction("MultiplicationTablesToString");
+
 
 ###########################################################################
 ##
@@ -363,6 +366,7 @@ DeclareGlobalVariable("BLUEPRINT_MATS",
 ##  <#/GAPDoc>
 ##
 DeclareGlobalVariable("DATA2TO7","raw data for semigroup tables sizes 2-7");
+DeclareGlobalVariable("DATA9TO12","raw data for semigroup tables sizes 9-12");
 
 ###########################################################################
 ##

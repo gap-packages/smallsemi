@@ -329,10 +329,10 @@ end);
 InstallGlobalFunction( RecoverMultiplicationTable, function( size, nr )
     local numbers;
 
-    # numbers of semigroups of sizes 1-8
-    numbers := [ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128 ];
+    # numbers of semigroups of sizes 1-8 # TODO: FIX
+    numbers := [ 1, 4, 18, 126, 1160, 15973, 836021, 1843120128, 1 , 1 , 1 , 1 ];
 
-    if size > 8 or nr > numbers[ size ] then
+    if size > 12 or nr > numbers[ size ] then
         return fail;
     else
         return RecoverMultiplicationTableNC( size, nr );
@@ -390,7 +390,20 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
             Remove( DATA2TO7[ size-1 ], 1 );
         fi;
         data := DATA2TO7[ size-1 ];
-
+    elif size > 8 then
+        if not IsBound( DATA9TO12[ size-9 ] ) then
+            if size = 7 then
+                Info( InfoSmallsemi, 1,
+                      "Smallsemi: loading data for semigroups of size 7." );
+            fi;
+            file := Filename( DirectoriesPackageLibrary( "smallsemi",
+                                                         "data/data9to12" ),
+                              Concatenation( "data", String(size), ".gl" ));
+            DATA9TO12[ size-9 ] := SplitString( StringFile( file ), "\n" );
+            # remove copyright
+            Remove( DATA9TO12[ size-9 ], 1 );
+        fi;
+        data := DATA9TO12[ size-1 ];
     elif nr <= 11433106 then # size = 8
         pos := PositionProperty( MOREDATA2TO8[8].endpositions, i -> i >= nr );
         diag := MOREDATA2TO8[8].diags[ pos-1 ];
@@ -490,6 +503,54 @@ InstallGlobalFunction( RecoverMultiplicationTableNC, function( size, nr )
     fi;
 
     return ListToMatrix( flatmat );
+end);
+
+###########################################################################
+##
+#F  MultiplicationTableToString <MultiplicationTable> )
+##
+## Returns a string representing the provided multiplication
+## table in the format we use to encode. This will return a column in the 
+## relevant encoded file 
+InstallGlobalFunction( MultiplicationTableToString,
+function ( MultiplicationTable )
+
+local elem, row, OutputString;
+OutputString := "";
+for row in MultiplicationTable do
+    for elem in row do
+        OutputString := Concatenation(OutputString, [CharInt(elem+47)]);
+    od;
+od;
+
+return OutputString;
+end);
+
+###########################################################################
+##
+#F  MultiplicationTablesToString( <MultiplicationTables> )
+##
+## Takes multiple multiplication tables and converts them into the correct
+## file format to be read by this codebase. 
+InstallGlobalFunction( MultiplicationTablesToString,
+function (MultiplicationTables)
+local RowString, RowStrings, row, OutputString, i, j, Columns, OutputRows, column, table, OutputRowsMapped;
+Columns := [];
+
+OutputRows := List([1..Length(MultiplicationTables)-1], i->"");
+
+for i in [1..Length(MultiplicationTables)] do
+    table := MultiplicationTables[i];
+    RowString := MultiplicationTableToString(table);
+    for j in [2..Length(RowString)] do
+        OutputRows[j-1][i] := RowString[j];
+    od;
+od;
+
+return JoinStringsWithSeparator(
+    Filtered(OutputRows, row -> row <> ""),
+     "\n"
+    );
 end);
 
 ###########################################################################
@@ -632,6 +693,7 @@ InstallFlushableValue( 3NIL_DATA, rec( diag := fail ) );
 #V  DATA2TO7 . . . raw data for semigroup tables sizes 2-7
 ##
 InstallFlushableValue( DATA2TO7, [ ] );
+InstallFlushableValue( DATA9TO12, [ ] );
 
 
 #############################################################################
