@@ -45,10 +45,10 @@ SourceRepository := rec(
     Type := "git",
     URL := "https://github.com/gap-packages/smallsemi",
 ),
-IssueTrackerURL := Concatenation(~.SourceRepository.URL, " / issues"),
+IssueTrackerURL := Concatenation(~.SourceRepository.URL, "/issues"),
 ArchiveURL      := Concatenation(~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
-                                 " / smallsemi -", ~.Version),
+                                 "/smallsemi-", ~.Version),
 ArchiveFormats := ".tar.gz",
 
 AbstractHTML :=
@@ -86,7 +86,7 @@ Keywords := ["small semigroups", "data library", "multiplication tables"],
 AutoDoc := rec(
     entities := rec(
         VERSION := ~.Version,
-        ARCHIVENAME := Remove(SplitString(~.ArchiveURL, " / "))),
+        ARCHIVENAME := Remove(SplitString(~.ArchiveURL, "/"))),
     TitlePage := rec(
         Version := Concatenation("Version ", ~.Version),
         Copyright := """
