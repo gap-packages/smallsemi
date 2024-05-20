@@ -11,8 +11,8 @@
 SetPackageInfo(rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.6.13",
-Date := "28/02/2022",  # this is in dd/mm/yyyy format
+Version := "0.7.0",
+Date := "20/05/2024",  # this is in dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [
@@ -27,8 +27,8 @@ Persons := [
       FirstNames    := "James",
       IsAuthor      := true,
       IsMaintainer  := true,
-      Email         := "jdm3@st-and.ac.uk",
-      WWWHome       := "http://tinyurl.com/jdmitchell",
+      Email         := "jdm3@st-andrews.ac.uk",
+      WWWHome       := "https://jdbm.me",
       PostalAddress := Concatenation([
                        "Mathematical Institute\n", "North Haugh\n",
                        "St Andrews\n", "Fife\n", "KY16 9SS\n", "Scotland"]),

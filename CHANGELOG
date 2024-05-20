@@ -8,6 +8,14 @@
 #############################################################################
 ##
 
+===============
+ Version 0.7.0  (20/05/24)
+===============
+
+- a minor release including some refactoring of the code related to enumerators
+  and iterators, and including a bug fix related to the data files for order 8
+  (see https://github.com/gap-packages/smallsemi/issues/34 for more details).
+
 ================
  Version 0.6.13  (28/02/22)
 ================
