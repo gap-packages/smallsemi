@@ -1,0 +1,3 @@
+[codespell]
+skip = ./.git,./data,./gh-pages,./doc/*.html,./doc/*.js,./doc/*.aux,./doc/*.log,./doc/*.txt,./doc/*.bbl
+ignore-words-list=produkt,ende,diskrete
