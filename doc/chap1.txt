@@ -1,7 +1,7 @@
   
   [1X1 [33X[0;0YIntroduction[133X[101X
   
-  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.6.13) for [5XGAP[105X.[133X
+  [33X[0;0YThis manual describes the [5XSmallsemi[105X package (Version 0.7.0) for [5XGAP[105X.[133X
   
   [33X[0;0YThe  [5XSmallsemi[105X  package  is  a  data library of semigroups of small size. It
   provides  all  semigroups  with  at  most  8  elements  as  well  as various
@@ -89,7 +89,7 @@
   ([14X4.1-9[114X)  to free memory after every access to the library. This is likely to
   slow down computations though.[133X
   
-  [33X[0;0YFor  further  infomation  on  how  [5XGAP[105X  uses memory see [14X1.2-4[114X or [14X'Reference:
+  [33X[0;0YFor  further  information  on  how  [5XGAP[105X uses memory see [14X1.2-4[114X or [14X'Reference:
   Command Line Options'[114X.[133X
   
   
@@ -118,15 +118,15 @@
   [33X[0;0YThe installation follows standard [5XGAP[105X rules as outlined in the following two
   steps; see [14X'Reference: Installing a GAP Package'[114X for further details.[133X
   
-  [31X1[131X   [33X[0;6YDownload    one    of    the   archives   [11Xsmallsemi-0.6.13.tar.gz[111X   or
-        [11Xsmallsemi-0.6.13.tar.bz2[111X from[133X
+  [31X1[131X   [33X[0;6YDownload    one    of    the    archives   [11Xsmallsemi-0.7.0.tar.gz[111X   or
+        [11Xsmallsemi-0.7.0.tar.bz2[111X from[133X
         [33X[0;6Y[7Xhttp://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php[107X[133X
   
   [31X2[131X   [33X[0;6YMove  the  archive inside a [11Xpkg[111X directory. This can be either the main
         [11Xpkg[111X directory in your [5XGAP[105X installation or your personal [11Xpkg[111X directory.[133X
   
   [31X3[131X   [33X[0;6YComplete  the  installation by unpacking the archive, e.g. under Linux
-        type  [11Xtar  -xzf  smallsemi-0.6.13.tar.gz[111X at the prompt for the gzipped
+        type  [11Xtar  -xzf  smallsemi-0.7.0.tar.gz[111X  at the prompt for the gzipped
         [11Xtar[111X-archive.  A  subdirectory [11Xsmallsemi[111X will be created inside the [11Xpkg[111X
         directory.[133X
   
@@ -162,7 +162,6 @@
     [4X[28XLoading Smallsemi &VERSION; ...[128X[104X
     [4X[28X-----------------------------------------------------------------------------[128X[104X
     [4X[28Xtrue[128X[104X
-    [4X[28Xgap>[128X[104X
   [4X[32X[104X
   
   [33X[0;0YYou  might  want  to  start  [5XGAP[105X  with  a  specified  amount  of memory; see
@@ -181,7 +180,7 @@
         whenever [5XGAP[105X runs out of memory. For example,[133X
   
   [4X      [32X  Example  [32X[104X
-          [4X[25Xgap>[125X [27Xs:=SmallSemigroup(8, 183244314);[127X[104X
+          [4X[25Xgap>[125X [27Xs := SmallSemigroup(8, 183244314);[127X[104X
           [4X[28X#I  Loading 'smallsemi' data. Please be patient.[128X[104X
           [4X[28X#I  Loading 'smallsemi' data.[128X[104X
           [4X[28XError, exceeded the permitted memory (`-o' command line option)[128X[104X
@@ -201,7 +200,7 @@
   (the timings will differ depending on the speed of your machine):[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XReadPackage( "smallsemi", "tst/testall.g" );[127X[104X
+    [4X[25Xgap>[125X [27XReadPackage("smallsemi", "tst/testall.g");[127X[104X
     [4X[28XArchitecture: aarch64-apple-darwin21.3.0-default64-kv8[128X[104X
     [4X[28X[128X[104X
     [4X[28Xtesting: smallsemi/tst/coclass.tst[128X[104X
@@ -235,10 +234,10 @@
   [5XSmallsemi[105X and executing the following commands[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSmallSemigroup(7,1);; MOREDATA2TO8;;[127X[104X
+    [4X[25Xgap>[125X [27XSmallSemigroup(7, 1);; MOREDATA2TO8;;[127X[104X
     [4X[28X#I  smallsemi: loading data for semigroups of size 7.[128X[104X
     [4X[28X#I  smallsemi: loading data for semigroup properties. Please be patient.[128X[104X
-    [4X[25Xgap>[125X [27XSaveWorkspace( "<filename for the workspace>" );[127X[104X
+    [4X[25Xgap>[125X [27XSaveWorkspace("<filename for the workspace>");[127X[104X
   [4X[32X[104X
   
   [33X[0;0YDoing  this  will  mean  that  it is not necessary to load the data from the

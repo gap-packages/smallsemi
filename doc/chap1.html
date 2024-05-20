@@ -52,7 +52,7 @@
 
 <h3>1 <span class="Heading">Introduction</span></h3>
 
-<p>This manual describes the <strong class="pkg">Smallsemi</strong> package (Version 0.6.13) for <strong class="pkg">GAP</strong>.</p>
+<p>This manual describes the <strong class="pkg">Smallsemi</strong> package (Version 0.7.0) for <strong class="pkg">GAP</strong>.</p>
 
 <p>The <strong class="pkg">Smallsemi</strong> package is a data library of semigroups of small size. It provides all semigroups with at most 8 elements as well as various information about these objects. The reason that semigroups of higher orders are not included is the huge number of such objects. The numbers of semigroups of sizes 1 to 9 are given in the table below (orders not included in the library are in italics). The number of semigroups of size 10 is not known at the time of writing.</p>
 
@@ -97,7 +97,7 @@
 <td class="tdright">9</td>
 <td class="tdright"><em>52 989 400 714 478</em></td>
 </tr>
-</table><br /><p>&nbsp;</p><br />
+</table><br />
 </div>
 
 <p>The initial idea for <strong class="pkg">Smallsemi</strong> was developed out of the wish for an extensive number of examples of semigroups of moderate size. This lead to the idea of an electronical database. As an existing example the <strong class="pkg">SmallGroups Library</strong> <a href="chapBib.html#biBsmallgroups">[BEO02]</a> was an inspiration on how such a project could be established. Unfortunately the number of semigroups is so much bigger, and most of them bare so little structure, that new techniques to store and handle the semigroups had to be developed. Of course, the first step was to actually construct all the semigroups.</p>
@@ -132,7 +132,7 @@
 
 <p>You should be able to use the semigroups of orders 1 through 7 having 128 MB of RAM only. If you have a system with little memory or want to use as little memory as possible for the <strong class="pkg">GAP</strong> process try using <code class="func">UnloadSmallsemiData</code> (<a href="chap4.html#X841BB74986A73272"><span class="RefLink">4.1-9</span></a>) to free memory after every access to the library. This is likely to slow down computations though.</p>
 
-<p>For further infomation on how <strong class="pkg">GAP</strong> uses memory see <a href="chap1.html#X803939AE7C3565DA"><span class="RefLink">1.2-4</span></a> or <a href="https://www.gap-system.org/Manuals/doc/ref/chap3_mj.html#X782751D5858A6EAF"><span class="RefLink">Reference: Command Line Options</span></a>.</p>
+<p>For further information on how <strong class="pkg">GAP</strong> uses memory see <a href="chap1.html#X803939AE7C3565DA"><span class="RefLink">1.2-4</span></a> or <a href="https://www.gap-system.org/Manuals/doc/ref/chap3_mj.html#X782751D5858A6EAF"><span class="RefLink">Reference: Command Line Options</span></a>.</p>
 
 <p><a id="X87E4E0377BF1EAC6" name="X87E4E0377BF1EAC6"></a></p>
 
@@ -155,13 +155,13 @@
 <p>The installation follows standard <strong class="pkg">GAP</strong> rules as outlined in the following two steps; see <a href="https://www.gap-system.org/Manuals/doc/ref/chap76_mj.html#X82473E4B8756C6CD"><span class="RefLink">Reference: Installing a GAP Package</span></a> for further details.</p>
 
 <ol>
-<li><p>Download one of the archives <code class="file">smallsemi-0.6.13.tar.gz</code> or <code class="file">smallsemi-0.6.13.tar.bz2</code> from <br /> <span class="URL"><a href="http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php">http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php</a></span></p>
+<li><p>Download one of the archives <code class="file">smallsemi-0.7.0.tar.gz</code> or <code class="file">smallsemi-0.7.0.tar.bz2</code> from <br /> <span class="URL"><a href="http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php">http://www-groups.mcs.st-andrews.ac.uk/~jamesm/smallsemi.php</a></span></p>
 
 </li>
 <li><p>Move the archive inside a <code class="file">pkg</code> directory. This can be either the main <code class="file">pkg</code> directory in your <strong class="pkg">GAP</strong> installation or your personal <code class="file">pkg</code> directory.</p>
 
 </li>
-<li><p>Complete the installation by unpacking the archive, e.g. under Linux type <code class="file">tar -xzf smallsemi-0.6.13.tar.gz</code> at the prompt for the gzipped <code class="file">tar</code>-archive. A subdirectory <code class="file">smallsemi</code> will be created inside the <code class="file">pkg</code> directory.</p>
+<li><p>Complete the installation by unpacking the archive, e.g. under Linux type <code class="file">tar -xzf smallsemi-0.7.0.tar.gz</code> at the prompt for the gzipped <code class="file">tar</code>-archive. A subdirectory <code class="file">smallsemi</code> will be created inside the <code class="file">pkg</code> directory.</p>
 
 </li>
 </ol>
@@ -212,7 +212,7 @@
 <td class="tdleft"><code class="file">tst</code></td>
 <td class="tdleft">contains test files</td>
 </tr>
-</table><br /><p>&nbsp;</p><br />
+</table><br />
 </div>
 
 <p><a id="X861ED1338181C66D" name="X861ED1338181C66D"></a></p>
@@ -231,7 +231,6 @@ For contents, type: ?Smallsemi:
 Loading Smallsemi &amp;VERSION; ...
 -----------------------------------------------------------------------------
 true
-gap&gt;
 </pre></div>
 
 <p>You might want to start <strong class="pkg">GAP</strong> with a specified amount of memory; see Subsection <a href="chap1.html#X803939AE7C3565DA"><span class="RefLink">1.2-4</span></a>.</p>
@@ -250,7 +249,7 @@ gap&gt;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s:=SmallSemigroup(8, 183244314);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := SmallSemigroup(8, 183244314);</span>
 #I  Loading 'smallsemi' data. Please be patient.
 #I  Loading 'smallsemi' data.
 Error, exceeded the permitted memory (`-o' command line option)
@@ -272,7 +271,7 @@ you can 'return;'
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage( "smallsemi", "tst/testall.g" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReadPackage("smallsemi", "tst/testall.g");</span>
 Architecture: aarch64-apple-darwin21.3.0-default64-kv8
 
 testing: smallsemi/tst/coclass.tst
@@ -305,10 +304,10 @@ total      9273 ms (2432 ms GC) and 4.98GB allocated
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallSemigroup(7,1);; MOREDATA2TO8;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallSemigroup(7, 1);; MOREDATA2TO8;;</span>
 #I  smallsemi: loading data for semigroups of size 7.
 #I  smallsemi: loading data for semigroup properties. Please be patient.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SaveWorkspace( "&lt;filename for the workspace&gt;" );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SaveWorkspace("&lt;filename for the workspace&gt;");</span>
 </pre></div>
 
 <p>Doing this will mean that it is not necessary to load the data from the library every time you start a new <strong class="pkg">GAP</strong> session; see <a href="https://www.gap-system.org/Manuals/doc/ref/chap3_mj.html#X7CB282757ACB1C09"><span class="RefLink">Reference: Saving and Loading a Workspace</span></a>.</p>

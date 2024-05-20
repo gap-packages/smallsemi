@@ -13,7 +13,7 @@
   
   [33X[0;0YThe  purpose of the library is to provide one semigroup of every `structural
   type'.  The  semigroups  are  represented  by  their  multiplication  table.
-  Usually,  say,  for groups, `stuctural type' means 'up to isomorphism' which
+  Usually,  say, for groups, `structural type' means 'up to isomorphism' which
   corresponds  to  relabelling the elements. Roughly speaking, transposing the
   multiplicationable  of  a  semigroup  does not alter its important structure
   features either. More precisely, the usual description of the structure of a
@@ -33,7 +33,7 @@
   elements  was  found  by  Plemmons [Ple67], with 7 elements by Jürgensen and
   Wick  [JW77],  with  8  by  Satoh,  Yama and Tokizawa [SYT94], and with 9 by
   Distler, Kelsey, and Mitchell in 2008. Even if the authors could store their
-  results  they  had no means to make them publically available. Plemmons, for
+  results  they  had  no  means to make them publicly available. Plemmons, for
   example,  explicitly  states  that  he  had  all  multiplication  tables for
   semigroups  of  size 6 on magnetic tape. Jürgensen and Wick back in 1977 did
   not store the semigroups of size 7 because of their large number. The tables
@@ -45,7 +45,7 @@
   computing  power  available,  the  task  of  obtaining all semigroups with 8
   elements  is  still  by  no  means  trivial.  Our  technique was to find all
   associative  multiplication  tables  up  to isomorphism and anti-isomorphism
-  using  a  combination  of  [5XGAP[105X  and the Contraint Satisfaction Problem (CSP)
+  using  a  combination  of  [5XGAP[105X and the Constraint Satisfaction Problem (CSP)
   solver Minion [GJM06]. More specific details on the search will be available
   in a later version of [5XSmallsemi[105X.[133X
   
@@ -95,5 +95,5 @@
   [33X[0;0YThe  semigroups  in  the library satisfying certain standard properties have
   been  identified  and  this information is stored in the files [11Xinfo1.g.gz[111X to
   [11Xinfo8.g.gz[111X.   To   find   out  what  properties  have  been  considered  see
-  [2XPrecomputedSmallSemisInfo[102X ([14X4.5-19[114X).[133X
+  [2XPrecomputedSmallSemisInfo[102X ([14X4.5-15[114X).[133X
   

@@ -1,7 +1,7 @@
 name: Smallsemi
-version: "0.6.13"
+version: "0.7.0"
 license: "GPL-3.0-or-later"
-date: 2022-02-28
+date: 2024-05-20
 description: |
     A library of small semigroups
 
@@ -9,13 +9,13 @@ authors:
     - name: Andreas Distler
       url: mailto:a.distler@tu-bs.de
     - name: James Mitchell
-      url: http://tinyurl.com/jdmitchell
+      url: https://jdbm.me
 
 maintainers:
     - name: James Mitchell
-      url: http://tinyurl.com/jdmitchell
+      url: https://jdbm.me
 
-GAP: ">=4.8"
+GAP: ">=4.10"
 
 www: https://gap-packages.github.io/smallsemi/
 readme: README
@@ -23,39 +23,39 @@ packageinfo: https://gap-packages.github.io/smallsemi/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/smallsemi/releases/download/v0.6.13/smallsemi-0.6.13.tar.gz
+      url: https://github.com/gap-packages/smallsemi/releases/download/v0.7.0/smallsemi-0.7.0.tar.gz
 
 abstract: |
     The <Package>Smallsemi</Package> package is a data library of semigroups    of small size. It provides all semigroups with at most 8 elements as well    as various information about these objects.
 
 status: deposited
-doc-html: doc/chap0.html
+doc-html: doc/chap0_mj.html
 doc-pdf: doc/manual.pdf
 keywords: |
     small semigroups, data library, multiplication tables.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>DM22</span>]   <b class='BibAuthor'>Distler, A. and Mitchell, J.</b>,
+    [<span class='BibKey'>DM24</span>]   <b class='BibAuthor'>Distler, A. and Mitchell, J.</b>,
      <i class='BibTitle'>Smallsemi, A library of small semigroups,
-             Version 0.6.13</i>
-     (<span class='BibYear'>2022</span>)<br />
+             Version 0.7.0</i>
+     (<span class='BibYear'>2024</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/smallsemi/">https://gap-packages.github.io/smallsemi/</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ Smallsemi0.6.13,
+    @misc{ Smallsemi,
       author =           {Distler, A. and Mitchell, J.},
       title =            {{Smallsemi},  A library of small semigroups, {V}ersion
-                          0.6.13},
-      month =            {Feb},
-      year =             {2022},
+                          0.7.0},
+      month =            {May},
+      year =             {2024},
       note =             {GAP package},
       howpublished =     {\href      {https://gap-packages.github.io/smallsemi/}
                           {\texttt{https://gap-packages.github.io/}\discretionary
                           {}{}{}\texttt{smallsemi/}}},
       keywords =         {small semigroups; data library; multiplication tables},
-      printedkey =       {DM22}
+      printedkey =       {DM24}
     }
 

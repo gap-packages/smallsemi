@@ -54,22 +54,22 @@
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># obtain a list of all semigroups with 6 elements</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AllSmallSemigroups( 6 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AllSmallSemigroups(6);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 2636
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># obtain a list of all commutative semigroups with 7 elements  </span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AllSmallSemigroups( 7, IsCommutative, true );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># obtain a list of all commutative semigroups with 7 elements</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AllSmallSemigroups(7, IsCommutative, true);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 2957
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># compare the numbers of semigroups in the two lists</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NrSmallSemigroups( 6 ); NrSmallSemigroups( 7, IsCommutative, true );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NrSmallSemigroups(6); NrSmallSemigroups(7, IsCommutative, true);</span>
 15973
 17291
 </pre></div>
 
 <p>(In all the examples in this section the info messages which are given by default when data is loaded are turned off via <code class="code">SetInfoLevel(InfoSmallSemi,0)</code>.)</p>
 
-<p>We provide three commands that can be used if one is interested in all semigroups with some properties. These are <code class="func">AllSmallSemigroups</code> (<a href="chap4.html#X81DC0FE28043C9B0"><span class="RefLink">4.5-1</span></a>), <code class="func">EnumeratorOfSmallSemigroups</code> (<a href="chap4.html#X831E543E83DDFDEA"><span class="RefLink">4.5-2</span></a>), and <code class="func">IteratorOfSmallSemigroups</code> (<a href="chap4.html#X7D6BFDE17A9BEEC3"><span class="RefLink">4.5-11</span></a>). Which one is best to use depends a lot on the situation. Here we attempt to provide some insight about the essential differences.</p>
+<p>We provide three commands that can be used if one is interested in all semigroups with some properties. These are <code class="func">AllSmallSemigroups</code> (<a href="chap4.html#X81DC0FE28043C9B0"><span class="RefLink">4.5-1</span></a>), <code class="func">EnumeratorOfSmallSemigroups</code> (<a href="chap4.html#X831E543E83DDFDEA"><span class="RefLink">4.5-2</span></a>), and <code class="func">IteratorOfSmallSemigroups</code> (<a href="chap4.html#X7D6BFDE17A9BEEC3"><span class="RefLink">4.5-9</span></a>). Which one is best to use depends a lot on the situation. Here we attempt to provide some insight about the essential differences.</p>
 
 <p><a id="X790CB8D686E0A336" name="X790CB8D686E0A336"></a></p>
 
@@ -81,10 +81,10 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list := AllSmallSemigroups([1..7],IsCommutativeSemigroup,true);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time; # the time needed will always depend on your machine</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list := AllSmallSemigroups([1 .. 7], IsCommutativeSemigroup, true);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;  # the time needed will always depend on your machine</span>
 3180
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum := EnumeratorOfSmallSemigroups([1..7],IsCommutativeSemigroup,true);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum := EnumeratorOfSmallSemigroups([1 .. 7], IsCommutativeSemigroup, true);</span>
 &lt;enumerator of semigroups of sizes [ 1 .. 7 ]&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 8
@@ -96,18 +96,16 @@
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># now the semigroups have to be created ...</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for sg in enum do</span>
-# do nothing, the semigroup will be created anyway
-od;
+<span class="GAPprompt">&gt;</span> <span class="GAPinput"># do nothing, the semigroup will be created anyway</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 3428
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># ... and again if you want to look through them another time ...</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for sg in enum do</span>
-od;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for sg in enum do od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 3437
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># ... not so for the list of semigroups though</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for sg in list do</span>
-od;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for sg in list do od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 4
 </pre></div>
@@ -118,14 +116,14 @@ od;
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">nr := Length(enum);</span>
 17291
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MemoryUsage(enum);                                 </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MemoryUsage(enum);</span>
 70507
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MemoryUsage(list); # this will take a while ...</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MemoryUsage(list);  # this will take a while .. .</span>
 19089280
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># ... but you can get a close approximation much faster</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sg := OneSmallSemigroup(7,IsCommutativeSemigroup,true);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sg := OneSmallSemigroup(7, IsCommutativeSemigroup, true);</span>
 &lt;small semigroup of size 7&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">nr*MemoryUsage(sg);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">nr * MemoryUsage(sg);</span>
 19020100
 </pre></div>
 
@@ -133,15 +131,15 @@ od;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZeroSemigroup(list[3]); # a semigroup from the list ...</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZeroSemigroup(list[3]);  # a semigroup from the list .. .</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(list[3]); # ... can store new information</span>
-[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(list[3]);  # .. . can store new information</span>
+[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",
   "IsAssociative", "IsCommutativeSemigroup", "IsZeroSemigroup" ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZeroSemigroup(enum[3]); # semigroups in the enumerator ...</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsZeroSemigroup(enum[3]);  # semigroups in the enumerator .. .</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(enum[3]); # ... are created anew in every call </span>
-[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(enum[3]);  # .. . are created anew in every call</span>
+[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",
   "IsAssociative", "IsCommutativeSemigroup" ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># but if it turns out this is the semigroup you want to analyse, just do</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sg := enum[3];</span>
@@ -155,7 +153,7 @@ false
 
 <h5>3.1-2 <span class="Heading">User functions</span></h5>
 
-<p>We now come to examples dealing with properties that are not precomputed - including user defined functions. This makes <code class="func">IteratorOfSmallSemigroups</code> (<a href="chap4.html#X7D6BFDE17A9BEEC3"><span class="RefLink">4.5-11</span></a>) interesting again. Assume you want to work with bands (<code class="func">IsBand</code> (<a href="chap4.html#X7C8DB14587D1B55A"><span class="RefLink">4.2-5</span></a>)) of order 8 having 1 Green's <span class="SimpleMath">D</span>-class (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap51_mj.html#X80C6C718801855E9"><span class="RefLink">Reference: Green's Relations</span></a>). You might feel tempted to implement a function testing a semigroup for this combination of properties.</p>
+<p>We now come to examples dealing with properties that are not precomputed - including user defined functions. This makes <code class="func">IteratorOfSmallSemigroups</code> (<a href="chap4.html#X7D6BFDE17A9BEEC3"><span class="RefLink">4.5-9</span></a>) interesting again. Assume you want to work with bands (<code class="func">IsBand</code> (<a href="chap4.html#X7C8DB14587D1B55A"><span class="RefLink">4.2-5</span></a>)) of order 8 having 1 Green's <span class="SimpleMath">D</span>-class (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap51_mj.html#X80C6C718801855E9"><span class="RefLink">Reference: Green's Relations</span></a>). You might feel tempted to implement a function testing a semigroup for this combination of properties.</p>
 
 
 <div class="example"><pre>
@@ -172,11 +170,13 @@ end;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list:=AllSmallSemigroups(8,IsBand,true,x-&gt;Size(GreensDClasses(x)),1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list := AllSmallSemigroups(8, IsBand, true,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">x -&gt; Size(GreensDClasses(x)), 1);</span>
 [ &lt;small semigroup of size 8&gt;, &lt;small semigroup of size 8&gt; ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 49211
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum:=EnumeratorOfSmallSemigroups(8,IsBand,true,x-&gt;Size(GreensDClasses(x)),1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum := EnumeratorOfSmallSemigroups(8, IsBand, true,</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">x -&gt; Size(GreensDClasses(x)), 1);</span>
 &lt;enumerator of semigroups of size 8&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 48723
@@ -186,7 +186,7 @@ end;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll(list,IsRectangularBand);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll(list, IsRectangularBand);</span>
 true
 </pre></div>
 
@@ -194,7 +194,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum1 := EnumeratorOfSmallSemigroups([1..7],IsNilpotentSemigroup,false);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum1 := EnumeratorOfSmallSemigroups([1 .. 7], IsNilpotentSemigroup, false);</span>
 &lt;enumerator of semigroups of sizes [ 2, 3, 4, 5, 6, 7 ]&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 103403
@@ -205,7 +205,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># all 8 element semigroups that are not 3-nilpotent</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum2 := EnumeratorOfSmallSemigroupsByIds([8],[[1..11433106]]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum2 := EnumeratorOfSmallSemigroupsByIds([8], [[1 .. 11433106]]);</span>
 &lt;enumerator of semigroups of size 8&gt;
 </pre></div>
 
@@ -213,7 +213,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum3 := EnumeratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum3 := EnumeratorOfSmallSemigroups(enum2, IsNilpotentSemigroup, false);</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># This still takes quite a while though</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 1931140
@@ -223,11 +223,10 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iter := IteratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);</span>
-&lt;iterator of semigroups of size 8&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [1..100000] do </span>
-NextIterator(iter);
-od;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iter := IteratorOfSmallSemigroups(enum2, IsNilpotentSemigroup, false);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [1 .. 100000] do</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">NextIterator(iter);</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">time;</span>
 30785
 </pre></div>
@@ -251,7 +250,7 @@ od;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EnumeratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EnumeratorOfSmallSemigroups(8, IsCommutativeSemigroup, false);</span>
 </pre></div>
 
 <p>Note though that an enumerator of semigroups of order 8 can be created if one of the required properties is precomputed and takes <code class="code">true</code> as value. This fact was used in the previous subsection, when creating the enumerator of all bands of order 8 having 1 Green's <span class="SimpleMath">D</span>-class.</p>
@@ -260,7 +259,7 @@ od;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">iter := IteratorOfSmallSemigroups(8, IsCommutativeSemigroup, false);</span>
 &lt;iterator of semigroups of size 8&gt;
 </pre></div>
 
@@ -268,7 +267,7 @@ od;
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum1 := EnumeratorOfSmallSemigroupsByIds([8], [[1 .. 2 ^ 24 - 1]]);</span>
 &lt;enumerator of semigroups of size 8&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">enum2 := EnumeratorOfSmallSemigroups(enum1, IsCommutativeSemigroup, false);</span>
 &lt;enumerator of semigroups of size 8&gt;
@@ -288,7 +287,7 @@ od;
 Transformation( [ 1, 3, 1 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t2 := RandomTransformation(3);</span>
 Transformation( [ 1, 2, 3 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sgrp := SemigroupByGenerators([t1,t2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sgrp := SemigroupByGenerators([t1, t2]);</span>
 &lt;semigroup with 2 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(sgrp);</span>
 3
@@ -301,11 +300,11 @@ Transformation( [ 1, 2, 3 ] )
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># use the semigroup from the previous example</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCommutative(sgrp); # no need to use the library for this</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCommutative(sgrp);  # no need to use the library for this</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># for the following there exists no method for a trans-</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># formation semigroup; access the precomputed information instead </span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMultSemigroupOfNearRing(SmallSemigroup([3,8]));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># formation semigroup; access the precomputed information instead</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsMultSemigroupOfNearRing(SmallSemigroup([3, 8]));</span>
 false
 </pre></div>
 
@@ -317,55 +316,30 @@ false
 Transformation( [ 2, 2, 1 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">t2 := RandomTransformation(3);</span>
 Transformation( [ 2, 1, 1 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sgrp := SemigroupByGenerators([t1,t2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sgrp := Semigroup(t1, t2);</span>
 &lt;semigroup with 2 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(sgrp);</span>
 6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">map := EquivalenceSmallSemigroup(sgrp); </span>
-MappingByFunction( &lt;semigroup with 2 generators&gt;, &lt;small semigroup of size 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">map := EquivalenceSmallSemigroup(sgrp);</span>
+MappingByFunction( &lt;semigroup with 2 generators&gt;, &lt;small semigroup of size
 6&gt;, function( x ) ... end )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RespectsMultiplication(map); # verify that this is an anti-isomorphism</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RespectsMultiplication(map);  # verify that this is an anti-isomorphism</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MinimalGeneratingSet(Range(map));</span>
 [ s2, s4 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreImage(map,last); # get a minimal generating set of &lt;sgrp&gt;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreImage(map, last);  # get a minimal generating set of &lt; sgrp &gt;</span>
 [ Transformation( [ 1, 1, 2 ] ), Transformation( [ 2, 1, 1 ] ) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Idempotents(Range(map));</span>
 [ s1, s3, s5 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreImage(map,last); # in the same way you can get the idempotents ...</span>
-[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreImage(map, last);  # in the same way you can get the idempotents .. .</span>
+[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),
   Transformation( [ 2, 2, 2 ] ) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Idempotents(sgrp); # ... but this can be done directly instead </span>
-[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Idempotents(sgrp);  # ... but this can be done directly instead</span>
+[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),
   Transformation( [ 2, 2, 2 ] ) ]
-&lt;/Log&gt; 
-
-If for a certain application you are interested in the semigroups up
-to isomorphism you can still use the IDs from
-&lt;Package&gt;Smallsemi&lt;/Package&gt;. Simply mark the ID with &lt;M&gt;*&lt;/M&gt;, or
-however else you denote the dual of a semigroup, to refer to the
-semigroup being anti-isomorphic to the one in the library having the
-same ID. For all semigroups &lt;Ref Prop="IsSelfDualSemigroup"/&gt; is
-precomputed. This will help to decide whether a semigroup and its dual
-are actually non-isomorphic.
-&lt;/Section&gt;
-
-&lt;!--
-&lt;Section&gt;&lt;Heading&gt;Exotic Application&lt;/Heading&gt;
-
-We finish this chapter with another example emphasizing the variety of 
-possilbe usages. Assume you are interested in the lattices of a given order.
-It is well known that the lattices of order &lt;M&gt;n&lt;/M&gt; are in one-one 
-correspondence with the semilattices of order &lt;M&gt;n-1&lt;/M&gt;. Semilattices on the
-other hand are nothing else but commutative bands.
-&lt;Log&gt;&lt;![CDATA[
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 6; # say you want the different types of lattices with 6 elements</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">semilattices := AllSmallSemigroups(n-1,IsBand,true,IsCommutative,true);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(semilattices);</span>
-15
 </pre></div>
 
-<p>--&gt;</p>
+<p>If for a certain application you are interested in the semigroups up to isomorphism you can still use the IDs from <strong class="pkg">Smallsemi</strong>. Simply mark the ID with <span class="SimpleMath">*</span>, or however else you denote the dual of a semigroup, to refer to the semigroup being anti-isomorphic to the one in the library having the same ID. For all semigroups <code class="func">IsSelfDualSemigroup</code> (<a href="chap4.html#X846FC6247EE31607"><span class="RefLink">4.2-25</span></a>) is precomputed. This will help to decide whether a semigroup and its dual are actually non-isomorphic.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>

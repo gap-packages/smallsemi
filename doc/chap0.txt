@@ -6,10 +6,10 @@
                         [1X A library of small semigroups [101X
   
   
-                                 Version 0.6.13
+                                 Version 0.7.0
   
   
-                                28 February 2022
+                                  20 May 2024
   
   
                                 Andreas Distler
@@ -21,8 +21,8 @@
   Andreas Distler
       Email:    [7Xmailto:a.distler@tu-bs.de[107X
   James Mitchell
-      Email:    [7Xmailto:jdm3@st-and.ac.uk[107X
-      Homepage: [7Xhttp://tinyurl.com/jdmitchell[107X
+      Email:    [7Xmailto:jdm3@st-andrews.ac.uk[107X
+      Homepage: [7Xhttps://jdbm.me[107X
       Address:  [33X[0;14YMathematical Institute[133X
                 [33X[0;14YNorth Haugh[133X
                 [33X[0;14YSt Andrews[133X
@@ -34,7 +34,7 @@
   
   -------------------------------------------------------
   [1XCopyright[101X
-  [33X[0;0Y© 2008-19 A. Distler & J. D. Mitchell.[133X
+  [33X[0;0Y© 2008-24 A. Distler & J. D. Mitchell.[133X
   
   [33X[0;0Y[5XSmallsemi[105X  is  free software: you can redistribute it and/or modify it under
   the  terms  of  the  GNU  General  Public  License  as published by the Free
@@ -154,26 +154,21 @@
       4.5-1 AllSmallSemigroups
       4.5-2 EnumeratorOfSmallSemigroups
       4.5-3 EnumeratorOfSmallSemigroupsByIds
-      4.5-4 EnumeratorSortedOfSmallSemigroups
-      4.5-5 FuncsOfSmallSemisInEnum
-      4.5-6 FuncsOfSmallSemisInIter
-      4.5-7 IdsOfSmallSemigroups
-      4.5-8 IsEnumeratorOfSmallSemigroups
-      4.5-9 IsIdSmallSemigroup
-      4.5-10 IsIteratorOfSmallSemigroups
-      4.5-11 IteratorOfSmallSemigroups
-      4.5-12 NamesFuncsSmallSemisInEnum
-      4.5-13 NamesFuncsSmallSemisInIter
-      4.5-14 Nr3NilpotentSemigroups
-      4.5-15 NrSmallSemigroups
-      4.5-16 OneSmallSemigroup
-      4.5-17 PositionsOfSmallSemigroups
-      4.5-18 PositionsOfSmallSemisInEnum
-      4.5-19 PrecomputedSmallSemisInfo
-      4.5-20 RandomSmallSemigroup
-      4.5-21 SizesOfSmallSemisInEnum
-      4.5-22 SizesOfSmallSemisInIter
-      4.5-23 UpToIsomorphism
+      4.5-4 ArgumentsUsedToCreate
+      4.5-5 IdsOfSmallSemigroups
+      4.5-6 IsEnumeratorOfSmallSemigroups
+      4.5-7 IsIdSmallSemigroup
+      4.5-8 IsIteratorOfSmallSemigroups
+      4.5-9 IteratorOfSmallSemigroups
+      4.5-10 Nr3NilpotentSemigroups
+      4.5-11 NrSmallSemigroups
+      4.5-12 OneSmallSemigroup
+      4.5-13 PositionsOfSmallSemigroupsIn
+      4.5-14 PositionsOfSmallSemigroups
+      4.5-15 PrecomputedSmallSemisInfo
+      4.5-16 RandomSmallSemigroup
+      4.5-17 SizesOfSmallSemigroupsIn
+      4.5-18 UpToIsomorphism
   
   
   [32X

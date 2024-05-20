@@ -35,15 +35,15 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27X# obtain a list of all semigroups with 6 elements[127X[104X
-    [4X[25Xgap>[125X [27XAllSmallSemigroups( 6 );;[127X[104X
+    [4X[25Xgap>[125X [27XAllSmallSemigroups(6);;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X2636[128X[104X
-    [4X[25Xgap>[125X [27X# obtain a list of all commutative semigroups with 7 elements  [127X[104X
-    [4X[25Xgap>[125X [27XAllSmallSemigroups( 7, IsCommutative, true );;[127X[104X
+    [4X[25Xgap>[125X [27X# obtain a list of all commutative semigroups with 7 elements[127X[104X
+    [4X[25Xgap>[125X [27XAllSmallSemigroups(7, IsCommutative, true);;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X2957[128X[104X
     [4X[25Xgap>[125X [27X# compare the numbers of semigroups in the two lists[127X[104X
-    [4X[25Xgap>[125X [27XNrSmallSemigroups( 6 ); NrSmallSemigroups( 7, IsCommutative, true );[127X[104X
+    [4X[25Xgap>[125X [27XNrSmallSemigroups(6); NrSmallSemigroups(7, IsCommutative, true);[127X[104X
     [4X[28X15973[128X[104X
     [4X[28X17291[128X[104X
   [4X[32X[104X
@@ -54,7 +54,7 @@
   
   [33X[0;0YWe  provide  three  commands  that  can  be used if one is interested in all
   semigroups  with  some  properties.  These  are  [2XAllSmallSemigroups[102X ([14X4.5-1[114X),
-  [2XEnumeratorOfSmallSemigroups[102X ([14X4.5-2[114X), and [2XIteratorOfSmallSemigroups[102X ([14X4.5-11[114X).
+  [2XEnumeratorOfSmallSemigroups[102X  ([14X4.5-2[114X), and [2XIteratorOfSmallSemigroups[102X ([14X4.5-9[114X).
   Which  one is best to use depends a lot on the situation. Here we attempt to
   provide some insight about the essential differences.[133X
   
@@ -70,10 +70,10 @@
   interested in the commutative semigroups with at most 7 elements.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xlist := AllSmallSemigroups([1..7],IsCommutativeSemigroup,true);;[127X[104X
-    [4X[25Xgap>[125X [27Xtime; # the time needed will always depend on your machine[127X[104X
+    [4X[25Xgap>[125X [27Xlist := AllSmallSemigroups([1 .. 7], IsCommutativeSemigroup, true);;[127X[104X
+    [4X[25Xgap>[125X [27Xtime;  # the time needed will always depend on your machine[127X[104X
     [4X[28X3180[128X[104X
-    [4X[25Xgap>[125X [27Xenum := EnumeratorOfSmallSemigroups([1..7],IsCommutativeSemigroup,true);[127X[104X
+    [4X[25Xgap>[125X [27Xenum := EnumeratorOfSmallSemigroups([1 .. 7], IsCommutativeSemigroup, true);[127X[104X
     [4X[28X<enumerator of semigroups of sizes [ 1 .. 7 ]>[128X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X8[128X[104X
@@ -85,18 +85,16 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27X# now the semigroups have to be created ...[127X[104X
     [4X[25Xgap>[125X [27Xfor sg in enum do[127X[104X
-    [4X[28X# do nothing, the semigroup will be created anyway[128X[104X
-    [4X[28Xod;[128X[104X
+    [4X[25X>[125X [27X# do nothing, the semigroup will be created anyway[127X[104X
+    [4X[25X>[125X [27Xod;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X3428[128X[104X
     [4X[25Xgap>[125X [27X# ... and again if you want to look through them another time ...[127X[104X
-    [4X[25Xgap>[125X [27Xfor sg in enum do[127X[104X
-    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xfor sg in enum do od;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X3437[128X[104X
     [4X[25Xgap>[125X [27X# ... not so for the list of semigroups though[127X[104X
-    [4X[25Xgap>[125X [27Xfor sg in list do[127X[104X
-    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xfor sg in list do od;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X4[128X[104X
   [4X[32X[104X
@@ -109,14 +107,14 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xnr := Length(enum);[127X[104X
     [4X[28X17291[128X[104X
-    [4X[25Xgap>[125X [27XMemoryUsage(enum);                                 [127X[104X
+    [4X[25Xgap>[125X [27XMemoryUsage(enum);[127X[104X
     [4X[28X70507[128X[104X
-    [4X[25Xgap>[125X [27XMemoryUsage(list); # this will take a while ...[127X[104X
+    [4X[25Xgap>[125X [27XMemoryUsage(list);  # this will take a while .. .[127X[104X
     [4X[28X19089280[128X[104X
     [4X[25Xgap>[125X [27X# ... but you can get a close approximation much faster[127X[104X
-    [4X[25Xgap>[125X [27Xsg := OneSmallSemigroup(7,IsCommutativeSemigroup,true);[127X[104X
+    [4X[25Xgap>[125X [27Xsg := OneSmallSemigroup(7, IsCommutativeSemigroup, true);[127X[104X
     [4X[28X<small semigroup of size 7>[128X[104X
-    [4X[25Xgap>[125X [27Xnr*MemoryUsage(sg);[127X[104X
+    [4X[25Xgap>[125X [27Xnr * MemoryUsage(sg);[127X[104X
     [4X[28X19020100[128X[104X
   [4X[32X[104X
   
@@ -125,15 +123,15 @@
   other hand that information that is computed is not stored.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsZeroSemigroup(list[3]); # a semigroup from the list ...[127X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(list[3]);  # a semigroup from the list .. .[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(list[3]); # ... can store new information[127X[104X
-    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", [128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(list[3]);  # .. . can store new information[127X[104X
+    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",[128X[104X
     [4X[28X  "IsAssociative", "IsCommutativeSemigroup", "IsZeroSemigroup" ][128X[104X
-    [4X[25Xgap>[125X [27XIsZeroSemigroup(enum[3]); # semigroups in the enumerator ...[127X[104X
+    [4X[25Xgap>[125X [27XIsZeroSemigroup(enum[3]);  # semigroups in the enumerator .. .[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(enum[3]); # ... are created anew in every call [127X[104X
-    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree", [128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(enum[3]);  # .. . are created anew in every call[127X[104X
+    [4X[28X[ "IsEmpty", "IsTrivial", "IsNonTrivial", "IsFinite", "IsDuplicateFree",[128X[104X
     [4X[28X  "IsAssociative", "IsCommutativeSemigroup" ][128X[104X
     [4X[25Xgap>[125X [27X# but if it turns out this is the semigroup you want to analyse, just do[127X[104X
     [4X[25Xgap>[125X [27Xsg := enum[3];[127X[104X
@@ -156,7 +154,7 @@
   
   [33X[0;0YWe  now  come to examples dealing with properties that are not precomputed -
   including  user  defined  functions.  This  makes  [2XIteratorOfSmallSemigroups[102X
-  ([14X4.5-11[114X)  interesting  again.  Assume  you  want  to work with bands ([2XIsBand[102X
+  ([14X4.5-9[114X)  interesting  again.  Assume  you  want  to  work with bands ([2XIsBand[102X
   ([14X4.2-5[114X))  of  order  8  having  1  Green's  [22XD[122X-class (see [14X'Reference: Green's
   Relations'[114X).  You  might  feel  tempted  to  implement  a function testing a
   semigroup for this combination of properties.[133X
@@ -176,11 +174,13 @@
   [33X[0;0YThe following finds the same semigroups more efficiently:[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xlist:=AllSmallSemigroups(8,IsBand,true,x->Size(GreensDClasses(x)),1);[127X[104X
+    [4X[25Xgap>[125X [27Xlist := AllSmallSemigroups(8, IsBand, true,[127X[104X
+    [4X[25X>[125X [27Xx -> Size(GreensDClasses(x)), 1);[127X[104X
     [4X[28X[ <small semigroup of size 8>, <small semigroup of size 8> ][128X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X49211[128X[104X
-    [4X[25Xgap>[125X [27Xenum:=EnumeratorOfSmallSemigroups(8,IsBand,true,x->Size(GreensDClasses(x)),1);[127X[104X
+    [4X[25Xgap>[125X [27Xenum := EnumeratorOfSmallSemigroups(8, IsBand, true,[127X[104X
+    [4X[25X>[125X [27Xx -> Size(GreensDClasses(x)), 1);[127X[104X
     [4X[28X<enumerator of semigroups of size 8>[128X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X48723[128X[104X
@@ -200,7 +200,7 @@
   elements.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XForAll(list,IsRectangularBand);[127X[104X
+    [4X[25Xgap>[125X [27XForAll(list, IsRectangularBand);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -209,7 +209,7 @@
   an enumerator. The obvious call seems to be[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroups([1..7],IsNilpotentSemigroup,false);[127X[104X
+    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroups([1 .. 7], IsNilpotentSemigroup, false);[127X[104X
     [4X[28X<enumerator of semigroups of sizes [ 2, 3, 4, 5, 6, 7 ]>[128X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X103403[128X[104X
@@ -225,7 +225,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27X# all 8 element semigroups that are not 3-nilpotent[127X[104X
-    [4X[25Xgap>[125X [27Xenum2 := EnumeratorOfSmallSemigroupsByIds([8],[[1..11433106]]);[127X[104X
+    [4X[25Xgap>[125X [27Xenum2 := EnumeratorOfSmallSemigroupsByIds([8], [[1 .. 11433106]]);[127X[104X
     [4X[28X<enumerator of semigroups of size 8>[128X[104X
   [4X[32X[104X
   
@@ -233,7 +233,7 @@
   extracted.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xenum3 := EnumeratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);[127X[104X
+    [4X[25Xgap>[125X [27Xenum3 := EnumeratorOfSmallSemigroups(enum2, IsNilpotentSemigroup, false);[127X[104X
     [4X[25Xgap>[125X [27X# This still takes quite a while though[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X1931140[128X[104X
@@ -247,11 +247,10 @@
   couple of elements right away.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(enum2,IsNilpotentSemigroup,false);[127X[104X
-    [4X[28X<iterator of semigroups of size 8>[128X[104X
-    [4X[25Xgap>[125X [27Xfor i in [1..100000] do [127X[104X
-    [4X[28XNextIterator(iter);[128X[104X
-    [4X[28Xod;[128X[104X
+    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(enum2, IsNilpotentSemigroup, false);[127X[104X
+    [4X[25Xgap>[125X [27Xfor i in [1 .. 100000] do[127X[104X
+    [4X[25X>[125X [27XNextIterator(iter);[127X[104X
+    [4X[25X>[125X [27Xod;[127X[104X
     [4X[25Xgap>[125X [27Xtime;[127X[104X
     [4X[28X30785[128X[104X
   [4X[32X[104X
@@ -294,7 +293,7 @@
   64-bit systems. Hence the following will fail in any case.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);[127X[104X
+    [4X[25Xgap>[125X [27XEnumeratorOfSmallSemigroups(8, IsCommutativeSemigroup, false);[127X[104X
   [4X[32X[104X
   
   [33X[0;0YNote  though  that  an enumerator of semigroups of order 8 can be created if
@@ -306,7 +305,7 @@
   command[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(8,IsCommutativeSemigroup,false);[127X[104X
+    [4X[25Xgap>[125X [27Xiter := IteratorOfSmallSemigroups(8, IsCommutativeSemigroup, false);[127X[104X
     [4X[28X<iterator of semigroups of size 8>[128X[104X
   [4X[32X[104X
   
@@ -319,7 +318,7 @@
   start with[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroupsByIds([8],[[1..2^24-1]]);[127X[104X
+    [4X[25Xgap>[125X [27Xenum1 := EnumeratorOfSmallSemigroupsByIds([8], [[1 .. 2 ^ 24 - 1]]);[127X[104X
     [4X[28X<enumerator of semigroups of size 8>[128X[104X
     [4X[25Xgap>[125X [27Xenum2 := EnumeratorOfSmallSemigroups(enum1, IsCommutativeSemigroup, false);[127X[104X
     [4X[28X<enumerator of semigroups of size 8>[128X[104X
@@ -343,7 +342,7 @@
     [4X[28XTransformation( [ 1, 3, 1 ] )[128X[104X
     [4X[25Xgap>[125X [27Xt2 := RandomTransformation(3);[127X[104X
     [4X[28XTransformation( [ 1, 2, 3 ] )[128X[104X
-    [4X[25Xgap>[125X [27Xsgrp := SemigroupByGenerators([t1,t2]);[127X[104X
+    [4X[25Xgap>[125X [27Xsgrp := SemigroupByGenerators([t1, t2]);[127X[104X
     [4X[28X<semigroup with 2 generators>[128X[104X
     [4X[25Xgap>[125X [27XSize(sgrp);[127X[104X
     [4X[28X3[128X[104X
@@ -360,11 +359,11 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27X# use the semigroup from the previous example[127X[104X
-    [4X[25Xgap>[125X [27XIsCommutative(sgrp); # no need to use the library for this[127X[104X
+    [4X[25Xgap>[125X [27XIsCommutative(sgrp);  # no need to use the library for this[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27X# for the following there exists no method for a trans-[127X[104X
-    [4X[25Xgap>[125X [27X# formation semigroup; access the precomputed information instead [127X[104X
-    [4X[25Xgap>[125X [27XIsMultSemigroupOfNearRing(SmallSemigroup([3,8]));[127X[104X
+    [4X[25Xgap>[125X [27X# formation semigroup; access the precomputed information instead[127X[104X
+    [4X[25Xgap>[125X [27XIsMultSemigroupOfNearRing(SmallSemigroup([3, 8]));[127X[104X
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
@@ -382,53 +381,34 @@
     [4X[28XTransformation( [ 2, 2, 1 ] )[128X[104X
     [4X[25Xgap>[125X [27Xt2 := RandomTransformation(3);[127X[104X
     [4X[28XTransformation( [ 2, 1, 1 ] )[128X[104X
-    [4X[25Xgap>[125X [27Xsgrp := SemigroupByGenerators([t1,t2]);[127X[104X
+    [4X[25Xgap>[125X [27Xsgrp := Semigroup(t1, t2);[127X[104X
     [4X[28X<semigroup with 2 generators>[128X[104X
     [4X[25Xgap>[125X [27XSize(sgrp);[127X[104X
     [4X[28X6[128X[104X
-    [4X[25Xgap>[125X [27Xmap := EquivalenceSmallSemigroup(sgrp); [127X[104X
-    [4X[28XMappingByFunction( <semigroup with 2 generators>, <small semigroup of size [128X[104X
+    [4X[25Xgap>[125X [27Xmap := EquivalenceSmallSemigroup(sgrp);[127X[104X
+    [4X[28XMappingByFunction( <semigroup with 2 generators>, <small semigroup of size[128X[104X
     [4X[28X6>, function( x ) ... end )[128X[104X
-    [4X[25Xgap>[125X [27XRespectsMultiplication(map); # verify that this is an anti-isomorphism[127X[104X
+    [4X[25Xgap>[125X [27XRespectsMultiplication(map);  # verify that this is an anti-isomorphism[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XMinimalGeneratingSet(Range(map));[127X[104X
     [4X[28X[ s2, s4 ][128X[104X
-    [4X[25Xgap>[125X [27XPreImage(map,last); # get a minimal generating set of <sgrp>[127X[104X
+    [4X[25Xgap>[125X [27XPreImage(map, last);  # get a minimal generating set of < sgrp >[127X[104X
     [4X[28X[ Transformation( [ 1, 1, 2 ] ), Transformation( [ 2, 1, 1 ] ) ][128X[104X
     [4X[25Xgap>[125X [27XIdempotents(Range(map));[127X[104X
     [4X[28X[ s1, s3, s5 ][128X[104X
-    [4X[25Xgap>[125X [27XPreImage(map,last); # in the same way you can get the idempotents ...[127X[104X
-    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), [128X[104X
+    [4X[25Xgap>[125X [27XPreImage(map, last);  # in the same way you can get the idempotents .. .[127X[104X
+    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),[128X[104X
     [4X[28X  Transformation( [ 2, 2, 2 ] ) ][128X[104X
-    [4X[25Xgap>[125X [27XIdempotents(sgrp); # ... but this can be done directly instead [127X[104X
-    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ), [128X[104X
+    [4X[25Xgap>[125X [27XIdempotents(sgrp);  # ... but this can be done directly instead[127X[104X
+    [4X[28X[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 2, 2 ] ),[128X[104X
     [4X[28X  Transformation( [ 2, 2, 2 ] ) ][128X[104X
-    [4X[28X</Log> [128X[104X
-    [4X[28X[128X[104X
-    [4X[28XIf for a certain application you are interested in the semigroups up[128X[104X
-    [4X[28Xto isomorphism you can still use the IDs from[128X[104X
-    [4X[28X<Package>Smallsemi</Package>. Simply mark the ID with <M>*</M>, or[128X[104X
-    [4X[28Xhowever else you denote the dual of a semigroup, to refer to the[128X[104X
-    [4X[28Xsemigroup being anti-isomorphic to the one in the library having the[128X[104X
-    [4X[28Xsame ID. For all semigroups <Ref Prop="IsSelfDualSemigroup"/> is[128X[104X
-    [4X[28Xprecomputed. This will help to decide whether a semigroup and its dual[128X[104X
-    [4X[28Xare actually non-isomorphic.[128X[104X
-    [4X[28X</Section>[128X[104X
-    [4X[28X[128X[104X
-    [4X[28X<!--[128X[104X
-    [4X[28X<Section><Heading>Exotic Application</Heading>[128X[104X
-    [4X[28X[128X[104X
-    [4X[28XWe finish this chapter with another example emphasizing the variety of [128X[104X
-    [4X[28Xpossilbe usages. Assume you are interested in the lattices of a given order.[128X[104X
-    [4X[28XIt is well known that the lattices of order <M>n</M> are in one-one [128X[104X
-    [4X[28Xcorrespondence with the semilattices of order <M>n-1</M>. Semilattices on the[128X[104X
-    [4X[28Xother hand are nothing else but commutative bands.[128X[104X
-    [4X[28X<Log><![CDATA[[128X[104X
-    [4X[25Xgap>[125X [27Xn := 6; # say you want the different types of lattices with 6 elements[127X[104X
-    [4X[25Xgap>[125X [27Xsemilattices := AllSmallSemigroups(n-1,IsBand,true,IsCommutative,true);[127X[104X
-    [4X[25Xgap>[125X [27XLength(semilattices);[127X[104X
-    [4X[28X15[128X[104X
   [4X[32X[104X
   
-  [33X[0;0Y-->[133X
+  [33X[0;0YIf  for  a  certain  application  you are interested in the semigroups up to
+  isomorphism  you  can  still  use the IDs from [5XSmallsemi[105X. Simply mark the ID
+  with  [22X*[122X, or however else you denote the dual of a semigroup, to refer to the
+  semigroup  being  anti-isomorphic  to the one in the library having the same
+  ID.  For  all  semigroups  [2XIsSelfDualSemigroup[102X ([14X4.2-25[114X) is precomputed. This
+  will  help  to  decide  whether  a  semigroup  and  its  dual  are  actually
+  non-isomorphic.[133X
   
