@@ -695,7 +695,7 @@ gap> PositionsOfSmallSemigroups(enum, Is1IdempotentSemigroup, true,
 > Is2GeneratedSemigroup, true, IsCliffordSemigroup, false);
 [ [ 1, 2 ] ]
 
-# doc/../gap/autovars.g:58-69
+# doc/../gap/autovars.g:37-48
 gap> PrecomputedSmallSemisInfo[3];
 [ "Is2GeneratedSemigroup", "Is3GeneratedSemigroup", "Is4GeneratedSemigroup",
   "Is5GeneratedSemigroup", "Is6GeneratedSemigroup", "Is7GeneratedSemigroup",

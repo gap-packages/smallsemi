@@ -381,7 +381,7 @@ function(size, nr)
         int := SMALLSEMI_BinInt(line, 8 - m);
         int := int + (nr - 3NIL_DATA.positions[pos]);
 
-        mat := StructuralCopy(BLUEPRINT_MATS[8 - m]);
+        mat := BLUEPRINT_MATS(8 - m);
 
         # based on 'IntBit' but putting values directly into matrix
         for i in [1 .. m] do
@@ -512,10 +512,6 @@ InstallGlobalFunction(UnloadSmallsemiData, function(uselater)
   # unbind data essential for the use of smallsemi
   if not uselater then
 
-    for pos in [2 .. 7] do
-      Unbind(BLUEPRINT_MATS[pos]);
-    od;
-
     # unbind data records from info files
     for pos in [1 .. 8] do
       Unbind(MOREDATA2TO8[pos]);
@@ -536,24 +532,22 @@ InstallFlushableValue(DATA8, []);
 # INTERNAL FUNCTIONS
 #############################################################################
 
-InstallGlobalFunction(GENERATE_BLUEPRINT_MATS, function()
-  local mats, k, i;
+InstallGlobalFunction(BLUEPRINT_MATS, function(k)
+  local mat, i;
+  Assert(0, k in [2 .. 8]);
 
-  mats := EmptyPlist(7);
-  for k in [2 .. 7] do
-    # size 8 matrix
-    mats[k] := EmptyPlist(8);
-    # first k zero rows (the zero is '1')
-    for i in [1 .. k] do
-      mats[k][i] := ListWithIdenticalEntries(8, 1);
-    od;
-    # zero columns (the zero is '1')
-    for i in [k + 1 .. 8] do
-      mats[k][i] := ListWithIdenticalEntries(k, 1);
-    od;
+  # size 8 matrix
+  mat := EmptyPlist(8);
+  # first k zero rows (the zero is '1')
+  for i in [1 .. k] do
+    mat[i] := ListWithIdenticalEntries(8, 1);
+  od;
+  # zero columns (the zero is '1')
+  for i in [k + 1 .. 8] do
+    mat[i] := ListWithIdenticalEntries(k, 1);
   od;
 
-  return mats;
+  return mat;
 end);
 
 InstallGlobalFunction(READ_3NIL_DATA, function(diag)

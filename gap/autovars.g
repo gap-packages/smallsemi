@@ -26,27 +26,6 @@
 # <#/GAPDoc>
 BindGlobal("MOREDATA2TO8", READ_MOREDATA2TO8());
 
-# <#GAPDoc Label="BLUEPRINT_MATS">
-# <ManSection>
-# <Var Name="BLUEPRINT_MATS"/>
-# <Description>
-# see <Ref Func="GENERATE_BLUEPRINT_MATS"/>.
-# <Example><![CDATA[
-# gap> Display(BLUEPRINT_MATS[3]);
-# [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
-#   [  1,  1,  1,  1,  1,  1,  1,  1 ],
-#   [  1,  1,  1,  1,  1,  1,  1,  1 ],
-#   [  1,  1,  1 ],
-#   [  1,  1,  1 ],
-#   [  1,  1,  1 ],
-#   [  1,  1,  1 ],
-#   [  1,  1,  1 ] ]
-# ]]></Example>
-# </Description>
-# </ManSection>
-# <#/GAPDoc>
-BindGlobal("BLUEPRINT_MATS", GENERATE_BLUEPRINT_MATS());
-
 # <#GAPDoc Label="PrecomputedSmallSemisInfo">
 # <ManSection>
 # <Var Name="PrecomputedSmallSemisInfo"/>

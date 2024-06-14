@@ -326,17 +326,27 @@ DeclareGlobalVariable("DATA8", "raw data for semigroup tables size 8");
 ## INTERNAL FUNCTIONS ##
 ########################
 
-# <#GAPDoc Label="GENERATE_BLUEPRINT_MATS">
+# <#GAPDoc Label="BLUEPRINT_MATS">
 # <ManSection>
-# <Func Name="GENERATE_BLUEPRINT_MATS" Arg=""/>
+# <Func Name="BLUEPRINT_MATS" Arg="k"/>
 # <Description>
-# generates a list of matrices bound for k in <M>\{2,...,7\}</M> such
-# that the k-th entry has k 'zero' rows and columns. To be stored in the
-# variable <C>BLUEPRINT_MATS</C>.
+# generates matrix for <A>k</A> in <M>\{2,...,7\}</M> such
+# that the <A>k</A>-th entry has <A>k</A> 'zero' rows and columns.
+# <Example><![CDATA[
+# gap> Display(BLUEPRINT_MATS(3));
+# [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
+#   [  1,  1,  1,  1,  1,  1,  1,  1 ],
+#   [  1,  1,  1,  1,  1,  1,  1,  1 ],
+#   [  1,  1,  1 ],
+#   [  1,  1,  1 ],
+#   [  1,  1,  1 ],
+#   [  1,  1,  1 ],
+#   [  1,  1,  1 ] ]
+# ]]></Example>
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareGlobalFunction("GENERATE_BLUEPRINT_MATS");
+DeclareGlobalFunction("BLUEPRINT_MATS");
 
 # <#GAPDoc Label="READ_3NIL_DATA">
 # <ManSection>
