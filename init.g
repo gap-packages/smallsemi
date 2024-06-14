@@ -18,5 +18,4 @@ ReadPackage("smallsemi", "gap/3nil.gd");
 
 DeclareAutoreadableVariables("smallsemi", "gap/autovars.g",
                              ["MOREDATA2TO8",
-                              "PrecomputedSmallSemisInfo",
-                              "BLUEPRINT_MATS"]);
+                              "PrecomputedSmallSemisInfo"]);

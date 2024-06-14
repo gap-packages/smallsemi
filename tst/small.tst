@@ -107,7 +107,7 @@ gap> DATA2TO7;
 [  ]
 gap> DATA8;
 [  ]
-gap> Display(BLUEPRINT_MATS[3]);
+gap> Display(BLUEPRINT_MATS(3));
 [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
   [  1,  1,  1,  1,  1,  1,  1,  1 ],
   [  1,  1,  1,  1,  1,  1,  1,  1 ],
