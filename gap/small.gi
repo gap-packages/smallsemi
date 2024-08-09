@@ -571,7 +571,8 @@ InstallGlobalFunction(READ_3NIL_DATA, function(diag)
                                              Concatenation("diag",
                                                            diagstr,
                                                            "pos.gl"));
-  posdiffs := EvalString(StringFile(file));
+  posdiffs := SplitString(StringFile(file), "\n");
+  posdiffs := List(posdiffs, Int);
 
   # create actual position list
   3NIL_DATA.positions := [posdiffs[1]];
