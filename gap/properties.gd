@@ -45,7 +45,7 @@ DeclareAttribute("Annihilators", IsSemigroup);
 # </Description>
 # </ManSection>
 # <#/GAPDoc>
-DeclareAttribute("DiagonalOfMultiplicationTable", IsSemigroup);
+DeclareAttribute("DiagonalOfMultiplicationTable", IsMagma);
 
 # <#GAPDoc Label="DisplaySmallSemigroup">
 # <ManSection>
