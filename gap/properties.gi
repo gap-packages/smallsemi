@@ -648,7 +648,7 @@ function(S)
   fi;
 
   # the generators of a nilpotent semigroup are precisely the elements
-  # which do not appear in the multplication table
+  # which do not appear in the multiplication table
   gens := Difference([1 .. Size(S)], Unique(Flat(MultiplicationTable(S))));
   elms := gens;
   rank := 1;
