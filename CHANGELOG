@@ -1,12 +1,18 @@
 #############################################################################
 ##
 #W  CHANGELOG                      Smallsemi - a GAP library of semigroups
-#Y  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
+#Y  Copyright (C) 2008-2025            Andreas Distler & James D. Mitchell
 ##
 ##  Licensing information can be found in the README file of this package.
 ##
 #############################################################################
 ##
+
+===============
+ Version 0.7.2  (25/02/25)
+===============
+
+- a minor release with some changes for compatibility with GAP.
 
 ===============
  Version 0.7.1  (27/08/24)
