@@ -6,10 +6,10 @@
                         [1X A library of small semigroups [101X
   
   
-                                 Version 0.7.1
+                                 Version 0.7.2
   
   
-                                 27 August 2024
+                                25 February 2025
   
   
                                 Andreas Distler
