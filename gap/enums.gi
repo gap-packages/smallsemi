@@ -241,12 +241,12 @@ function(arg...)
   local iter, i, j, s, t, enum;
 
   if Length(arg) = 1 and IsPosInt(arg[1]) then
-    i := Random(RandomSource(IsMersenneTwister), 1, NrSmallSemigroups(arg[1]));
+    i := Random(1, NrSmallSemigroups(arg[1]));
     return SmallSemigroupNC(arg[1], i);
   elif CallFuncList(SMALLSEMI_CanCreateEnumerator, arg) then
     enum := CallFuncList(EnumeratorOfSmallSemigroups, arg);
     if not IsEmpty(enum) then
-      i := Random(RandomSource(IsMersenneTwister), 1, Length(enum));
+      i := Random(1, Length(enum));
       return enum[i];
     fi;
     return fail;
@@ -254,7 +254,7 @@ function(arg...)
 
   iter := CallFuncList(IteratorOfSmallSemigroups, arg);
   i := 0;
-  j := Random(RandomSource(IsMersenneTwister), 1, 500);
+  j := Random(1, 500);
   t := Runtime();
 
   if not IsDoneIterator(iter) then  # in case of the empty iterator
