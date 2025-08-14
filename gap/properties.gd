@@ -505,8 +505,8 @@ DeclareProperty("Is8GeneratedSemigroup", IsSmallSemigroup);
 # <ManSection>
 # <Oper Name="IsNIdempotentSemigroup" Arg="sgrp, n"/>
 # <Description>
-# returns <K>true</K> if the small semigroup <A>sgrp</A> has <A>n</A> idempotents
-# and <K>false</K> otherwise.
+# returns <K>true</K> if the small semigroup <A>sgrp</A> has <A>n</A>
+# idempotents and <K>false</K> otherwise.
 # <Example><![CDATA[
 # gap> s := SmallSemigroup(4, 75);;
 # gap> IsNIdempotentSemigroup(s, 1);

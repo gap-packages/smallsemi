@@ -30,8 +30,8 @@ function(arg...)
                    IsCyclotomicCollection,
                    IsEnumeratorOfSmallSemigroups,
                    IsIteratorOfSmallSemigroups], f -> f(arg[1])) then
-    Error("the 1st argument must be a positive integer, cyclotomic collection, ",
-          "enumerator, or iterator of small semigroups");
+    Error("the 1st argument must be a positive integer, cyclotomic ",
+          "collection, enumerator, or iterator of small semigroups");
   fi;
 
   if IsPosInt(arg[1]) and arg[1] > 8 then
@@ -838,7 +838,8 @@ function(arg...)
             and iter!.at - Sum(Filtered(iter!.sizes, x -> x < iter!.at_size),
                                NrSmallSemigroups) >=
               NrSmallSemigroups(iter!.at_size) then
-          iter!.at_size := iter!.sizes[Position(iter!.sizes, iter!.at_size) + 1];
+          iter!.at_size := iter!.sizes[Position(iter!.sizes,
+                                                iter!.at_size) + 1];
         fi;
 
         if IsEmpty(user) then

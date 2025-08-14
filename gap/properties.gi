@@ -556,7 +556,8 @@ function(S)
   zero := MultiplicativeZero(S);
   if zero <> fail then
     elts := Difference(Elements(S), [zero]);
-    return IsGroupAsSemigroup(SmallSemigroup(IdSmallSemigroup(Semigroup(elts))));
+    S := SmallSemigroup(IdSmallSemigroup(Semigroup(elts)));
+    return IsGroupAsSemigroup(S);
   fi;
   # TODO resolve the comments below
   # JDM the previous line is a good example of why IsomorphismSmallSemigroup is

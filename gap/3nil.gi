@@ -89,8 +89,9 @@ InstallGlobalFunction(Nr3NilpotentSemigroups, function(arg...)
                 # if exponent is 0, prod is multiplied by 1 => omit
                 if p1[j] <> 0 then
                   prod := prod * (1 + Sum(Filtered(DivisorsInt(Lcm(i, j)),
-                                          x -> x <= Length(p2)), d -> d * p2[d]))
-                                            ^ (p1[i] * p1[j] * Gcd(i, j));
+                                   x -> x <= Length(p2)),
+                                   d -> d * p2[d]))
+                                   ^ (p1[i] * p1[j] * Gcd(i, j));
                 fi;
               od;
            fi;
@@ -249,7 +250,8 @@ InstallGlobalFunction(Nr3NilpotentSemigroups, function(arg...)
         Produkt2 := function(p1, p2)
           local prod, i;
           prod := 1;
-          for i in [1 .. Minimum(Int((Length(p1) + 1) / 2), Int((n + 1) / 2))] do
+          for i in [1 .. Minimum(Int((Length(p1) + 1) / 2),
+                                 Int((n + 1) / 2))] do
             # if exponent is 0, prod is multiplied by 1 => omit
             if p1[2 * i - 1] <> 0 then
               prod := prod *
