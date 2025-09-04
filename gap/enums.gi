@@ -270,12 +270,12 @@ function(arg...)
     until IsDoneIterator(iter) or Runtime() - t > j;
 
     if IsDoneIterator(iter) and i > 1 then
-      iter := IteratorOfSmallSemigroups(arg);
+      iter := CallFuncList(IteratorOfSmallSemigroups, arg);
       for j in [1 .. RandomList(rs, [1 .. i - 1])] do
         s := NextIterator(iter);
       od;
     elif IsDoneIterator(iter) and i = 1 then  # iterators of length 1
-      iter := IteratorOfSmallSemigroups(arg);
+      iter := CallFuncList(IteratorOfSmallSemigroups, arg);
       s := NextIterator(iter);
     fi;
     return s;
