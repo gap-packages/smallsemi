@@ -208,7 +208,8 @@ gap> IsSimpleSemigroup(s);
 true
 gap> IsCompletelySimpleSemigroup(s);
 true
-gap> s := RandomSmallSemigroup(8, IsSimpleSemigroup, true);
+gap> rs := GlobalMersenneTwister;;
+gap> s := RandomSmallSemigroup(rs, 8, IsSimpleSemigroup, true);
 <small semigroup of size 8>
 gap> IsSimpleSemigroup(s);
 true
