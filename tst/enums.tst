@@ -228,6 +228,16 @@ gap> RandomSmallSemigroup(8, IsRectangularBand, true,
 > IsZeroSemigroup, false,
 > IsZeroSimpleSemigroup, false);
 <small semigroup of size 8>
+gap> IdSmallSemigroup(RandomSmallSemigroup(8, IsRectangularBand, true,
+> IsCommutative, false,
+> IsInverseSemigroup, false,
+> IsMonogenicSemigroup, false,
+> IsMonoidAsSemigroup, false,
+> IsGroupAsSemigroup, false,
+> IsZeroSemigroup, false,
+> IsZeroSimpleSemigroup, false,
+> IsLeftZeroSemigroup, true)) = [8, 11422092];
+true
 gap> enum := EnumeratorOfSmallSemigroups(6, IsCommutative, false);
 <enumerator of semigroups of size 6>
 gap> enum := EnumeratorOfSmallSemigroups(enum, DiagonalOfMultiplicationTable,
