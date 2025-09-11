@@ -208,7 +208,8 @@ gap> IsSimpleSemigroup(s);
 true
 gap> IsCompletelySimpleSemigroup(s);
 true
-gap> s := RandomSmallSemigroup(8, IsSimpleSemigroup, true);
+gap> rs := GlobalMersenneTwister;;
+gap> s := RandomSmallSemigroup(rs, 8, IsSimpleSemigroup, true);
 <small semigroup of size 8>
 gap> IsSimpleSemigroup(s);
 true
@@ -217,6 +218,25 @@ true
 gap> s := OneSmallSemigroup(6, IsRectangularBand, true);
 <small semigroup of size 6>
 gap> IsRectangularBand(s);
+true
+gap> RandomSmallSemigroup(8, IsRectangularBand, true,
+> IsCommutative, false,
+> IsInverseSemigroup, false,
+> IsMonogenicSemigroup, false,
+> IsMonoidAsSemigroup, false,
+> IsGroupAsSemigroup, false,
+> IsZeroSemigroup, false,
+> IsZeroSimpleSemigroup, false);
+<small semigroup of size 8>
+gap> IdSmallSemigroup(RandomSmallSemigroup(8, IsRectangularBand, true,
+> IsCommutative, false,
+> IsInverseSemigroup, false,
+> IsMonogenicSemigroup, false,
+> IsMonoidAsSemigroup, false,
+> IsGroupAsSemigroup, false,
+> IsZeroSemigroup, false,
+> IsZeroSimpleSemigroup, false,
+> IsLeftZeroSemigroup, true)) = [8, 11422092];
 true
 gap> enum := EnumeratorOfSmallSemigroups(6, IsCommutative, false);
 <enumerator of semigroups of size 6>
