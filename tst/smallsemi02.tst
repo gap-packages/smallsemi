@@ -582,7 +582,7 @@ gap> enum := EnumeratorOfSmallSemigroupsByIds(7, [1 .. 1000]);
 gap> enum := EnumeratorOfSmallSemigroupsByIds([2, 3], [[1 .. 2], [1 .. 10]]);
 <enumerator of semigroups of sizes [ 2, 3 ]>
 
-# doc/../gap/enums.gd:587-593
+# doc/../gap/enums.gd:603-609
 gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false,
 > IsRegularSemigroup, true);;
 gap> ArgumentsUsedToCreate(enum);
@@ -675,7 +675,7 @@ gap> iter := IteratorOfSmallSemigroups(8, IsCommutative, false);
 gap> OneSmallSemigroup(iter);
 <small semigroup of size 8>
 
-# doc/../gap/enums.gd:606-611
+# doc/../gap/enums.gd:622-627
 gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, true);;
 gap> PositionsOfSmallSemigroupsIn
 > (enum);
@@ -707,7 +707,20 @@ gap> PrecomputedSmallSemisInfo[3];
   "IsSemigroupWithoutClosedIdempotents", "IsSimpleSemigroup",
   "IsSingularSemigroupCopy", "IsZeroSemigroup", "IsZeroSimpleSemigroup" ]
 
-# doc/../gap/enums.gd:548-558
+# doc/../gap/enums.gd:587-592
+gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false);
+<enumerator of semigroups of sizes [ 2, 3, 4 ]>
+gap> SizesOfSmallSemigroupsIn(enum);
+[ 2, 3, 4 ]
+
+# doc/../gap/enums.gd:645-651
+gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(6, 2)]);
+[ <small semigroup of size 5>, <small semigroup of size 6> ]
+gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(5, 3)]);
+[ <small semigroup of size 5>, <small semigroup of size 5>,
+  <semigroup of size 5, with 5 generators> ]
+
+# doc/../gap/enums.gd:564-574
 gap> RandomSmallSemigroup(8, IsCommutative, true,
 > IsInverseSemigroup, true);
 <small semigroup of size 8>
@@ -717,19 +730,6 @@ gap> iter := IteratorOfSmallSemigroups([1 .. 7]);
 <iterator of semigroups of sizes [ 1 .. 7 ]>
 gap> RandomSmallSemigroup(iter);
 <small semigroup of size 7>
-
-# doc/../gap/enums.gd:571-576
-gap> enum := EnumeratorOfSmallSemigroups([2 .. 4], IsSimpleSemigroup, false);
-<enumerator of semigroups of sizes [ 2, 3, 4 ]>
-gap> SizesOfSmallSemigroupsIn(enum);
-[ 2, 3, 4 ]
-
-# doc/../gap/enums.gd:629-635
-gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(6, 2)]);
-[ <small semigroup of size 5>, <small semigroup of size 6> ]
-gap> UpToIsomorphism([SmallSemigroup(5, 126), SmallSemigroup(5, 3)]);
-[ <small semigroup of size 5>, <small semigroup of size 5>,
-  <semigroup of size 5, with 5 generators> ]
 
 #
 gap> STOP_TEST("smallsemi02.tst", 1);

@@ -238,15 +238,21 @@ end);
 
 InstallGlobalFunction(RandomSmallSemigroup,
 function(arg...)
-  local iter, i, j, s, t, enum;
+  local iter, i, j, s, t, enum, rs;
+
+  if Length(arg) >= 1 and IsRandomSource(arg[1]) then
+    rs := Remove(arg, 1);
+  else
+    rs := GlobalMersenneTwister;
+  fi;
 
   if Length(arg) = 1 and IsPosInt(arg[1]) then
-    i := Random(RandomSource(IsMersenneTwister), 1, NrSmallSemigroups(arg[1]));
+    i := Random(rs, 1, NrSmallSemigroups(arg[1]));
     return SmallSemigroupNC(arg[1], i);
   elif CallFuncList(SMALLSEMI_CanCreateEnumerator, arg) then
     enum := CallFuncList(EnumeratorOfSmallSemigroups, arg);
     if not IsEmpty(enum) then
-      i := Random(RandomSource(IsMersenneTwister), 1, Length(enum));
+      i := Random(rs, 1, Length(enum));
       return enum[i];
     fi;
     return fail;
@@ -254,7 +260,7 @@ function(arg...)
 
   iter := CallFuncList(IteratorOfSmallSemigroups, arg);
   i := 0;
-  j := Random(RandomSource(IsMersenneTwister), 1, 500);
+  j := Random(rs, 1, 500);
   t := Runtime();
 
   if not IsDoneIterator(iter) then  # in case of the empty iterator
@@ -264,12 +270,12 @@ function(arg...)
     until IsDoneIterator(iter) or Runtime() - t > j;
 
     if IsDoneIterator(iter) and i > 1 then
-      iter := IteratorOfSmallSemigroups(arg);
-      for j in [1 .. RandomList([1 .. i - 1])] do
+      iter := CallFuncList(IteratorOfSmallSemigroups, arg);
+      for j in [1 .. RandomList(rs, [1 .. i - 1])] do
         s := NextIterator(iter);
       od;
     elif IsDoneIterator(iter) and i = 1 then  # iterators of length 1
-      iter := IteratorOfSmallSemigroups(arg);
+      iter := CallFuncList(IteratorOfSmallSemigroups, arg);
       s := NextIterator(iter);
     fi;
     return s;

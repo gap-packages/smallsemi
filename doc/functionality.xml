@@ -217,8 +217,7 @@ semigroup. Then
     <Ref Func="IteratorOfSmallSemigroups"/>,
     <Ref Func="NrSmallSemigroups"/>,
     <Ref Func="OneSmallSemigroup"/>,
-    <Ref Func="PositionsOfSmallSemigroups"/>,
-	<Ref Func="RandomSmallSemigroup"/>. <P/>
+    <Ref Func="PositionsOfSmallSemigroups"/>. <P/>
 
 	The number of arguments should be odd:
 	<List>
@@ -313,9 +312,9 @@ semigroup. Then
 	<#Include Label="PositionsOfSmallSemigroupsIn">
 	<#Include Label="PositionsOfSmallSemigroups">
 	<#Include Label="PrecomputedSmallSemisInfo">
-	<#Include Label="RandomSmallSemigroup">
 	<#Include Label="SizesOfSmallSemigroupsIn">
 	<#Include Label="UpToIsomorphism">
+	<#Include Label="RandomSmallSemigroup">
 
 </Section>
 </Chapter>

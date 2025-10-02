@@ -512,38 +512,54 @@ DeclareGlobalFunction("PositionsOfSmallSemigroups");
 # <ManSection>
 # <Func Name="RandomSmallSemigroup" Arg="arg"/>
 # <Description>
-# the number of argument of this function should be odd. The first argument
-# <C>arg[1]</C> should be a positive integer, an enumerator of small semigroups
-# with <Ref Func="IsEnumeratorOfSmallSemigroups"/>, or an iterator of small
-# semigroup with <Ref Func="IsIteratorOfSmallSemigroups"/>.
+# this function differs from the other functions in this section in that
+# it need not necessarily have an odd number of arguments. It optionally
+# can take a random source as the first argument (see <Ref BookName="ref"
+# Sect="Random Sources"/>).
+# <P/>
+# If the first argument <C>arg[1]</C> is a random source, then it is used to
+# drive the randomness in selecting the semigroup. This is useful for
+# reproducible results using a fixed random source or stronger randomness using
+# a <C>RealRandomSource</C> (see <Ref BookName="io" Sect=
+# "Really random source"/>).
+# <P/>
+# The remaining arguments follow the same pattern as
+# the rest of the functions in this section. That is,
+# following the optional random source, the remaining number of arguments
+# should be odd. For ease of notation, we define the offset <C>k:=1</C>
+# if no random source is given, and <C>k:=2</C> otherwise.
+# The argument <C>arg[k]</C> should be a positive integer, an enumerator of
+# small semigroups with <Ref Func="IsEnumeratorOfSmallSemigroups"/>, or an
+# iterator of small semigroups with <Ref Func="IsIteratorOfSmallSemigroups"/>.
 # <P/>
 #
-# The even arguments <C>arg[2i]</C>, if present, should be functions, and the
-# odd arguments <C>arg[2i+1]</C> should be a value that the preceding function
-# can have. For example, a typical input might be <C>3, IsRegularSemigroup,
-# true</C>. The functions <C>arg[2i]</C> can be user defined or existing &GAP;
-# functions.
+# The arguments <C>arg[k+2i-1]</C>,
+# if present, should be functions, and the arguments <C>arg[k+2i]</C>
+# should be a value that the preceding function can have. For example, a
+# typical input might be <C>3, IsRegularSemigroup, true</C>. The functions
+# <C>arg[k+2i-1]</C> can be user defined or existing &GAP; functions.
 # <P/>
 #
 # Please see Section <Ref Sect="enums"/> or Chapter <Ref Chap="examples"/> for
 # more details.
 # <P/>
 #
-# If <C>arg[1]</C> is a positive integer, then <C>RandomSmallSemigroup</C>
+# If <C>arg[k]</C> is a positive integer, then <C>RandomSmallSemigroup</C>
 # returns a random small semigroup <C>S</C> in the library with
-# <C>Size(S)=arg[1]</C> and <C>arg[2i](S)=arg[2i+1]</C> for all <C>i</C>.
-# <P/>
-#
-# If <C>arg[1]</C> is a list of positive integers, then
-# <C>RandomSmallSemigroup</C> returns the a random small semigroup <C>S</C> in
-# the library with <C>Size(S) in arg[1]</C> and <C>arg[2i](S)=arg[2i+1]</C> for
-# all <C>i</C>.
-# <P/>
-#
-# If <C>arg[1]</C> is an enumerator or iterator of small semigroups, then
-# <C>RandomSmallSemigroup</C> returns the a random small semigroup <C>S</C> in
-# the library with <C>S in arg[1]</C> and <C>arg[2i](S)=arg[2i+1]</C> for all
+# <C>Size(S)=arg[k]</C> and <C>arg[k+2i-1](S)=arg[k+2i]</C> for all
 # <C>i</C>.
+# <P/>
+#
+# If <C>arg[k]</C> is a list of positive integers, then
+# <C>RandomSmallSemigroup</C> returns the a random small semigroup <C>S</C> in
+# the library with <C>Size(S) in arg[k]</C> and <C>arg[k+2i-1](S)=arg[k+2i]
+# </C> for all <C>i</C>.
+# <P/>
+#
+# If <C>arg[k]</C> is an enumerator or iterator of small semigroups, then
+# <C>RandomSmallSemigroup</C> returns the a random small semigroup <C>S</C> in
+# the library with <C>S in arg[k]</C> and <C>arg[k+2i-1](S)=arg[k+2i]</C> for
+# all <C>i</C>.
 #
 # <Example><![CDATA[
 # gap> RandomSmallSemigroup(8, IsCommutative, true,
