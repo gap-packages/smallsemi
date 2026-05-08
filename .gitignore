@@ -19,7 +19,7 @@
 /doc/*.toc
 /doc/manual.pdf
 /doc/title.xml
-/doc/smallsemi.xml
+/doc/Smallsemi.xml
 /doc/_*.xml
 
 /tmp/

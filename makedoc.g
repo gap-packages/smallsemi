@@ -15,7 +15,7 @@ AutoDoc(rec(
             "examples.xml",
             "functionality.xml"],
         bib := "smallsemi.bib"),
-    gapdoc := rec(main := "smallsemi.xml"),
+    gapdoc := true,
     extract_examples := true,
 ));
 QUIT;
