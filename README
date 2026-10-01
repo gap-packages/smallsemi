@@ -104,7 +104,7 @@ After installation the folder 'smallsemi-X.Y.Z' should contain the directories
 
 and the files
 
-    CHANGELOG, LICENSE, PackageInfo.g, README, init.g, makedoc.g, and read.g
+    CHANGES.md, LICENSE, PackageInfo.g, README, init.g, makedoc.g, and read.g
 
 ---------
  Loading

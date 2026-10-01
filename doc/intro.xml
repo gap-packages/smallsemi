@@ -180,7 +180,7 @@ In the subdirectory <F>smallsemi</F> you should find the following
 files and folders:
 
 <Table Align="ll">
-<Row><Item><F>CHANGELOG</F></Item>
+<Row><Item><F>CHANGES.md</F></Item>
 <Item>documents changes to previous versions</Item></Row>
 <Row><Item><F>data</F></Item>
 <Item>contains the data files for semigroups</Item></Row>
