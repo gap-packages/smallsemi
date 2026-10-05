@@ -11,8 +11,8 @@
 SetPackageInfo(rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.7.2",
-Date := "25/02/2025",  # this is in dd/mm/yyyy format
+Version := "0.7.3",
+Date := "05/10/2026",  # this is in dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [
@@ -20,10 +20,32 @@ Persons := [
       FirstNames    := "Andreas",
       IsAuthor      := true,
       IsMaintainer  := false,
-      Email         := "a.distler@tu-bs.de",
-),
-  rec(
-      LastName      := "Mitchell",
+      Email         := "a.distler@tu-bs.de"),
+
+  rec(LastName       := "Horn",
+      FirstNames     := "Max",
+      IsAuthor       := true,
+      IsMaintainer   := false,
+      Email          := "mhorn@rptu.de",
+      GithubUsername := "fingolfin",
+      WWWHome        := "https://www.quendi.de/math",
+      PostalAddress  := Concatenation(
+                          "Fachbereich Mathematik, ",
+                          "RPTU Kaiserslautern-Landau, ",
+                          "Gottlieb-Daimler-Straße 48, ",
+                          "67663 Kaiserslautern, ",
+                          "Germany"),
+      Place          := "Kaiserslautern, Germany",
+      Institution    := "RPTU Kaiserslautern-Landau",
+      GithubUsername := "fingolfin"),
+
+  rec(LastName      := "James",
+      FirstNames    := "Jerry",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "loganjerry@gmail.com"),
+
+  rec(LastName      := "Mitchell",
       FirstNames    := "James",
       IsAuthor      := true,
       IsMaintainer  := true,
@@ -33,8 +55,24 @@ Persons := [
                        "Mathematical Institute\n", "North Haugh\n",
                        "St Andrews\n", "Fife\n", "KY16 9SS\n", "Scotland"]),
       Place         := "St Andrews",
-      Institution   := "University of St Andrews"
-)
+      Institution   := "University of St Andrews",
+      GithubUsername := "james-d-mitchell"),
+
+  rec(LastName       := "Ragavan",
+      FirstNames     := "Pramoth",
+      IsAuthor       := true,
+      IsMaintainer   := false,
+      Email          := "pramoth.ragavan@gmail.com",
+      GithubUsername := "pramothragavan"),
+
+  rec(
+    LastName       := "Wilson",
+    FirstNames     := "Wilf A.",
+    IsAuthor       := true,
+    IsMaintainer   := false,
+    Email          := "gap@wilf-wilson.net",
+    GithubUsername := "wilfwilson",
+    WWWHome        := "https://wilf.me"),
 ],
 Status := "deposited",
 
