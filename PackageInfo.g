@@ -1,103 +1,170 @@
 #############################################################################
-##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
+##
+##  PackageInfo.g                  Smallsemi - a GAP library of semigroups
+##  Copyright (C) 2008-2024            Andreas Distler & James D. Mitchell
+##
+##  Licensing information can be found in the README file of this package.
+##
+#############################################################################
 ##
 
-SetPackageInfo( rec(
-
-PackageName := "GitHubPagesForGAP",
-
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.4",
-Date := "10/04/2025", # dd/mm/yyyy format
-License := "0BSD",
+SetPackageInfo(rec(
+PackageName := "Smallsemi",
+Subtitle := "A library of small semigroups",
+Version := "0.7.4",
+Date := "06/10/2026",  # this is in dd/mm/yyyy format
+License := "GPL-3.0-or-later",
 
 Persons := [
-  rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "mhorn@rptu.de",
-    WWWHome       := "https://www.quendi.de/math",
-    GitHubUsername:= "fingolfin",
-    PostalAddress := Concatenation(
-                       "Fachbereich Mathematik\n",
-                       "RPTU Kaiserslautern-Landau\n",
-                       "Gottlieb-Daimler-Straße 48\n",
-                       "67663 Kaiserslautern\n",
-                       "Germany" ),
-    Place         := "Kaiserslautern, Germany",
-    Institution   := "RPTU Kaiserslautern-Landau"
-  ),
+  rec(LastName      := "Distler",
+      FirstNames    := "Andreas",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "a.distler@tu-bs.de"),
+
+  rec(LastName       := "Horn",
+      FirstNames     := "Max",
+      IsAuthor       := true,
+      IsMaintainer   := false,
+      Email          := "mhorn@rptu.de",
+      GithubUsername := "fingolfin",
+      WWWHome        := "https://www.quendi.de/math",
+      PostalAddress  := Concatenation(
+                          "Fachbereich Mathematik, ",
+                          "RPTU Kaiserslautern-Landau, ",
+                          "Gottlieb-Daimler-Straße 48, ",
+                          "67663 Kaiserslautern, ",
+                          "Germany"),
+      Place          := "Kaiserslautern, Germany",
+      Institution    := "RPTU Kaiserslautern-Landau",
+      GithubUsername := "fingolfin"),
+
+  rec(LastName      := "James",
+      FirstNames    := "Jerry",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "loganjerry@gmail.com"),
+
+  rec(LastName      := "Mitchell",
+      FirstNames    := "James",
+      IsAuthor      := true,
+      IsMaintainer  := true,
+      Email         := "jdm3@st-andrews.ac.uk",
+      WWWHome       := "https://jdbm.me",
+      PostalAddress := Concatenation([
+                       "Mathematical Institute\n", "North Haugh\n",
+                       "St Andrews\n", "Fife\n", "KY16 9SS\n", "Scotland"]),
+      Place         := "St Andrews",
+      Institution   := "University of St Andrews",
+      GithubUsername := "james-d-mitchell"),
+
+  rec(LastName       := "Ragavan",
+      FirstNames     := "Pramoth",
+      IsAuthor       := true,
+      IsMaintainer   := false,
+      Email          := "pramoth.ragavan@gmail.com",
+      GithubUsername := "pramothragavan"),
 
   rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
-
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
-    IsMaintainer  := true,
-    #Email         := "janitor@example.com",
-  ),
+    LastName       := "Wilson",
+    FirstNames     := "Wilf A.",
+    IsAuthor       := true,
+    IsMaintainer   := false,
+    Email          := "gap@wilf-wilson.net",
+    GithubUsername := "wilfwilson",
+    WWWHome        := "https://wilf.me"),
 ],
+Status := "deposited",
 
-Status := "other",
+PackageWWWHome  := "https://gap-packages.github.io/smallsemi/",
+README_URL      := Concatenation(~.PackageWWWHome, "README"),
+PackageInfoURL  := Concatenation(~.PackageWWWHome, "PackageInfo.g"),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/smallsemi",
+),
+IssueTrackerURL := Concatenation(~.SourceRepository.URL, "/issues"),
+ArchiveURL      := Concatenation(~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/smallsemi-", ~.Version),
+ArchiveFormats := ".tar.gz",
 
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
-
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
-
-ArchiveFormats := ".tar.gz .tar.bz2",
-
-AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
+AbstractHTML :=
+  "The <Package>Smallsemi</Package> package is a data library of semigroups \
+   of small size. It provides all semigroups with at most 8 elements as well \
+   as various information about these objects.",
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
+  BookName  := "Smallsemi",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
+  LongTitle := "a library of small semigroups",
 ),
 
-# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
-  ExternalConditions := []
-),
-
+  GAP := ">=4.10",
+  NeededOtherPackages := [],
+  SuggestedOtherPackages := [],
+  ExternalConditions :=
+   ["gzip is needed in standard location if data files are used uncompressed"]),
 AvailabilityTest := ReturnTrue,
+BannerString := Concatenation(
+  ListWithIdenticalEntries(SizeScreen()[1] - 3, '-'), "\n", ~.PackageName,
+  " -   ", ~.Subtitle, "\n",
+  "by ", ~.Persons[1].FirstNames, " ", ~.Persons[1].LastName,
+  " & ", ~.Persons[2].FirstNames, " ", ~.Persons[2].LastName, "\n",
+  "For contents, type: ?Smallsemi:\n",
+  "Loading ", ~.PackageName, " ", ~.Version, " ...\n",
+  ListWithIdenticalEntries(SizeScreen()[1] - 3, '-'), "\n"),
+TestFile := "tst/testall.g",
+Keywords := ["small semigroups", "data library", "multiplication tables"],
 
-Keywords := ["GitHub Pages", "GAP"]
+AutoDoc := rec(
+    entities := rec(
+        VERSION := ~.Version,
+        ARCHIVENAME := Remove(SplitString(~.ArchiveURL, "/"))),
+    TitlePage := rec(
+        Version := Concatenation("Version ", ~.Version),
+        Copyright := """
+            &copyright; 2008-24 A. Distler &amp; J. D. Mitchell.<P/>
 
+            <Package>Smallsemi</Package> is free software: you can
+            redistribute it and/or modify it under the terms of the GNU
+            General Public License as published by the Free Software
+            Foundation, either version 3 of the license, or (at your option)
+            any later version.<P/>
+
+            <Package>Smallsemi</Package> is distributed in the hope that it
+            will be useful, but WITHOUT ANY WARRANTY; without even the
+            implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+            PURPOSE. See the GNU General Public License for more details.<P/>
+
+            A copy of the GNU General Public License is available in the file
+            'LICENSE'; for the latest version
+            see <URL>https://www.gnu.org/licenses/#GPL</URL>.<P/>
+
+            This file is part of <Package>Smallsemi</Package>, though as
+            documentation it is released under the GNU Free Documentation
+            License (see <URL>https://www.gnu.org/licenses/#FDL</URL>).
+            """,
+
+        Colophon := """
+            If you find any bugs or have any suggestions or comments, we would
+            very much appreciate it if you would let us know via our
+            issue tracker (see
+            <URL>https://github.com/gap-packages/smallsemi/issues</URL>).
+            """,
+
+        Acknowledgements := """
+            We would like to thank Tom Kelsey for making this library
+            possible by running all the initial computations in Minion <Cite
+            Key="minion"/>. <Br/>
+
+            The first author acknowledges financial support of the University
+            of St Andrews. The second author acknowledges support of EPSRC
+            grant number GR/S/56085/01.
+            """),
+),
 ));
-
-
