@@ -11,8 +11,8 @@
 SetPackageInfo(rec(
 PackageName := "Smallsemi",
 Subtitle := "A library of small semigroups",
-Version := "0.7.3",
-Date := "05/10/2026",  # this is in dd/mm/yyyy format
+Version := "0.7.4",
+Date := "06/10/2026",  # this is in dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [

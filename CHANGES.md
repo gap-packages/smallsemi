@@ -4,6 +4,10 @@ Copyright (C) 2008-2025 Andreas Distler & James D. Mitchell
 
 Licensing information can be found in the README file of this package.
 
+## 0.7.4 (2026-10-06)
+
+- an exceedingly minor release to update the format of this file.
+
 ## 0.7.3 (2026-10-05)
 
 - another minor release with some changes for compatibility with GAP.
